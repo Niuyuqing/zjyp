@@ -4,6 +4,10 @@
 }
 body {
   font-family: "微软雅黑";
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 a {
   text-decoration: none;

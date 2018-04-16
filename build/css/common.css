@@ -136,6 +136,7 @@
   left: 0;
   height: 31.2rem;
   overflow: hidden;
+  z-index: 10;
 }
 .navigationWrap .goodsClass .goodsBox {
   width: 100%;
@@ -160,7 +161,7 @@
 }
 .navigationWrap nav li {
   float: left;
-  margin-right: 4.2rem;
+  margin-right: 4rem;
 }
 .navigationWrap nav a {
   display: inline-block;
