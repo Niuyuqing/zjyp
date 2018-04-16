@@ -1,0 +1,251 @@
+.pageHeader {
+  width: 100%;
+  background: #e6e6e6;
+  height: 2.266666rem;
+  line-height: 2.266666rem;
+}
+.pageHeader .container {
+  width: 80rem;
+  margin: 0 auto;
+  color: #999999;
+  font-size: 0.8rem;
+}
+.pageHeader .welcome {
+  display: inline-block;
+  margin-right: 0.666666rem;
+}
+.pageHeader .login {
+  display: inline-block;
+  margin-right: 0.533333rem;
+  color: #999999;
+}
+.pageHeader .register {
+  display: inline-block;
+  margin-left: 0.533333rem;
+  color: #999999;
+}
+.pageHeader .line {
+  color: #cdcdcd;
+}
+.pageHeader .personCenter {
+  color: #999999;
+}
+.searchWrap {
+  margin: 2.333333rem 0;
+  font-size: 0.8rem;
+}
+.searchWrap .container {
+  width: 80rem;
+  margin: 0 auto;
+  position: relative;
+}
+.searchWrap .container .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+}
+.searchWrap .container .serchText {
+  display: inline-block;
+  width: 34.4rem;
+  height: 2.266666rem;
+  border: 0.066666rem solid #cd2f1d;
+  padding: 0 0.666666rem;
+  box-sizing: border-box;
+  margin-top: 0.866666rem;
+  color: #333333;
+}
+.searchWrap .container .serarchBtn {
+  display: inline-block;
+  width: 3.2rem;
+  height: 2.266666rem;
+  background: #cd2f1d;
+  position: relative;
+  margin-top: 0.866666rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+.searchWrap .container .serarchBtn img {
+  display: inline-block;
+  width: 1.333333rem;
+  height: 1.333333rem;
+  position: absolute;
+  left: 0.933333rem;
+  top: 0.466666rem;
+}
+.searchWrap .container .shoppingCart {
+  display: inline-block;
+  width: 10rem;
+  height: 2.266666rem;
+  border: 0.066666rem solid #e6e6e6;
+  background: #ffffff;
+  color: #cd2f1d;
+  margin-top: 0.866666rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+.searchWrap .container .shoppingNum {
+  display: inline-block;
+  width: 1.066666rem;
+  height: 1.066666rem;
+  background: #cd2f1d;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.066666rem;
+  color: #FFFFFF;
+  position: absolute;
+  right: .8rem;
+  top: 1.3rem;
+}
+.navigationWrap .container {
+  width: 80rem;
+  margin: 0 auto;
+  position: relative;
+}
+.navigationWrap .goodsClass {
+  width: 12.533333rem;
+  margin-right: 3.333333rem;
+}
+.navigationWrap .goodsClass i {
+  display: inline-block;
+  width: 1.2rem;
+  height: 0.933333rem;
+  background: url(../../build/images/spfl.png) no-repeat left center;
+  background-size: contain;
+  margin-right: 0.8rem;
+}
+.navigationWrap .goodsClass .bigTitle {
+  font-size: 1.066666rem;
+  color: #FFFFFF;
+  background: #cd2f1d;
+  height: 2.133333rem;
+  line-height: 2.133333rem;
+  padding: 0 0.933333rem;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.navigationWrap .goodsClass .goodsWrapBox {
+  width: 12.533333rem;
+  background: black;
+  color: #FFFFFF;
+  font-size: 0.933333rem;
+  opacity: .5;
+  box-sizing: border-box;
+  padding: 0 0.933333rem 0.533333rem;
+  position: absolute;
+  top: 2.133333rem;
+  left: 0;
+  height: 31.2rem;
+  overflow: hidden;
+}
+.navigationWrap .goodsClass .goodsBox {
+  width: 100%;
+  box-sizing: border-box;
+}
+.navigationWrap .goodsClass .goodsBox h3 {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+  padding-top: 1.333333rem;
+}
+.navigationWrap .goodsClass .goodsBox a {
+  display: inline-block;
+  margin-right: 0.666666rem;
+  margin-bottom: 0.8rem;
+  color: #FFFFFF;
+}
+.navigationWrap .goodsClass .goodsBox .line {
+  width: 100%;
+  height: 0.066666rem;
+  background: #FFFFFF;
+  opacity: .1;
+}
+.navigationWrap nav li {
+  float: left;
+  margin-right: 4.2rem;
+}
+.navigationWrap nav a {
+  display: inline-block;
+  color: #333333;
+  font-size: 0.933333rem;
+}
+.recommendHeadlines {
+  width: 80rem;
+  margin: 2rem auto 0;
+  position: relative;
+}
+.recommendHeadlines .lLine,
+.recommendHeadlines .rLine {
+  width: 34rem;
+  height: 0.066666rem;
+  background: #e6e6e6;
+  display: inline-block;
+  position: absolute;
+  top: 1rem;
+}
+.recommendHeadlines .lLine {
+  left: 0;
+}
+.recommendHeadlines .rLine {
+  right: 0;
+}
+.recommendHeadlines h2 {
+  font-size: 1.866666rem;
+  color: #333333;
+  text-align: center;
+}
+.recommendHeadlines .subtitle {
+  font-size: 1.066666rem;
+  color: #999999;
+  margin-top: 0.666666rem;
+  text-align: center;
+}
+.seeMoreGoods {
+  display: block;
+  width: 4.666666rem;
+  height: 1.6rem;
+  border: 0.066666rem solid #E6E6E6;
+  font-size: 0.8rem;
+  color: #999999;
+  background: #FFFFFF;
+  margin: 1.333333rem auto 0;
+  cursor: pointer;
+  border-radius: 0.333333rem ;
+}
+.pageFooter {
+  background: #e6e6e6;
+  color: #999999;
+  margin-top: 2rem;
+}
+.pageFooter .footer {
+  width: 80rem;
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem 5.333333rem;
+  box-sizing: border-box;
+  border-bottom: 0.066666rem solid #cdcdcd;
+}
+.pageFooter a {
+  color: #999999;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
+.pageFooter ul {
+  float: left;
+  margin-right: 10.2rem;
+}
+.pageFooter .contact h3 {
+  margin-bottom: 0.666666rem;
+}
+.pageFooter .ewCodeWrap h3 {
+  margin-bottom: 0.666666rem;
+}
+.pageFooter .ewCodeWrap img {
+  display: inline-block;
+  width: 6.2rem;
+  height: 6.2rem;
+}
+.pageFooter .copyRight {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999999;
+  padding: 0.666666rem 0;
+}

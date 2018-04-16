@@ -1,0 +1,260 @@
+.banner img {
+  display: inline-block;
+  width: 100%;
+}
+.according {
+  width: 80rem;
+  margin: 0.933333rem auto 0.666666rem;
+}
+.according li {
+  float: left;
+  height: 3.333333rem;
+  width: 26.666666rem;
+  text-align: center;
+  line-height: 3.333333rem;
+  font-size: 1.066666rem;
+  color: #333333;
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.according i {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.666666rem;
+  vertical-align: middle;
+}
+.according .layout i {
+  background: url(../images/layout_1.png) no-repeat center left;
+  background-size: cover;
+}
+.according .styles i {
+  background: url(../../build/images/styles_1.png) no-repeat left center;
+  background-size: cover;
+}
+.according .functions i {
+  background: url(../../build/images/functions_1.png) no-repeat center left;
+  background-size: cover;
+}
+.accordingContent {
+  width: 80rem;
+  margin: 0 auto;
+}
+.accordingContent li {
+  width: 19.533333rem;
+  height: 12.666666rem;
+  float: left;
+  margin-right: 0.6rem;
+}
+.accordingContent img {
+  display: inline-block;
+  width: 19.533333rem;
+  height: 12.666666rem;
+}
+.hotSellersWrap {
+  width: 80rem;
+  margin: 0 auto;
+}
+.hotSellersWrap .hotChoseBtn {
+  margin: 0.8rem 0 0.666666rem;
+}
+.hotSellersWrap .hotChoseBtn li {
+  display: inline-block;
+  width: 3.333333rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 1.066666rem;
+  color: #333333;
+  text-align: center;
+  cursor: pointer;
+}
+.hotSellersWrap .hotChoseBtn .line {
+  display: inline-block;
+  width: 0.133333rem;
+  height: 0.666666rem;
+  background: #E6E6E6;
+  margin: 0 0.933333rem;
+}
+.hotSellersWrap .hotSellersPic li {
+  float: left;
+  margin-right: 2.4rem;
+  margin-bottom: 2rem;
+}
+.hotSellersWrap .hotSellersPic img {
+  width: 25.066666rem;
+  height: 28.8rem;
+}
+.distribution {
+  width: 80rem;
+  margin: 0 auto;
+}
+.distribution .content {
+  margin-top: 1.333333rem;
+}
+.distribution .contentTop li {
+  width: 30rem;
+  text-align: center;
+  float: left;
+  margin-right: 2.133333rem;
+}
+.distribution .contentTop a {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+}
+.distribution .contentTop a span {
+  display: inline-block;
+  font-size: 1.066666rem;
+  color: #333333;
+  margin-top: 1.066666rem;
+}
+.distribution .contentTop img {
+  display: inline-block;
+  width: 30rem;
+  height: 21.8rem;
+}
+.distribution .contentBottom li {
+  width: 25.066666rem;
+  text-align: center;
+  float: left;
+  margin-right: 2.4rem;
+  margin-top: 1.333333rem;
+}
+.distribution .contentBottom a {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+}
+.distribution .contentBottom a span {
+  display: inline-block;
+  font-size: 1.066666rem;
+  color: #333333;
+  margin-top: 1.066666rem;
+}
+.distribution .contentBottom img {
+  display: inline-block;
+  width: 25.066666rem;
+  height: 28.8rem;
+}
+.distribution .receiveProgramme {
+  width: 15rem;
+  height: 21.8rem;
+  border: 0.066666rem solid #E6E6E6;
+}
+.distribution .receiveProgramme .title {
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+  background: #E6E6E6;
+  font-size: 1.066666rem;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+.distribution .receiveProgramme .line {
+  padding: 0 0.3rem;
+  box-sizing: border-box;
+}
+.distribution .receiveProgramme .line .lineP {
+  width: 10rem;
+}
+.distribution .receiveProgramme .line .text {
+  text-align: left;
+  font-size: 0.8rem;
+  color: #333333;
+  margin: 0.533333rem 0 0.933333rem;
+}
+.distribution .receiveProgramme .line .red {
+  display: inline-block;
+  background: #cd2f1d;
+  width: 6.666666rem;
+  height: 1.333333rem;
+}
+.distribution .receiveProgramme .line .gray {
+  display: inline-block;
+  background: #e6e6e6;
+  width: 3.333333rem;
+  height: 1.333333rem;
+}
+.distribution .receiveProgramme .line button {
+  display: inline-block;
+  width: 3.6rem;
+  height: 1.6rem;
+  font-size: 0.8rem;
+  color: #FFFFFF;
+  background: #cd2f1d;
+  border-radius: 0.333333rem;
+  margin-left: 0.666666rem;
+}
+.packageProgramme {
+  width: 80rem;
+  margin: 0 auto;
+}
+.packageProgramme .bigPic {
+  display: block;
+  width: 80rem;
+  height: 33.333333rem;
+  margin-top: 1.333333rem;
+}
+.packageProgramme .content li {
+  float: left;
+  width: 25.333333rem;
+  margin: 2rem 2rem 0 0;
+}
+.packageProgramme .content ul img {
+  display: inline-block;
+  width: 25.333333rem;
+  height: 25.333333rem;
+}
+.packageProgramme .content ul .text {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+.packageProgramme .content ul .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
+.buildHome {
+  width: 80rem;
+  margin: 0 auto;
+}
+.buildHome ul a {
+  display: inline-block;
+}
+.buildHome ul li {
+  float: left;
+  width: 25.333333rem;
+  margin: 2rem 2rem 0 0;
+  text-align: center;
+}
+.buildHome ul img {
+  display: inline-block;
+  width: 25.333333rem;
+  height: 25.333333rem;
+}
+.buildHome ul .text {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+.buildHome ul .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
+.buildHome ul button {
+  width: 10.666666rem;
+  height: 2.666666rem;
+  font-size: 1.066666rem;
+  color: #333333;
+  border: 0.066666rem solid #E6E6E6;
+  background: #FFFFFF;
+  display: inline-block;
+  margin-top: 0.666666rem;
+  cursor: pointer;
+}
