@@ -13,7 +13,7 @@
 .according li {
   float: left;
   height: 3.333333rem;
-  width: 26.666666rem;
+  width: 26.666rem;
   text-align: center;
   line-height: 3.333333rem;
   font-size: 1.066666rem;
@@ -98,12 +98,17 @@
   font-size: 1.066666rem;
   color: #333333;
   display: inline-block;
+  width: 100%;
 }
 .distribution .contentTop a span {
   display: inline-block;
+  width: 100%;
   font-size: 1.066666rem;
   color: #333333;
   margin-top: 1.066666rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .distribution .contentTop img {
   display: inline-block;
@@ -121,12 +126,17 @@
   font-size: 1.066666rem;
   color: #333333;
   display: inline-block;
+  width: 100%;
 }
 .distribution .contentBottom a span {
   display: inline-block;
   font-size: 1.066666rem;
   color: #333333;
   margin-top: 1.066666rem;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .distribution .contentBottom img {
   display: inline-block;
@@ -198,6 +208,13 @@
   width: 25.333333rem;
   margin: 2rem 2rem 0 0;
 }
+.packageProgramme .content li span {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .packageProgramme .content ul img {
   display: inline-block;
   width: 25.333333rem;
@@ -221,12 +238,22 @@
 }
 .buildHome ul a {
   display: inline-block;
+  width: 100%;
 }
 .buildHome ul li {
   float: left;
   width: 25.333333rem;
   margin: 2rem 2rem 0 0;
   text-align: center;
+  background: #FFFFFF;
+  padding-bottom: 0.8rem;
+}
+.buildHome ul li span {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .buildHome ul img {
   display: inline-block;

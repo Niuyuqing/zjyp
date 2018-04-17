@@ -46,60 +46,66 @@
 
 	'use strict';
 	
-	var toPage = new Vue({
-		el: '.toPage',
+	var ptfaPage = new Vue({
+		el: '.ptfaPage',
 		data: {
-			toPagesArr: {
-				index: 'index.html',
-				zjyp: 'zjyp.html',
-				ypzp: 'ypzp.html',
-				ptfa: 'ptfa.html',
-				zjshj: 'zjshj.html',
-				zjfs: 'zjfs.html',
-				zjh: 'zjh.html',
-				zzyjm: 'zzyjm.html'
-			}
-		},
+			allRoom: true, // 全部空间
+			diningRoom: false, // 客餐厅
+			bedRoom: false, // 卧房
+			childrenRoom: false, // 儿童房
+			studyRoom: false },
+		// 书房
 		mounted: function mounted() {},
-		methods: {}
-	});
-	
-	//日期格式化，精确到年月日
-	Vue.filter('dateFormat', function (value) {
-		//value为13位的时间戳
-		function add0(m) {
-			return m < 10 ? '0' + m : m;
+		methods: {
+			allRoomClick: function allRoomClick() {
+				// 全部空间点击
+				this.allRoom = true;
+				this.diningRoom = false;
+				this.bedRoom = false;
+				this.childrenRoom = false;
+				this.studyRoom = false;
+			},
+			diningRoomClick: function diningRoomClick() {
+				// 客餐厅点击
+				this.allRoom = false;
+				this.diningRoom = true;
+				this.bedRoom = false;
+				this.childrenRoom = false;
+				this.studyRoom = false;
+			},
+			bedRoomClick: function bedRoomClick() {
+				// 卧房点击
+				this.allRoom = false;
+				this.diningRoom = false;
+				this.bedRoom = true;
+				this.childrenRoom = false;
+				this.studyRoom = false;
+			},
+			childrenRoomClick: function childrenRoomClick() {
+				// 儿童房点击
+				this.allRoom = false;
+				this.diningRoom = false;
+				this.bedRoom = false;
+				this.childrenRoom = true;
+				this.studyRoom = false;
+			},
+			studyRoomClick: function studyRoomClick() {
+				// 书房点击
+				this.allRoom = false;
+				this.diningRoom = false;
+				this.bedRoom = false;
+				this.childrenRoom = false;
+				this.studyRoom = true;
+			}
 		}
-		var time = new Date(parseInt(value));
-		var y = time.getFullYear();
-		var m = time.getMonth() + 1;
-		var d = time.getDate();
-	
-		return y + '.' + add0(m) + '.' + add0(d);
 	});
 	
-	//日期格式化，精确到年月日时分秒
-	Vue.filter('timestampToTime', function (value) {
-		var date = new Date(value); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-		Y = date.getFullYear() + '-';
-		M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-		D = date.getDate() + ' ';
-		h = date.getHours() + ':';
-		m = date.getMinutes() + ':';
-		s = date.getSeconds();
-		return Y + M + D + h + m + s;
+	$(function () {
+		// 配套方案
+		$('.toPage a').css('color', '#333');
+		$('.toPage .ptfa a').css('color', '#cd2f1d');
 	});
-	
-	(function (doc) {
-		function changeSize() {
-			var size = doc.documentElement.clientWidth / 128;
-			doc.querySelector('html').style.fontSize = size + 'px';
-		}
-		//用户缩放浏览器窗口大小时
-		window.onresize = changeSize;
-		changeSize();
-	})(document);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=common.js.map
+//# sourceMappingURL=ptfa.js.map

@@ -1,0 +1,236 @@
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}
+.banner {
+  position: relative;
+  height: 43.066666rem;
+}
+.banner img {
+  display: block;
+  width: 100%;
+  height: 43.066666rem;
+  margin: 0 auto;
+}
+.banner .blackMask {
+  width: 57.466666rem;
+  height: 8.266666rem;
+  background: #000000;
+  opacity: .5;
+  position: absolute;
+  bottom: 2rem;
+  left: 35.266666rem;
+  z-index: 3;
+  padding: 1.6rem 2rem;
+  box-sizing: border-box;
+}
+.banner .searchWrap {
+  width: 57.466666rem;
+  height: 8.266666rem;
+  position: absolute;
+  bottom: .5rem;
+  left: 35.266666rem;
+  padding: 1.6rem 2rem;
+  box-sizing: border-box;
+  z-index: 5;
+}
+.banner .searchWrap h3 {
+  font-size: 1.466666rem;
+  color: #fafafa;
+  margin-bottom: 0.866666rem;
+}
+.banner .searchWrap input,
+.banner .searchWrap button {
+  height: 2.8rem;
+  box-sizing: border-box;
+}
+.banner .searchWrap .username {
+  width: 13.066666rem;
+  padding-left: 1.333333rem;
+}
+.banner .searchWrap .phone {
+  width: 28.8rem;
+  padding-left: 1.333333rem;
+}
+.banner .searchWrap button {
+  width: 10.666666rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+.egPicList {
+  width: 80rem;
+  margin: 1.066666rem auto 0;
+}
+.egPicList img {
+  display: inline-block;
+  width: 15.466666rem;
+  height: 15.466666rem;
+  margin-right: 0.37rem;
+}
+.houseCustomization {
+  width: 80rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.houseCustomization .picTop li {
+  float: left;
+  width: 39rem;
+  margin: 2rem 2rem 0 0;
+  background: #FFFFFF;
+  padding-bottom: 0.8rem;
+}
+.houseCustomization .picTop span {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.houseCustomization .picTop img {
+  display: inline-block;
+  width: 39rem;
+  height: 39rem;
+}
+.houseCustomization .picTop .text {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+.houseCustomization .picTop .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
+.houseCustomization .picBottom li {
+  float: left;
+  width: 25.333333rem;
+  margin: 2rem 2rem 0 0;
+  background: #FFFFFF;
+  padding-bottom: 0.8rem;
+}
+.houseCustomization .picBottom span {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.houseCustomization .picBottom img {
+  display: inline-block;
+  width: 25.333333rem;
+  height: 25.333333rem;
+}
+.houseCustomization .picBottom .text {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+.houseCustomization .picBottom .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
+.diningRoom,
+.bedroomsFurniture,
+.childrenRoomFurniture,
+.studyFurniture {
+  width: 80rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.diningRoom .picTop li,
+.bedroomsFurniture .picTop li,
+.childrenRoomFurniture .picTop li,
+.studyFurniture .picTop li {
+  float: left;
+  width: 25.333333rem;
+  margin: 2rem 2rem 0 0;
+  background: #FFFFFF;
+  padding-bottom: 0.8rem;
+}
+.diningRoom .picTop span,
+.bedroomsFurniture .picTop span,
+.childrenRoomFurniture .picTop span,
+.studyFurniture .picTop span {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.diningRoom .picTop img,
+.bedroomsFurniture .picTop img,
+.childrenRoomFurniture .picTop img,
+.studyFurniture .picTop img {
+  display: inline-block;
+  width: 25.333333rem;
+  height: 25.333333rem;
+}
+.diningRoom .picTop .text,
+.bedroomsFurniture .picTop .text,
+.childrenRoomFurniture .picTop .text,
+.studyFurniture .picTop .text {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+.diningRoom .picTop .money,
+.bedroomsFurniture .picTop .money,
+.childrenRoomFurniture .picTop .money,
+.studyFurniture .picTop .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
+.diningRoom .picBottom li,
+.bedroomsFurniture .picBottom li,
+.childrenRoomFurniture .picBottom li,
+.studyFurniture .picBottom li {
+  float: left;
+  width: 18.533333rem;
+  margin: 2rem 1.9rem 0 0;
+  background: #FFFFFF;
+  padding-bottom: 0.8rem;
+}
+.diningRoom .picBottom span,
+.bedroomsFurniture .picBottom span,
+.childrenRoomFurniture .picBottom span,
+.studyFurniture .picBottom span {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.diningRoom .picBottom img,
+.bedroomsFurniture .picBottom img,
+.childrenRoomFurniture .picBottom img,
+.studyFurniture .picBottom img {
+  display: inline-block;
+  width: 18.533333rem;
+  height: 13.466666rem;
+}
+.diningRoom .picBottom .text,
+.bedroomsFurniture .picBottom .text,
+.childrenRoomFurniture .picBottom .text,
+.studyFurniture .picBottom .text {
+  font-size: 1.066666rem;
+  color: #333333;
+  display: inline-block;
+  margin-top: 0.8rem;
+}
+.diningRoom .picBottom .money,
+.bedroomsFurniture .picBottom .money,
+.childrenRoomFurniture .picBottom .money,
+.studyFurniture .picBottom .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  display: inline-block;
+  margin-top: 0.666666rem;
+}
