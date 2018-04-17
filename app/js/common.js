@@ -1,7 +1,16 @@
-var pageCommon = new Vue({
-	el : '.pageCommon',
+var toPage = new Vue({
+	el : '.toPage',
 	data : {
-		
+		toPagesArr : {
+			index:'index.html',
+			zjyp : 'zjyp.html',
+			ypzp : 'ypzp.html',
+			ptfa : 'ptfa.html',
+			zjshj : 'zjshj.html',
+			zjfs : 'zjfs.html',
+			zjh : 'zjh.html',
+			zzyjm : 'zzyjm.html'
+		}
 	},
 	mounted : function(){
 		

@@ -6,245 +6,283 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>首页</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
 		
-		<div class="indexWrap pageCommon">
+		<div class="indexWrap">
 			<%-include header  %>
 			<%-include search  %>
 			<%-include navigation  %>
 			
-			<div class="banner">
-				<img src="images/banner_1.png"/>
-			</div>
-			
-			<ul class="according clearfix">
-				<li class="layout"><i></i>按户型</li>
-				<li class="styles"><i></i>按风格</li>
-				<li class="functions"><i></i>按功能</li>
-			</ul>
-			
-			<ul class="accordingContent clearfix">
-				<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
-				<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
-				<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
-				<li style="margin-right: 0;"><a href="#"><img src="../build/images/eg.jpg"/></a></li>
-			</ul>
-			
-			<!--热卖推荐-->
-			<div class="hotSellersWrap">
-				<div class="hotSellers recommendHeadlines">
-					<span class="lLine"></span>
-					<h2>热卖推荐</h2>
-					<span class="rLine"></span>
-					<p class="subtitle">HOT SALE RECOMMENDATION</p>
+			<div class="indexPage">
+				<div class="swiper-container">
+					<div class="banner swiper-wrapper">
+						<div class="swiper-slide"><img src="images/banner_1.png" /></div>
+						<div class="swiper-slide"><img src="images/banner_2.png" /></div>
+						<div class="swiper-slide"><img src="images/banner_3.png" /></div>
+					</div>
+					<div class="swiper-pagination"></div>
 				</div>
-				<div class="hotChoseBtn clearfix">
-					<ul class="rFloat">
-						<li>橱柜</li>
-						<span class="line"></span>
-						<li>橱柜</li>
-						<span class="line"></span>
-						<li>橱柜</li>
-						<span class="line"></span>
-						<li>橱柜</li>
-					</ul>
-				</div>
-				<ul class="hotSellersPic clearfix">
+				
+				<ul class="according clearfix">
+					<li class="layout" v-if="!accordingLayout" @click="layoutClick()">
+						<img src="../build/images/layout_1.png" />
+						按户型
+					</li>
+					
+					<li class="layout chose" v-if="accordingLayout">
+						<img src="../build/images/layout_2.png" />
+						按户型
+					</li>
+					
+					<li class="styles" v-if="!accordingStyles" @click="stylesClick()">
+						<img src="../build/images/styles_1.png" />
+						按风格
+					</li>
+					
+					<li class="styles chose" v-if="accordingStyles">
+						<img src="../build/images/styles_2.png" />
+						按风格
+					</li>
+					
+					<li class="functions" v-if="!accordingFunctions" @click="funsClick()">
+						<img src="../build/images/functions_1.png"/>
+						按功能
+					</li>
+					
+					<li class="functions chose" v-if="accordingFunctions">
+						<img src="../build/images/functions_2.png"/>
+						按功能
+					</li>
+				</ul>
+				
+				<ul class="accordingContent clearfix">
+					<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
 					<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
 					<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
 					<li style="margin-right: 0;"><a href="#"><img src="../build/images/eg.jpg"/></a></li>
-					<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
 				</ul>
-			</div>
-			
-			<!--优品宅配-->
-			<div class="distribution">
-				<div class="recommendHeadlines">
-					<span class="lLine"></span>
-					<h2>优品宅配</h2>
-					<span class="rLine"></span>
-					<p class="subtitle">OPTIMAI PRODUCT HOME DELIVERY</p>
-				</div>
-				<div class="content clearfix">
-					<ul class="lFloat contentTop">
-						<li>
-							<a href="#">
-								<img src="../build/images/eg.jpg"/>
-								<span>四房两厅简约风格全屋定制家具设计</span>
-							</a>
-						</li>
-						
-						<li>
-							<a href="#"> 
-								<img src="../build/images/eg.jpg"/>
-								<span>四房两厅简约风格全屋定制家具设计</span>
-							</a>
-						</li>
-					</ul>
-					<div class="receiveProgramme rFloat">
-						<p class="title">领取免费装修方案</p>
-						<div class="line">
-							<div class="clearfix">
-								<p class="lFloat lineP">
-									<span class="red lFloat"></span>
-									<span class="gray lFloat"></span>
-								</p>
-								<button class="lFloat">领取</button>
-							</div>
-							<p class="text">一房两厅小户型装修方案</p>
-						</div>
-						
-						<div class="line">
-							<div class="clearfix">
-								<p class="lFloat lineP">
-									<span class="red lFloat"></span>
-									<span class="gray lFloat"></span>
-								</p>
-								<button class="lFloat">领取</button>
-							</div>
-							<p class="text">一房两厅小户型装修方案</p>
-						</div>
-						
-						<div class="line">
-							<div class="clearfix">
-								<p class="lFloat lineP">
-									<span class="red lFloat"></span>
-									<span class="gray lFloat"></span>
-								</p>
-								<button class="lFloat">领取</button>
-							</div>
-							<p class="text">一房两厅小户型装修方案</p>
-						</div>
-						
-						<div class="line">
-							<div class="clearfix">
-								<p class="lFloat lineP">
-									<span class="red lFloat"></span>
-									<span class="gray lFloat"></span>
-								</p>
-								<button class="lFloat">领取</button>
-							</div>
-							<p class="text">一房两厅小户型装修方案</p>
-						</div>
+				
+				<!--热卖推荐-->
+				<div class="hotSellersWrap">
+					<div class="hotSellers recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>热卖推荐</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">HOT SALE RECOMMENDATION</p>
 					</div>
-					
-					<ul class="contentBottom">
-						<li>
-							<a href="#">
-								<img src="../build/images/eg.jpg"/>
-								<span>双人儿童房/上下床搭配双人书桌柜省空间</span>
-							</a>
-						</li>
-						
-						<li>
-							<a href="#">
-								<img src="../build/images/eg.jpg"/>
-								<span>双人儿童房/上下床搭配双人书桌柜省空间</span>
-							</a>
-						</li>
-						
-						<li style="margin-right: 0;">
-							<a href="#">
-								<img src="../build/images/eg.jpg"/>
-								<span>双人儿童房/上下床搭配双人书桌柜省空间</span>
-							</a>
-						</li>
+					<div class="hotChoseBtn clearfix">
+						<ul class="rFloat">
+							<li>橱柜</li>
+							<span class="line"></span>
+							<li>橱柜</li>
+							<span class="line"></span>
+							<li>橱柜</li>
+							<span class="line"></span>
+							<li>橱柜</li>
+						</ul>
+					</div>
+					<ul class="hotSellersPic clearfix">
+						<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
+						<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
+						<li style="margin-right: 0;"><a href="#"><img src="../build/images/eg.jpg"/></a></li>
+						<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
+						<li><a href="#"><img src="../build/images/eg.jpg"/></a></li>
+						<li style="margin-right: 0;"><a href="#"><img src="../build/images/eg.jpg"/></a></li>
 					</ul>
 				</div>
 				
-				<button class="seeMoreGoods">查看更多</button>
-			</div>
-			
-			<!--套餐方案-->
-			<div class="packageProgramme">
-				<div class="recommendHeadlines">
-					<span class="lLine"></span>
-					<h2>套餐方案</h2>
-					<span class="rLine"></span>
-					<p class="subtitle">MEAI PLAN</p>
+				<!--优品宅配-->
+				<div class="distribution">
+					<div class="recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>优品宅配</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">OPTIMAI PRODUCT HOME DELIVERY</p>
+					</div>
+					<div class="content clearfix">
+						<ul class="lFloat contentTop">
+							<li>
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span>四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#"> 
+									<img src="../build/images/eg.jpg"/>
+									<span>四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计</span>
+								</a>
+							</li>
+						</ul>
+						<div class="receiveProgramme rFloat">
+							<p class="title">领取免费装修方案</p>
+							<div class="line">
+								<div class="clearfix">
+									<p class="lFloat lineP">
+										<span class="red lFloat"></span>
+										<span class="gray lFloat"></span>
+									</p>
+									<button class="lFloat">领取</button>
+								</div>
+								<p class="text">一房两厅小户型装修方案</p>
+							</div>
+							
+							<div class="line">
+								<div class="clearfix">
+									<p class="lFloat lineP">
+										<span class="red lFloat"></span>
+										<span class="gray lFloat"></span>
+									</p>
+									<button class="lFloat">领取</button>
+								</div>
+								<p class="text">一房两厅小户型装修方案</p>
+							</div>
+							
+							<div class="line">
+								<div class="clearfix">
+									<p class="lFloat lineP">
+										<span class="red lFloat"></span>
+										<span class="gray lFloat"></span>
+									</p>
+									<button class="lFloat">领取</button>
+								</div>
+								<p class="text">一房两厅小户型装修方案</p>
+							</div>
+							
+							<div class="line">
+								<div class="clearfix">
+									<p class="lFloat lineP">
+										<span class="red lFloat"></span>
+										<span class="gray lFloat"></span>
+									</p>
+									<button class="lFloat">领取</button>
+								</div>
+								<p class="text">一房两厅小户型装修方案</p>
+							</div>
+						</div>
+						
+						<ul class="contentBottom">
+							<li>
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span>小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span>小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+								</a>
+							</li>
+							
+							<li style="margin-right: 0;">
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span>小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					
+					<button class="seeMoreGoods">查看更多</button>
 				</div>
-				<div class="content">
-					<img src="../build/images/eg.jpg" class="bigPic"/>
+				
+				<!--套餐方案-->
+				<div class="packageProgramme">
+					<div class="recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>套餐方案</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">MEAI PLAN</p>
+					</div>
+					<div class="content">
+						<img src="../build/images/eg.jpg" class="bigPic"/>
+						
+						<ul class="clearfix">
+							<li>
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="money">¥ 12,774.00</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="money">¥ 12,774.00</span>
+								</a>
+							</li>
+							
+							<li style="margin-right: 0;">
+								<a href="#">
+									<img src="../build/images/eg.jpg"/>
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="money">¥ 12,774.00</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<button class="seeMoreGoods">查看更多</button>
+				</div>
+				
+				<!--筑家生活家-->
+				<div class="buildHome">
+					<div class="recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>筑家生活家</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">BUILD A HOME</p> 
+					</div>    
 					
 					<ul class="clearfix">
 						<li>
 							<a href="#">
 								<img src="../build/images/eg.jpg"/>
-								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-								<span class="money">¥ 12,774.00</span>
+								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+								<span class="money">¥ 12,774.00</span><br />
+								<button>立即体验</button>
 							</a>
 						</li>
 						
 						<li>
 							<a href="#">
 								<img src="../build/images/eg.jpg"/>
-								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-								<span class="money">¥ 12,774.00</span>
+								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+								<span class="money">¥ 12,774.00</span><br />
+								<button>立即体验</button>
 							</a>
 						</li>
 						
 						<li style="margin-right: 0;">
 							<a href="#">
 								<img src="../build/images/eg.jpg"/>
-								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-								<span class="money">¥ 12,774.00</span>
+								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+								<span class="money">¥ 12,774.00</span><br />
+								<button>立即体验</button>
 							</a>
 						</li>
 					</ul>
+					<button class="seeMoreGoods">查看更多</button>
 				</div>
-				<button class="seeMoreGoods">查看更多</button>
 			</div>
 			
-			<!--筑家生活家-->
-			<div class="buildHome">
-				<div class="recommendHeadlines">
-					<span class="lLine"></span>
-					<h2>筑家生活家</h2>
-					<span class="rLine"></span>
-					<p class="subtitle">BUILD A HOME</p> 
-				</div>    
-				
-				<ul class="clearfix">
-					<li>
-						<a href="#">
-							<img src="../build/images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="money">¥ 12,774.00</span><br />
-							<button>立即体验</button>
-						</a>
-					</li>
-					
-					<li>
-						<a href="#">
-							<img src="../build/images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="money">¥ 12,774.00</span><br />
-							<button>立即体验</button>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="#">
-							<img src="../build/images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="money">¥ 12,774.00</span><br />
-							<button>立即体验</button>
-						</a>
-					</li>
-				</ul>
-				<button class="seeMoreGoods">查看更多</button>
-			</div>
 			
 			<%-include footer  %>
 		</div>
 		
-		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	</body>

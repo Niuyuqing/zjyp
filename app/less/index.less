@@ -2,7 +2,12 @@
     img{
         display: inline-block;
         width: 100%;
+        height: 31.2rem;
     }
+}
+
+.swiper-container{
+    height: 31.2rem;
 }
 
 .according{
@@ -11,7 +16,7 @@
     li{
         float: left;
         height: 3.333333rem;
-        width: 26.666666rem;
+        width: 26.666rem;
         text-align: center;
         line-height: 3.333333rem;
         font-size: 1.066666rem;
@@ -19,31 +24,35 @@
         background: #e6e6e6;
         cursor: pointer;
     }
-    i{
+    li.chose{
+        background: #cd2f1d;
+        color: #FFFFFF;
+    }
+    i,img{
         display: inline-block;
         width: 2rem;
         height: 2rem;
         margin-right: 0.666666rem;
         vertical-align: middle;
     }
-    .layout{
-        i{
-            background: url(../images/layout_1.png) no-repeat center left;
-            background-size: cover;
-        }
-    }
-    .styles{
-        i{
-            background: url(../../build/images/styles_1.png) no-repeat left center;
-            background-size: cover;
-        }
-    }
-    .functions{
-        i{
-            background: url(../../build/images/functions_1.png) no-repeat center left;
-            background-size: cover;
-        }
-    }
+//  .layout{
+//      i{
+//          background: url(../images/layout_1.png) no-repeat center left;
+//          background-size: cover;
+//      }
+//  }
+//  .styles{
+//      i{
+//          background: url(../../build/images/styles_1.png) no-repeat left center;
+//          background-size: cover;
+//      }
+//  }
+//  .functions{
+//      i{
+//          background: url(../../build/images/functions_1.png) no-repeat center left;
+//          background-size: cover;
+//      }
+//  }
 }
 
 .accordingContent{
@@ -117,12 +126,17 @@
             font-size: 1.066666rem;
             color: #333333;
             display: inline-block;
+            width: 100%;
         
             span{
                 display: inline-block;
+                width: 100%;
                 font-size: 1.066666rem;
                 color: #333333;
                 margin-top: 1.066666rem;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
             }
         }
         img{
@@ -143,12 +157,17 @@
             font-size: 1.066666rem;
             color: #333333;
             display: inline-block;
+            width: 100%;
         
             span{
                 display: inline-block;
                 font-size: 1.066666rem;
                 color: #333333;
                 margin-top: 1.066666rem;
+                width: 100%;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
             }
         }
         img{
@@ -203,6 +222,7 @@
                 background: #cd2f1d;
                 border-radius: 0.333333rem;
                 margin-left: 0.666666rem;
+                cursor: pointer;
             }
         }
     }
@@ -223,6 +243,14 @@
             float: left;
             width: 25.333333rem;
             margin: 2rem 2rem 0 0;
+            
+            span{
+                display: inline-block;
+                width: 100%;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
         }
         ul{
             img{
@@ -253,12 +281,23 @@
     ul{
         a{
             display: inline-block;
+            width: 100%;
         }
         li{
             float: left;
             width: 25.333333rem;
             margin: 2rem 2rem 0 0;
             text-align: center;
+            background: #FFFFFF;
+            padding-bottom: 0.8rem;
+            
+            span{
+                display: inline-block;
+                width: 100%;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
         }
         img{
             display: inline-block;
