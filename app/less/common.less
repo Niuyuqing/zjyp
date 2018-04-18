@@ -111,6 +111,7 @@
 
 //公共导航
 .navigationWrap{
+    font-weight: bold;
     .container{
         width: 80rem;
         margin: 0 auto;
@@ -177,12 +178,33 @@
     nav{
         li{
             float: left;
-            margin-right: 4rem;
+            margin-right: 3.6rem;
         }
         a{
             display: inline-block;
             color: #333333;
             font-size: 0.933333rem;
+        }
+        .zjh{
+            position: relative;
+            width: 6.666666rem;
+            text-align: center;
+        }
+        .zjhSubtitle{
+            position: absolute;
+            z-index: 20;
+            width: 6.666666rem;
+            text-align: center;
+            background: #cd2f1d;
+            display: none;
+            a{
+                display: inline-block;
+                height: 2.266666rem;
+                width: 100%;
+                line-height: 2.266666rem;
+                color: #fff;
+                font-size: 0.8rem;
+            }
         }
     }
 }
@@ -276,5 +298,35 @@
         font-size: 0.8rem;
         color: #999999;
         padding: 0.666666rem 0;
+    }
+}
+
+// 公共分页
+.pagingWrap{
+    width: 80rem;
+    margin: 0 auto;
+    .paging{
+        display: inline-block;
+    }
+    a,span{
+        display: inline-block;
+        width: 2.4rem;
+        height: 2.4rem;
+        text-align: center;
+        line-height: 2.4rem;
+        border: 0.066666rem solid #e6e6e6;  
+        margin-right: 0.666666rem;   
+        cursor: pointer;   
+        background: #FFFFFF;
+        color: #333;
+    }
+    .activeCls{
+        background: #cd2f1d;
+        color: #FFFFFF;
+    }
+    img{
+        display: inline-block;
+        width: 0.4rem;
+        height: 0.8rem;
     }
 }

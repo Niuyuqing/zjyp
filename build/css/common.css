@@ -96,6 +96,9 @@
   right: .8rem;
   top: 1.3rem;
 }
+.navigationWrap {
+  font-weight: bold;
+}
 .navigationWrap .container {
   width: 80rem;
   margin: 0 auto;
@@ -161,12 +164,33 @@
 }
 .navigationWrap nav li {
   float: left;
-  margin-right: 4rem;
+  margin-right: 3.6rem;
 }
 .navigationWrap nav a {
   display: inline-block;
   color: #333333;
   font-size: 0.933333rem;
+}
+.navigationWrap nav .zjh {
+  position: relative;
+  width: 6.666666rem;
+  text-align: center;
+}
+.navigationWrap nav .zjhSubtitle {
+  position: absolute;
+  z-index: 20;
+  width: 6.666666rem;
+  text-align: center;
+  background: #cd2f1d;
+  display: none;
+}
+.navigationWrap nav .zjhSubtitle a {
+  display: inline-block;
+  height: 2.266666rem;
+  width: 100%;
+  line-height: 2.266666rem;
+  color: #fff;
+  font-size: 0.8rem;
 }
 .recommendHeadlines {
   width: 80rem;
@@ -249,4 +273,33 @@
   font-size: 0.8rem;
   color: #999999;
   padding: 0.666666rem 0;
+}
+.pagingWrap {
+  width: 80rem;
+  margin: 0 auto;
+}
+.pagingWrap .paging {
+  display: inline-block;
+}
+.pagingWrap a,
+.pagingWrap span {
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+  text-align: center;
+  line-height: 2.4rem;
+  border: 0.066666rem solid #e6e6e6;
+  margin-right: 0.666666rem;
+  cursor: pointer;
+  background: #FFFFFF;
+  color: #333;
+}
+.pagingWrap .activeCls {
+  background: #cd2f1d;
+  color: #FFFFFF;
+}
+.pagingWrap img {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.8rem;
 }

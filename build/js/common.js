@@ -44,6 +44,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
+	// 页面跳转
 	'use strict';
 	
 	var toPage = new Vue({
@@ -60,6 +61,14 @@
 				zzyjm: 'zzyjm.html'
 			}
 		},
+		mounted: function mounted() {},
+		methods: {}
+	});
+	
+	// 分页
+	var paging = new Vue({
+		el: '.paging',
+		data: {},
 		mounted: function mounted() {},
 		methods: {}
 	});
@@ -98,6 +107,28 @@
 		//用户缩放浏览器窗口大小时
 		window.onresize = changeSize;
 		changeSize();
+	
+		// 鼠标移入移出筑家汇
+		$('.toPage .zjh,.zjhSubtitle').on({
+			'mouseenter': function mouseenter() {
+				$('.toPage .zjh').css({
+					'background': '#cd2f1d'
+				});
+				$('.toPage .zjh a').css({
+					'color': '#fff'
+				});
+				$('.zjhSubtitle').show('fast');
+			},
+			'mouseleave': function mouseleave() {
+				$('.toPage .zjh').css({
+					'background': '#fff'
+				});
+				$('.toPage .zjh a').css({
+					'color': '#333'
+				});
+				$('.zjhSubtitle').hide('fast');
+			}
+		});
 	})(document);
 
 /***/ })

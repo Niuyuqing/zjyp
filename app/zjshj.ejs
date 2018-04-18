@@ -5,9 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>筑家生活家</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="css/zjshj.css"/>
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	
@@ -17,15 +22,84 @@
 		<%-include navigation  %>
 		
 		<div class="zjshjMain">
+			<img src="../build/images/banner_2.png" class="banner"/>
 			
+			<div class="regionFilter">
+				<select name="" class="province">
+					<option value="">请选择</option>
+				</select>
+				
+				<select name="" class="city">
+					<option value="">请选择</option>
+				</select>
+				
+				<select name="" class="area" style="margin-right: 0;">
+					<option value="">请选择</option>
+				</select>
+			</div>
+			
+			<div class="content">
+				<ul class="clearfix">
+					<li>
+						<img src="../build/images/eg.jpg" class="furniturePic"/>
+						<img src="images/headImg.jpg" class="personPic"/>
+						<p>
+							<span class="name">七厘米蔚蓝</span><br />
+							<img src="images/position.png"/><span class="position">湖北黄石大冶市</span>
+						</p>
+					</li>
+					
+					<li>
+						<img src="../build/images/eg.jpg" class="furniturePic"/>
+						<img src="images/headImg.jpg" class="personPic"/>
+						<p>
+							<span class="name">七厘米蔚蓝</span><br />
+							<img src="images/position.png"/><span class="position">湖北黄石大冶市</span>
+						</p>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<img src="../build/images/eg.jpg" class="furniturePic"/>
+						<img src="images/headImg.jpg" class="personPic"/>
+						<p>
+							<span class="name">七厘米蔚蓝</span><br />
+							<img src="images/position.png"/><span class="position">湖北黄石大冶市</span>
+						</p>
+					</li>
+					
+					<li>
+						<img src="../build/images/eg.jpg" class="furniturePic"/>
+						<img src="images/headImg.jpg" class="personPic"/>
+						<p>
+							<span class="name">七厘米蔚蓝</span><br />
+							<img src="images/position.png"/><span class="position">湖北黄石大冶市</span>
+						</p>
+					</li>
+					
+					<li>
+						<img src="../build/images/eg.jpg" class="furniturePic"/>
+						<img src="images/headImg.jpg" class="personPic"/>
+						<p>
+							<span class="name">七厘米蔚蓝</span><br />
+							<img src="images/position.png"/><span class="position">湖北黄石大冶市</span>
+						</p>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<img src="../build/images/eg.jpg" class="furniturePic"/>
+						<img src="images/headImg.jpg" class="personPic"/>
+						<p>
+							<span class="name">七厘米蔚蓝</span><br />
+							<img src="images/position.png"/><span class="position">湖北黄石大冶市</span>
+						</p>
+					</li>
+				</ul>
+			</div>
+			<%-include paging  %>
 		</div>
-		
 		<%-include footer  %>
 	</div>
 	
-	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/zjshj.js" type="text/javascript" charset="utf-8"></script>
 </body>

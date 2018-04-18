@@ -1,3 +1,70 @@
 .navigationWrap .goodsClass .goodsWrapBox {
   display: none;
 }
+.banner {
+  display: block;
+  width: 100%;
+  height: 31.2rem;
+}
+.regionFilter {
+  width: 80rem;
+  margin: 2rem auto;
+  padding-left: 28.666666rem;
+  box-sizing: border-box;
+}
+.regionFilter select {
+  display: inline-block;
+  width: 6.666666rem;
+  height: 2rem;
+  border: 0.066666rem solid #333;
+  color: #333;
+  margin-right: 1.333333rem;
+}
+.zjshjMain .content {
+  width: 80rem;
+  margin: 0 auto;
+}
+.zjshjMain .content li {
+  width: 25.333333rem;
+  position: relative;
+  background: #FFFFFF;
+  padding-bottom: 2rem;
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.zjshjMain .content .furniturePic {
+  display: inline-block;
+  width: 25.333333rem;
+  height: 25.333333rem;
+}
+.zjshjMain .content .personPic {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 22.333333rem;
+  left: 9.666666rem;
+}
+.zjshjMain .content p {
+  text-align: center;
+  margin-top: 4.4rem;
+  color: #333333;
+}
+.zjshjMain .content p img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.933333rem;
+  margin-right: 0.533333rem;
+  vertical-align: middle;
+}
+.zjshjMain .content .name {
+  display: inline-block;
+  font-size: 1.066666rem;
+  margin-bottom: 0.666666rem;
+}
+.zjshjMain .content .position {
+  font-size: 0.933333rem;
+}

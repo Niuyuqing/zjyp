@@ -1,3 +1,4 @@
+// 页面跳转
 var toPage = new Vue({
 	el : '.toPage',
 	data : {
@@ -18,7 +19,20 @@ var toPage = new Vue({
 	methods : {
 		
 	}
-})
+});
+
+// 分页
+var paging = new Vue({
+	el : '.paging',
+	data : {
+	},
+	mounted : function(){
+		
+	},
+	methods : {
+		
+	}
+});
 
 //日期格式化，精确到年月日
 Vue.filter('dateFormat', function(value) { //value为13位的时间戳
@@ -53,4 +67,26 @@ Vue.filter('timestampToTime',function(value){
 	//用户缩放浏览器窗口大小时
 	window.onresize = changeSize;
 	changeSize();
+	
+	// 鼠标移入移出筑家汇
+	$('.toPage .zjh,.zjhSubtitle').on({
+		'mouseenter':function () {
+			$('.toPage .zjh').css({
+				'background':'#cd2f1d'
+			})
+			$('.toPage .zjh a').css({
+				'color':'#fff'
+			})
+			$('.zjhSubtitle').show('fast');
+		},
+		'mouseleave':function () {
+			$('.toPage .zjh').css({
+				'background':'#fff'
+			})
+			$('.toPage .zjh a').css({
+				'color':'#333'
+			})
+			$('.zjhSubtitle').hide('fast');
+		}
+	});
 })(document);

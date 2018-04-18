@@ -5,9 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<title>筑家汇</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="css/zjshj.css"/>
+	<link rel="stylesheet" type="text/css" href="css/zjh.css"/>
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	
@@ -17,15 +22,122 @@
 		<%-include navigation  %>
 		
 		<div class="zjshjMain">
+			<img src="../build/images/banner_2.png" class="banner"/>
+			<div class="chooseArea">
+				<div class="choseTitle">
+					<span class="zjh">筑家汇</span>
+					<span class="designerClub">设计师俱乐部</span>
+					<p class="choseOption" v-for="item in choseLabelArr"><span>{{item.name}}</span><img src="../build/images/close.png" @click="closeLabel($event)"/></p>
+				</div>
+				<div class="city clearfix">
+					<div class="lFloat subtitle">所在城市</div>
+					<div class="lFloat options">
+						<span @click="addLabel($event)">不限</span>
+						<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
+					</div>
+					<img src="images/open.png" class="rFloat" v-if="!showCityLabel" @click="showCityLabelClick()"/>
+					<img src="images/retract.png" class="rFloat" v-if="showCityLabel" @click="showCityLabelClick()"/>
+				</div>
+				<div class="styles clearfix">
+					<div class="lFloat subtitle">所在城市</div>
+					<div class="lFloat options">
+						<span @click="addLabel($event)">不限</span>
+						<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
+					</div>
+					<img src="images/open.png" class="rFloat"v-if="!showStyleLabel" @click="showStyleLabelClick()"/>
+					<img src="images/retract.png" class="rFloat" v-if="showStyleLabel" @click="showStyleLabelClick()"/>
+				</div>
+			</div>
 			
+			<div class="content">
+				<ul class="clearfix picTop">
+					<li>
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="../build/images/eg.jpg"/>
+							<span class="name">小茗同学</span>
+							<span class="city">所在城市：上海</span>
+							<span class="styles">擅长风格：欧式</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-		
+		<%-include paging  %>
 		<%-include footer  %>
 	</div>
 	
-	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/zjh.js" type="text/javascript" charset="utf-8"></script>
 </body>
