@@ -10,7 +10,10 @@ var toPage = new Vue({
 			zjshj : 'zjshj.html',
 			zjfs : 'zjfs.html',
 			zjh : 'zjh.html',
-			zzyjm : 'zzyjm.html'
+			zzyjm : 'zzyjm.html',
+			qwdz : 'qwdz.html',
+			yptc : 'yptc.html',
+			xxtyg : 'xxtyg.html'
 		}
 	},
 	mounted : function(){
@@ -59,6 +62,90 @@ Vue.filter('timestampToTime',function(value){
     return Y+M+D+h+m+s;
 });
 
+//手机号码正则
+function checkMobile(val) {
+	var reg = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|17[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+	return reg.test(val);
+}
+
+//邮箱正则
+function checkEmail(val) {
+	var reg = /^\w+([-+2.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+	return reg.test(val);
+}
+
+//密码正则，6-18位，包含数字和字母
+function checkPwd(val) {
+	var reg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,18}$/
+	return reg.test(val)
+}
+
+/**
+ * 上传图片预览
+ * @param file
+ * @returns
+ */
+function preview(file) {
+	var prevDiv = document.getElementsByClassName('nowHeaderPic')[0];
+	if(file.files && file.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function(evt) {
+			//prevDiv.innerHTML = '<img src="' + evt.target.result + '" />';
+			prevDiv.setAttribute("src",evt.target.result);
+		}
+		reader.readAsDataURL(file.files[0]);
+	}
+}
+
+/**
+ * 时间戳转化时间返回年月日
+ * @param shijianchuo
+ * @returns
+ */
+function add1(m){return m<10?'0'+m:m }; 
+function getDate(shijianchuo) {  
+  //shijianchuo是整数，否则要parseInt转换  
+  var time = new Date(shijianchuo);  
+  var y = time.getFullYear();  
+  var m = time.getMonth()+1;  
+  var d = time.getDate();  
+  var h = time.getHours();  
+  var mm = time.getMinutes();  
+  var s = time.getSeconds();  
+  return y+'-'+add1(m)+'-'+add1(d);  
+};  
+
+/** 
+ * 获取下一个月 
+ * @date 格式为yyyy-mm-dd的日期，如：2014-01-25 
+ */          
+function getNextMonth(date) {  
+    var arr = date.split('-');  
+    var year = arr[0]; //获取当前日期的年份  
+    var month = arr[1]; //获取当前日期的月份  
+    var day = arr[2]; //获取当前日期的日  
+    var days = new Date(year, month, 0);  
+    days = days.getDate(); //获取当前日期中的月的天数  
+    var year2 = year;  
+    var month2 = parseInt(month) - 1;  
+    if (month2 == 0) {  
+        year2 = parseInt(year2) - 1;  
+        month2 = 12;  
+    }  
+    var day2 = day;  
+    var days2 = new Date(year2, month2, 0);  
+    days2 = days2.getDate();  
+    if (day2 > days2) {  
+        day2 = days2;  
+    }  
+    if (month2 < 10) {  
+        month2 = '0' + month2;  
+    }  
+  
+    var t2 = year2 + '-' + month2 + '-' + day2;  
+    return t2;  
+}    
+
 (function(doc) {
 	function changeSize() {
 		var size = doc.documentElement.clientWidth / 128;
@@ -69,7 +156,7 @@ Vue.filter('timestampToTime',function(value){
 	changeSize();
 	
 	// 鼠标移入移出筑家汇
-	$('.toPage .zjh,.zjhSubtitle').on({
+	/*$('.toPage .zjh,.zjhSubtitle').on({
 		'mouseenter':function () {
 			$('.toPage .zjh').css({
 				'background':'#cd2f1d'
@@ -88,5 +175,5 @@ Vue.filter('timestampToTime',function(value){
 			})
 			$('.zjhSubtitle').hide('fast');
 		}
-	});
+	});*/
 })(document);

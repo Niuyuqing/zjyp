@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>找回密码</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/retrievePwd.css" />
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<div class="loginWrap">
+		<div class="loginMain">
+			<header class="loginHeadWrap toPage">
+				<div class="loginHead">
+					<a :href="toPagesArr.index">
+						<img src="../build/images/logo.png" class="logo"/>
+					</a>
+					<h2>找回密码</h2>
+				</div>
+			</header>
+			
+			<div class="content">
+				<div class="retrievePwdWrap">
+					<div class="progress">
+						<p class="writePhoneGray" v-show="!step1">1.填写手机号</p>
+						<p class="writePhoneRed" v-show="step1">1.填写手机号</p>
+						
+						<p class="writePwdGray" v-show="!step2">2.设置新密码</p>
+						<p class="writePwdRed" v-show="step2">2.设置新密码</p>
+						
+						<p class="setSuccGray" v-show="!step3">3.设置成功</p>
+						<p class="setSuccRed" v-show="step3">3.设置成功</p>
+					</div>
+					
+					<div class="retrievePwdFormWrap firstStep" v-if="step1">
+						<form action="" method="post">
+							<h3>找回密码</h3>
+							<p class="errorTip" v-if="errorTip1"> 
+								<img src="images/errorTip.png"/>{{errorTipMsg1}}
+								<span class="errorTipMask"></span>
+							</p>
+							<p class="phone"><input type="text" placeholder="请输入手机号码" v-model="phone" /></p>
+							<p class="codeNum"> 
+								<input type="text" placeholder="请输入验证码" v-model="codeNum" />
+								<span class="getCodeNum" @click="getCodeNum()">获取验证码</span>
+							</p>
+						</form>
+						<p><button class="nextStep" @click="nextStepClick()">下一步</button></p>
+					</div>
+					
+					<div class="retrievePwdFormWrap secondStep" v-if="step2">
+						<form action="" method="post">
+							<p class="errorTip" v-if="errorTip2">
+								<img src="images/errorTip.png"/>{{errorTipMsg2}}
+								<span class="errorTipMask"></span>
+							</p>
+							<p class="phone"><input type="password" placeholder="密码6-20位数字、字母、字符组合" v-model="pwd" /></p>
+							<p class="pwd"><input type="password" placeholder="请再次输入密码" v-model="againPwd" /></p>
+						</form>
+						<p><button class="loginBtn" @click="saveClick()">保存</button></p>
+					</div>
+					
+					
+					<div class="thirdStep" v-if="step3">
+						<img src="images/setSucc.png" class="setSuccess"/>
+						<p>修改密码成功，3秒后自动跳转到登录页</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/retrievePwd.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.content {
+  position: relative;
+}
+.content .loginBg {
+  display: block;
+  width: 100%;
+  height: 37.333333rem;
+}
+.loginFormWrap {
+  display: block;
+  width: 26rem;
+  height: 31.333333rem;
+  background: #FFFFFF;
+  position: absolute;
+  top: 3rem ;
+  right: 18.666666rem;
+  padding: 2.666666rem 4rem;
+  box-sizing: border-box;
+}
+.loginFormWrap form {
+  display: block;
+  width: 17.333333rem;
+}
+.loginFormWrap h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333333;
+  margin-bottom: 0.933333rem;
+}
+.loginFormWrap .errorTip {
+  font-size: 0.8rem;
+  color: #cd2f1d;
+  height: 1.466666rem;
+  line-height: 1.466666rem;
+  position: relative;
+  padding: 0 0.666666rem;
+  width: 17.333333rem;
+  box-sizing: border-box;
+}
+.loginFormWrap .errorTip img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.666666rem;
+}
+.loginFormWrap .errorTipMask {
+  width: 17.333333rem;
+  height: 1.466666rem;
+  background: #cd2f1d;
+  opacity: .1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+}
+.loginFormWrap input,
+.loginFormWrap .getCodeNum {
+  display: block;
+  height: 2.666666rem;
+  border: 0.066666rem solid #e6e6e6;
+  width: 17.333333rem;
+  padding: 0 0.666666rem;
+  color: #333;
+  font-size: 0.933333rem;
+  box-sizing: border-box;
+}
+.loginFormWrap .phone {
+  margin: 0.266666rem 0 1.333333rem 0;
+}
+.loginFormWrap .pwd {
+  margin-bottom: 1rem;
+}
+.loginFormWrap .codeNum {
+  margin-bottom: 1.333333rem;
+}
+.loginFormWrap .codeNum input {
+  width: 9.8rem;
+  display: inline-block;
+}
+.loginFormWrap .codeNum span {
+  display: inline-block;
+  width: 7.2rem;
+  line-height: 2.666666rem;
+  color: #cd2f1d;
+  cursor: pointer;
+  font-size: 0.933333rem;
+  text-align: center;
+}
+.loginFormWrap .forgetPwd {
+  margin-bottom: 2rem;
+}
+.loginFormWrap .forgetPwd a {
+  font-size: 0.8rem;
+  color: #999999;
+}
+.loginFormWrap button {
+  display: block;
+  height: 2.666666rem;
+  border-radius: 1.333333rem;
+  width: 17.333333rem;
+  font-size: 0.933333rem;
+  cursor: pointer;
+}
+.loginFormWrap .registerBtn {
+  text-align: center;
+  line-height: 2.666666rem;
+  background: #cd2f1d;
+  color: #FFF;
+  margin-bottom: 0.666666rem;
+}
+.loginFormWrap .toLogin {
+  text-align: center;
+}
+.loginFormWrap .toLogin a {
+  font-size: 0.933333rem;
+  color: #cd2f1d;
+}
+.agreeAgreement {
+  margin-bottom: 1.333333rem;
+}
+.agreeAgreement a {
+  font-size: 0.8rem;
+}
+.agreeAgreement a .text {
+  color: #999999;
+}
+.agreeAgreement a .article {
+  color: #333333;
+}
+.agreeAgreement img {
+  display: inline-block;
+  width: 0.933333rem;
+  height: 0.933333rem;
+  margin-right: 0.533333rem;
+  vertical-align: middle;
+  cursor: pointer;
+}

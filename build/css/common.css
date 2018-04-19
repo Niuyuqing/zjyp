@@ -106,7 +106,7 @@
 }
 .navigationWrap .goodsClass {
   width: 12.533333rem;
-  margin-right: 3.333333rem;
+  margin-right: 2.666666rem;
 }
 .navigationWrap .goodsClass i {
   display: inline-block;
@@ -132,28 +132,28 @@
   color: #FFFFFF;
   font-size: 0.933333rem;
   opacity: .5;
-  box-sizing: border-box;
-  padding: 0 0.933333rem 0.533333rem;
+  padding: 0.4rem 0.933333rem 0.533333rem;
   position: absolute;
   top: 2.133333rem;
   left: 0;
   height: 31.2rem;
   overflow: hidden;
   z-index: 10;
+  box-sizing: border-box;
 }
 .navigationWrap .goodsClass .goodsBox {
   width: 100%;
   box-sizing: border-box;
+  padding: 0.533333rem 0 0;
 }
 .navigationWrap .goodsClass .goodsBox h3 {
   font-weight: bold;
-  margin-bottom: 0.8rem;
-  padding-top: 1.333333rem;
+  margin-bottom: 0.533333rem;
 }
 .navigationWrap .goodsClass .goodsBox a {
   display: inline-block;
   margin-right: 0.666666rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.533333rem;
   color: #FFFFFF;
 }
 .navigationWrap .goodsClass .goodsBox .line {
@@ -164,33 +164,12 @@
 }
 .navigationWrap nav li {
   float: left;
-  margin-right: 3.6rem;
+  margin-right: 1.5rem;
 }
 .navigationWrap nav a {
   display: inline-block;
   color: #333333;
-  font-size: 0.933333rem;
-}
-.navigationWrap nav .zjh {
-  position: relative;
-  width: 6.666666rem;
-  text-align: center;
-}
-.navigationWrap nav .zjhSubtitle {
-  position: absolute;
-  z-index: 20;
-  width: 6.666666rem;
-  text-align: center;
-  background: #cd2f1d;
-  display: none;
-}
-.navigationWrap nav .zjhSubtitle a {
-  display: inline-block;
-  height: 2.266666rem;
-  width: 100%;
-  line-height: 2.266666rem;
-  color: #fff;
-  font-size: 0.8rem;
+  font-size: 1.066666rem;
 }
 .recommendHeadlines {
   width: 80rem;

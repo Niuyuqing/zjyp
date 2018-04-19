@@ -1,0 +1,192 @@
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.retrievePwdWrap {
+  width: 73.333333rem;
+  height: 33.333333rem;
+  background: #FFFFFF;
+  margin: 2.666666rem auto 0;
+  padding: 2.666666rem 10.5rem;
+  box-sizing: border-box;
+}
+.progress {
+  margin-bottom: 5.333333rem;
+}
+.progress p {
+  display: inline-block;
+  width: 17.2rem;
+  height: 1.733333rem;
+  text-align: center;
+  line-height: 1.733333rem;
+  color: #FFFFFF;
+  font-size: 0.933333rem;
+}
+.progress .writePhoneRed {
+  background: url(../../build/images/firProBar_2.png) no-repeat left top;
+  background-size: contain;
+}
+.progress .writePhoneGray {
+  background: url(../../build/images/firProBar_1.png) no-repeat left top;
+  background-size: contain;
+}
+.progress .writePwdRed {
+  background: url(../../build/images/secProBar_2.png) no-repeat left top;
+  background-size: contain;
+}
+.progress .writePwdGray {
+  background: url(../../build/images/secProBar_1.png) no-repeat left top;
+  background-size: contain;
+}
+.progress .setSuccRed {
+  background: url(../../build/images/thiProBar_2.png) no-repeat left top;
+  background-size: contain;
+}
+.progress .setSuccGray {
+  background: url(../../build/images/thiProBar_1.png) no-repeat left top;
+  background-size: contain;
+}
+.retrievePwdFormWrap {
+  display: block;
+  width: 26rem;
+  height: 31.333333rem;
+  background: #FFFFFF;
+  margin: 0 auto;
+}
+.retrievePwdFormWrap form {
+  display: block;
+  width: 17.333333rem;
+}
+.retrievePwdFormWrap h3 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333333;
+  margin-bottom: 3.333333rem;
+}
+.retrievePwdFormWrap .errorTip {
+  font-size: 0.8rem;
+  color: #cd2f1d;
+  height: 1.466666rem;
+  line-height: 1.466666rem;
+  position: relative;
+  padding: 0 0.666666rem;
+  width: 17.333333rem;
+  box-sizing: border-box;
+}
+.retrievePwdFormWrap .errorTip img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.666666rem;
+}
+.retrievePwdFormWrap .errorTipMask {
+  width: 17.333333rem;
+  height: 1.466666rem;
+  background: #cd2f1d;
+  opacity: .1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+}
+.retrievePwdFormWrap input {
+  display: block;
+  height: 2.666666rem;
+  border: 0.066666rem solid #e6e6e6;
+  width: 17.333333rem;
+  padding: 0 0.666666rem;
+  color: #333;
+  font-size: 0.933333rem;
+  box-sizing: border-box;
+}
+.retrievePwdFormWrap .phone {
+  margin: 0.266666rem 0 1.333333rem 0;
+}
+.retrievePwdFormWrap .pwd {
+  margin-bottom: 1rem;
+}
+.retrievePwdFormWrap .forgetPwd {
+  margin-bottom: 2rem;
+}
+.retrievePwdFormWrap .forgetPwd a {
+  font-size: 0.8rem;
+  color: #999999;
+}
+.retrievePwdFormWrap button,
+.retrievePwdFormWrap .registerBtn a {
+  display: block;
+  height: 2.666666rem;
+  border-radius: 1.333333rem;
+  width: 17.333333rem;
+  font-size: 0.933333rem;
+  cursor: pointer;
+}
+.retrievePwdFormWrap .nextStep {
+  margin-bottom: 1.333333rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+}
+.retrievePwdFormWrap .registerBtn {
+  text-align: center;
+  line-height: 2.666666rem;
+}
+.retrievePwdFormWrap .registerBtn a {
+  background: #FFFFFF;
+  border: 0.066666rem solid #E6E6E6;
+  color: #999999;
+}
+.retrievePwdFormWrap .codeNum {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.retrievePwdFormWrap .codeNum input {
+  padding-right: 8rem;
+}
+.retrievePwdFormWrap .getCodeNum {
+  display: inline-block;
+  height: 1.6rem;
+  width: 7.333333rem;
+  text-align: center;
+  line-height: 1.6rem;
+  position: absolute;
+  right: 0;
+  top: 0.533333rem;
+  border-left: 0.066666rem solid #e6e6e6;
+  box-sizing: border-box;
+  color: #cd2f1d;
+  cursor: pointer;
+}
+.secondStep .loginBtn {
+  background: #cd2f1d;
+  color: #fff;
+}
+.thirdStep {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333333;
+}
+.thirdStep img {
+  display: block;
+  width: 2.933333rem;
+  height: 2.933333rem;
+  margin: 7.333333rem auto 2rem;
+}
