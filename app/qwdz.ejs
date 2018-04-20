@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>全屋定制</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/qwdz.css" />
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="qwdzWrap">
+		<%-include header  %>
+		<%-include search  %>
+		<%-include navigation  %>
+		
+		<div class="qwdzMain">
+			<img src="images/qwdz_bg.png" class="banner"/>
+			
+			<div class="content">
+				<!--预见未来的家开始-->
+				<div class="meetFutureHome">
+					<div class="recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>预见未来的家</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">MEET YOUR FUTURE HOME</p> 
+					</div>
+					
+					<p class="title clearfix">
+						<span>两房两厅全屋定制</span>
+						<span>两房两厅全屋定制</span>
+						<span style="margin-right: 0;">两房两厅全屋定制</span>
+					</p>
+					<p class="subtitle clearfix">
+						<span>户型图</span>
+						<span>户型图</span>
+						<span>户型图</span>
+						<span>户型图</span>
+						<span>户型图</span>
+						<span>户型图</span>
+					</p>
+					
+					<!--设计图-->
+					<div class="designSketch">
+						<img src="images/qwdz_hxt.png"/>
+					</div>
+				</div>
+				<!--预见未来的家结束-->
+			</div>
+			
+		</div>
+		
+		<%-include paging  %>
+		<%-include footer  %>
+	</div>
+	
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/qwdz.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
