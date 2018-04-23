@@ -5,116 +5,106 @@
   display: block;
   width: 100%;
   height: 43.066666rem;
-  margin-bottom: 2rem;
-}
-.chooseArea {
-  width: 80rem;
-  margin: 0 auto;
-  font-size: 0.933333rem;
-  color: #333333;
-  line-height: 2.666666rem;
-  background: #fff;
-}
-.chooseArea span {
-  display: inline-block;
-  margin-right: 4rem;
-  cursor: pointer;
-}
-.chooseArea img {
-  display: inline-block;
-  width: 1.066666rem;
-  height: 1.066666rem;
-  margin-top: 0.8rem;
-  margin-right: 1.333333rem;
-  cursor: pointer;
-}
-.chooseArea .subtitle {
-  background: #ebebeb;
-  width: 6.333333rem;
-  text-align: center;
-  margin-right: 2.666666rem;
-}
-.chooseArea .zjh {
-  width: 6.333333rem;
-  text-align: center;
-  margin-right: 2.666666rem;
-  background: url(../../build/images/rightArrow.png) no-repeat right center;
-  background-size: 0.4rem 0.8rem;
-}
-.chooseArea .designerClub {
-  width: 7.333333rem;
-  text-align: left;
-  background: url(../../build/images/rightArrow.png) no-repeat right center;
-  background-size: 0.4rem 0.8rem;
-  margin-right: 1.333333rem;
-}
-.chooseArea .choseOption {
-  display: inline-block;
-  width: 4rem;
-  height: 1.333333rem;
-  border: 0.066666rem solid #cd2f1d;
-  text-align: left;
-  line-height: 1.333333rem;
-  padding: 0 0.266666rem;
-  box-sizing: border-box;
-  color: #cd2f1d;
-  margin-right: 1.333333rem;
-  background: #fff;
-}
-.chooseArea .choseOption span {
-  margin-right: 0;
-}
-.chooseArea .choseOption img {
-  display: inline-block;
-  width: 0.533333rem;
-  height: 0.533333rem;
-  margin: 0 0 0 0.6rem;
-}
-.chooseArea .choseTitle,
-.chooseArea .city {
-  border-bottom: 0.066666rem solid  #e6e6e6;
-}
-.chooseArea .options {
-  width: 65.2rem;
-}
-.chooseArea .city,
-.chooseArea .styles {
-  height: 2.666666rem;
-  overflow: hidden;
 }
 .content {
   width: 80rem;
-  margin: 2rem auto 0;
-  text-align: center;
+  margin: 2rem auto;
 }
-.content a {
+.content .box {
+  margin-bottom: 2rem;
+}
+.content .formMsg {
+  background: #FFFFFF;
+  width: 49.333333rem;
+  height: 40.933333rem;
+  box-sizing: border-box;
+}
+.content .formMsg h3 {
+  width: 49.333333rem;
+  height: 5.333333rem;
+  color: #fff;
+  background: #cd2f1d;
+  text-align: center;
+  line-height: 5.333333rem;
+  border-top-left-radius: 1.333333rem;
+  border-top-right-radius: 1.333333rem;
+  font-size: 2rem;
+  margin-bottom: 5.4rem;
+}
+.content .formMsg input {
+  display: inline-block;
+  width: 21.333333rem;
+  height: 2.8rem;
+  border: 0.066666rem solid #e6e6e6;
+  padding-left: 1.333333rem;
+  box-sizing: border-box;
+}
+.content .formMsg select {
+  display: inline-block;
+  width: 10.333333rem;
+  height: 2.8rem;
+  border: 0.066666rem solid #e6e6e6;
+  margin-right: 0.2rem;
+  padding-left: 1.333333rem;
+  box-sizing: border-box;
+}
+.content .formMsg form p {
+  height: 2.8rem;
+  line-height: 2.8rem;
+  margin-bottom: 1.333333rem;
+}
+.content .formMsg form span {
+  display: inline-block;
+  text-align: right;
+  width: 14.666666rem;
   font-size: 0.933333rem;
   color: #333333;
+  margin-right: 1rem;
 }
-.content .picTop li {
-  float: left;
-  width: 25.333333rem;
-  margin: 0 2rem 2rem 0;
+.content .formMsg form button {
+  display: inline-block;
+  width: 21.333333rem;
+  height: 2.8rem;
+  color: #FFFFFF;
+  background: #cd2f1d;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.content .person {
+  width: 26.666666rem;
+  height: 40.933333rem;
   background: #FFFFFF;
+  padding: 1.333333rem 0 0 0;
+  box-sizing: border-box;
+}
+.content .person h3 {
+  text-align: center;
+  font-size: 1.466666rem;
+  color: #333333;
+  line-height: 2.2rem;
+}
+.content .person .bottomLine {
   padding-bottom: 1.333333rem;
+  border-bottom: 0.066666rem solid #e6e6e6;
 }
-.content .picTop span {
-  display: inline-block;
-  width: 100%;
+.content .person .text {
+  width: 21.466666rem;
+  margin: 1.333333rem auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 0.933333rem;
+  color: #333333;
+  line-height: 1.8rem;
 }
-.content .picTop img {
+.content .person .personPic {
+  padding: 0 2rem;
+}
+.content .person .personPic img {
   display: inline-block;
-  width: 25.333333rem;
-  height: 25.333333rem;
-}
-.content .picTop .name {
-  display: inline-block;
-  margin-top: 1.333333rem;
-  font-weight: bold;
-}
-.content .picTop .city {
-  margin: 0.666666rem 0;
+  width: 5.066666rem;
+  height: 5.066666rem;
+  margin: 0 0.2rem 0.2rem 0;
+  border: 0.066666rem solid #e6e6e6;
 }

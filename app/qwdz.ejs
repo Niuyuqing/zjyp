@@ -7,9 +7,11 @@
 	<title>全屋定制</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/common.css"/>
 	<link rel="stylesheet" type="text/css" href="css/qwdz.css" />
 	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
@@ -34,27 +36,83 @@
 					</div>
 					
 					<p class="title clearfix">
-						<span>两房两厅全屋定制</span>
-						<span>两房两厅全屋定制</span>
-						<span style="margin-right: 0;">两房两厅全屋定制</span>
+						<span class="gray" v-if="!firTitle" @click="firTitleClick()">两房两厅全屋定制</span>
+						<span class="red" v-if="firTitle">两房两厅全屋定制</span>
+						
+						<span class="gray" v-if="!secTitle" @click="secTitleClick()">三房两厅全屋定制</span>
+						<span class="red" v-if="secTitle">三房两厅全屋定制</span>
+						
+						<span style="margin-right: 0;" class="gray" v-if="!thrTitle" @click="thrTitleClick()">四房两厅全屋定制</span>
+						<span style="margin-right: 0;" class="red" v-if="thrTitle">四房两厅全屋定制</span>
 					</p>
 					<p class="subtitle clearfix">
-						<span>户型图</span>
-						<span>户型图</span>
-						<span>户型图</span>
-						<span>户型图</span>
-						<span>户型图</span>
-						<span>户型图</span>
+						<span class="gray" v-if="!firSubTitle" @click="firSubTitleClick()">户型图</span>
+						<span class="red" v-if="firSubTitle">户型图</span>
+						
+						<span class="gray" v-if="!secSubTtile" @click="secSubTtileClick()">客餐厅效果图</span>
+						<span class="red" v-if="secSubTtile">客餐厅效果图</span>
+						
+						<span class="gray" v-if="!thiSubTitle" @click="thiSubTitleClick()">主卧效果图</span>
+						<span class="red" v-if="thiSubTitle">主卧效果图</span>
+						
+						<span class="gray" v-if="!fouSubTitle" @click="fouSubTitleClick()">次卧效果图</span>
+						<span class="red" v-if="fouSubTitle">次卧效果图</span>
+						
+						<span class="gray" v-if="!fiveSubTitle" @click="fiveSubTitleClick()">儿童房效果图</span>
+						<span class="red" v-if="fiveSubTitle">儿童房效果图</span>
+						
+						<span class="gray" v-if="!sixSubTitle" @click="sixSubTitleClick()">书房效果图</span>
+						<span class="red" v-if="sixSubTitle">书房效果图</span>
 					</p>
 					
 					<!--设计图-->
-					<div class="designSketch">
-						<img src="images/qwdz_hxt.png"/>
+					<div class="designSketchWrap">
+						<div class="designSketch clearfix">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide"><img src="images/headImg.jpg" /></div>
+									<div class="swiper-slide"><img src="images/banner_3.png" /></div>
+									<div class="swiper-slide"><img src="images/qwdz_bg.png" /></div>
+								</div>
+								<div class="swiper-button-next"></div>
+								<div class="swiper-button-prev"></div>
+							</div>
+						</div>
+						<button class="seeMoreGoods">查看更多</button>
 					</div>
 				</div>
 				<!--预见未来的家结束-->
+				
+				<!--了解未来的家开始-->
+				<div class="knowFutureHome">
+					<div class="recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>了解未来的家</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">KNOW YOUR FUTURE HOME</p> 
+					</div>
+					<ul class="clearfix">
+						<li><a href="#"><img src="images/qwdz_1.png"/></a></li>
+						<li><a href="#"><img src="images/qwdz_1.png"/></a></li>
+						<li style="margin-right: 0;"><a href="#"><img src="images/qwdz_1.png"/></a></li>
+					</ul>
+				</div>
+				<!--了解未来的家结束-->
+				
+				<!--定制未来的家开始-->
+				<div class="customFurniture">
+					<div class="recommendHeadlines">
+						<span class="lLine"></span>
+						<h2>定制未来的家</h2>
+						<span class="rLine"></span>
+						<p class="subtitle">CUSTOM FURNITURE</p> 
+					</div>
+					<img src="images/furnitureHome.png"/>
+					<button class="seeMoreGoods">查看更多</button>
+				</div>
+				<!--定制未来的家结束-->
 			</div>
-			
+			<%-include budget  %>
 		</div>
 		
 		<%-include paging  %>

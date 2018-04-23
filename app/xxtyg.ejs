@@ -13,6 +13,7 @@
 	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SuZ4QGFdTVY51HhBwudg8QtZloNqGMNK"></script>
 </head>
 <body>
 	<div class="ptfaWrap">
@@ -20,7 +21,97 @@
 		<%-include search  %>
 		<%-include navigation  %>
 		
-		
+		<div class="xxtygMain">
+			<img src="images/xxtyg_bg.png" class="banner"/>
+			<div class="locationTitle">
+				<img src="images/location.png"/>
+				<p><span>北京</span>共有<span>6</span>个体验馆</p>
+				<select name="" class="rFloat">
+					<option value="">北京</option>
+				</select>
+			</div>
+			
+			<div class="tygLocation">
+				<p class="title">体验馆地址</p>
+				<div class="mapWrap clearfix">
+					<div class="mapBox lFloat" id="allmap"></div>
+					<div class="appointmentWrap lFloat">
+						<div class="appointment">
+							<h3>筑家优品房山体验馆</h3>
+							<p class="place">
+								<img src="images/place.png"/>
+								<span>门店地址：</span>
+								北京市房山区绿地缤纷城9号楼
+							</p>
+							<p class="phone">
+								<img src="images/phone.png"/>
+								<span>联系电话：</span>
+								40000062566
+							</p>
+							<button>立即预约</button>
+							<p class="line"></p>
+						</div>
+						
+						<div class="appointment">
+							<h3>筑家优品房山体验馆</h3>
+							<p class="place">
+								<img src="images/place.png"/>
+								<span>门店地址：</span>
+								北京市房山区绿地缤纷城9号楼
+							</p>
+							<p class="phone">
+								<img src="images/phone.png"/>
+								<span>联系电话：</span>
+								40000062566
+							</p>
+							<button>立即预约</button>
+						</div>
+						<div class="pages">
+							<ul class="clearfix">
+								<li><img src="images/lPage.png"/></li>
+								<li>1</li>
+								<li>2</li>
+								<li style="margin-right: 0;"><img src="images/rPage.png"/></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--近期活动-->
+			<div class="recentActivity">
+				<p class="title">近期活动</p>
+				<div class="boxWrap clearfix">
+					<div class="box lFloat">
+						<h3>418筑家优品家装节</h3>
+						<p class="time"><img src="images/playtime.png"/>4/17 09:00 - 4/18 18:00</p>
+						<p class="place"><img src="images/place.png"/>北京市房山区绿地缤纷城9号楼718</p>
+						<button>我要参加</button>
+					</div>
+					<img src="images/xxtyg_pic.png" class="rFloat showPic"/>
+				</div>
+				
+				<div class="boxWrap clearfix">
+					<div class="box lFloat">
+						<h3>418筑家优品家装节</h3>
+						<p class="time"><img src="images/playtime.png"/>4/17 09:00 - 4/18 18:00</p>
+						<p class="place"><img src="images/place.png"/>北京市房山区绿地缤纷城9号楼718</p>
+						<button>我要参加</button>
+					</div>
+					<img src="images/xxtyg_pic.png" class="rFloat showPic"/>
+				</div>
+				
+				<div class="boxWrap clearfix">
+					<div class="box lFloat">
+						<h3>418筑家优品家装节</h3>
+						<p class="time"><img src="images/playtime.png"/>4/17 09:00 - 4/18 18:00</p>
+						<p class="place"><img src="images/place.png"/>北京市房山区绿地缤纷城9号楼718</p>
+						<button>我要参加</button>
+					</div>
+					<img src="images/xxtyg_pic.png" class="rFloat showPic"/>
+				</div>
+			</div>
+		</div>
 		
 		<%-include paging  %>
 		<%-include footer  %>

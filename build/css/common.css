@@ -232,9 +232,13 @@
   display: inline-block;
   margin-top: 0.666666rem;
 }
-.pageFooter ul {
+.pageFooter .linkHref ul {
   float: left;
-  margin-right: 10.2rem;
+  margin-right: 6.266666rem;
+}
+.pageFooter .ewCodePic ul {
+  float: left;
+  margin-right: 2.666666rem;
 }
 .pageFooter .contact h3 {
   margin-bottom: 0.666666rem;
@@ -281,4 +285,60 @@
   display: inline-block;
   width: 0.4rem;
   height: 0.8rem;
+}
+.budgetWrap {
+  width: 80rem;
+  margin: 2rem auto 0;
+  background: #FFFFFF;
+  padding: 3.333333rem 13rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.budgetWrap h3 {
+  font-size: 1.733333rem;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 1.333333rem;
+}
+.budgetWrap p {
+  font-size: 1.066666rem;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 1.333333rem;
+}
+.budgetWrap input,
+.budgetWrap select {
+  display: inline-block;
+  border: 0.066666rem solid #e6e6e6;
+  height: 2.8rem;
+  padding: 0 0 0 1.333333rem;
+  box-sizing: border-box;
+}
+.budgetWrap .name,
+.budgetWrap .phone {
+  width: 26rem;
+  margin-bottom: 1.333333rem;
+}
+.budgetWrap .name {
+  margin-right: 0.666666rem;
+}
+.budgetWrap .houseType,
+.budgetWrap .houseStyle {
+  width: 17.333333rem;
+  margin-right: 0.666666rem;
+}
+.budgetWrap .houseArea {
+  width: 16.666666rem;
+}
+.budgetWrap button {
+  display: inline-block;
+  width: 20rem;
+  height: 2.8rem;
+  border-radius: 0.333333rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 3.333333rem;
+  cursor: pointer;
+  font-size: 1.2rem;
 }

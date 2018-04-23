@@ -22,116 +22,177 @@
 		<%-include navigation  %>
 		
 		<div class="zjshjMain">
-			<img src="images/banner_2.png" class="banner"/>
-			<div class="chooseArea">
-				<div class="choseTitle">
-					<span class="zjh">筑家汇</span>
-					<span class="designerClub">设计师俱乐部</span>
-					<p class="choseOption" v-for="item in choseLabelArr"><span>{{item.name}}</span><img src="images/close.png" @click="closeLabel($event)"/></p>
-				</div>
-				<div class="city clearfix">
-					<div class="lFloat subtitle">所在城市</div>
-					<div class="lFloat options">
-						<span @click="addLabel($event)">不限</span>
-						<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
-					</div>
-					<img src="images/open.png" class="rFloat" v-if="!showCityLabel" @click="showCityLabelClick()"/>
-					<img src="images/retract.png" class="rFloat" v-if="showCityLabel" @click="showCityLabelClick()"/>
-				</div>
-				<div class="styles clearfix">
-					<div class="lFloat subtitle">所在城市</div>
-					<div class="lFloat options">
-						<span @click="addLabel($event)">不限</span>
-						<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
-					</div>
-					<img src="images/open.png" class="rFloat"v-if="!showStyleLabel" @click="showStyleLabelClick()"/>
-					<img src="images/retract.png" class="rFloat" v-if="showStyleLabel" @click="showStyleLabelClick()"/>
-				</div>
-			</div>
+			<img src="../build/images/zjh_banner.png" class="banner"/>
 			
 			<div class="content">
-				<ul class="clearfix picTop">
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
+				<div class="clearfix box">
+					<div class="lFloat formMsg">
+						<h3>设计师俱乐部</h3>
+						<form action="" method="post">
+							<p><span>姓名</span><input type="text" placeholder="请输入您的姓名" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入您的手机号码" /></p>
+							<p><span>邮箱</span><input type="text" placeholder="请输入您的邮箱" /></p>
+							<p><span>从业年限</span><input type="text" placeholder="请输入您的从业年限" /></p>
+							<p>
+								<span>所在省份</span>
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p class="submitP">
+								<span></span>
+								<button>立即提交</button>
+							</p>
+						</form>
+					</div>
 					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
+					<div class="rFloat person">
+						<h3>超过1000位设计师</h3>
+						<h3 class="bottomLine">加入筑家优品设计师俱乐部</h3>
+						<p class="text">
+							由量房设计师、室内设计师、软装设计师、结构设计师、工艺设计师组成的强大设计团队，为您一个人服务，一次性为您解决空间，搭配等家居问题。
+						</p>
+						<div class="personPic">
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clearfix box">
+					<div class="lFloat formMsg">
+						<h3>工长俱乐部</h3>
+						<form action="" method="post">
+							<p><span>姓名</span><input type="text" placeholder="请输入您的姓名" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入您的手机号码" /></p>
+							<p><span>邮箱</span><input type="text" placeholder="请输入您的邮箱" /></p>
+							<p><span>从业年限</span><input type="text" placeholder="请输入您的从业年限" /></p>
+							<p>
+								<span>所在省份</span>
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p>
+								<span>所在省份</span>
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+								<select name="">
+									<option value="">请选择</option>
+								</select>
+							</p>
+							<p class="submitP">
+								<span></span>
+								<button>立即加入</button>
+							</p>
+						</form>
+					</div>
 					
-					<li style="margin-right: 0;">
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
+					<div class="rFloat person">
+						<h3>超过1000位工长</h3>
+						<h3 class="bottomLine">加入筑家优品工长俱乐部</h3>
+						<div class="personPic">
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clearfix box">
+					<div class="lFloat formMsg">
+						<h3>筑家整体家装联盟</h3>
+						<form action="" method="post">
+							<p><span>公司名称</span><input type="text" placeholder="请输入您的姓名" /></p>
+							<p><span>联系人</span><input type="text" placeholder="请输入您的手机号码" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入您的邮箱" /></p>
+							<p class="submitP">
+								<span></span>
+								<button>立即加入</button>
+							</p>
+						</form>
+					</div>
 					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
+					<div class="rFloat person">
+						<h3>超过1000家公司</h3>
+						<h3 class="bottomLine">加入筑家整体家装联盟</h3>
+						<div class="personPic">
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clearfix box">
+					<div class="lFloat formMsg">
+						<h3>筑家家博会</h3>
+						<form action="" method="post">
+							<p><span>品牌名称</span><input type="text" placeholder="请输入您的姓名" /></p>
+							<p><span>公司名称</span><input type="text" placeholder="请输入您的手机号码" /></p>
+							<p><span>联系人</span><input type="text" placeholder="请输入您的邮箱" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入您的邮箱" /></p>
+							<p class="submitP">
+								<span></span>
+								<button>立即加入</button>
+							</p>
+						</form>
+					</div>
 					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
-					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
-					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="name">小茗同学</span>
-							<span class="city">所在城市：上海</span>
-							<span class="styles">擅长风格：欧式</span>
-						</a>
-					</li>
-				</ul>
+					<div class="rFloat person">
+						<h3>超过1000家企业</h3>
+						<h3 class="bottomLine">加入筑家整家博会</h3>
+						<div class="personPic">
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+							<img src="images/headImg.jpg"/>
+						</div>
+					</div>
+				</div> 
 			</div>
 		</div>
 		<%-include paging  %>
