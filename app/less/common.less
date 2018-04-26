@@ -60,6 +60,7 @@
             box-sizing: border-box;
             margin-top: 0.866666rem;
             color: #333333;
+            font-size: 0.8rem;
         }
         .serarchBtn{
             display: inline-block;
@@ -91,6 +92,7 @@
             margin-top: 0.866666rem;
             margin-left: 2rem;
             cursor: pointer;
+            font-size: 0.8rem;
         }
         
         .shoppingNum{
@@ -122,11 +124,49 @@
         margin-right: 2.666666rem;
         i{
             display: inline-block;
-            width: 1.2rem;
-            height: 0.933333rem;
-            background: url(../../build/images/spfl.png) no-repeat left center;
-            background-size: contain;
             margin-right: 0.8rem;
+            vertical-align: middle;
+        }
+        .dzgWrap{
+            i{
+                width: 1.2rem;
+                height: 1.2rem;
+                background: url(../images/dzg.png) no-repeat left center;
+                background-size: contain;
+            }
+        }
+        .jjgWrap{
+            i{
+                width: 1.333333rem;
+                height: 1.2rem;
+                background: url(../images/jjg.png) no-repeat left center;
+                background-size: contain;
+            }
+        }
+        
+        .rzgWrap{
+            i{
+                width: 1.333333rem;
+                height: 1.2rem;
+                background: url(../images/rzg.png) no-repeat left center;
+                background-size: contain;
+            }
+        }
+        .jcgWrap{
+            i{
+                width: 1.333333rem;
+                height: 1.2rem;
+                background: url(../images/jcg.png) no-repeat left center;
+                background-size: contain;
+            }
+        }
+        .dsgWrap{
+            i{
+                width: 1.333333rem;
+                height: 1.2rem;
+                background: url(../images/dsg.png) no-repeat left center;
+                background-size: contain;
+            }
         }
         .bigTitle{
             font-size: 1.066666rem;
@@ -138,13 +178,19 @@
             box-sizing: border-box;
             cursor: pointer;
         }
+        .goodsWrap{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+//          left: 0.933333rem;
+            z-index: 20;
+        }
         .goodsWrapBox{
             width: 12.533333rem;
-            background: black;
             color: #FFFFFF;
             font-size: 0.933333rem;
-            opacity: .5;
-            padding: 0.4rem 0.933333rem 0.533333rem;
+//          padding: 0.4rem 0.933333rem 0.533333rem;
             position: absolute;
             top: 2.133333rem;
             left: 0;
@@ -153,19 +199,32 @@
             z-index: 10;
             box-sizing: border-box;
         }
+        .goodsMask{
+            width: 12.533333rem;
+            height: 31.2rem;
+            background: black;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 8;
+        }
         .goodsBox{
             width: 100%;
             box-sizing: border-box;
-            padding: 0.533333rem 0 0;
+            padding: 0.3rem 0.733333rem 0;
             h3{
                 font-weight: bold;
-                margin-bottom: 0.533333rem;
+                margin-bottom: 0.4rem;
             }
             a{
                 display: inline-block;
                 margin-right: 0.666666rem;
-                margin-bottom: 0.533333rem;
+                margin-bottom: 0.2rem;
                 color: #FFFFFF;
+            }
+            a:hover{
+                color: #cd2f1d;
             }
             .line{
                 width: 100%;
@@ -206,6 +265,45 @@
 //              font-size: 0.8rem;
 //          }
 //      }
+    }
+}
+
+// 家具馆浮框
+.jjgClassifyBox{
+    display: none;
+    width: 30.2rem;
+    height: 31.2rem;
+    background: #FFFFFF;
+    color: #666;
+    position: absolute;
+    left: 12.533333rem;
+    top: 2.133333rem;
+    z-index: 20;
+    padding: 1.333333rem;
+    box-sizing: border-box;
+    font-size: 0.933333rem;
+    a{
+        display: inline-block;
+        padding: 0 0.666666rem;
+        border-left: 0.133333rem solid #E6E6E6;
+        margin-bottom: 1rem;
+        color: #666;
+        font-size: 0.933333rem;
+    }
+    .bedroom,.livingRoom,.restaurant,.studyRoom,.childrenRoom{
+        display: inline-block;
+        font-size: 0.933333rem;
+        font-weight: bold;
+        padding-right: 0.533333rem;
+        width: 3rem;
+        text-align: justify;
+        border-left: none;
+    }
+    div{
+        margin-bottom: 1.333333rem;
+        p:nth-child(2){
+            width: 22rem;
+        }
     }
 }
 
@@ -302,12 +400,12 @@
             height: 6.2rem;
         }
     }
-    .copyRight{
-        text-align: center;
-        font-size: 0.8rem;
-        color: #999999;
-        padding: 0.666666rem 0;
-    }
+}
+.copyRight{
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999999;
+    padding: 0.666666rem 0;
 }
 
 // 公共分页

@@ -14,7 +14,8 @@ var retrievePwdWrap = new Vue({
 		phone : '',
 		codeNum : '',
 		pwd : '',
-		againPwd : ''
+		againPwd : '',
+		countDown : 3,   // 倒计时跳转到登录页
 	},
 	mounted : function(){
 		
@@ -37,6 +38,7 @@ var retrievePwdWrap = new Vue({
 			}
 		},
 		saveClick : function () {  // 保存
+			var that = this;
 			if (!this.checkPwd(this.pwd)){
 				this.errorTip2 = true;
 				this.errorTipMsg2 = '密码6-20位数字、字母、字符组合';
@@ -47,6 +49,14 @@ var retrievePwdWrap = new Vue({
 				this.step1 = false;
 				this.step2 = false;
 				this.step3 = true;
+				
+				setInterval(function () {
+					that.countDown--;
+					console.log(typeof that.countDown)
+					if (that.countDown==0) {
+						window.location.href = 'login.html';
+					}
+				},1000);
 			}
 		},
 		getCodeNum : function(){  // 获取验证码

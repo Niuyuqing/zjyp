@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>商品筛选</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/spsx.css"/>
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<div class="zjshjWrap">
+		<%-include header  %>
+		<%-include search  %>
+		<%-include navigation  %>
+		
+		<div class="spsxMain">
+			<div class="chooseArea">
+				<div class="choseTitle">
+					<span class="category">家具馆</span>
+					<span class="category">床</span>
+					<p class="choseOption" v-for="item in choseLabelArr"><span>{{item.name}}</span><img src="images/close.png" @click="closeLabel($event)"/></p>
+				</div>
+				<div class="chooseWrap">
+					<div class="city clearfix">
+						<div class="lFloat subtitle">所在城市</div>
+						<div class="lFloat options">
+							<span @click="addLabel($event)">不限</span>
+							<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
+						</div>
+						<img src="images/open.png" class="rFloat" v-if="!showCityLabel" @click="showCityLabelClick()"/>
+						<img src="images/retract.png" class="rFloat" v-if="showCityLabel" @click="showCityLabelClick()"/>
+					</div>
+					<div class="styles clearfix">
+						<div class="lFloat subtitle">所在城市</div>
+						<div class="lFloat options">
+							<span @click="addLabel($event)">不限</span>
+							<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
+						</div>
+						<img src="images/open.png" class="rFloat"v-if="!showStyleLabel" @click="showStyleLabelClick()"/>
+						<img src="images/retract.png" class="rFloat" v-if="showStyleLabel" @click="showStyleLabelClick()"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="content">
+				<div class="filter">
+					 <p class="colligateDef" @click="colligateClick()" v-if="!colligate">综合</p>
+					 <p class="colligateChose" v-if="colligate">综合</p>
+					 
+					 <p class="salesVolumeDef" @click="salesVolumeClick()" v-if="!salesVolume">销量<i></i></p>
+					 <p class="salesVolumeChose" v-if="salesVolume">销量<i></i></p>
+					 
+					 <p class="priceDef" @click="priceBtnClick()" v-if="!priceBtn">价格<i></i></p>
+					 <p class="priceChose" v-if="priceBtn">价格<i></i></p>
+					 
+					 <p class="popularityDef" @click="popularityClick()" v-if="!popularity" style="border-right: 0.066666rem solid #CCCCCC;">人气<i></i></p>
+					 <p class="popularityChose" v-if="popularity" style="border-right: 0.066666rem solid #CCCCCC;">人气<i></i></p>
+				</div>
+				<ul class="clearfix goodsCollection">
+					<li>
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米日式榻榻米日式榻榻米日式榻榻米日式榻榻米日式榻榻米日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li>
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					
+					<li style="margin-right: 0;">
+						<a href="spxq.html">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<%-include paging  %>
+		
+		<!--猜你喜欢-->
+		<div class="guessLove">
+			<h3 class="title">猜你喜欢</h3>
+			<ul class="clearfix">
+				<li>
+					<a href="#">
+						<img src="images/spsx_eg_pic.png"/>
+						<p class="msg">
+							<span class="money"><i>¥</i>2999.00</span>
+							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+						</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/spsx_eg_pic.png"/>
+						<p class="msg">
+							<span class="money"><i>¥</i>2999.00</span>
+							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+						</p>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<img src="images/spsx_eg_pic.png"/>
+						<p class="msg">
+							<span class="money"><i>¥</i>2999.00</span>
+							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+						</p>
+					</a>
+				</li>
+				<li style="margin-right: 0;">
+					<a href="#">
+						<img src="images/spsx_eg_pic.png"/>
+						<p class="msg">
+							<span class="money"><i>¥</i>2999.00</span>
+							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+						</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<%-include footer  %>
+	</div>
+	
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/spsx.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

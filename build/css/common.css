@@ -53,6 +53,7 @@
   box-sizing: border-box;
   margin-top: 0.866666rem;
   color: #333333;
+  font-size: 0.8rem;
 }
 .searchWrap .container .serarchBtn {
   display: inline-block;
@@ -82,6 +83,7 @@
   margin-top: 0.866666rem;
   margin-left: 2rem;
   cursor: pointer;
+  font-size: 0.8rem;
 }
 .searchWrap .container .shoppingNum {
   display: inline-block;
@@ -110,11 +112,38 @@
 }
 .navigationWrap .goodsClass i {
   display: inline-block;
-  width: 1.2rem;
-  height: 0.933333rem;
-  background: url(../../build/images/spfl.png) no-repeat left center;
-  background-size: contain;
   margin-right: 0.8rem;
+  vertical-align: middle;
+}
+.navigationWrap .goodsClass .dzgWrap i {
+  width: 1.2rem;
+  height: 1.2rem;
+  background: url(../images/dzg.png) no-repeat left center;
+  background-size: contain;
+}
+.navigationWrap .goodsClass .jjgWrap i {
+  width: 1.333333rem;
+  height: 1.2rem;
+  background: url(../images/jjg.png) no-repeat left center;
+  background-size: contain;
+}
+.navigationWrap .goodsClass .rzgWrap i {
+  width: 1.333333rem;
+  height: 1.2rem;
+  background: url(../images/rzg.png) no-repeat left center;
+  background-size: contain;
+}
+.navigationWrap .goodsClass .jcgWrap i {
+  width: 1.333333rem;
+  height: 1.2rem;
+  background: url(../images/jcg.png) no-repeat left center;
+  background-size: contain;
+}
+.navigationWrap .goodsClass .dsgWrap i {
+  width: 1.333333rem;
+  height: 1.2rem;
+  background: url(../images/dsg.png) no-repeat left center;
+  background-size: contain;
 }
 .navigationWrap .goodsClass .bigTitle {
   font-size: 1.066666rem;
@@ -126,13 +155,17 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+.navigationWrap .goodsClass .goodsWrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 20;
+}
 .navigationWrap .goodsClass .goodsWrapBox {
   width: 12.533333rem;
-  background: black;
   color: #FFFFFF;
   font-size: 0.933333rem;
-  opacity: .5;
-  padding: 0.4rem 0.933333rem 0.533333rem;
   position: absolute;
   top: 2.133333rem;
   left: 0;
@@ -141,20 +174,33 @@
   z-index: 10;
   box-sizing: border-box;
 }
+.navigationWrap .goodsClass .goodsMask {
+  width: 12.533333rem;
+  height: 31.2rem;
+  background: black;
+  opacity: .5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 8;
+}
 .navigationWrap .goodsClass .goodsBox {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.533333rem 0 0;
+  padding: 0.3rem 0.733333rem 0;
 }
 .navigationWrap .goodsClass .goodsBox h3 {
   font-weight: bold;
-  margin-bottom: 0.533333rem;
+  margin-bottom: 0.4rem;
 }
 .navigationWrap .goodsClass .goodsBox a {
   display: inline-block;
   margin-right: 0.666666rem;
-  margin-bottom: 0.533333rem;
+  margin-bottom: 0.2rem;
   color: #FFFFFF;
+}
+.navigationWrap .goodsClass .goodsBox a:hover {
+  color: #cd2f1d;
 }
 .navigationWrap .goodsClass .goodsBox .line {
   width: 100%;
@@ -170,6 +216,47 @@
   display: inline-block;
   color: #333333;
   font-size: 1.066666rem;
+}
+.jjgClassifyBox {
+  display: none;
+  width: 30.2rem;
+  height: 31.2rem;
+  background: #FFFFFF;
+  color: #666;
+  position: absolute;
+  left: 12.533333rem;
+  top: 2.133333rem;
+  z-index: 20;
+  padding: 1.333333rem;
+  box-sizing: border-box;
+  font-size: 0.933333rem;
+}
+.jjgClassifyBox a {
+  display: inline-block;
+  padding: 0 0.666666rem;
+  border-left: 0.133333rem solid #E6E6E6;
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.933333rem;
+}
+.jjgClassifyBox .bedroom,
+.jjgClassifyBox .livingRoom,
+.jjgClassifyBox .restaurant,
+.jjgClassifyBox .studyRoom,
+.jjgClassifyBox .childrenRoom {
+  display: inline-block;
+  font-size: 0.933333rem;
+  font-weight: bold;
+  padding-right: 0.533333rem;
+  width: 3rem;
+  text-align: justify;
+  border-left: none;
+}
+.jjgClassifyBox div {
+  margin-bottom: 1.333333rem;
+}
+.jjgClassifyBox div p:nth-child(2) {
+  width: 22rem;
 }
 .recommendHeadlines {
   width: 80rem;
@@ -251,7 +338,7 @@
   width: 6.2rem;
   height: 6.2rem;
 }
-.pageFooter .copyRight {
+.copyRight {
   text-align: center;
   font-size: 0.8rem;
   color: #999999;

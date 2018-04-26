@@ -155,6 +155,40 @@ function getNextMonth(date) {
 	window.onresize = changeSize;
 	changeSize();
 	
+	// 鼠标移入移出家具馆
+	$('.jjgWrap,.jjgClassifyBox').on({
+		'mouseenter':function () {
+			$('.jjgClassifyBox').show();
+			
+			$('.jjgWrap').css('background','#fff');
+			
+			$('.jjgWrap a').css({
+				'color':'#333'
+			});  
+			
+			$('.jjgWrap h3').css({
+				'color':'#cd2f1d'
+			});
+			
+			$('.jjgWrap h3 i').css('background-image','url("images/jjg_hover.png")');
+		},
+		'mouseleave':function () {
+			$('.jjgClassifyBox').hide();
+			
+			$('.jjgWrap').css('background','transparent');
+		
+			$('.jjgWrap a').css({
+				'color':'#fff'
+			});  
+			
+			$('.jjgWrap h3').css({
+				'color':'#fff'
+			});
+			
+			$('.jjgWrap h3 i').css('background-image','url("images/jjg.png")');
+		}
+	});
+	
 	// 鼠标移入移出筑家汇
 	/*$('.toPage .zjh,.zjhSubtitle').on({
 		'mouseenter':function () {

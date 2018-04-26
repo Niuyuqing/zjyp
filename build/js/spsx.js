@@ -46,14 +46,18 @@
 
 	'use strict';
 	
-	var zjshjMain = new Vue({
-		el: '.zjshjMain',
+	var spsxMain = new Vue({
+		el: '.spsxMain',
 		data: {
 			choseLabelArr: [{ name: '北京' }, { name: '深圳' }, { name: '不限' }],
 			cityLabelArr: [{ name: '北京' }, { name: '韩国' }, { name: '日本' }, { name: '天津' }, { name: '深圳' }, { name: '广东' }, { name: '北京' }, { name: '韩国' }, { name: '日本' }, { name: '天津' }, { name: '深圳' }, { name: '广东' }, { name: '北京' }, { name: '韩国' }, { name: '日本' }, { name: '天津' }, { name: '深圳' }, { name: '广东' }, { name: '北京' }, { name: '韩国' }, { name: '日本' }, { name: '天津' }, { name: '深圳' }, { name: '广东' }],
 			showCityLabel: false,
-			showStyleLabel: false
-		},
+			showStyleLabel: false,
+			colligate: true, // 综合
+			salesVolume: false, // 销量
+			priceBtn: false, // 价格
+			popularity: false },
+		// 人气
 		mounted: function mounted() {},
 		methods: {
 			closeLabel: function closeLabel(e) {
@@ -94,6 +98,34 @@
 						'height': '2.666666rem'
 					});
 				}
+			},
+			colligateClick: function colligateClick() {
+				// 点击综合
+				this.colligate = true; // 综合
+				this.salesVolume = false; // 销量
+				this.priceBtn = false; // 价格
+				this.popularity = false; // 人气
+			},
+			salesVolumeClick: function salesVolumeClick() {
+				// 点击销量
+				this.colligate = false; // 综合
+				this.salesVolume = true; // 销量
+				this.priceBtn = false; // 价格
+				this.popularity = false; // 人气
+			},
+			priceBtnClick: function priceBtnClick() {
+				// 点击价格
+				this.colligate = false; // 综合
+				this.salesVolume = false; // 销量
+				this.priceBtn = true; // 价格
+				this.popularity = false; // 人气
+			},
+			popularityClick: function popularityClick() {
+				// 点击人气
+				this.colligate = false; // 综合
+				this.salesVolume = false; // 销量
+				this.priceBtn = false; // 价格
+				this.popularity = true; // 人气
 			}
 		}
 	});
@@ -126,4 +158,4 @@
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=zjh2.js.map
+//# sourceMappingURL=spsx.js.map
