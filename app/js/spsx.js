@@ -14,7 +14,6 @@ var spsxMain = new Vue({
 			{name:'深圳'},
 			{name:'广东'},
 			{name:'北京'},
-			{name:'韩国'},
 			{name:'日本'},
 			{name:'天津'},
 			{name:'深圳'},
@@ -40,7 +39,34 @@ var spsxMain = new Vue({
 		popularity : false,  // 人气
 	},
 	mounted : function(){
-		
+		// 展示商品详情
+		/*this.$http.post('http://localhost:8092/item/showItem/'+this.getUrlParam('cid'), {} ,{   // 没有参数也要放空的大括号
+            headers: {   // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            emulateJSON: true
+        }).then(function(data) {
+        	console.log(JSON.parse(data.body.msg).rows[0]);
+            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].attr));
+            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].attr_detail));
+        }, function(a) {
+            console.log('请求错误 ')
+        });*/
+       
+       this.$http.post('http://localhost:8092/item/showItemFilterList', {
+       		inputStr : this.getUrlParam('cid')
+       } ,{   // 没有参数也要放空的大括号
+            headers: {   // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            emulateJSON: true
+        }).then(function(data) {
+        	console.log(JSON.parse(data.body.msg).rows[0]);
+            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].attr));
+            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].attr_detail));
+        }, function(a) {
+            console.log('请求错误 ')
+        });
 	},
 	methods : {
 		closeLabel : function (e) {  // 删除当前选中的小标签
@@ -103,15 +129,21 @@ var spsxMain = new Vue({
 			this.salesVolume = false;   // 销量
 			this.priceBtn = false;      // 价格
 			this.popularity = true;    // 人气
+		},
+		getUrlParam : function (key) {  // 地址栏中文也可以正常获取
+			// 获取参数
+		    var url = window.location.search;
+		    // 正则筛选地址栏
+		    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+		    // 匹配目标参数
+		    var result = url.substr(1).match(reg);
+		    //返回参数值
+		    return result ? decodeURIComponent(result[2]) : null;
 		}
 	}
 });
 
 $(function () {
-	// 配套方案
-	$('.toPage a').css('color','#333');
-	$('.toPage .zjh a').css('color','#cd2f1d');
-	
 	// 翻页器
 	$('.paging').pagination({
 		pageCount: 50,

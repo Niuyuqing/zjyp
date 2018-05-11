@@ -54,7 +54,6 @@
 				index: 'index.html',
 				zjyp: 'zjyp.html',
 				ypzp: 'ypzp.html',
-				ptfa: 'ptfa.html',
 				zjshj: 'zjshj.html',
 				zjfs: 'zjfs.html',
 				zjh: 'zjh.html',
@@ -186,7 +185,19 @@
 	
 		var t2 = year2 + '-' + month2 + '-' + day2;
 		return t2;
-	}
+	};
+	
+	// 地址栏中文也可以正常获取
+	function getUrlParam(key) {
+		// 获取参数
+		var url = window.location.search;
+		// 正则筛选地址栏
+		var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+		// 匹配目标参数
+		var result = url.substr(1).match(reg);
+		//返回参数值
+		return result ? decodeURIComponent(result[2]) : null;
+	};
 	
 	(function (doc) {
 		function changeSize() {

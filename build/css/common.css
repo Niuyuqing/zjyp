@@ -84,6 +84,8 @@
   margin-left: 2rem;
   cursor: pointer;
   font-size: 0.8rem;
+  text-align: center;
+  line-height: 2.266666rem;
 }
 .searchWrap .container .shoppingNum {
   display: inline-block;
@@ -210,7 +212,7 @@
 }
 .navigationWrap nav li {
   float: left;
-  margin-right: 1.5rem;
+  margin-right: 2.2rem;
 }
 .navigationWrap nav a {
   display: inline-block;

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>购物车</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/addShoppingCart.css" />
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<div class="loginWrap">
+		<%-include header  %>
+		<%-include search  %>
+		<%-include navigation  %>
+		
+		<div class="shoppingCartMain">
+			<div class="goodsTop">
+				<p class="tip">
+					<img src="images/addSucc.png"/>
+					商品已成功加入购物车！
+				</p>
+				<div class="clearfix goodsBox">
+					<div class="lFloat">
+						<img src="images/eg.jpg" alt="" class="lFloat" />
+						<div class="lFloat goodsDetail">
+							<p>现代风格几何图案北欧地毯客厅沙发茶几卧室满铺长方形家用可水洗现代风格几何图案北欧地毯客厅沙发茶几卧室满铺长方形家用可水洗</p>
+							<p>
+								<span>颜色：灰色</span>
+								<span>尺码：三人位+左贵妃位</span>
+								<span>数量：1</span>
+							</p>
+						</div>
+					</div>
+					<div class="rFloat btnWrap">
+						<a href="spxq.html" class="searchGoodsDetail">查看商品详情</a>
+						<a href="shoppingCart.html" class="goShoppingCart">去购物车结算</a>
+					</div>
+				</div>
+			</div>
+			
+			<!--猜你喜欢-->
+			<div class="guessLove">
+				<h3 class="title">猜你喜欢</h3>
+				<ul class="clearfix">
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<%-include footer  %>
+	</div>
+	
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/addShoppingCart.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

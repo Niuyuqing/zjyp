@@ -1,0 +1,325 @@
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.personalDataMain {
+  width: 80rem;
+  height: 39.066666rem;
+  margin: 1.333333rem auto 0;
+  background: #FFFFFF;
+}
+.personalDataMain .lList {
+  width: 10rem;
+  text-align: left;
+  font-size: 0.933333rem;
+  color: #333333;
+  text-align: center;
+  border-right: 0.066666rem solid #E6E6E6;
+  height: 100%;
+}
+.personalDataMain .lList a {
+  font-size: 0.933333rem;
+  color: #333333;
+}
+.personalDataMain .lList li {
+  border-bottom: 0.066666rem solid #E6E6E6;
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+}
+.personalDataMain .lList li:nth-child(1) {
+  height: 6.666666rem;
+}
+.personalDataMain .lList li:nth-child(1) img {
+  display: block;
+  width: 3.066666rem;
+  height: 3.066666rem;
+  border-radius: 50%;
+  border: 0.066666rem solid #e6e6e6;
+  box-sizing: border-box;
+  margin: 1.066666rem auto 0.666666rem;
+}
+.personalDataMain .lList li:nth-child(1) p {
+  font-weight: bold;
+}
+.personalDataMain .lList li:nth-child(2) img {
+  display: inline-block;
+  width: 0.933333rem;
+  height: 1.066666rem;
+  margin-right: 0.666666rem;
+}
+.personalDataMain .lList li:nth-child(3) img,
+.personalDataMain .lList li:nth-child(4) img {
+  display: inline-block;
+  width: 1.066666rem;
+  height: 0.933333rem;
+  margin-right: 0.666666rem;
+}
+.personalDataMain .rBoxWrap {
+  margin-left: 1.333333rem;
+}
+.personalDataMain .rBoxWrap .addSSRMsg .title {
+  font-size: 0.933333rem;
+  color: #333333;
+  margin: 1.333333rem 0 2rem 0;
+}
+.personalDataMain .rBoxWrap .addMsgBox {
+  color: #666666;
+  font-size: 0.8rem;
+}
+.personalDataMain .rBoxWrap .addMsgBox i {
+  color: #cd2f1d;
+  font-style: normal;
+  display: inline-block;
+  margin-right: 0.266666rem;
+}
+.personalDataMain .rBoxWrap .addMsgBox p {
+  height: 1.666666rem;
+  line-height: 1.666666rem;
+  margin-bottom: 1rem;
+}
+.personalDataMain .rBoxWrap .addMsgBox p span {
+  display: inline-block;
+  width: 5.133333rem;
+  text-align: left;
+}
+.personalDataMain .rBoxWrap .addMsgBox select {
+  display: inline-block;
+  width: 5.2rem;
+  height: 1.6rem;
+  border: 0.066666rem solid #E6E6E6;
+  font-size: 0.8rem;
+  color: #666666;
+  margin-right: 0.666666rem;
+  box-sizing: border-box;
+}
+.personalDataMain .rBoxWrap .addMsgBox input {
+  display: inline-block;
+  width: 17.2rem;
+  height: 1.6rem;
+  border: 0.066666rem solid #E6E6E6;
+  font-size: 0.8rem;
+  color: #666666;
+  padding-left: 0.666666rem;
+  box-sizing: border-box;
+}
+.personalDataMain .rBoxWrap .addMsgBox button {
+  display: inline-block;
+  width: 7.2rem;
+  height: 1.733333rem;
+  font-size: 0.8rem;
+  color: #FFFFFF;
+  background: #cd2f1d;
+  border-radius: 0.133333rem;
+  cursor: pointer;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .title {
+  font-size: 0.933333rem;
+  color: #333333;
+  margin: 2.666666rem 0 2rem 0;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox {
+  width: 43.466666rem;
+  border-bottom: 0.066666rem solid #E6E6E6;
+  border-right: 0.066666rem solid #E6E6E6;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox li {
+  float: left;
+  border: 0.066666rem solid #E6E6E6;
+  border-bottom: none;
+  border-right: none;
+  box-sizing: border-box;
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+  font-size: 0.8rem;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox li:nth-child(1) {
+  width: 5.333333rem;
+  text-align: center;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox li:nth-child(2) {
+  width: 24.666666rem;
+  text-align: left;
+  padding-left: 0.666666rem;
+  box-sizing: border-box;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox li:nth-child(3) {
+  width: 6.733333rem;
+  text-align: center;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox li:nth-child(4) {
+  width: 6.733333rem;
+  text-align: center;
+}
+.personalDataMain .rBoxWrap .saveAddressBox .addressBox i {
+  font-style: normal;
+  cursor: pointer;
+  color: #144d99;
+}
+.addConsigneeMsg {
+  width: 43.333333rem;
+  height: 32rem;
+  border-radius: 0.133333rem;
+  border: 0.133333rem solid #bbbbbb;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16rem;
+  margin-left: -21.666666rem;
+  z-index: 100;
+}
+.addConsigneeMsg .title {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.933333rem;
+  background: #EBEBEB;
+  padding: 0 0.666666rem;
+  color: #666666;
+}
+.addConsigneeMsg .title img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.addConsigneeMsg .addContent {
+  width: 100%;
+  padding: 1.333333rem 0 0 1.333333rem;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.addConsigneeMsg .addContent .place,
+.addConsigneeMsg .addContent p {
+  margin-bottom: 1rem;
+}
+.addConsigneeMsg .addContent .place span:nth-child(1),
+.addConsigneeMsg .addContent p span:nth-child(1) {
+  display: inline-block;
+  width: 5.2rem;
+  text-align: left;
+}
+.addConsigneeMsg .addContent .place select {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 1.733333rem;
+  border: 0.066666rem solid #E6E6E6;
+  font-size: 0.8rem;
+  color: #666666;
+  margin-right: 0.666666rem;
+}
+.addConsigneeMsg .addContent .place div {
+  display: inline-block;
+}
+.addConsigneeMsg .addContent input {
+  display: inline-block;
+  width: 17.333333rem;
+  height: 1.733333rem;
+  border: 0.066666rem solid #E6E6E6;
+  padding-left: 0.533333rem;
+  font-size: 0.8rem;
+  color: #333;
+}
+.addConsigneeMsg .addContent i {
+  display: inline-block;
+  color: #cd2f1d;
+  margin-right: 0.2rem;
+}
+.addConsigneeMsg .addContent button {
+  display: inline-block;
+  width: 7.2rem;
+  height: 1.733333rem;
+  border-radius: 0.133333rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  font-size: 0.933333rem;
+  cursor: pointer;
+  margin-left: 5.2rem;
+  margin-top: 1rem;
+}
+.frameMask {
+  background: #000000;
+  opacity: .2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.deleteBox {
+  display: block;
+  width: 25.466666rem;
+  height: 11.733333rem;
+  background: #fff;
+  border-radius: 0.133333rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  margin-top: -5.866666rem;
+  margin-left: -12.733333rem;
+}
+.deleteBox .title {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.933333rem;
+  background: #EBEBEB;
+  padding: 0 0.666666rem;
+  color: #666666;
+}
+.deleteBox .title img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.deleteBox p:nth-child(2) {
+  padding-left: 5rem;
+  font-size: 0.933333rem;
+  color: #333333;
+  font-weight: bold;
+  margin: 1.333333rem 0;
+}
+.deleteBox p:nth-child(2) img {
+  display: inline-block;
+  width: 2.666666rem;
+  height: 2.666666rem;
+  margin-right: 0.666666rem;
+  vertical-align: middle;
+}
+.deleteBox p:nth-child(3) {
+  padding-left: 8.333333rem;
+}
+.deleteBox p:nth-child(3) button {
+  display: inline-block;
+  width: 3.466666rem;
+  height: 1.733333rem;
+  border-radius: 0.133333rem;
+  border: 0.066666rem solid #E6E6E6;
+  background: #F5F5F5;
+  margin-right: 0.666666rem;
+  font-size: 0.8rem;
+  color: #333333;
+  cursor: pointer;
+}

@@ -58,7 +58,7 @@
 		mounted: function mounted() {},
 		methods: {
 			loginClick: function loginClick() {
-				// 点击注册
+				// 点击登录
 				if (!this.checkPhone(this.phone)) {
 					this.errorTip = true;
 					this.errorTipMsg = '请输入正确手机号码';

@@ -4,14 +4,14 @@ var loginFormWrap = new Vue({
 	data : {
 		errorTip : false,   // 错误提示消息是否显示
 		errorTipMsg : '',   // 错误提示消息文本
-		phone : '',   
+		phone : '',
 		pwd : '',
 	},
 	mounted : function(){
 		
 	},
 	methods : {
-		loginClick : function () {   // 点击注册
+		loginClick : function () {   // 点击登录
 			if (!this.checkPhone(this.phone)) {
 				this.errorTip = true;
 				this.errorTipMsg = '请输入正确手机号码';
@@ -21,6 +21,8 @@ var loginFormWrap = new Vue({
 			} else {
 				this.errorTip = false;
 				this.errorTipMsg = '';
+				
+				
 			}
 		},
 		checkPhone : function (val) {  // 验证手机号

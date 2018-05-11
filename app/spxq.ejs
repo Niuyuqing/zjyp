@@ -11,7 +11,9 @@
 		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/spxq.css" />
+		<link rel="stylesheet" type="text/css" href="css/magnifier.css"/>
 		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/magnifier.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
@@ -46,7 +48,11 @@
 				<div class="content">
 					<div class="boxWrap clearfix">
 						<div class="lFloat boxLeft">
-							<img src="images/spxq_1.png" class="commodityBigPic" />
+							<!--<div class="showPicBox">
+								<a href="images/spxq_1.png" class="showPicBox">
+									<img src="images/spxq_1.png" class="commodityBigPic" />
+								</a>
+							</div>
 							<p>
 								<img src="images/spxq_1.png" />
 								<img src="images/spxq_1.png" />
@@ -54,7 +60,72 @@
 								<img src="images/spxq_1.png" />
 								<img src="images/spxq_1.png" />
 								<img src="images/spxq_1.png" style="margin-right: 0;" />
-							</p>
+							</p>-->
+							
+							<div class="magnifier" id="magnifier1">
+								<div class="magnifier-container">
+									<div class="images-cover"></div>
+									<!--当前图片显示容器-->
+									<div class="move-view"></div>
+									<!--跟随鼠标移动的盒子-->
+								</div>
+								<div class="magnifier-assembly">
+									<div class="magnifier-btn">
+										<span class="magnifier-btn-left">&lt;</span>
+										<span class="magnifier-btn-right">&gt;</span>
+									</div>
+									<!--按钮组-->
+									<div class="magnifier-line">
+										<ul class="clearfix animation03">
+											<li>
+												<div class="small-img">
+													<img src="images/spxq_1.png" />
+												</div>
+											</li>
+											<li>
+												<div class="small-img">
+													<img src="images/banner_4.jpg" />
+												</div>
+											</li>
+											<li>
+												<div class="small-img">
+													<img src="images/eg.jpg" />
+												</div>
+											</li>
+											<li>
+												<div class="small-img">
+													<img src="images/furnitureHome.png" />
+												</div>
+											</li>
+											
+											<li>
+												<div class="small-img">
+													<img src="images/eg.jpg" />
+												</div>
+											</li>
+											<li>
+												<div class="small-img">
+													<img src="images/eg.jpg" />
+												</div>
+											</li>
+											<li>
+												<div class="small-img">
+													<img src="images/furnitureHome.png" />
+												</div>
+											</li>
+											
+											<li>
+												<div class="small-img">
+													<img src="images/eg.jpg" />
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!--缩略图-->
+								</div>
+								<div class="magnifier-view"></div>
+								<!--经过放大的图片显示容器-->
+							</div>
 						</div>
 						<div class="rFloat information">
 							<h3>金可儿 床 欧式实木床豪华双人床时尚美式实木床创意橡木法式床现代简约主卧1.2米真皮床描金 1.8*2.0M单床</h3>
@@ -110,9 +181,9 @@
 							</div>
 
 							<div class="buttonWrap">
-								<p class="nowBuy">立即购买</p>
+								<a href="jsy.html" class="nowBuy">立即购买</a>
 								<p class="mask"></p>
-								<p class="addToCart"><img src="images/cart.png" />加入购物车</p>
+								<a href="addShoppingCart.html" class="addToCart"><img src="images/cart.png" />加入购物车</a>
 							</div>
 						</div>
 					</div>

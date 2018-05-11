@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>个人中心</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/appendComment.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="loginWrap">
+			<div class="loginMain">
+				<header class="loginHeadWrap toPage">
+					<div class="loginHead">
+						<a :href="toPagesArr.index">
+							<img src="images/logo.png" class="logo" />
+						</a>
+						<h2>个人中心</h2>
+					</div>
+				</header>
+
+				<div class="orderTop">
+					<p class="title">评价订单</p>
+					<p class="orderMsg">
+						<span>订单号：789456123</span>
+						<span>2018-9-6 08:23</span>
+					</p>
+				</div>
+				<div class="content clearfix">
+					<div class="lFloat goodsInfo">
+						<img src="images/eg.jpg" />
+						<p>维意定制 整体衣柜卧室家具飘窗柜书桌定做床 立减2000元 送四件套加乳胶枕 预付金，详情请咨询客服</p>
+						<p class="money">¥21.00</p>
+					</div>
+					<div class="lFloat orderCommentArea">
+						<div class="goodsScore clearfix">
+							<span class="lFloat">商品评分</span>
+							<p class="lFloat">
+								<img src="images/star_1.png"/>
+								<img src="images/star_2.png"/>
+								<img src="images/star_2.png"/>
+								<img src="images/star_2.png"/>
+								<img src="images/star_2.png"/>
+							</p>
+							<span class="score">1分</span>
+						</div>
+						
+						<div class="buyerImpression clearfix">
+							<span class="lFloat">买家印象</span>
+							<ul class="lFloat">
+								<li>质量不错</li>
+								<li>非常美观</li>
+								<li>舒服大气</li>
+								<li>做工精细</li>
+								<li>质量不错</li>
+								<li>非常美观</li>
+								<li>舒服大气</li>
+								<li>做工精细</li>
+							</ul>
+						</div>
+						
+						<div class="buyerImpressionText">
+							<span class="lFloat">买家印象</span>
+							<textarea name="" rows="" cols="">分享体验心得，给万千想买的朋友一个参考~</textarea>
+							<p class="surplusWord">还可输<i>500</i>字</p>
+						</div>
+						
+						<div class="picWrap">
+							<span class="lFloat" style="opacity: 0;">占地方</span>
+							<img src="images/eg.jpg"/>
+							<input type="file" accept="image/*" />
+							<img src="images/uploadPic.png"/>
+						</div>
+						
+						<div class="submit">
+							<span class="lFloat" style="opacity: 0;">占地方</span>
+							<button>提交</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%-include footer  %>
+		</div>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/appendComment.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

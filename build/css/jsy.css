@@ -1,0 +1,511 @@
+body {
+  background: #FFFFFF;
+}
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.loginMain .step {
+  margin-right: 3rem;
+}
+.loginMain .step span {
+  display: inline-block;
+}
+.loginMain .step .line {
+  width: 4.266666rem;
+  height: 0.266666rem;
+  border-radius: 0.133333rem;
+  margin-top: 0.6rem;
+}
+.loginMain .step .num {
+  width: 1.466666rem;
+  height: 1.466666rem;
+  line-height: 1.466666rem;
+  text-align: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+.loginMain .step .box_1,
+.loginMain .step .box_2,
+.loginMain .step .box_3 {
+  height: 2.333333rem;
+  width: 10rem;
+  position: relative;
+  margin-top: 1.333333rem;
+  float: left;
+}
+.loginMain .step .box_1 div,
+.loginMain .step .box_2 div,
+.loginMain .step .box_3 div {
+  height: 1.466666rem;
+}
+.loginMain .step .box_1 div .line,
+.loginMain .step .box_2 div .line,
+.loginMain .step .box_3 div .line,
+.loginMain .step .box_1 div .num,
+.loginMain .step .box_2 div .num,
+.loginMain .step .box_3 div .num {
+  background: #d1eab9;
+}
+.loginMain .step .box_1 p,
+.loginMain .step .box_2 p,
+.loginMain .step .box_3 p {
+  color: #d1eab9;
+  font-size: 0.8rem;
+  text-align: center;
+  position: absolute;
+  top: 0.133333rem;
+  left: 0;
+  width: 10rem;
+}
+.loginMain .step .box_2 div .line,
+.loginMain .step .box_2 div .num {
+  background: #77af46;
+}
+.loginMain .step .box_2 p {
+  color: #77af46;
+}
+.loginMain .step .box_3 div .line,
+.loginMain .step .box_3 div .num {
+  background: #c3c3c3;
+}
+.loginMain .step .box_3 p {
+  color: #c3c3c3;
+}
+.jsyMain {
+  width: 73.333333rem;
+  margin: 3.333333rem auto 0;
+}
+.jsyMain .title {
+  font-size: 1.066666rem;
+  color: #666666;
+  margin-bottom: 0.933333rem;
+}
+.jsyMain .content {
+  width: 73.333333rem;
+  height: auto;
+  border: 0.066666rem solid #e6e6e6;
+  padding: 1.333333rem 2.666666rem 1.333333rem 1.333333rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.jsyMain .content .title {
+  font-size: 0.933333rem;
+  color: #333333;
+  font-weight: bold;
+}
+.jsyMain .content .title .add {
+  color: #144d99;
+  font-weight: normal;
+  cursor: pointer;
+}
+.jsyMain .content .consignee {
+  padding-bottom: 1.333333rem;
+  border-bottom: 0.066666rem solid #e6e6e6;
+}
+.jsyMain .content .consignee .line {
+  position: relative;
+  color: #666666;
+  font-size: 0.8rem;
+  margin-bottom: 0.666666rem;
+}
+.jsyMain .content .consignee .line .name {
+  display: inline-block;
+  width: 9.066666rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  border: 0.066666rem solid #E6E6E6;
+}
+.jsyMain .content .consignee .line p {
+  width: 58.8rem;
+  height: 2rem;
+  line-height: 2rem;
+  padding-left: 0.666666rem;
+  padding-right: 0.666666rem;
+  box-sizing: border-box;
+}
+.jsyMain .content .consignee .line .mask {
+  width: 58.8rem;
+  height: 2rem;
+  background: #cd2f1d;
+  opacity: .1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  display: none;
+}
+.jsyMain .content .consignee .line .defAddress {
+  display: inline-block;
+  width: 3.466666rem;
+  height: 1.333333rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  margin-top: 0.333333rem;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  line-height: 1.333333rem;
+  text-align: center;
+}
+.jsyMain .content .consignee .line .edit,
+.jsyMain .content .consignee .line .setDefAddress,
+.jsyMain .content .consignee .line .del {
+  color: #144d99;
+  cursor: pointer;
+  display: none;
+  margin-right: 0.8rem;
+}
+.jsyMain .content .consignee .unfoldAddress {
+  font-size: 0.8rem;
+  color: #666666;
+  cursor: pointer;
+  display: inline-block;
+}
+.jsyMain .content .consignee .unfoldAddress img {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.533333rem;
+  margin-left: 0.533333rem;
+}
+.jsyMain .content .payMethodWrap {
+  padding: 1.333333rem 0;
+  border-bottom: 0.066666rem solid #E6E6E6;
+}
+.jsyMain .content .payMethodWrap button {
+  display: inline-block;
+  width: 6.133333rem;
+  height: 2rem;
+  border: 0.066666rem solid #E6E6E6;
+  font-size: 0.8rem;
+  background: #FFFFFF;
+  margin-right: 0.666666rem;
+  cursor: pointer;
+}
+.jsyMain .content .listWrap {
+  padding: 1.333333rem 0;
+}
+.jsyMain .content .listWrap .heading {
+  font-size: 0.8rem;
+  color: #333333;
+  margin-bottom: 1.333333rem;
+}
+.jsyMain .content .listWrap .heading p {
+  display: inline-block;
+}
+.jsyMain .content .listWrap .heading p:nth-child(1) {
+  width: 20.266666rem;
+  margin-right: 5.333333rem;
+}
+.jsyMain .content .listWrap .heading p:nth-child(2) {
+  width: 14.133333rem;
+  margin-right: 2rem;
+}
+.jsyMain .content .listWrap .heading p:nth-child(3) {
+  width: 7.6rem;
+  margin-right: 2rem;
+}
+.jsyMain .content .listWrap .heading p:nth-child(4) {
+  width: 5.466666rem;
+  margin-right: 6.8rem;
+}
+.jsyMain .content .listWrap ul {
+  font-size: 0.8rem;
+  color: #333333;
+}
+.jsyMain .content .listWrap ul li {
+  margin-bottom: 1.333333rem;
+}
+.jsyMain .content .listWrap ul li:nth-child(1) {
+  font-size: 0.8rem;
+  color: #666666;
+}
+.jsyMain .content .listWrap ul p {
+  display: inline-block;
+  float: left;
+}
+.jsyMain .content .listWrap ul p:nth-child(1) {
+  margin-right: 5.333333rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(1) img {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 5.333333rem;
+  border: 1px solid #E6E6E6;
+  margin-right: 0.8rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(1) span {
+  display: inline-block;
+  width: 14.133333rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.jsyMain .content .listWrap ul p:nth-child(2) {
+  width: 14.133333rem;
+  margin-right: 2rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(2) i {
+  color: #333333;
+  font-style: normal;
+}
+.jsyMain .content .listWrap ul p:nth-child(3) {
+  width: 7.6rem;
+  margin-right: 2rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(4) {
+  width: 5.466666rem;
+  color: #333333;
+  height: 2rem;
+  line-height: 2rem;
+  background: #ebebeb;
+  display: inline-block;
+  border: 0.066666rem solid #e6e6e6;
+  margin-right: 6.666666rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(4) .reduce,
+.jsyMain .content .listWrap ul p:nth-child(4) .add {
+  display: inline-block;
+  width: 1.733333rem;
+  height: 1.733333rem;
+  cursor: pointer;
+}
+.jsyMain .content .listWrap ul p:nth-child(4) .reduce img {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.133333rem;
+  margin-left: 0.6rem;
+  margin-top: 0.933333rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(4) .add img {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.533333rem;
+  margin-top: 0.533333rem;
+  margin-left: 0.533333rem;
+}
+.jsyMain .content .listWrap ul p:nth-child(4) input {
+  display: inline-block;
+  width: 2rem;
+  height: 1.466666rem;
+  margin-top: 0.2rem;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.jsyMain .content .listWrap ul p:nth-child(5) {
+  color: #cd2f1d;
+}
+.jsyMain .balanceWrap {
+  width: 73.333333rem;
+  margin: 1.333333rem auto 0;
+}
+.jsyMain .balanceWrap div {
+  text-align: right;
+  padding: 1.333333rem 3.333333rem 0 0;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  color: #666666;
+  height: 5rem;
+  width: 73.333333rem;
+  background: #f5f5f5;
+}
+.jsyMain .balanceWrap p:nth-child(1) {
+  margin-bottom: 0.666666rem;
+}
+.jsyMain .balanceWrap .num {
+  color: #cd2f1d;
+}
+.jsyMain .balanceWrap .money {
+  font-size: 1.066666rem;
+  color: #cd2f1d;
+  font-weight: bold;
+}
+.jsyMain .balanceWrap .addressee {
+  display: inline-block;
+  margin-left: 2rem;
+}
+.jsyMain .balanceWrap .submitOrder {
+  display: inline-block;
+  width: 8.533333rem;
+  height: 2.266666rem;
+  font-size: 1.2rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  font-weight: bold;
+  border-radius: 0.133333rem;
+  margin: 0.666666rem 0 2.666666rem 0;
+  cursor: pointer;
+  text-align: center;
+  line-height: 2.266666rem;
+}
+.deleteBox {
+  display: block;
+  width: 25.466666rem;
+  height: 11.733333rem;
+  background: #fff;
+  border-radius: 0.133333rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  margin-top: -5.866666rem;
+  margin-left: -12.733333rem;
+}
+.deleteBox .title {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.933333rem;
+  background: #EBEBEB;
+  padding: 0 0.666666rem;
+  color: #666666;
+}
+.deleteBox .title img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.deleteBox p:nth-child(2) {
+  padding-left: 5rem;
+  font-size: 0.933333rem;
+  color: #333333;
+  font-weight: bold;
+  margin: 1.333333rem 0;
+}
+.deleteBox p:nth-child(2) img {
+  display: inline-block;
+  width: 2.666666rem;
+  height: 2.666666rem;
+  margin-right: 0.666666rem;
+  vertical-align: middle;
+}
+.deleteBox p:nth-child(3) {
+  padding-left: 8.333333rem;
+}
+.deleteBox p:nth-child(3) button {
+  display: inline-block;
+  width: 3.466666rem;
+  height: 1.733333rem;
+  border-radius: 0.133333rem;
+  border: 0.066666rem solid #E6E6E6;
+  background: #F5F5F5;
+  margin-right: 0.666666rem;
+  font-size: 0.8rem;
+  color: #333333;
+  cursor: pointer;
+}
+.frameMask {
+  background: #000000;
+  opacity: .2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.addConsigneeMsg {
+  width: 43.333333rem;
+  height: 32rem;
+  border-radius: 0.133333rem;
+  border: 0.133333rem solid #bbbbbb;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16rem;
+  margin-left: -21.666666rem;
+  z-index: 100;
+}
+.addConsigneeMsg .title {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.933333rem;
+  background: #EBEBEB;
+  padding: 0 0.666666rem;
+  color: #666666;
+}
+.addConsigneeMsg .title img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.addConsigneeMsg .addContent {
+  width: 100%;
+  padding: 1.333333rem 0 0 1.333333rem;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.addConsigneeMsg .addContent .place,
+.addConsigneeMsg .addContent p {
+  margin-bottom: 1rem;
+}
+.addConsigneeMsg .addContent .place span:nth-child(1),
+.addConsigneeMsg .addContent p span:nth-child(1) {
+  display: inline-block;
+  width: 5.2rem;
+  text-align: left;
+}
+.addConsigneeMsg .addContent .place select {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 1.733333rem;
+  border: 0.066666rem solid #E6E6E6;
+  font-size: 0.8rem;
+  color: #666666;
+  margin-right: 0.666666rem;
+}
+.addConsigneeMsg .addContent .place div {
+  display: inline-block;
+}
+.addConsigneeMsg .addContent input {
+  display: inline-block;
+  width: 17.333333rem;
+  height: 1.733333rem;
+  border: 0.066666rem solid #E6E6E6;
+  padding-left: 0.533333rem;
+  font-size: 0.8rem;
+  color: #333;
+}
+.addConsigneeMsg .addContent i {
+  display: inline-block;
+  color: #cd2f1d;
+  margin-right: 0.2rem;
+}
+.addConsigneeMsg .addContent button {
+  display: inline-block;
+  width: 7.2rem;
+  height: 1.733333rem;
+  border-radius: 0.133333rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  font-size: 0.933333rem;
+  cursor: pointer;
+  margin-left: 5.2rem;
+  margin-top: 1rem;
+}

@@ -1,3 +1,15 @@
+.zjypMain img {
+  display: block;
+  width: 100%;
+}
+.zjypMain .banner {
+  height: 43.066666rem;
+}
+.zjypMain .bg_1,
+.zjypMain .bg_2,
+.zjypMain .bg_3 {
+  height: 40.666666rem;
+}
 .navigationWrap .goodsClass .goodsWrapBox {
   display: none;
 }

@@ -1,0 +1,314 @@
+.loginMain {
+    .loginHeadWrap {
+        width: 100%;
+        background: #FFFFFF;
+    }
+    .loginHead {
+        height: 4rem;
+        width: 80rem;
+        line-height: 4rem;
+        padding: 1.666666rem 0;
+        margin: 0 auto;
+        h2 {
+            display: inline-block;
+            font-size: 1.6rem;
+            color: #333333;
+        }
+    }
+    .logo {
+        display: inline-block;
+        width: 13.6rem;
+        height: 4rem;
+        margin: 0 2.666666rem 0 0;
+        vertical-align: middle;
+    }
+}
+
+.personalDataMain {
+    width: 80rem;
+    height: 39.066666rem;
+    margin: 1.333333rem auto 0;
+    background: #FFFFFF;
+    .lList {
+        width: 10rem;
+        text-align: left;
+        font-size: 0.933333rem;
+        color: #333333;
+        text-align: center;
+        border-right: 0.066666rem solid #E6E6E6;
+        height: 100%;
+        a {
+            font-size: 0.933333rem;
+            color: #333333;
+        }
+        li {
+            border-bottom: 0.066666rem solid #E6E6E6;
+            height: 2.666666rem;
+            line-height: 2.666666rem;
+        }
+        li:nth-child(1) {
+            height: 6.666666rem;
+            img {
+                display: block;
+                width: 3.066666rem;
+                height: 3.066666rem;
+                border-radius: 50%;
+                border: 0.066666rem solid #e6e6e6;
+                box-sizing: border-box;
+                margin: 1.066666rem auto 0.666666rem;
+            }
+            p {
+                font-weight: bold;
+            }
+        }
+        li:nth-child(2) {
+            img {
+                display: inline-block;
+                width: 0.933333rem;
+                height: 1.066666rem;
+                margin-right: 0.666666rem;
+            }
+        }
+        li:nth-child(3),
+        li:nth-child(4) {
+            img {
+                display: inline-block;
+                width: 1.066666rem;
+                height: 0.933333rem;
+                margin-right: 0.666666rem;
+            }
+        }
+    }
+    .rBoxWrap{
+        width: 67.333333rem;
+        
+        .headImg{
+            width: 5.4rem;
+            height: 5.4rem;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                display: inline-block;
+                width: 5.4rem;
+                height: 5.4rem;
+                border: 0.066666rem solid #e6e6e6;
+                box-sizing: border-box;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 10;
+            }
+            p{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 5.4rem;
+                height: 1.333333rem;
+            }
+            .text{
+                z-index: 20;
+                font-size: 0.8rem;
+                color: #fafafa;
+                text-align: center;
+                line-height: 1.333333rem;
+                cursor: pointer;
+            }
+            .headImgMask{
+                background: black;
+                opacity: .2;
+                z-index: 15;
+                cursor: pointer;
+            }
+//          input{
+//              display: inline-block;
+//              width: 5.4rem;
+//              height: 1.333333rem;
+//              position: absolute;
+//              bottom: 0;
+//              left: 0;
+//              z-index: 30;
+//              opacity: 0;
+//          }
+        }
+        .username{
+            margin-left: 1rem;
+            font-size: 0.933333rem;
+            color: #333333;
+            font-weight: bold;
+        }
+        .userData{
+            height: 5.4rem;
+            line-height: 5.4rem;
+            padding: 1.333333rem;
+            border-bottom: 0.066666rem solid #E6E6E6;
+        }
+        .userDataMsg{
+            p{
+                height: 2rem;
+                line-height: 2rem;
+                margin-top: 1.333333rem;
+                font-size: 0.8rem;
+                color: #666;
+            }
+            span{
+                display: inline-block;
+                width: 5.066666rem;
+                text-align: left;
+                font-size: 0.933333rem;
+                color: #666666;
+            }
+            .inputText{
+                display: inline-block;
+                width: 14rem;
+                height: 2rem;
+                border: 0.066666rem solid #E6E6E6;
+                box-sizing: border-box;
+                padding-left: 0.666666rem;
+            }
+            select{
+                display: inline-block;
+                width: 8rem;
+                height: 2rem;
+                border: 0.066666rem solid #E6E6E6;
+                font-size: 0.8rem;
+                color: #666666;
+                margin:0 0.8rem;
+            }
+            .sexMan{
+                display: inline-block;
+                margin-right: 0.933333rem;
+            }
+            button{
+                display: inline-block;
+                width: 13.8rem;
+                height: 3.066666rem;
+                background: #cd2f1d;
+                font-size: 1.066666rem;
+                color: #FFFFFF;
+                border-radius: 0.133333rem;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// 自定义头像弹框
+.customHeadImg{
+    width: 37.6rem;
+    height: 34.266666rem;
+    background: #FFFFFF;
+    border-radius: 0.333333rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12rem 0 0 -18.8rem;
+    z-index: 30;
+    .title{
+        font-size: 0.933333rem;
+        color: #666666;
+        height: 2rem;
+        line-height: 2rem;
+        background: #ebebeb;
+        border-top-left-radius: 0.333333rem;
+        border-top-right-radius: 0.333333rem;
+        position: relative;
+        padding: 0 0.666666rem;
+    }
+    .close{
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        position: absolute;
+        right: 0.666666rem;
+        top: 0.6rem;
+        cursor: pointer;
+    }
+    .uploadImg{
+        font-size: 0.8rem;
+        color: #666666;
+        height: 1.733333rem;
+        line-height: 1.733333rem;
+        margin: 1.333333rem 0;
+        padding: 0 0.666666rem;
+        button{
+            width: 5.333333rem;
+            height: 1.733333rem;
+            font-size: 0.8rem;
+            color: #666666;
+            border-radius: 0.133333rem;
+            margin-right: 0.666666rem;
+        }
+    }
+    .picBox{
+        width: 36.266666rem;
+        height: 24rem;
+        border: 0.066666rem solid #e6e6e6;
+        margin: 0 0.666666rem 0;
+    }
+    .bigPic{
+        width: 24rem;
+        height: 24rem;
+        background: #e6e6e6;
+        position: relative;
+        img{
+            display: inline-block;
+            width: 5.333333rem;
+            height: 4.8rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -2.4rem;
+            margin-left: -2.666666rem;
+        }
+    }
+    .smallPicBox{
+        margin: 2rem 0 0 1rem;
+        p{
+            font-size: 0.8rem;
+            color: #666666;
+            margin-bottom: 0.666666rem;
+        }
+    }
+    .smallPic{
+        width: 6.666666rem;
+        height: 6.666666rem;
+        background: #E6E6E6;
+        position: relative;
+        margin-left: 1.6rem;
+        img{
+            display: inline-block;
+            width: 1.466666rem;
+            height: 1.333333rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.666666rem;
+            margin-left: -0.733333rem;
+        }
+    }
+    .saveBtn{
+        text-align: center;
+        margin-top: 1.333333rem;
+        button{
+            display: inline-block;
+            width: 5.333333rem;
+            height: 1.733333rem;
+            background: #cd2f1d;
+            font-size: 0.8rem;
+            color: #FFFFFF;
+            border-radius: 0.133333rem;
+            cursor: pointer;
+        }
+    }
+}
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: .2;
+    z-index: 25;
+    width: 100%;
+    height: 100%;
+}

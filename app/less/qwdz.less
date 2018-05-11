@@ -3,9 +3,60 @@
 }
 
 .banner{
-    display: block;
-    width: 100%;
+    position: relative;
     height: 43.066666rem;
+    img{
+        display: block;
+        width: 100%;
+        height: 43.066666rem;
+        margin: 0 auto;
+    }
+    .blackMask{
+        width: 57.466666rem;
+        height: 8.266666rem;
+        background: #000000;
+        opacity: .5;
+        position: absolute;
+        bottom: 2rem;
+        left: 35.266666rem;
+        z-index: 3;
+        padding: 1.6rem 2rem;
+        box-sizing: border-box;
+    }
+    .searchWrap{
+        width: 57.466666rem;
+        height: 8.266666rem;
+        position: absolute;
+        bottom: .5rem;
+        left: 35.266666rem;
+        padding: 1.6rem 2rem;
+        box-sizing: border-box;
+        z-index: 5;
+        h3{
+            font-size: 1.466666rem;
+            color: #fafafa;
+            margin-bottom: 0.866666rem;
+        }
+        input,button{
+            height: 2.8rem;
+            box-sizing: border-box;
+            font-size: 0.933333rem;
+        }
+        .username{
+            width: 13.066666rem;
+            padding-left: 1.333333rem;
+        }
+        .phone{
+            width: 28.8rem;
+            padding-left: 1.333333rem;
+        }
+        button{
+            width: 10.666666rem;
+            background: #cd2f1d;
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+    }
 }
 
 .meetFutureHome{

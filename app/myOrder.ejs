@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>个人中心</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/myOrder.css" />
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<div class="loginWrap">
+		<div class="loginMain">
+			<header class="loginHeadWrap toPage">
+				<div class="loginHead">
+					<a :href="toPagesArr.index">
+						<img src="images/logo.png" class="logo"/>
+					</a>
+					<h2>欢迎登录</h2>
+				</div>
+			</header>
+			
+			<div class="content">
+				<img src="images/banner_1.png" class="loginBg"/>
+				
+				<div class="loginFormWrap">
+					<form action="" method="post">
+						<h3>账号登录</h3>
+						<p class="errorTip" v-if="errorTip">
+							<img src="images/errorTip.png"/>{{errorTipMsg}}
+							<span class="errorTipMask"></span>
+						</p>
+						<p class="phone"><input type="text" placeholder="手机号" v-model="phone" /></p>
+						<p class="pwd"><input type="password" placeholder="密码" v-model="pwd" /></p>
+						<p class="forgetPwd clearfix"><a href="retrievePwd.html" class="rFloat">忘记密码</a></p>
+					</form>
+					<p><button class="loginBtn" @click="loginClick()">登录</button></p>
+					<p class="registerBtn"><a href="register.html">注册</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="copyRight">
+			<p>CopyRight © 筑家优品 沪ICP备17040405号-1</p>
+		</div>
+	</div>
+	
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/myOrder.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>个人中心</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/receivingAddress.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="loginWrap">
+			<div class="loginMain">
+				<header class="loginHeadWrap toPage">
+					<div class="loginHead">
+						<a :href="toPagesArr.index">
+							<img src="images/logo.png" class="logo" />
+						</a>
+						<h2>个人中心</h2>
+					</div>
+				</header>
+
+				<div class="personalDataMain clearfix">
+					<div class="lFloat lList">
+						<ul>
+							<li>
+								<a href="personalData.html">
+									<img src="images/eg.jpg" />
+									<p>超级买买买</p>
+								</a>
+							</li>
+							<li><img src="images/myOrder_1.png" />
+								<a href="personCenter.html">我的订单</a>
+							</li>
+							<li>
+								<a href="shoppingCart.html"><img src="images/shoppingCart_1.png" />我的购物车</a>
+							</li>
+							<li><img src="images/collectAddress_2.png" />
+								<a href="#" style="color: #cd2f1d;">收货地址</a>
+							</li>
+						</ul>
+					</div>
+					<div class="rBoxWrap lFloat">
+						<div class="addSSRMsg">
+							<p class="title">新增收货人信息</p>
+							<div class="addMsgBox">
+								<p>
+									<span><i>*</i>所在地区</span>
+									<select name="">
+										<option value="">请选择</option>
+									</select>
+									<select name="">
+										<option value="">请选择</option>
+									</select>
+									<select name="">
+										<option value="">请选择</option>
+									</select>
+								</p>
+								<p>
+									<span><i>*</i>收货人</span>
+									<input type="text" />
+								</p>
+								<p>
+									<span><i>*</i>详细地址</span>
+									<input type="text" />
+								</p>
+								<p>
+									<span><i>*</i>手机号码</span>
+									<input type="text" />
+								</p>
+								<p>
+									<span style="opacity: 0;"><i>*</i>占地方</span>
+									<button>保存收货人信息</button>
+								</p>
+							</div>
+						</div>
+						
+						<div class="saveAddressBox">
+							<p class="title">已保存的地址</p>
+							<div class="addressBox">
+								<ul class="clearfix subTitle">
+									<li>收货人</li>
+									<li>详细地址</li>
+									<li>手机号码</li>
+									<li>操作</li>
+								</ul>
+								<ul class="clearfix">
+									<li>张小娴</li>
+									<li>安徽池州东县中央大街29号</li>
+									<li>18956565656</li>
+									<li>
+										<i @click="editAddressBoxFn(true)">编辑</i>
+										<i @click="delAddressBoxFn(true)">删除</i>
+									</li>
+								</ul>
+								<ul class="clearfix">
+									<li>张小娴</li>
+									<li>安徽池州东县中央大街29号</li>
+									<li>18956565656</li>
+									<li>
+										<i @click="editAddressBoxFn(true)">编辑</i>
+										<i @click="delAddressBoxFn(true)">删除</i>
+									</li>
+								</ul>                                                                              
+								<ul class="clearfix">
+									<li>张小娴</li>
+									<li>安徽池州东县中央大街29号</li>
+									<li>18956565656</li>
+									<li>
+										<i @click="editAddressBoxFn(true)">编辑</i>
+										<i @click="delAddressBoxFn(true)">删除</i>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<!--新增收货人信息-->
+					<div class="addConsigneeMsg" v-if="editAddressBox">
+						<p class="title clearfix">
+							<span class="lFloat">编辑收货人信息</span>
+							<img src="images/close_del_box.png" class="rFloat" @click="editAddressBoxFn(false)" />
+						</p>
+						<div class="addContent">
+							<div class="place">
+								<span><i>*</i>所在地区</span>
+								<div>
+									<select name="">
+										<option value="">请选择</option>
+									</select>
+									<select name="">
+										<option value="">请选择</option>
+									</select>
+									<select name="">
+										<option value="">请选择</option>
+									</select>
+								</div>
+							</div>
+							<p>
+								<span><i>*</i>收货人</span>
+								<input type="text" />
+							</p>
+							<p>
+								<span><i>*</i>详细地址</span>
+								<input type="text" />
+							</p>
+							<p>
+								<span><i>*</i>手机号码</span>
+								<input type="text" />
+							</p>
+							<p>
+								<button @click="editAddressBoxFn(false)">保存收货人信息</button>
+							</p>
+						</div>
+					</div>
+					
+					
+					<!--删除收货人信息弹窗-->
+					<div class="deleteBox" v-if="delBox">
+						<p class="title clearfix">
+							<span class="lFloat">删除提示</span>
+							<img src="images/close_del_box.png" class="rFloat" @click="delAddressBoxFn(false)" />
+						</p>
+						<p>
+							<img src="images/del_icon.png" class="delIcon"/>
+							您确定要删除该订单吗？
+						</p>
+						<p>
+							<button @click="delAddressBoxFn(false)">确定</button>
+							<button @click="delAddressBoxFn(false)">取消</button>
+						</p>
+					</div>
+					
+					<div class="frameMask" v-if="editAddressBox||delBox"></div>
+				</div>
+			</div>
+
+			<%-include footer  %>
+		</div>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/receivingAddress.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>购物车</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/shoppingCart.css" />
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	
+	<div class="loginWrap">
+		<div class="loginMain">
+			<header class="loginHeadWrap toPage">
+				<div class="loginHead">
+					<div class="lFloat">
+						<a :href="toPagesArr.index">
+							<img src="images/logo.png" class="logo"/>
+						</a>
+						<h2>购物车</h2>
+					</div>
+				</div>
+			</header>
+		</div>
+		
+		<div class="shoppingCartMain">
+			<p class="title">全部商品 3</p>
+			<div class="content">
+				<div class="contTitle clearfix">
+					<p><img src="images/select_1.png" class="lFloat goodsSelect" @click="selectAll()"/>全选</p>
+					<p>商品</p>
+					<p>单价</p>
+					<p>数量</p>
+					<p>小计</p>
+					<p>操作</p>
+				</div>
+				<div class="lineWrap clearfix">
+					<div class="line">
+						<p class="clearfix">
+							<img src="images/select_1.png" class="lFloat goodsSelect" @click="selectGoods($event)"/>
+							<img src="images/eg.jpg" class="lFloat"/>
+						</p>
+						<p>LOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cmLOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cm</p>
+						<p>
+							<span>颜色：灰色</span><br />
+							<span>尺码：三人位+左贵妃位</span>
+						</p>
+						<p>
+							<span>¥3799.00</span><br />
+							<span>¥3799.00</span>
+						</p>
+						<p>
+							<span class="reduce lFloat">
+								<img src="images/jian.png" />
+							</span>
+							<input type="text" class="text lFloat" />
+							<span class="add lFloat">
+								<img src="images/jia.png" />
+							</span>
+						</p>
+						<p>
+							¥3899.00
+						</p>
+						<p>删除</p>
+					</div>
+				</div>
+				
+				<div class="lineWrap clearfix">
+					<div class="line">
+						<p class="clearfix">
+							<img src="images/select_1.png" class="lFloat goodsSelect" @click="selectGoods($event)"/>
+							<img src="images/eg.jpg" class="lFloat"/>
+						</p>
+						<p>LOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cmLOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cm</p>
+						<p>
+							<span>颜色：灰色</span><br />
+							<span>尺码：三人位+左贵妃位</span>
+						</p>
+						<p>
+							<span>¥3799.00</span><br />
+							<span>¥3799.00</span>
+						</p>
+						<p>
+							<span class="reduce lFloat">
+								<img src="images/jian.png" />
+							</span>
+							<input type="text" class="text lFloat" />
+							<span class="add lFloat">
+								<img src="images/jia.png" />
+							</span>
+						</p>
+						<p>
+							¥3899.00
+						</p>
+						<p>删除</p>
+					</div>
+				</div>
+				
+				<div class="lineWrap clearfix">
+					<div class="line">
+						<p class="clearfix">
+							<img src="images/select_1.png" class="lFloat goodsSelect" @click="selectGoods($event)"/>
+							<img src="images/eg.jpg" class="lFloat"/>
+						</p>
+						<p>LOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cmLOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cm</p>
+						<p>
+							<span>颜色：灰色</span><br />
+							<span>尺码：三人位+左贵妃位</span>
+						</p>
+						<p>
+							<span>¥3799.00</span><br />
+							<span>¥3799.00</span>
+						</p>
+						<p>
+							<span class="reduce lFloat">
+								<img src="images/jian.png" />
+							</span>
+							<input type="text" class="text lFloat" />
+							<span class="add lFloat">
+								<img src="images/jia.png" />
+							</span>
+						</p>
+						<p>
+							¥3899.00
+						</p>
+						<p>删除</p>
+					</div>
+				</div>
+				
+				<div class="goodsAllPic clearfix">
+					<img src="images/prev.png" class="prev lFloat"/>
+					<p class="lFloat">
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+						<img src="images/eg.jpg"/>
+					</p>
+					<img src="images/next.png" class="next rFloat"/>
+				</div>
+			</div>
+			
+			<div class="detailedInformation clearfix">
+				<p class="lFloat allSelect">
+					<img src="images/select_1.png" class="goodsSelect"  @click="selectAll()" style="cursor: pointer;"/>
+					<span class="allChose">全选</span>
+					<span class="del">删除</span>
+				</p>
+				<div class="rFloat selectGoods">
+					<span class="lFloat">已选商品</span>
+					<p class="lFloat open" v-if="openOrTakeup" @click="openOrTakeupFn()">展开 <img src="images/openGoods.png"/></p>
+					<p class="lFloat open" v-if="!openOrTakeup" @click="openOrTakeupFn()">收起 <img src="images/backupGoods.png"/></p>
+					
+					<p class="lFloat money">
+						<span>总价：<i class="allMoney">¥7956.00</i></span><br />
+						<span>节省：<i>¥200.00</i></span>
+					</p>
+					<a href="jsy.html" class="rFloat">结算</a>
+				</div>
+			</div>
+			
+			<!--猜你喜欢-->
+			<div class="guessLove">
+				<h3 class="title">猜你喜欢</h3>
+				<ul class="clearfix">
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+					<li style="margin-right: 0;">
+						<a href="#">
+							<img src="images/spsx_eg_pic.png"/>
+							<p class="msg">
+								<span class="money"><i>¥</i>2999.00</span>
+								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<%-include footer  %>
+	</div>
+	
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/shoppingCart.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

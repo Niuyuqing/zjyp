@@ -1,0 +1,318 @@
+body {
+  background: #FFFFFF;
+}
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.shoppingCartMain {
+  width: 80rem;
+  margin: 0 auto;
+  padding: 3.333333rem 0 0 0;
+}
+.shoppingCartMain .title {
+  color: #cd2f1d;
+  font-size: 1.066666rem;
+  font-weight: bold;
+  margin-bottom: 0.666666rem;
+}
+.shoppingCartMain .content {
+  width: 80rem;
+  margin: 0 auto;
+  border: 0.066666rem solid #E6E6E6;
+  border-bottom: none;
+}
+.shoppingCartMain .content .contTitle {
+  padding: 0.666666rem;
+}
+.shoppingCartMain .content .contTitle img {
+  display: inline-block;
+  margin-right: 0.666666rem;
+  width: 0.933333rem;
+  height: 0.933333rem;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.shoppingCartMain .content .contTitle p {
+  float: left;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.shoppingCartMain .content .contTitle p:nth-child(1) {
+  width: 8.533333rem;
+}
+.shoppingCartMain .content .contTitle p:nth-child(1) input {
+  display: inline-block;
+  width: 0.933333rem;
+  height: 0.933333rem;
+}
+.shoppingCartMain .content .contTitle p:nth-child(2) {
+  width: 30rem;
+  margin-right: 3.333333rem;
+}
+.shoppingCartMain .content .contTitle p:nth-child(3) {
+  width: 10rem;
+}
+.shoppingCartMain .content .contTitle p:nth-child(4) {
+  width: 10rem;
+  margin-right: 2rem;
+}
+.shoppingCartMain .content .contTitle p:nth-child(5) {
+  width: 10rem;
+}
+.shoppingCartMain .lineWrap {
+  border-bottom: 0.066666rem solid #E6E6E6;
+}
+.shoppingCartMain .line {
+  height: 6.666666rem;
+  padding: 0.666666rem;
+  box-sizing: border-box;
+}
+.shoppingCartMain .line p {
+  float: left;
+}
+.shoppingCartMain .line p:nth-child(1) img:nth-child(1) {
+  display: inline-block;
+  width: 0.933333rem;
+  height: 0.933333rem;
+  margin-top: 2.2rem;
+  margin-right: 1.333333rem;
+  cursor: pointer;
+}
+.shoppingCartMain .line p:nth-child(1) img:nth-child(2) {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 5.333333rem;
+  border: 0.066666rem solid #E6E6E6;
+  margin-right: 0.666666rem;
+}
+.shoppingCartMain .line p:nth-child(2) {
+  font-size: 0.8rem;
+  color: #333333;
+  width: 13.333333rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-right: 3.333333rem;
+}
+.shoppingCartMain .line p:nth-child(3) {
+  width: 13.333333rem;
+  margin-right: 3.333333rem;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.shoppingCartMain .line p:nth-child(4) {
+  width: 6.666666rem;
+  margin-right: 3.333333rem;
+  font-size: 0.8rem;
+}
+.shoppingCartMain .line p:nth-child(4) span:nth-child(1) {
+  text-decoration: line-through;
+  color: #666666;
+}
+.shoppingCartMain .line p:nth-child(4) span:nth-child(2) {
+  color: #333333;
+}
+.shoppingCartMain .line p:nth-child(5) {
+  width: 5.466666rem;
+  color: #333333;
+  height: 2rem;
+  line-height: 2rem;
+  background: #ebebeb;
+  display: inline-block;
+  border: 0.066666rem solid #e6e6e6;
+  margin-right: 6.666666rem;
+}
+.shoppingCartMain .line p:nth-child(5) .reduce,
+.shoppingCartMain .line p:nth-child(5) .add {
+  display: inline-block;
+  width: 1.733333rem;
+  height: 1.733333rem;
+  cursor: pointer;
+}
+.shoppingCartMain .line p:nth-child(5) .reduce img {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.133333rem;
+  margin-left: 0.6rem;
+  margin-top: 0.933333rem;
+}
+.shoppingCartMain .line p:nth-child(5) .add img {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.533333rem;
+  margin-top: 0.533333rem;
+  margin-left: 0.533333rem;
+}
+.shoppingCartMain .line p:nth-child(5) input {
+  display: inline-block;
+  width: 2rem;
+  height: 1.466666rem;
+  margin-top: 0.2rem;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.shoppingCartMain .line p:nth-child(6) {
+  color: #cd2f1d;
+  font-size: 0.8rem;
+  width: 6.666666rem;
+  margin-right: 3.333333rem;
+}
+.shoppingCartMain .line p:nth-child(7) {
+  font-size: 0.8rem;
+  color: #666666;
+}
+.shoppingCartMain .goodsAllPic {
+  padding: 0.666666rem 1.333333rem;
+  height: 6.666666rem;
+  box-sizing: border-box;
+  border: 0.066666rem solid #cd2f1d;
+}
+.shoppingCartMain .goodsAllPic .prev,
+.shoppingCartMain .goodsAllPic .next {
+  display: inline-block;
+  width: 0.8rem;
+  height: 1.333333rem;
+  margin: 2rem 0;
+  cursor: pointer;
+}
+.shoppingCartMain .goodsAllPic .prev {
+  margin-right: 1.8rem;
+}
+.shoppingCartMain .goodsAllPic .next {
+  margin-left: 1.8rem;
+}
+.shoppingCartMain .goodsAllPic p {
+  width: 72rem;
+  height: 5.333333rem;
+  overflow: hidden;
+}
+.shoppingCartMain .goodsAllPic p img {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 5.333333rem;
+  border: 0.066666rem solid #E6E6E6;
+  margin-right: 1.333333rem;
+  float: left;
+}
+.shoppingCartMain .detailedInformation {
+  height: 3.333333rem;
+  background: #f5f5f5;
+  font-size: 0.8rem;
+  line-height: 3.333333rem;
+  padding: 0 0 0 0.666666rem;
+  box-sizing: border-box;
+  margin-top: 2rem;
+  margin-bottom: 1.333333rem;
+}
+.shoppingCartMain .detailedInformation .allSelect img {
+  display: inline-block;
+  width: 0.933333rem;
+  height: 0.933333rem;
+  margin-right: 0.666666rem;
+  vertical-align: middle;
+}
+.shoppingCartMain .detailedInformation .allChose {
+  display: inline-block;
+  margin-right: 2rem;
+}
+.shoppingCartMain .detailedInformation a {
+  width: 6rem;
+  height: 3.333333rem;
+  background: #cd2f1d;
+  color: #FFFFFF;
+  font-size: 1.333333rem;
+  margin-left: 1.333333rem;
+  cursor: pointer;
+  text-align: center;
+}
+.shoppingCartMain .detailedInformation .open {
+  cursor: pointer;
+  margin-left: 2rem;
+}
+.shoppingCartMain .detailedInformation .selectGoods img {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.533333rem;
+  margin-left: 0.333333rem;
+}
+.shoppingCartMain .detailedInformation .selectGoods .open {
+  margin-right: 2rem;
+}
+.shoppingCartMain .detailedInformation .money {
+  line-height: 1.666666rem;
+}
+.shoppingCartMain .detailedInformation .money i {
+  font-style: normal;
+}
+.shoppingCartMain .detailedInformation .money .allMoney {
+  font-size: 1.333333rem;
+  color: #cd2f1d;
+  font-weight: bold;
+}
+.guessLove {
+  width: 80rem;
+  margin: 0 auto;
+  padding: 1.2rem;
+  border: 0.066666rem solid #cccccc;
+  box-sizing: border-box;
+  margin-top: 2rem;
+}
+.guessLove .title {
+  font-size: 0.933333rem;
+  color: #333333;
+  padding: 0 0 0.666666rem 0;
+}
+.guessLove li {
+  float: left;
+  width: 17.866666rem;
+  height: 19.066666rem;
+  background: #FFFFFF;
+  margin-right: 1.933333rem;
+}
+.guessLove li img {
+  display: block;
+  width: 17.866666rem;
+  height: 13.333333rem;
+}
+.guessLove .money {
+  color: #cd2f1d;
+  font-size: 1.2rem;
+  display: block;
+}
+.guessLove .money i {
+  font-size: 0.8rem;
+  font-style: normal;
+}
+.guessLove .info {
+  font-size: 0.8rem;
+  color: #333333;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.guessLove .msg {
+  padding: 0.933333rem 1rem 0;
+}

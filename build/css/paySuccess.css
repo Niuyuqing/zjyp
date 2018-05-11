@@ -1,0 +1,128 @@
+body {
+  background: #FFFFFF;
+}
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.loginMain .step {
+  margin-right: 3rem;
+}
+.loginMain .step span {
+  display: inline-block;
+}
+.loginMain .step .line {
+  width: 4.266666rem;
+  height: 0.266666rem;
+  border-radius: 0.133333rem;
+  margin-top: 0.6rem;
+}
+.loginMain .step .num {
+  width: 1.466666rem;
+  height: 1.466666rem;
+  line-height: 1.466666rem;
+  text-align: center;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+.loginMain .step .box_1,
+.loginMain .step .box_2,
+.loginMain .step .box_3 {
+  height: 2.333333rem;
+  width: 10rem;
+  position: relative;
+  margin-top: 1.333333rem;
+  float: left;
+}
+.loginMain .step .box_1 div,
+.loginMain .step .box_2 div,
+.loginMain .step .box_3 div {
+  height: 1.466666rem;
+}
+.loginMain .step .box_1 div .line,
+.loginMain .step .box_2 div .line,
+.loginMain .step .box_3 div .line,
+.loginMain .step .box_1 div .num,
+.loginMain .step .box_2 div .num,
+.loginMain .step .box_3 div .num {
+  background: #d1eab9;
+}
+.loginMain .step .box_1 p,
+.loginMain .step .box_2 p,
+.loginMain .step .box_3 p {
+  color: #d1eab9;
+  font-size: 0.8rem;
+  text-align: center;
+  position: absolute;
+  top: 0.133333rem;
+  left: 0;
+  width: 10rem;
+}
+.loginMain .step .box_3 div .line,
+.loginMain .step .box_3 div .num {
+  background: #77af46;
+}
+.loginMain .step .box_3 p {
+  color: #77af46;
+}
+.sytMain {
+  width: 73.333333rem;
+  height: 37rem;
+  border: 0.066666rem solid #e6e6e6;
+  margin: 2.666666rem auto 0;
+}
+.sytMain .content {
+  margin: 13.866666rem 0 0 25.933333rem;
+  font-size: 1.066666rem;
+  color: #666666;
+}
+.sytMain .content .succIconWrap {
+  height: 2.666666rem;
+}
+.sytMain .content .succIconWrap span {
+  font-size: 1.333333rem;
+  color: #77af46;
+}
+.sytMain .content img {
+  display: inline-block;
+  width: 2.666666rem;
+  height: 2.666666rem;
+  margin-right: 0.666666rem;
+  vertical-align: middle;
+}
+.sytMain .content a {
+  color: #144d99;
+  font-size: 0.8rem;
+}
+.sytMain .content .orderNum {
+  margin: 0 0 1rem 0;
+}
+.sytMain .content .payMsg {
+  margin-bottom: 1.333333rem;
+}
+.sytMain .content .succTip {
+  margin-left: 3.6rem;
+}
+.sytMain .content .searchOrder {
+  display: inline-block;
+  margin-right: 2.666666rem;
+}

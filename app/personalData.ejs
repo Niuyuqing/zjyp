@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>个人中心</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/personalData.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/iscroll-zoom.js"></script>
+		<script src="js/lib/hammer.js"></script>
+		<script src="js/lib/lrz.all.bundle.js"></script>
+		<script src="js/lib/jquery.photoClip.min.js"></script>
+	</head>
+
+	<body>
+
+		<div class="loginWrap">
+			<div class="loginMain">
+				<header class="loginHeadWrap toPage">
+					<div class="loginHead">
+						<a :href="toPagesArr.index">
+							<img src="images/logo.png" class="logo" />
+						</a>
+						<h2>个人中心</h2>
+					</div>
+				</header>
+
+				<div class="personalDataMain clearfix">
+					<div class="lFloat lList">
+						<ul>
+							<li>
+								<a href="personalData.html">
+									<img src="images/eg.jpg" />
+									<p>超级买买买</p>
+								</a>
+							</li>
+							<li><img src="images/myOrder_1.png" />
+								<a href="personCenter.html">我的订单</a>
+							</li>
+							<li>
+								<a href="shoppingCart.html"><img src="images/shoppingCart_1.png" />我的购物车</a>
+							</li>
+							<li><img src="images/collectAddress_1.png" />
+								<a href="receivingAddress.html">收货地址</a>
+							</li>
+						</ul>
+					</div>
+					<div class="rBoxWrap rFloat">
+						<div class="clearfix userData">
+							<div class="headImg lFloat">
+								<img src="images/eg.jpg" />
+								<p class="text" @click="editHeadImg(true)">编辑头像</p>
+								<p class="headImgMask" @click="editHeadImg(true)"></p>
+							</div>
+							<p class="username lFloat">超级买买买</p>
+						</div>
+
+						<div class="userDataMsg">
+							<p>
+								<span>昵称</span>
+								<input type="text" class="inputText" />
+							</p>
+							<p>
+								<span>真实姓名</span>
+								<input type="text" class="inputText" />
+							</p>
+							<p>
+								<span>性别</span>
+								<label for="man" class="sexMan"><input type="radio" id="man" name="sex" />&nbsp;男</label>
+								<label for="woman"><input type="radio" id="woman" name="sex" />&nbsp;女</label>
+							</p>
+							<p>
+								<span>生日</span>
+								<select name="" style="margin-left: 0;">
+									<option value="">请选择</option>
+								</select>年
+								<select name="">
+									<option value="">请选择</option>
+								</select>月
+								<select name="">
+									<option value="">请选择</option>
+								</select>日
+							</p>
+							<p>
+								<span>手机号码</span>
+								<input type="text" class="inputText" />
+							</p>
+							<p>
+								<span style="opacity: 0;">占位</span>
+								<button>提交</button>
+							</p>
+						</div>
+					</div>
+					<!--自定义头像弹框-->
+					<div class="customHeadImg" v-if="customHeadBox">
+						<p class="title">
+							<span>自定义头像</span>
+							<img src="images/close_del_box.png" class="close" @click="editHeadImg(false)" />
+						</p>
+						<p class="uploadImg">
+							<button>上传头像</button>
+							<span>支持大小不超过5M的jpg、png图片</span>
+						</p>
+						<div class="picBox clearfix">
+							<div class="bigPic lFloat">
+								<img src="images/bigPic.png" />
+							</div>
+
+							<div class="smallPicBox lFloat">
+								<p>预览</p>
+								<div class="smallPic">
+									<img src="images/smallPic.png" />
+								</div>
+							</div>
+						</div>
+						<p class="saveBtn">
+							<button @click="editHeadImg(false)">保存</button>
+						</p>
+					</div>
+					<div class="mask" v-if="customHeadBox"></div>
+				</div>
+			</div>
+
+			<%-include footer  %>
+		</div>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/personalData.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

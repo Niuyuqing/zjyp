@@ -1,0 +1,259 @@
+.loginMain .loginHeadWrap {
+  width: 100%;
+  background: #FFFFFF;
+}
+.loginMain .loginHead {
+  height: 4rem;
+  width: 80rem;
+  line-height: 4rem;
+  padding: 1.666666rem 0;
+  margin: 0 auto;
+}
+.loginMain .loginHead h2 {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: #333333;
+}
+.loginMain .logo {
+  display: inline-block;
+  width: 13.6rem;
+  height: 4rem;
+  margin: 0 2.666666rem 0 0;
+  vertical-align: middle;
+}
+.orderDetailMain {
+  width: 80rem;
+  margin: 0 auto;
+}
+.orderDetailMain .title {
+  font-size: 0.933333rem;
+  color: #333333;
+  margin: 1.333333rem 0;
+}
+.orderDetailMain .title img {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.8rem;
+  vertical-align: middle;
+  margin: 0 0.666666rem;
+}
+.contBox {
+  width: 80rem;
+  height: 31.6rem;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-sizing: border-box;
+}
+.contBox .topTip {
+  border-bottom: 0.066666rem solid #e6e6e6;
+}
+.contBox .goodsStatus {
+  padding: 2.666666rem 4rem;
+}
+.contBox .goodsStatus h3 {
+  color: #77af46;
+  font-size: 1.333333rem;
+  margin-right: 5.333333rem;
+  margin-top: 2.133333rem;
+}
+.contBox .goodsStatus .dfk img {
+  width: 2.533333rem;
+  height: 2.133333rem;
+}
+.contBox .goodsStatus .dfh img {
+  width: 2.666666rem;
+  height: 2.8rem;
+}
+.contBox .goodsStatus .dsh img {
+  width: 2.8rem;
+  height: 2.533333rem;
+}
+.contBox .goodsStatus .ysh img {
+  width: 2.666666rem;
+  height: 2.666666rem;
+}
+.contBox .goodsStatus .tjsq img {
+  width: 2.133333rem;
+  height: 2.4rem;
+}
+.contBox .goodsStatus .shtg img {
+  width: 2.666666rem;
+  height: 2.666666rem;
+}
+.contBox .goodsStatus .cancle img {
+  width: 2.733333rem;
+  height: 2.666666rem;
+}
+.contBox .goodsStatus .common {
+  width: 5rem;
+  float: left;
+  text-align: center;
+  font-size: 0.933333rem;
+  color: #333333;
+}
+.contBox .goodsStatus .grayCircle,
+.contBox .goodsStatus .greenCircle {
+  display: inline-block;
+  margin: 1rem 2rem 0;
+}
+.contBox .goodsStatus .grayCircle span,
+.contBox .goodsStatus .greenCircle span {
+  display: inline-block;
+  width: 0.666666rem;
+  height: 0.666666rem;
+  border-radius: 50%;
+  margin-right: 0.666666rem;
+}
+.contBox .goodsStatus .greenCircle span {
+  background: #77af46;
+}
+.contBox .goodsStatus .grayCircle span {
+  background: #999999;
+}
+.contBox .contBottom {
+  height: 19.133333rem;
+}
+.contBox .contBottom h3 {
+  font-size: 0.933333rem;
+  color: #333333;
+  margin-bottom: 1.333333rem;
+}
+.contBox .contBottom p {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #333333;
+}
+.contBox .orderMsg {
+  height: 19.133333rem;
+  border-right: 0.066666rem solid #E6E6E6;
+}
+.contBox .orderMsg div {
+  padding: 2.666666rem 4rem;
+}
+.contBox .payMsg div,
+.contBox .refundMsg div {
+  padding: 2.666666rem 4rem;
+}
+.contBox .refundMsg input {
+  display: inline-block;
+  width: 13.866666rem;
+  height: 2rem;
+  font-size: 0.8rem;
+  color: #666666;
+  padding-left: 0.666666rem;
+  border: 0.066666rem solid #E6E6E6;
+}
+.contBox .refundMsg button {
+  display: inline-block;
+  width: 5.6rem;
+  height: 2rem;
+  background: #cd2f1d;
+  font-size: 1.066666rem;
+  color: #FFFFFF;
+  border-radius: 0.133333rem;
+  margin-left: 0.666666rem;
+}
+.showGoodsWrap {
+  margin-top: 1.333333rem;
+  padding: 2.666666rem 4rem;
+  background: #FFFFFF;
+}
+.showGoodsWrap .showGoods {
+  border-bottom: 0.066666rem solid #E6E6E6;
+  padding: 0 0 2rem 0;
+}
+.showGoodsWrap .title {
+  margin-bottom: 1.333333rem;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.showGoodsWrap .title p {
+  display: inline-block;
+  text-align: center;
+}
+.showGoodsWrap .title p:nth-child(1) {
+  width: 24.933333rem;
+  text-align: left;
+}
+.showGoodsWrap .title p:nth-child(2) {
+  width: 12rem;
+}
+.showGoodsWrap .title p:nth-child(3) {
+  width: 10.533333rem;
+}
+.showGoodsWrap .title p:nth-child(4) {
+  width: 12rem;
+}
+.showGoodsWrap .title p:nth-child(5) {
+  width: 11rem;
+}
+.showGoodsWrap .goodsPic {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 5.333333rem;
+  border: 0.066666rem solid #E6E6E6;
+}
+.showGoodsWrap .goodsText {
+  width: 18.933333rem;
+  color: #333333;
+  font-size: 0.8rem;
+  margin-left: 0.666666rem;
+}
+.showGoodsWrap .goodsText p:nth-child(1) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.showGoodsWrap .goodsText p:nth-child(2) {
+  margin: 0.5rem 0;
+}
+.showGoodsWrap .goodsText span {
+  color: #666;
+}
+.showGoodsWrap .line {
+  color: #333333;
+  font-size: 0.8rem;
+}
+.showGoodsWrap .line .price {
+  width: 12rem;
+  text-align: center;
+}
+.showGoodsWrap .line .num {
+  width: 10.533333rem;
+  text-align: center;
+}
+.showGoodsWrap .line .allPrice {
+  width: 12rem;
+  text-align: center;
+  color: #cd2f1d;
+}
+.showGoodsWrap .line .operation {
+  width: 11rem;
+  text-align: center;
+}
+.showGoodsWrap .line .operation a {
+  display: block;
+  margin-bottom: 0.666666rem;
+  color: #333333;
+}
+.showGoodsWrap .line .operation .buyNow {
+  width: 5.466666rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  font-size: 0.8rem;
+  border-radius: 0.133333rem;
+  background: #FFF;
+  border: 0.066666rem solid #999999;
+  margin: 0 auto;
+}
+.showGoodsWrap .allMoney {
+  font-size: 0.8rem;
+  color: #333333;
+  margin: 2.666666rem 0 0 0;
+}
+.showGoodsWrap .allMoney span {
+  font-size: 1.333333rem;
+  color: #cd2f1d;
+  font-weight: bold;
+}
