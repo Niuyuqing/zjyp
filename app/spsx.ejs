@@ -24,28 +24,22 @@
 		<div class="spsxMain">
 			<div class="chooseArea">
 				<div class="choseTitle">
-					<span class="category">家具馆</span>
-					<span class="category">床</span>
-					<p class="choseOption" v-for="item in choseLabelArr"><span>{{item.name}}</span><img src="images/close.png" @click="closeLabel($event)"/></p>
+					<span class="category" v-if="ancestorClassify!=''&&ancestorClassify!=null">{{ancestorClassify}}</span>
+					<span class="category">{{parentname}}</span>
+					<span class="category">{{cname}}</span>
+					<p class="choseOption" v-for="(item,index) in filterLabelNameStr">
+						<span :data-index = "index">{{item}}</span>
+						<img src="images/close.png" @click="closeLabel($event)"/>
+					</p>
 				</div>
 				<div class="chooseWrap">
-					<div class="city clearfix">
-						<div class="lFloat subtitle">所在城市</div>
+					<div class="city clearfix" v-for="(item,index) in choseLabelArr">
+						<div class="lFloat subtitle">{{item.attr_name}}</div>
 						<div class="lFloat options">
-							<span @click="addLabel($event)">不限</span>
-							<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
+							<!--<span @click="addLabel($event)">不限</span>-->
+							<span @click="addLabel($event)" v-for="i in item.attr_list" :data-id = "i.input_attr">{{i.attr_value}}</span>
 						</div>
-						<img src="images/open.png" class="rFloat" v-if="!showCityLabel" @click="showCityLabelClick()"/>
-						<img src="images/retract.png" class="rFloat" v-if="showCityLabel" @click="showCityLabelClick()"/>
-					</div>
-					<div class="styles clearfix">
-						<div class="lFloat subtitle">所在城市</div>
-						<div class="lFloat options">
-							<span @click="addLabel($event)">不限</span>
-							<span v-for="item in cityLabelArr" @click="addLabel($event)">{{item.name}}</span>
-						</div>
-						<img src="images/open.png" class="rFloat"v-if="!showStyleLabel" @click="showStyleLabelClick()"/>
-						<img src="images/retract.png" class="rFloat" v-if="showStyleLabel" @click="showStyleLabelClick()"/>
+						<img src="images/open.png" class="rFloat filterIcon" @click="showCityLabelClick(index,$event)" data-type = "1"/>
 					</div>
 				</div>
 			</div>
@@ -65,84 +59,12 @@
 					 <p class="popularityChose" v-if="popularity" style="border-right: 0.066666rem solid #CCCCCC;">人气<i></i></p>
 				</div>
 				<ul class="clearfix goodsCollection">
-					<li>
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米日式榻榻米日式榻榻米日式榻榻米日式榻榻米日式榻榻米日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="spxq.html">
-							<img src="images/spsx_eg_pic.png"/>
-							<p class="msg">
-								<span class="money"><i>¥</i>2999.00</span>
-								<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-							</p>
-						</a>
+					<li v-for="item in showGoodsListArr" @click="toGoodsDetail(item.goods_id)">
+						<img v-bind:src="item.original_img" />
+						<p class="msg">
+							<span class="money"><i>¥</i>{{item.effect_price|money}}</span>
+							<span class="info">{{item.goods_name}}</span>
+						</p>
 					</li>
 				</ul>
 			</div>

@@ -28,40 +28,9 @@
 			<%-include navigation  %>
 
 			<div class="spxqMain">
-				<div class="choseTitle">
-					<span class="category">家具馆</span>
-					<span class="category">床</span>
-					<p class="choseOption">
-						<span>床</span>
-						<img src="images/close.png" />
-					</p>
-					<p class="choseOption">
-						<span>榻榻米</span>
-						<img src="images/close.png" />
-					</p>
-					<p class="choseOption">
-						<span>床</span>
-						<img src="images/close.png" />
-					</p>
-				</div>
-
 				<div class="content">
 					<div class="boxWrap clearfix">
 						<div class="lFloat boxLeft">
-							<!--<div class="showPicBox">
-								<a href="images/spxq_1.png" class="showPicBox">
-									<img src="images/spxq_1.png" class="commodityBigPic" />
-								</a>
-							</div>
-							<p>
-								<img src="images/spxq_1.png" />
-								<img src="images/spxq_1.png" />
-								<img src="images/spxq_1.png" />
-								<img src="images/spxq_1.png" />
-								<img src="images/spxq_1.png" />
-								<img src="images/spxq_1.png" style="margin-right: 0;" />
-							</p>-->
-							
 							<div class="magnifier" id="magnifier1">
 								<div class="magnifier-container">
 									<div class="images-cover"></div>
@@ -77,48 +46,11 @@
 									<!--按钮组-->
 									<div class="magnifier-line">
 										<ul class="clearfix animation03">
-											<li>
+											<li v-for="item in goodsImgArr">
 												<div class="small-img">
-													<img src="images/spxq_1.png" />
+													<img :src="item.img_url" />
 												</div>
-											</li>
-											<li>
-												<div class="small-img">
-													<img src="images/banner_4.jpg" />
-												</div>
-											</li>
-											<li>
-												<div class="small-img">
-													<img src="images/eg.jpg" />
-												</div>
-											</li>
-											<li>
-												<div class="small-img">
-													<img src="images/furnitureHome.png" />
-												</div>
-											</li>
-											
-											<li>
-												<div class="small-img">
-													<img src="images/eg.jpg" />
-												</div>
-											</li>
-											<li>
-												<div class="small-img">
-													<img src="images/eg.jpg" />
-												</div>
-											</li>
-											<li>
-												<div class="small-img">
-													<img src="images/furnitureHome.png" />
-												</div>
-											</li>
-											
-											<li>
-												<div class="small-img">
-													<img src="images/eg.jpg" />
-												</div>
-											</li>
+											</li>  
 										</ul>
 									</div>
 									<!--缩略图-->
@@ -128,53 +60,41 @@
 							</div>
 						</div>
 						<div class="rFloat information">
-							<h3>金可儿 床 欧式实木床豪华双人床时尚美式实木床创意橡木法式床现代简约主卧1.2米真皮床描金 1.8*2.0M单床</h3>
+							<h3>{{goodsDetailArr.goods_name}}</h3>
 							<div class="priceWrap">
 								<span class="tip">价格</span>
-								<p class="money"><span>¥</span>7920.00</p>
+								<p class="money"><span>¥</span>{{goodsDetailArr.shop_price_1}}</p>
 								<p class="tradeSucc rFloat">
-									<span class="num">9898</span><br />
+									<span class="num">{{showItemNumDetail.sold_num}}</span><br />
 									<span class="text">交易成功</span>
 								</p>
 								<p class="line rFloat"></p>
 								<p class="comment rFloat">
-									<span class="num">2</span><br />
+									<span class="num">{{showItemNumDetail.commentCount}}</span><br />
 									<span class="text">累计评价</span>
 								</p>
 							</div>
 
-							<!--规格-->
-							<div class="standardWrap clearfix">
-								<span class="tip">规格</span>
+							<!--属性-->
+							<div class="standardWrap clearfix" v-for="item in newAttrInfo">
+								<span class="tip" v-for="i in item">{{i.attr_name}}</span>
 								<p class="label rFloat">
-									<span>1.8*2.0M单床</span>
-									<span>床+床头柜2个</span>
-									<span>床+床头柜2个</span>
-									<span>床+床头柜2个</span>
-									<span>1.8*2.0M单床</span>
-									<span>床+床头柜2个</span>
-									<span>床+床头柜2个</span>
-									<span>床+床头柜2个</span>
-								</p>
-							</div>
-
-							<!--颜色-->
-							<div class="colorWrap clearfix">
-								<span class="tip">颜色</span>
-								<p class="label rFloat">
-									<img src="images/qwdz_bg.png" />
-									<img src="images/qwdz_bg.png" />
+									<span v-for="y in item">
+										<i v-for="p in y.attr_info">
+											{{p.attr_value}}
+										</i>
+									</span>
 								</p>
 							</div>
 
 							<div class="numberWrap clearfix">
 								<span class="tip lFloat">数量</span>
 								<div class="number clearfix">
-									<p class="reduce lFloat">
+									<p class="reduce lFloat" @click="changeShoppingNum(1)">
 										<img src="images/jian.png" />
 									</p>
-									<input type="text" class="text lFloat" />
-									<p class="add lFloat">
+									<input type="text" class="text lFloat" @input="limitShoppingNum(1)" v-model="shoppingNum" />
+									<p class="add lFloat" @click="changeShoppingNum(2)">
 										<img src="images/jia.png" />
 									</p>
 								</div>
@@ -190,69 +110,24 @@
 					
 					<!--搭配套餐-->
 					<div class="collocationMeal">
-						<p class="title">
+						<p class="title" v-if="newSuitDetail.length!=0">
 							<span>搭配套餐</span>
 						</p>
-						<div class="mealBox clearfix">
+						<div class="mealBox clearfix" v-for="item in newSuitDetail">
 							<ul class="clearfix lFloat">
-								<li>
-									<img src="images/eg.jpg"/>
-									<p class="name">金可儿欧式阿范德萨发的</p>
-									<p class="money">¥2968.00</p>
-								</li>
-								<li>
-									<img src="images/mealJia.png" class="addSymbol"/>
-								</li>
-								<li>
-									<img src="images/eg.jpg"/>
-									<p class="name">金可儿欧式阿范德萨发的</p>
-									<p class="money">¥2968.00</p>
-								</li>
-								<li>
-									<img src="images/mealJia.png" class="addSymbol"/>
-								</li>
-								<li>
-									<img src="images/eg.jpg"/>
-									<p class="name">金可儿欧式阿范德萨发的</p>
-									<p class="money">¥2968.00</p>
+								<li v-for="(i,index) in item">
+									<p class="lFloat suitbox" @click="goodsDetail(i.goods_id)">
+										<img :src="i.goods_pic"/>
+										<span class="name">{{i.goods_name}}</span>
+										<span class="money">¥{{i.goods_price|money}}</span>
+									</p>
+									<img src="images/mealJia.png" class="addSymbol lFloat" />
 								</li>
 							</ul>
 							
 							<div class="addCartWrap rFloat">
-								<p class="mealPrice">套餐价：¥6886.00</p>
-								<p class="savePrice">节省：¥2018.00</p>
-								<button>加入购物车</button>
-							</div>
-						</div>
-						
-						<div class="mealBox clearfix">
-							<ul class="clearfix lFloat">
-								<li>
-									<img src="images/eg.jpg"/>
-									<p class="name">金可儿欧式阿范德萨发的</p>
-									<p class="money">¥2968.00</p>
-								</li>
-								<li>
-									<img src="images/mealJia.png" class="addSymbol"/>
-								</li>
-								<li>
-									<img src="images/eg.jpg"/>
-									<p class="name">金可儿欧式阿范德萨发的</p>
-									<p class="money">¥2968.00</p>
-								</li>
-								<li>
-									<img src="images/mealJia.png" class="addSymbol"/>
-								</li>
-								<li>
-									<img src="images/eg.jpg"/>
-									<p class="name">金可儿欧式阿范德萨发的</p>
-									<p class="money">¥2968.00</p>
-								</li>
-							</ul>
-							
-							<div class="addCartWrap rFloat">
-								<p class="mealPrice">套餐价：¥6886.00</p>
-								<p class="savePrice">节省：¥2018.00</p>
+								<p class="mealPrice">套餐价：¥{{item[0].suit_price}}</p>
+								<p class="savePrice">节省：¥{{item[0].save_price}}</p>
 								<button>加入购物车</button>
 							</div>
 						</div>
@@ -261,38 +136,26 @@
 					<!--商品介绍-->
 					<div class="goodsIntroduceWrap">
 						<p class="title">
-							<span>商品介绍</span>
-							<span>商品评论(12)</span>
+							<span v-if="!goodsIntroduceBtn" @click="goodsIntroduceClick()">商品介绍</span>
+							<span style="background: #cd2f1d;color: #FFFFFF;" v-if="goodsIntroduceBtn">商品介绍</span>
+							<span v-if="!goodsCommentBtn" @click="goodsCommentClick()">商品评论({{showItemNumDetail.commentCount}})</span>
+							<span style="background: #cd2f1d;color: #FFFFFF;" v-if="goodsCommentBtn">商品评论({{showItemNumDetail.commentCount}})</span>
 							<button class="rFloat">加入购物车</button>
 						</p>
 						
 						<!--商品介绍-->
 						<div class="goodsIntroduce">
 							<div class="text">
-								<p>品牌：金可儿</p>
 								<p>
-									<span>商品名称：欧式豪华双人床</span>
-									<span>商品名称：欧式豪华双人床</span>
-									<span>商品名称：欧式豪华双人床</span>
-									<span style="margin-right: 0;">商品名称：欧式豪华双人床</span>
-								</p>
-								<p>
-									<span>商品名称：欧式豪华双人床</span>
-									<span>商品名称：欧式豪华双人床</span>
-									<span>商品名称：欧式豪华双人床</span>
-									<span style="margin-right: 0;">商品名称：欧式豪华双人床</span>
-								</p>
-								<p>
-									<span>商品名称：欧式豪华双人床</span>
-									<span>商品名称：欧式豪华双人床</span>
-									<span>商品名称：欧式豪华双人床</span>
-									<span style="margin-right: 0;">商品名称：欧式豪华双人床</span>
+									<span v-for="item in goodsAttrArr">{{item.attr_name}}：{{item.attr_value}}</span>
 								</p>
 							</div>
-							<div class="picShow">
-								<img src="images/spxq_1.png"/>
+							<div class="picShow" id="picShow">
+								<!--{{goodsDetailPic}}-->
 							</div>
 						</div>
+						
+						<!--<iframe :src="goodsDetailArr.goods_desc_url" scrolling="no" frameborder="0" class="includeContent" style="border: none;" height="100%" width=""></iframe>-->
 						
 						<!--商品评论-->
 						<div class="goodsComment">

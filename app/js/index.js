@@ -21,7 +21,7 @@ var indexPage = new Vue({
             },
             emulateJSON: true
         }).then(function(data) {
-            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].cat_info));
+            console.log(JSON.parse(JSON.parse(data.body.data).rows[0].cat_info));
         }, function(a) {
             console.log('请求错误 ')
         });

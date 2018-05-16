@@ -56,8 +56,10 @@
 			phone: '',
 			pwd: '',
 			againPwd: '',
-			codeNum: ''
-		},
+			codeNum: '',
+			authCode: true, // 获取验证码按钮
+			daoTime: 60 },
+		// 验证码倒计时
 		mounted: function mounted() {},
 		methods: {
 			agreementClick: function agreementClick() {
@@ -66,12 +68,38 @@
 			},
 			getCodeNum: function getCodeNum() {
 				// 获取验证码
+				this.daoTime = 60; // 验证码倒计时
 				if (!this.checkPhone(this.phone)) {
 					this.errorTip = true;
 					this.errorTipMsg = '请输入正确手机号码';
 				} else {
 					this.errorTip = false;
 					this.errorTipMsg = '';
+					this.authCode = false;
+	
+					// 获取验证码接口
+					this.$http.post('http://localhost:8092/user/phoneAuthCode', {
+						phone: this.phone
+					}, {
+						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						emulateJSON: true
+					}).then(function (data) {
+						console.log(data);
+					}, function (a) {
+						console.log('请求错误 ');
+					});
+	
+					// 验证码倒计时
+					var daoTimeFn = setInterval(function () {
+						if (registerFormWrap.daoTime <= 1) {
+							registerFormWrap.authCode = true;
+							clearInterval(daoTimeFn);
+						} else {
+							registerFormWrap.daoTime--;
+						}
+					}, 1000);
 				}
 			},
 			registerClick: function registerClick() {

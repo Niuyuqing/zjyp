@@ -44,9 +44,18 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-	// 页面跳转
-	'use strict';
+	"use strict";
 	
+	function iFrameHeight() {
+		var ifm = document.getElementById("iframepage");
+		var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+		if (ifm != null && subWeb != null) {
+			ifm.height = subWeb.body.scrollHeight;
+			ifm.width = subWeb.body.scrollWidth;
+		}
+	}
+	
+	// 页面跳转
 	var toPage = new Vue({
 		el: '.toPage',
 		data: {
@@ -60,7 +69,8 @@
 				zzyjm: 'zzyjm.html',
 				qwdz: 'qwdz.html',
 				yptc: 'yptc.html',
-				xxtyg: 'xxtyg.html'
+				xxtyg: 'xxtyg.html',
+				cshhr: 'cshhr.html'
 			}
 		},
 		mounted: function mounted() {},
@@ -99,6 +109,26 @@
 		m = date.getMinutes() + ':';
 		s = date.getSeconds();
 		return Y + M + D + h + m + s;
+	});
+	
+	// 格式化金额（保留两位小数）
+	Vue.filter('money', function (val) {
+		val = val.toString().replace(/\$|\,/g, '');
+		if (isNaN(val)) {
+			val = "0";
+		}
+		var sign = val == (val = Math.abs(val));
+		val = Math.floor(val * 100 + 0.50000000001);
+		var cents = val % 100;
+		val = Math.floor(val / 100).toString();
+		if (cents < 10) {
+			cents = "0" + cents;
+		}
+		for (var i = 0; i < Math.floor((val.length - (1 + i)) / 3); i++) {
+			val = val.substring(0, val.length - (4 * i + 3)) + ',' + val.substring(val.length - (4 * i + 3));
+		}
+	
+		return (sign ? '' : '-') + val + '.' + cents;
 	});
 	
 	//手机号码正则
@@ -241,6 +271,9 @@
 				$('.jjgWrap h3 i').css('background-image', 'url("images/jjg.png")');
 			}
 		});
+	
+		// 设置页面打开方式都是新开一个页面
+		$('.navigationWrap a').prop('target', '_blank');
 	
 		// 鼠标移入移出筑家汇
 		/*$('.toPage .zjh,.zjhSubtitle').on({

@@ -34,7 +34,6 @@
   background: url(../../build/images/rightArrow.png) no-repeat right center;
   background-size: 0.4rem 0.8rem;
   margin-right: 0.666666rem;
-  cursor: pointer;
 }
 .chooseArea .choseOption {
   display: inline-block;
@@ -130,6 +129,9 @@
   background-size: contain;
   vertical-align: middle;
 }
+.content .goodsCollection {
+  width: 83rem;
+}
 .content .goodsCollection li {
   float: left;
   width: 17.866666rem;
@@ -137,6 +139,7 @@
   background: #FFFFFF;
   margin-right: 2.8rem;
   margin-bottom: 1.333333rem;
+  cursor: pointer;
 }
 .content .goodsCollection li img {
   display: block;
