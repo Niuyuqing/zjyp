@@ -52,7 +52,7 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.shoppingCartMain .goodsDetail p:nth-child(1) {
+.shoppingCartMain .goodsDetail .goodsName {
   width: 34.133333rem;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -61,13 +61,15 @@ body {
   color: #333333;
   margin: 0.666666rem 0;
 }
-.shoppingCartMain .goodsDetail p:nth-child(2) {
-  width: 34.133333rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+.shoppingCartMain .goodsDetail div,
+.shoppingCartMain .goodsDetail .shoppingNum {
+  color: #666;
   font-size: 0.8rem;
-  color: #666666;
+  margin-right: 0.466666rem;
+}
+.shoppingCartMain .goodsDetail div i,
+.shoppingCartMain .goodsDetail .shoppingNum i {
+  font-style: normal;
 }
 .shoppingCartMain .btnWrap a {
   display: inline-block;

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>购物车</title>
+	<title>加入购物车</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/common.css"/>
@@ -23,24 +23,32 @@
 		
 		<div class="shoppingCartMain">
 			<div class="goodsTop">
-				<p class="tip">
+				<p class="tip" v-if="addShoppingType">
 					<img src="images/addSucc.png"/>
 					商品已成功加入购物车！
 				</p>
 				<div class="clearfix goodsBox">
 					<div class="lFloat">
-						<img src="images/eg.jpg" alt="" class="lFloat" />
+						<img :src="goodsPic" alt="" class="lFloat" />
 						<div class="lFloat goodsDetail">
-							<p>现代风格几何图案北欧地毯客厅沙发茶几卧室满铺长方形家用可水洗现代风格几何图案北欧地毯客厅沙发茶几卧室满铺长方形家用可水洗</p>
-							<p>
-								<span>颜色：灰色</span>
-								<span>尺码：三人位+左贵妃位</span>
-								<span>数量：1</span>
+							<p class="goodsName">{{goodsArr.goods_name}}</p>
+							<div class="lFloat" v-for="item in newAttrInfo">
+								<p v-for="i in item" class="lFloat">
+									<span>{{i.attr_name}}</span>：
+									<span v-for="y in item">
+										<em v-for="p in y.attr_info">
+											<i v-if="p.is_select==1">{{p.attr_value}}</i>
+										</em>
+									</span>
+								</p>
+							</div>
+							<p class="lFloat shoppingNum">
+								<span>数量：{{shoppingNum}}</span>
 							</p>
 						</div>
 					</div>
 					<div class="rFloat btnWrap">
-						<a href="spxq.html" class="searchGoodsDetail">查看商品详情</a>
+						<a :href="toGoodsPage" class="searchGoodsDetail" target="_blank">查看商品详情</a>
 						<a href="shoppingCart.html" class="goShoppingCart">去购物车结算</a>
 					</div>
 				</div>

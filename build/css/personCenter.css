@@ -78,7 +78,7 @@
   box-sizing: border-box;
 }
 .content .rBox .title {
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #333333;
 }
 .content .rBox .title span {

@@ -44,18 +44,9 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-	"use strict";
-	
-	function iFrameHeight() {
-		var ifm = document.getElementById("iframepage");
-		var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
-		if (ifm != null && subWeb != null) {
-			ifm.height = subWeb.body.scrollHeight;
-			ifm.width = subWeb.body.scrollWidth;
-		}
-	}
-	
 	// 页面跳转
+	'use strict';
+	
 	var toPage = new Vue({
 		el: '.toPage',
 		data: {
@@ -83,6 +74,61 @@
 		data: {},
 		mounted: function mounted() {},
 		methods: {}
+	});
+	
+	var header = new Vue({
+		el: '.pageHeader',
+		data: {
+			userLogin: false, // 判断用户是否登录
+			nickName: '' },
+		// 用户昵称
+		mounted: function mounted() {
+			// 展示用户的详细信息
+			this.$http.post('http://localhost:8083/zujahome-main/user/showUserDetail', {}, { // 没有参数也要放空的大括号
+				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				emulateJSON: true
+			}).then(function (data) {
+				var result = data.body;
+				if (result.status == '200') {
+					if (result.data == null) {
+						this.userLogin = false;
+					} else {
+						this.userLogin = true;
+						if (result.data.nickname == null) {
+							this.nickName = result.data.phone;
+						} else {
+							this.nickName = result.data.nickname;
+						}
+					}
+				} else {
+					alert(data.body.msg);
+				}
+			}, function (a) {
+				console.log('请求错误 ');
+			});
+		},
+		methods: {
+			// 退出
+			logout: function logout() {
+				this.$http.post('http://localhost:8083/zujahome-main/user/logout', {}, { // 没有参数也要放空的大括号
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					emulateJSON: true
+				}).then(function (data) {
+					console.log(data.body);
+					if (data.body.status == '200') {
+						window.location.reload();
+					} else {
+						alert(data.body.msg);
+					}
+				}, function (a) {
+					console.log('请求错误 ');
+				});
+			}
+		}
 	});
 	
 	//日期格式化，精确到年月日
@@ -174,6 +220,7 @@
 	function add1(m) {
 		return m < 10 ? '0' + m : m;
 	};
+	
 	function getDate(shijianchuo) {
 		//shijianchuo是整数，否则要parseInt转换 
 		var time = new Date(shijianchuo);

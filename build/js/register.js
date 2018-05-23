@@ -73,12 +73,8 @@
 					this.errorTip = true;
 					this.errorTipMsg = '请输入正确手机号码';
 				} else {
-					this.errorTip = false;
-					this.errorTipMsg = '';
-					this.authCode = false;
-	
 					// 获取验证码接口
-					this.$http.post('http://localhost:8092/user/phoneAuthCode', {
+					this.$http.post('http://localhost:8083/zujahome-main/user/phoneAuthCode', {
 						phone: this.phone
 					}, {
 						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
@@ -86,20 +82,27 @@
 						},
 						emulateJSON: true
 					}).then(function (data) {
-						console.log(data);
+						if (data.body.status == '200') {
+							this.errorTip = false;
+							this.errorTipMsg = '';
+							this.authCode = false;
+	
+							// 验证码倒计时
+							var daoTimeFn = setInterval(function () {
+								if (registerFormWrap.daoTime <= 1) {
+									registerFormWrap.authCode = true;
+									clearInterval(daoTimeFn);
+								} else {
+									registerFormWrap.daoTime--;
+								}
+							}, 1000);
+						} else {
+							this.errorTip = true;
+							this.errorTipMsg = '验证码获取失败';
+						}
 					}, function (a) {
 						console.log('请求错误 ');
 					});
-	
-					// 验证码倒计时
-					var daoTimeFn = setInterval(function () {
-						if (registerFormWrap.daoTime <= 1) {
-							registerFormWrap.authCode = true;
-							clearInterval(daoTimeFn);
-						} else {
-							registerFormWrap.daoTime--;
-						}
-					}, 1000);
 				}
 			},
 			registerClick: function registerClick() {
@@ -119,6 +122,29 @@
 				} else {
 					this.errorTip = false;
 					this.errorTipMsg = '';
+	
+					// 注册接口
+					this.$http.post('http://localhost:8083/zujahome-main/user/register', {
+						phone: this.phone,
+						password: this.pwd,
+						authcode: this.codeNum
+					}, {
+						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						emulateJSON: true
+					}).then(function (data) {
+						console.log(data.body);
+						if (data.body.status == '200') {
+							alert('注册成功');
+							window.location.href = 'login.html';
+						} else {
+							this.errorTip = true;
+							this.errorTipMsg = data.body.msg;
+						}
+					}, function (a) {
+						console.log('请求错误 ');
+					});
 				}
 			},
 			checkPhone: function checkPhone(val) {

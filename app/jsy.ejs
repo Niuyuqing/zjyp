@@ -13,6 +13,8 @@
 	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/distpicker.data.js"></script>
+	<script src="js/lib/distpicker.js"></script>
 </head>
 <body>
 	
@@ -64,7 +66,7 @@
 					<div class="consigneeWrap">
 						<p class="title clearfix">
 							<span class="lFloat">收货人信息</span>
-							<span class="rFloat add" @click="addConsigneeMsg(true)">新增收货地址</span>
+							<span class="rFloat add" @click="addConsigneeMsg(true,1)">新增收货地址</span>
 						</p>
 						<div class="consignee">
 							<div class="line clearfix">
@@ -237,37 +239,35 @@
 				<div class="addConsigneeMsg" v-if="addBox">
 					<p class="title clearfix">
 						<span class="lFloat">新增收货人信息</span>
-						<img src="images/close_del_box.png" class="rFloat" @click="addConsigneeMsg(false)" />
+						<img src="images/close_del_box.png" class="rFloat" @click="addConsigneeMsg(false,2)" />
 					</p>
 					<div class="addContent">
 						<div class="place">
 							<span><i>*</i>所在地区</span>
-							<div>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
+							<!--省市区三级联动插件-->
+							<div id="distpicker4">
+								<select v-model="province"></select>
+								<select v-model="city"></select>
+								<select v-model="area"></select>
 							</div>
+							<input type="hidden" v-model="receiveRegion" class="receiveRegion" />
 						</div>
 						<p>
 							<span><i>*</i>收货人</span>
-							<input type="text" />
+							<input type="text" v-model="receiveName" />
 						</p>
 						<p>
 							<span><i>*</i>详细地址</span>
-							<input type="text" />
+							<input type="text" v-model="receiveAddress" />
 						</p>
 						<p>
 							<span><i>*</i>手机号码</span>
-							<input type="text" />
+							<input type="text" v-model="receivePhone" />
+							<span class="errorTip" v-if="!phoneErrorTip">手机号码不正确</span>
 						</p>
 						<p>
-							<button @click="addConsigneeMsg(false)">保存收货人信息</button>
+							<button @click="addConsigneeMsg(false,3)" v-if="receiveName!=''&&receivePhone!=''&&receiveAddress!=''&&province!=''&&city!=''">保存收货人信息</button>
+							<button style="background: #ccc;color: #fafafa;" v-if="receiveName==''||receivePhone==''||receiveAddress==''||province==''||city==''">保存收货人信息</button>
 						</p>
 					</div>
 				</div>

@@ -1,48 +1,93 @@
-function iFrameHeight() {   
-	var ifm= document.getElementById("iframepage");   
-	var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;   
-	if(ifm != null && subWeb != null) {
-	   ifm.height = subWeb.body.scrollHeight;
-	   ifm.width = subWeb.body.scrollWidth;
-	}   
-}
-
 // 页面跳转
 var toPage = new Vue({
-	el : '.toPage',
-	data : {
-		toPagesArr : {
-			index:'index.html',
-			zjyp : 'zjyp.html',
-			ypzp : 'ypzp.html',
-			zjshj : 'zjshj.html',
-			zjfs : 'zjfs.html',
-			zjh : 'zjh.html',
-			zzyjm : 'zzyjm.html',
-			qwdz : 'qwdz.html',
-			yptc : 'yptc.html',
-			xxtyg : 'xxtyg.html',
-			cshhr : 'cshhr.html'
+	el: '.toPage',
+	data: {
+		toPagesArr: {
+			index: 'index.html',
+			zjyp: 'zjyp.html',
+			ypzp: 'ypzp.html',
+			zjshj: 'zjshj.html',
+			zjfs: 'zjfs.html',
+			zjh: 'zjh.html',
+			zzyjm: 'zzyjm.html',
+			qwdz: 'qwdz.html',
+			yptc: 'yptc.html',
+			xxtyg: 'xxtyg.html',
+			cshhr: 'cshhr.html'
 		}
 	},
-	mounted : function(){
-		
+	mounted: function() {
+
 	},
-	methods : {
-		
+	methods: {
+
 	}
 });
 
 // 分页
 var paging = new Vue({
-	el : '.paging',
-	data : {
+	el: '.paging',
+	data: {},
+	mounted: function() {
+
 	},
-	mounted : function(){
-		
+	methods: {
+
+	}
+});
+
+var header = new Vue({
+	el: '.pageHeader',
+	data: {
+		userLogin: false, // 判断用户是否登录
+		nickName: '', // 用户昵称
 	},
-	methods : {
-		
+	mounted: function() {
+		// 展示用户的详细信息
+		this.$http.post('http://localhost:8083/zujahome-main/user/showUserDetail', {}, { // 没有参数也要放空的大括号
+			headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			emulateJSON: true
+		}).then(function(data) {
+			var result = data.body;
+			if(result.status == '200') {
+				if(result.data == null) {
+					this.userLogin = false;
+				} else {
+					this.userLogin = true;
+					if(result.data.nickname == null) {
+						this.nickName = result.data.phone;
+					} else {
+						this.nickName = result.data.nickname;
+					}
+				}
+			} else {
+				alert(data.body.msg);
+			}
+		}, function(a) {
+			console.log('请求错误 ')
+		});
+	},
+	methods: {
+		// 退出
+		logout: function() {
+			this.$http.post('http://localhost:8083/zujahome-main/user/logout', {}, { // 没有参数也要放空的大括号
+				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				emulateJSON: true
+			}).then(function(data) {
+				console.log(data.body)
+				if (data.body.status=='200') {
+					window.location.reload();
+				} else {
+					alert(data.body.msg);
+				}
+			}, function(a) {
+				console.log('请求错误 ')
+			});
+		}
 	}
 });
 
@@ -60,35 +105,35 @@ Vue.filter('dateFormat', function(value) { //value为13位的时间戳
 });
 
 //日期格式化，精确到年月日时分秒
-Vue.filter('timestampToTime',function(value){
-    var date = new Date(value);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
-    Y = date.getFullYear() + '-';
-    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-    D = date.getDate() + ' ';
-    h = date.getHours() + ':';
-    m = date.getMinutes() + ':';
-    s = date.getSeconds();
-    return Y+M+D+h+m+s;
+Vue.filter('timestampToTime', function(value) {
+	var date = new Date(value); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+	Y = date.getFullYear() + '-';
+	M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+	D = date.getDate() + ' ';
+	h = date.getHours() + ':';
+	m = date.getMinutes() + ':';
+	s = date.getSeconds();
+	return Y + M + D + h + m + s;
 });
 
 // 格式化金额（保留两位小数）
 Vue.filter('money', function(val) {
-    val = val.toString().replace(/\$|\,/g,'');
-    if(isNaN(val)) {
-      val = "0";  
-    } 
-    let sign = (val == (val = Math.abs(val)));
-    val = Math.floor(val*100+0.50000000001);
-    let cents = val%100;
-    val = Math.floor(val/100).toString();
-    if(cents<10) {
-       cents = "0" + cents
-    }
-    for (var i = 0; i < Math.floor((val.length-(1+i))/3); i++) {
-        val = val.substring(0,val.length-(4*i+3))+',' + val.substring(val.length-(4*i+3));
-    }
+	val = val.toString().replace(/\$|\,/g, '');
+	if(isNaN(val)) {
+		val = "0";
+	}
+	let sign = (val == (val = Math.abs(val)));
+	val = Math.floor(val * 100 + 0.50000000001);
+	let cents = val % 100;
+	val = Math.floor(val / 100).toString();
+	if(cents < 10) {
+		cents = "0" + cents
+	}
+	for(var i = 0; i < Math.floor((val.length - (1 + i)) / 3); i++) {
+		val = val.substring(0, val.length - (4 * i + 3)) + ',' + val.substring(val.length - (4 * i + 3));
+	}
 
-    return (((sign)?'':'-') + val + '.' + cents);
+	return(((sign) ? '' : '-') + val + '.' + cents);
 })
 
 //手机号码正则
@@ -120,7 +165,7 @@ function preview(file) {
 		var reader = new FileReader();
 		reader.onload = function(evt) {
 			//prevDiv.innerHTML = '<img src="' + evt.target.result + '" />';
-			prevDiv.setAttribute("src",evt.target.result);
+			prevDiv.setAttribute("src", evt.target.result);
 		}
 		reader.readAsDataURL(file.files[0]);
 	}
@@ -131,60 +176,63 @@ function preview(file) {
  * @param shijianchuo
  * @returns
  */
-function add1(m){return m<10?'0'+m:m }; 
-function getDate(shijianchuo) {  
-  //shijianchuo是整数，否则要parseInt转换  
-  var time = new Date(shijianchuo);  
-  var y = time.getFullYear();  
-  var m = time.getMonth()+1;  
-  var d = time.getDate();  
-  var h = time.getHours();  
-  var mm = time.getMinutes();  
-  var s = time.getSeconds();  
-  return y+'-'+add1(m)+'-'+add1(d);  
-};  
+function add1(m) {
+	return m < 10 ? '0' + m : m
+};
+
+function getDate(shijianchuo) {
+	//shijianchuo是整数，否则要parseInt转换  
+	var time = new Date(shijianchuo);
+	var y = time.getFullYear();
+	var m = time.getMonth() + 1;
+	var d = time.getDate();
+	var h = time.getHours();
+	var mm = time.getMinutes();
+	var s = time.getSeconds();
+	return y + '-' + add1(m) + '-' + add1(d);
+};
 
 /** 
  * 获取下一个月 
  * @date 格式为yyyy-mm-dd的日期，如：2014-01-25 
- */          
-function getNextMonth(date) {  
-    var arr = date.split('-');  
-    var year = arr[0]; //获取当前日期的年份  
-    var month = arr[1]; //获取当前日期的月份  
-    var day = arr[2]; //获取当前日期的日  
-    var days = new Date(year, month, 0);  
-    days = days.getDate(); //获取当前日期中的月的天数  
-    var year2 = year;  
-    var month2 = parseInt(month) - 1;  
-    if (month2 == 0) {  
-        year2 = parseInt(year2) - 1;  
-        month2 = 12;  
-    }  
-    var day2 = day;  
-    var days2 = new Date(year2, month2, 0);  
-    days2 = days2.getDate();  
-    if (day2 > days2) {  
-        day2 = days2;  
-    }  
-    if (month2 < 10) {  
-        month2 = '0' + month2;  
-    }  
-  
-    var t2 = year2 + '-' + month2 + '-' + day2;  
-    return t2;  
+ */
+function getNextMonth(date) {
+	var arr = date.split('-');
+	var year = arr[0]; //获取当前日期的年份  
+	var month = arr[1]; //获取当前日期的月份  
+	var day = arr[2]; //获取当前日期的日  
+	var days = new Date(year, month, 0);
+	days = days.getDate(); //获取当前日期中的月的天数  
+	var year2 = year;
+	var month2 = parseInt(month) - 1;
+	if(month2 == 0) {
+		year2 = parseInt(year2) - 1;
+		month2 = 12;
+	}
+	var day2 = day;
+	var days2 = new Date(year2, month2, 0);
+	days2 = days2.getDate();
+	if(day2 > days2) {
+		day2 = days2;
+	}
+	if(month2 < 10) {
+		month2 = '0' + month2;
+	}
+
+	var t2 = year2 + '-' + month2 + '-' + day2;
+	return t2;
 };
 
 // 地址栏中文也可以正常获取
 function getUrlParam(key) {
-    // 获取参数
-    var url = window.location.search;
-    // 正则筛选地址栏
-    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
-    // 匹配目标参数
-    var result = url.substr(1).match(reg);
-    //返回参数值
-    return result ? decodeURIComponent(result[2]) : null;
+	// 获取参数
+	var url = window.location.search;
+	// 正则筛选地址栏
+	var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+	// 匹配目标参数
+	var result = url.substr(1).match(reg);
+	//返回参数值
+	return result ? decodeURIComponent(result[2]) : null;
 };
 
 (function(doc) {
@@ -195,44 +243,44 @@ function getUrlParam(key) {
 	//用户缩放浏览器窗口大小时
 	window.onresize = changeSize;
 	changeSize();
-	
+
 	// 鼠标移入移出家具馆
 	$('.jjgWrap,.jjgClassifyBox').on({
-		'mouseenter':function () {
+		'mouseenter': function() {
 			$('.jjgClassifyBox').show();
-			
-			$('.jjgWrap').css('background','#fff');
-			
+
+			$('.jjgWrap').css('background', '#fff');
+
 			$('.jjgWrap a').css({
-				'color':'#333'
-			});  
-			
-			$('.jjgWrap h3').css({
-				'color':'#cd2f1d'
+				'color': '#333'
 			});
-			
-			$('.jjgWrap h3 i').css('background-image','url("images/jjg_hover.png")');
+
+			$('.jjgWrap h3').css({
+				'color': '#cd2f1d'
+			});
+
+			$('.jjgWrap h3 i').css('background-image', 'url("images/jjg_hover.png")');
 		},
-		'mouseleave':function () {
+		'mouseleave': function() {
 			$('.jjgClassifyBox').hide();
-			
-			$('.jjgWrap').css('background','transparent');
-		
+
+			$('.jjgWrap').css('background', 'transparent');
+
 			$('.jjgWrap a').css({
-				'color':'#fff'
-			});  
-			
-			$('.jjgWrap h3').css({
-				'color':'#fff'
+				'color': '#fff'
 			});
-			
-			$('.jjgWrap h3 i').css('background-image','url("images/jjg.png")');
+
+			$('.jjgWrap h3').css({
+				'color': '#fff'
+			});
+
+			$('.jjgWrap h3 i').css('background-image', 'url("images/jjg.png")');
 		}
 	});
-	
+
 	// 设置页面打开方式都是新开一个页面
-	$('.navigationWrap a').prop('target','_blank');
-	
+	$('.navigationWrap a').prop('target', '_blank');
+
 	// 鼠标移入移出筑家汇
 	/*$('.toPage .zjh,.zjhSubtitle').on({
 		'mouseenter':function () {

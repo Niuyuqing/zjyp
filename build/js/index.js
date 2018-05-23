@@ -61,7 +61,7 @@
 		},
 		mounted: function mounted() {
 			// 商品分类接口
-			this.$http.post('http://localhost:8092/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+			this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
 				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 					'Content-Type': 'application/x-www-form-urlencoded'
 				},

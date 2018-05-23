@@ -129,6 +129,15 @@
   background-size: contain;
   vertical-align: middle;
 }
+.content .filter .priceUpDef i {
+  background-image: url(../../build/images/gradeUp_1.png);
+}
+.content .filter .priceUp {
+  background: #cd2f1d;
+}
+.content .filter .priceUp i {
+  background-image: url(../../build/images/gradeUp_2.png);
+}
 .content .goodsCollection {
   width: 83rem;
 }

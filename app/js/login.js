@@ -23,7 +23,7 @@ var loginFormWrap = new Vue({
 				this.errorTipMsg = '';
 				
 				// 登录接口
-				this.$http.post('http://localhost:8092/user/login', {
+				this.$http.post('http://localhost:8083/zujahome-main/user/login', {
 					phone : this.phone,
 					password : this.pwd
 				} ,{   // 没有参数也要放空的大括号
@@ -33,6 +33,12 @@ var loginFormWrap = new Vue({
 		            emulateJSON: true
 		        }).then(function(data) {
 		            console.log(data.body);
+		            if(data.body.status=='200'){
+		            	window.location.href='index.html';
+		            }else{
+		            	this.errorTip = true;
+						this.errorTipMsg = data.body.msg;
+		            }
 		        }, function(a) {
 		            console.log('请求错误 ')
 		        });

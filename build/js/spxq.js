@@ -54,15 +54,20 @@
 			goodsDetailArr: {}, // 商品详情
 			attrInfo: [], // 商品属性
 			newAttrInfo: [], // 转变为数组后的商品属性
-			shoppingNum: '', // 购买数量
+			shoppingNum: 1, // 购买数量
 			goodsImgArr: [], // 商品图片
 			suitDetail: [], // 搭配套餐
 			newSuitDetail: [], //转变为数组后的搭配套餐
 			showItemNumDetail: {}, // 商品详情购买量和评价数量
 			goodsAttrArr: [], // 商品详情
-			attrDetail: [] },
-		// 商品基本信息
+			attrDetail: [], // 商品基本信息
+			goodsId: '', // 地址栏商品ID
+			addShoppingPage: '' },
+		// 跳转加入购物车页面地址
 		mounted: function mounted() {
+			this.goodsId = this.getUrlParam('goodsId');
+			this.addShoppingPage = 'addShoppingCart.html?goodsId=' + this.goodsId + '&num=' + this.shoppingNum; // 跳转加入购物车页面地址
+	
 			// 翻页器
 			$('.paging').pagination({
 				pageCount: 50,
@@ -80,7 +85,7 @@
 			});
 	
 			// 展示商品详情
-			this.$http.post('http://localhost:8092/item/showItem/' + this.getUrlParam('goodsId'), {}, { // 没有参数也要放空的大括号
+			this.$http.post('http://localhost:8083/zujahome-main/item/showItem/' + this.goodsId, {}, { // 没有参数也要放空的大括号
 				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 					'Content-Type': 'application/x-www-form-urlencoded'
 				},
@@ -101,12 +106,15 @@
 				this.goodsAttrArr = JSON.parse(data.body.data.rows[0].attr); // 商品详情
 				this.attrDetail = JSON.parse(data.body.data.rows[0].attr_detail); // 商品基本信息
 	
+				// 商品图片信息
 				document.getElementById('picShow').innerHTML = this.goodsDetailArr.goods_desc;
 	
 				// 商品属性
 				for (var y = 0; y < this.attrInfo.length; y++) {
 					this.newAttrInfo.push(JSON.parse(this.attrInfo[y]));
 				}
+	
+				console.log(this.newAttrInfo);
 	
 				// 搭配套餐
 				for (var i = 0; i < this.suitDetail.length; i++) {
@@ -145,7 +153,7 @@
 			});
 	
 			// 商品分类接口
-			this.$http.post('http://localhost:8092/item/showItemNumDetail/' + this.getUrlParam('goodsId'), {}, { // 没有参数也要放空的大括号
+			this.$http.post('http://localhost:8083/zujahome-main/item/showItemNumDetail/' + this.getUrlParam('goodsId'), {}, { // 没有参数也要放空的大括号
 				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 					'Content-Type': 'application/x-www-form-urlencoded'
 				},
@@ -182,6 +190,7 @@
 			limitShoppingNum: function limitShoppingNum() {
 				// 限制购买数量只能输入数字
 				this.shoppingNum = this.shoppingNum.replace(/\D/g, '');
+				this.addShoppingPage = 'addShoppingCart.html?goodsId=' + this.goodsId + '&num=' + this.shoppingNum; // 跳转加入购物车页面地址
 			},
 			changeShoppingNum: function changeShoppingNum(type) {
 				// 修改购买数量
@@ -194,9 +203,15 @@
 					// 加
 					this.shoppingNum++;
 				}
+				this.addShoppingPage = 'addShoppingCart.html?goodsId=' + this.goodsId + '&num=' + this.shoppingNum; // 跳转加入购物车页面地址
 			},
 			goodsDetail: function goodsDetail(id) {
+				// 搭配套餐商品点击单单品跳转商品详情页面
 				window.open('spxq.html?goodsId=' + id);
+			},
+			goodsFilter: function goodsFilter(id) {
+				// 点击商品筛选信息
+				window.location.href = 'spxq.html?goodsId=' + id;
 			}
 		}
 	});

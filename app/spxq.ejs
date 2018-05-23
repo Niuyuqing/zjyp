@@ -80,9 +80,10 @@
 								<span class="tip" v-for="i in item">{{i.attr_name}}</span>
 								<p class="label rFloat">
 									<span v-for="y in item">
-										<i v-for="p in y.attr_info">
-											{{p.attr_value}}
-										</i>
+										<em v-for="p in y.attr_info" @click="goodsFilter(p.goods_id)">
+											<i v-if="p.is_select!=1">{{p.attr_value}}</i>
+											<i style="border-color: #cd2f1d;" v-if="p.is_select==1">{{p.attr_value}}</i>
+										</em>
 									</span>
 								</p>
 							</div>
@@ -103,7 +104,7 @@
 							<div class="buttonWrap">
 								<a href="jsy.html" class="nowBuy">立即购买</a>
 								<p class="mask"></p>
-								<a href="addShoppingCart.html" class="addToCart"><img src="images/cart.png" />加入购物车</a>
+								<a :href="addShoppingPage" class="addToCart" target="_blank"><img src="images/cart.png" />加入购物车</a>
 							</div>
 						</div>
 					</div>

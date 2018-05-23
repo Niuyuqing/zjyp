@@ -13,6 +13,8 @@
 		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/distpicker.data.js"></script>
+		<script src="js/lib/distpicker.js"></script>
 	</head>
 
 	<body>
@@ -52,17 +54,15 @@
 						<div class="addSSRMsg">
 							<p class="title">新增收货人信息</p>
 							<div class="addMsgBox">
-								<p>
+								<p class="lFloat">
 									<span><i>*</i>所在地区</span>
-									<select name="">
-										<option value="">请选择</option>
-									</select>
-									<select name="">
-										<option value="">请选择</option>
-									</select>
-									<select name="">
-										<option value="">请选择</option>
-									</select>
+									
+									<!--省市区三级联动插件-->
+									<div id="distpicker5" class="lFloat">
+										<select></select>
+										<select></select>
+										<select></select>
+									</div>
 								</p>
 								<p>
 									<span><i>*</i>收货人</span>
@@ -88,12 +88,14 @@
 							<div class="addressBox">
 								<ul class="clearfix subTitle">
 									<li>收货人</li>
+									<li>所在地区</li>
 									<li>详细地址</li>
 									<li>手机号码</li>
 									<li>操作</li>
 								</ul>
 								<ul class="clearfix">
 									<li>张小娴</li>
+									<li>安徽池州东县中央大街29号</li>
 									<li>安徽池州东县中央大街29号</li>
 									<li>18956565656</li>
 									<li>
@@ -103,6 +105,7 @@
 								</ul>
 								<ul class="clearfix">
 									<li>张小娴</li>
+									<li>安徽池州东县中央大街29号</li>
 									<li>安徽池州东县中央大街29号</li>
 									<li>18956565656</li>
 									<li>
@@ -112,6 +115,7 @@
 								</ul>                                                                              
 								<ul class="clearfix">
 									<li>张小娴</li>
+									<li>安徽池州东县中央大街29号</li>
 									<li>安徽池州东县中央大街29号</li>
 									<li>18956565656</li>
 									<li>
@@ -123,7 +127,7 @@
 						</div>
 					</div>
 					
-					<!--新增收货人信息-->
+					<!--编辑收货人信息-->
 					<div class="addConsigneeMsg" v-if="editAddressBox">
 						<p class="title clearfix">
 							<span class="lFloat">编辑收货人信息</span>
@@ -132,16 +136,11 @@
 						<div class="addContent">
 							<div class="place">
 								<span><i>*</i>所在地区</span>
-								<div>
-									<select name="">
-										<option value="">请选择</option>
-									</select>
-									<select name="">
-										<option value="">请选择</option>
-									</select>
-									<select name="">
-										<option value="">请选择</option>
-									</select>
+								<!--省市区三级联动插件-->
+								<div id="distpicker4">
+									<select></select>
+									<select></select>
+									<select></select>
 								</div>
 							</div>
 							<p>

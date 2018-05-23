@@ -69,8 +69,8 @@
 				activeCls: 'activeCls',
 				homePage: '首页',
 				endPage: '尾页',
-				prevContent: '<img src="../build/images/prevPage.png"/>',
-				nextContent: '<img src="../build/images/nextPage.png"/>',
+				prevContent: '<img src="./images/prevPage.png"/>',
+				nextContent: '<img src="./images/nextPage.png"/>',
 				callback: function callback(api) {
 					this.nowPageNum = api.getCurrent();
 					console.log('bb:' + this.nowPageNum);
@@ -131,11 +131,13 @@
 	});
 	
 	$(function () {
-		// 遮罩层默认样式
-		$('.mask').css({
-			'width': $(document).width() + 'px',
-			'height': $(document).height() + 'px'
-		});
+		setTimeout(function () {
+			// 遮罩层默认样式
+			$('.mask').css({
+				'width': $(document).width() + 'px',
+				'height': document.body.scrollHeight + 'px'
+			});
+		}, 2000);
 	
 		// 设置翻页距左边距离
 		$('.pagingWrap .paging').css({

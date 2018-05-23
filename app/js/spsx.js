@@ -18,14 +18,17 @@ var spsxMain = new Vue({
 		showStyleLabel: false,
 		colligate: true, // 综合
 		salesVolume: false, // 销量
-		priceBtn: false, // 价格
+		priceBtnDown1: true, // 价格降序（默认）
+		priceBtnDown2: false, // 价格降序（选中）
+		priceBtnUp1 : false, // 价格升序（默认）
+		priceBtnUp2 : false, // 价格升序（选中）
 		popularity: false, // 人气
 		totalNum : 0,  // 总页数
 		nowPageNum : 0,   // 当前页
 	},
 	mounted: function() {
 		// 展示商品详情
-		/*this.$http.post('http://localhost:8092/item/showItem/'+this.getUrlParam('cid'), {} ,{   // 没有参数也要放空的大括号
+		/*this.$http.post('http://localhost:8083/zujahome-main/item/showItem/'+this.getUrlParam('cid'), {} ,{   // 没有参数也要放空的大括号
             headers: {   // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
@@ -57,20 +60,21 @@ var spsxMain = new Vue({
 
 		// 展示商品列表,展示商品筛选列表
 		if(this.filterLabelIdStr==''||this.filterLabelIdStr==null){
-			this.showGoodsList('cat_id-'+this.getUrlParam('cid'));
+			this.showGoodsList('cat_id-'+this.getUrlParam('cid'),'sort_order');
 			this.goodsFilterList('cat_id-'+this.getUrlParam('cid'));
 		}else{
-			this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'))
+			this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'),'sort_order')
 			this.goodsFilterList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'));
 		}
 	},
 	methods: {
 		// 展示商品列表
-		showGoodsList : function(inputStr){
-			this.$http.post('http://localhost:8092/item/showGoodsList', {
+		showGoodsList : function(inputStr,sortVal){
+			this.$http.post('http://localhost:8083/zujahome-main/item/showGoodsList', {
 				inputStr: inputStr,
 				pageNum: this.nowPageNum,
-				rowNum: 20
+				rowNum: 20,
+				sortVal : sortVal
 			}, { // 没有参数也要放空的大括号
 				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 					'Content-Type': 'application/x-www-form-urlencoded'
@@ -95,7 +99,7 @@ var spsxMain = new Vue({
 					callback: function(api) {
 						this.nowPageNum = api.getCurrent();
 						
-						spsxMain.$http.post('http://localhost:8092/item/showGoodsList', {
+						spsxMain.$http.post('http://localhost:8083/zujahome-main/item/showGoodsList', {
 							inputStr: 'cat_id-' + spsxMain.getUrlParam('cid'),
 							pageNum: this.nowPageNum,
 							rowNum: 20
@@ -122,7 +126,7 @@ var spsxMain = new Vue({
 		},
 		// 展示商品筛选列表
 		goodsFilterList : function(inputStr){
-			this.$http.post('http://localhost:8092/item/showItemFilterList', {
+			this.$http.post('http://localhost:8083/zujahome-main/item/showItemFilterList', {
 				inputStr: inputStr
 			}, { // 没有参数也要放空的大括号
 				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
@@ -210,27 +214,93 @@ var spsxMain = new Vue({
 		colligateClick: function() { // 点击综合
 			this.colligate = true; // 综合
 			this.salesVolume = false; // 销量
-			this.priceBtn = false; // 价格
 			this.popularity = false; // 人气
+			
+			//价格
+			this.priceBtnDown1 = true;
+			this.priceBtnDown2 = false;
+			this.priceBtnUp1 = false;
+			this.priceBtnUp2 = false;
+			
+			// 展示商品列表,展示商品筛选列表
+			if(this.filterLabelIdStr==''||this.filterLabelIdStr==null){
+				this.showGoodsList('cat_id-'+this.getUrlParam('cid'),'sort_order');
+			}else{
+				this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'),'sort_order')
+			}
 		},
 		salesVolumeClick: function() { // 点击销量
 			this.colligate = false; // 综合
 			this.salesVolume = true; // 销量
-			this.priceBtn = false; // 价格
 			this.popularity = false; // 人气
+			
+			//价格
+			this.priceBtnDown1 = true;
+			this.priceBtnDown2 = false;
+			this.priceBtnUp1 = false;
+			this.priceBtnUp2 = false;
+			
+			// 展示商品列表,展示商品筛选列表
+			if(this.filterLabelIdStr==''||this.filterLabelIdStr==null){
+				this.showGoodsList('cat_id-'+this.getUrlParam('cid'),'s2');
+			}else{
+				this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'),'s2')
+			}
 		},
-		priceBtnClick: function() { // 点击价格
+		priceBtnClick: function(type) { // 点击价格
+			console.log(type)
+			if (type==1) {   // 默认降序
+				this.priceBtnDown1 = false;
+				this.priceBtnDown2 = false;
+				this.priceBtnUp1 = false;
+				this.priceBtnUp2 = true;
+				
+				// 展示商品列表,展示商品筛选列表
+				if(this.filterLabelIdStr==''||this.filterLabelIdStr==null){
+					this.showGoodsList('cat_id-'+this.getUrlParam('cid'),'p2');
+				}else{
+					this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'),'p2')
+				}
+			} else if(type==2){  // 降序选中状态
+				this.priceBtnDown1 = false;
+				this.priceBtnDown2 = false;
+				this.priceBtnUp1 = false;
+				this.priceBtnUp2 = true;
+				
+				// 展示商品列表,展示商品筛选列表
+				if(this.filterLabelIdStr==''||this.filterLabelIdStr==null){
+					this.showGoodsList('cat_id-'+this.getUrlParam('cid'),'p2');
+				}else{
+					this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'),'p2')
+				}
+			}else if(type==3){  // 默认升序
+				this.priceBtnDown1 = false;
+				this.priceBtnDown2 = false;
+				this.priceBtnUp1 = false;
+				this.priceBtnUp2 = true;
+			} else if(type==4){  // 升序选中状态
+				this.priceBtnDown1 = false;
+				this.priceBtnDown2 = true;
+				this.priceBtnUp1 = false;
+				this.priceBtnUp2 = false;
+				
+				// 展示商品列表,展示商品筛选列表
+				if(this.filterLabelIdStr==''||this.filterLabelIdStr==null){
+					this.showGoodsList('cat_id-'+this.getUrlParam('cid'),'p1');
+				}else{
+					this.showGoodsList(this.filterLabelIdStr+',cat_id-' + this.getUrlParam('cid'),'p1')
+				}
+			}
 			this.colligate = false; // 综合
 			this.salesVolume = false; // 销量
-			this.priceBtn = true; // 价格
 			this.popularity = false; // 人气
 		},
-		popularityClick: function() { // 点击人气
+		/*popularityClick: function() { // 点击人气
 			this.colligate = false; // 综合
 			this.salesVolume = false; // 销量
 			this.priceBtn = false; // 价格
 			this.popularity = true; // 人气
-		},
+		},*/
 		getUrlParam: function(key) { // 地址栏中文也可以正常获取
 			// 获取参数
 			var url = window.location.search;

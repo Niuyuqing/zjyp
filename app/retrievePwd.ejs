@@ -50,7 +50,8 @@
 							<p class="phone"><input type="text" placeholder="请输入手机号码" v-model="phone" /></p>
 							<p class="codeNum"> 
 								<input type="text" placeholder="请输入验证码" v-model="codeNum" />
-								<span class="getCodeNum" @click="getCodeNum()">获取验证码</span>
+								<span class="getCodeNum" @click="getCodeNum()" v-if="authCode">获取验证码</span>
+								<span class="getCodeNum getCodeNum2" v-if="!authCode" style="color: #999;">{{daoTime}}s</span>
 							</p>
 						</form>
 						<p><button class="nextStep" @click="nextStepClick()">下一步</button></p>
