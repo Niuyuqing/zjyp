@@ -158,6 +158,17 @@
 						
 						<!--<iframe :src="goodsDetailArr.goods_desc_url" scrolling="no" frameborder="0" class="includeContent" style="border: none;" height="100%" width=""></iframe>-->
 						
+						<!--基本信息-->
+						<div class="basicMsg">
+							<p class="title">基本信息</p>
+							<ul>
+								<li v-for="item in goodsAttrArr">
+									<span>{{item.attr_name}}：</span>
+									<span>{{item.attr_value}}</span>
+								</li>
+							</ul>
+						</div>
+						
 						<!--商品评论-->
 						<div class="goodsComment">
 							<p class="title">

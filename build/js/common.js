@@ -61,7 +61,7 @@
 				qwdz: 'qwdz.html',
 				yptc: 'yptc.html',
 				xxtyg: 'xxtyg.html',
-				cshhr: 'cshhr.html'
+				cshhr: 'cityPartner.html'
 			}
 		},
 		mounted: function mounted() {},

@@ -1,0 +1,81 @@
+.zjypMain img {
+  display: block;
+  width: 100%;
+}
+.zjypMain .bg_1 {
+  height: 52.933333rem;
+}
+.zjypMain .bg_2 {
+  height: 46.666666rem;
+}
+.cityPartnerForm {
+  width: 80rem;
+  border: 0.066666rem solid #e6e6e6;
+  height: 33.333333rem;
+  margin: 6.666666rem auto;
+  padding: 4.866666rem 0 0 5.133333rem;
+  box-sizing: border-box;
+  background: #FFFFFF;
+}
+.leftText {
+  font-size: 1.333333rem;
+  color: #333333;
+  height: 23.466666rem;
+  width: 29.333333rem;
+  border-right: 0.066666rem solid #E6E6E6;
+  padding: 5.066666rem 3.333333rem 0 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+.leftText .text {
+  line-height: 2.666666rem;
+}
+.leftText img {
+  display: inline-block;
+  width: 2.666666rem;
+  height: 2.666666rem;
+  vertical-align: middle;
+}
+.leftText .phone {
+  color: #ff9f21;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.rightForm {
+  font-size: 0.933333rem;
+  color: #666666;
+  padding-left: 3.333333rem;
+}
+.rightForm p {
+  height: 2.8rem;
+  line-height: 2.8rem;
+  margin-bottom: 1.333333rem;
+}
+.rightForm span {
+  display: inline-block;
+  width: 7rem;
+  text-align: right;
+  margin-right: 1.333333rem;
+}
+.rightForm input {
+  display: inline-block;
+  width: 26rem;
+  height: 2.8rem;
+  border: 0.066666rem solid #E6E6E6;
+  padding-left: 0.666666rem;
+  box-sizing: border-box;
+}
+.rightForm button {
+  display: inline-block;
+  width: 20rem;
+  height: 2.8rem;
+  border-radius: 0.333333rem;
+  background: #ff9f21;
+  color: #FAFAFA;
+  font-size: 1.2rem;
+  margin-left: 3rem;
+  cursor: pointer;
+}
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}

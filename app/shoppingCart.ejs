@@ -47,25 +47,15 @@
 						<div class="line">
 							<p class="clearfix">
 								<img src="images/select_1.png" class="lFloat goodsSelect goodsSingleSelect" @click="selectGoods($event)" />
-								<img src="images/eg.jpg" class="lFloat" />
+								<img :src="item.data.original_img" class="lFloat" />
 							</p>
-							<p>{{shoppingCartData.goods_name}}</p>
-							<!--<p>
-								<span v-for="info in newAttrInfo">{{info.attr_name}}：灰色</span><br />
-							</p>-->
-							<p v-for="info in newAttrInfo">
-								<p v-for="i in info">
-									<span>{{i.attr_name}}</span>：
-									<span v-for="y in info">
-										<em v-for="p in y.attr_info">
-											<i v-if="p.is_select==1">{{p.attr_value}}</i>
-										</em>
-									</span>
-								</p>
+							<p>{{item.data.goods_name}}</p>
+							<p>
+								<span style="display: block;" v-for="attr in item.data.attr">{{attr.attrName}}：{{attr.attrValue}}</span>
 							</p>
 							<p>
-								<span>¥3799.00</span><br />
-								<span>¥3799.00</span>
+								<span></span><br />
+								<span>¥{{item.data.shop_price_1}}</span>
 							</p>
 							<p>
 								<span class="reduce lFloat" @click="changeShoppingNum($event,1)">
@@ -77,75 +67,13 @@
 								</span>
 							</p>
 							<p>
-								¥3899.00
+								¥{{item.itemNum*item.data.shop_price_1}}
 							</p>
-							<p>删除</p>
+							<p style="cursor: pointer;">删除</p>
 						</div>
 					</div>
 
-					<!--<div class="lineWrap clearfix">
-						<div class="line">
-							<p class="clearfix">
-								<img src="images/select_1.png" class="lFloat goodsSelect goodsSingleSelect" @click="selectGoods($event)" />
-								<img src="images/eg.jpg" class="lFloat" />
-							</p>
-							<p>LOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cmLOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cm</p>
-							<p>
-								<span>颜色：灰色</span><br />
-								<span>尺码：三人位+左贵妃位</span>
-							</p>
-							<p>
-								<span>¥3799.00</span><br />
-								<span>¥3799.00</span>
-							</p>
-							<p>
-								<span class="reduce lFloat">
-								<img src="images/jian.png" />
-							</span>
-								<input type="text" class="text lFloat" />
-								<span class="add lFloat">
-								<img src="images/jia.png" />
-							</span>
-							</p>
-							<p>
-								¥3899.00
-							</p>
-							<p>删除</p>
-						</div>
-					</div>
-
-					<div class="lineWrap clearfix">
-						<div class="line">
-							<p class="clearfix">
-								<img src="images/select_1.png" class="lFloat goodsSelect goodsSingleSelect" @click="selectGoods($event)" />
-								<img src="images/eg.jpg" class="lFloat" />
-							</p>
-							<p>LOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cmLOVO 罗莱生活出品 艺享四孔春秋被双人被子200*230cm</p>
-							<p>
-								<span>颜色：灰色</span><br />
-								<span>尺码：三人位+左贵妃位</span>
-							</p>
-							<p>
-								<span>¥3799.00</span><br />
-								<span>¥3799.00</span>
-							</p>
-							<p>
-								<span class="reduce lFloat">
-								<img src="images/jian.png" />
-							</span>
-								<input type="text" class="text lFloat" />
-								<span class="add lFloat">
-								<img src="images/jia.png" />
-							</span>
-							</p>
-							<p>
-								¥3899.00
-							</p>
-							<p>删除</p>
-						</div>
-					</div>-->
-
-					<div class="goodsAllPic clearfix">
+					<div class="goodsAllPic clearfix" v-if="showAllPic">
 						<img src="images/prev.png" class="prev lFloat" />
 						<p class="lFloat">
 							<img src="images/eg.jpg" />
@@ -177,7 +105,7 @@
 					<p class="lFloat allSelect">
 						<img src="images/select_1.png" class="goodsSelect goodsAllSelect" @click="selectAll()" style="cursor: pointer;" />
 						<span class="allChose">全选</span>
-						<span class="del">删除</span>
+						<span class="del" style="cursor: pointer;">删除</span>
 					</p>
 					<div class="rFloat selectGoods">
 						<span class="lFloat">已选商品</span>

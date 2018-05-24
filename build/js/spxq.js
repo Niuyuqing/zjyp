@@ -106,6 +106,8 @@
 				this.goodsAttrArr = JSON.parse(data.body.data.rows[0].attr); // 商品详情
 				this.attrDetail = JSON.parse(data.body.data.rows[0].attr_detail); // 商品基本信息
 	
+				console.log(JSON.parse(data.body.data.rows[0].group_attr_info).attr_info);
+	
 				// 商品图片信息
 				document.getElementById('picShow').innerHTML = this.goodsDetailArr.goods_desc;
 	
