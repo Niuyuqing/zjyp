@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>商品详情</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/yptcDetail.css" />
+		<link rel="stylesheet" type="text/css" href="css/magnifier.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/magnifier.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="spxqWrap">
+			<%-include header  %>
+			<%-include search  %>
+			<%-include navigation  %>
+
+			<div class="spxqMain">
+				<div class="content">
+					<div class="boxWrap clearfix">
+						<div class="lFloat boxLeft">
+							<div class="magnifier" id="magnifier1">
+								<div class="magnifier-container">
+									<div class="images-cover"></div>
+									<!--当前图片显示容器-->
+									<div class="move-view"></div>
+									<!--跟随鼠标移动的盒子-->
+								</div>
+								<div class="magnifier-assembly">
+									<div class="magnifier-btn">
+										<span class="magnifier-btn-left">&lt;</span>
+										<span class="magnifier-btn-right">&gt;</span>
+									</div>
+									<!--按钮组-->
+									<div class="magnifier-line">
+										<ul class="clearfix animation03">
+											<li v-for="item in goodsImgArr">
+												<div class="small-img">
+													<img src="images/eg.jpg" />
+													<img src="images/eg.jpg" />
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!--缩略图-->
+								</div>
+								<div class="magnifier-view"></div>
+								<!--经过放大的图片显示容器-->
+							</div>
+
+						</div>
+							<div class="rFloat information">
+								<h3>商品名称</h3>
+								<div class="priceWrap">
+									<span class="tip">价格</span>
+									<p class="money"><span>¥</span>100</p>
+									<p class="tradeSucc rFloat">
+										<span class="num">2</span><br />
+										<span class="text">交易成功</span>
+									</p>
+									<p class="line rFloat"></p>
+									<p class="comment rFloat">
+										<span class="num">200</span><br />
+										<span class="text">累计评价</span>
+									</p>
+								</div>
+
+								<!--属性-->
+								<div class="standardWrap clearfix">
+									<span class="tip">颜色</span>
+									<p class="label rFloat">
+										<span>
+										<em>
+											<i style="border-color: #cd2f1d;">红色</i>
+										</em>
+									</span>
+									</p>
+								</div>
+
+								<div class="buttonWrap">
+									<a href="jsy.html" class="nowBuy">立即购买</a>
+									<p class="mask"></p>
+									<a :href="addShoppingPage" class="addToCart" target="_blank"><img src="images/cart.png" />加入购物车</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%-include footer  %>
+		</div>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/yptcDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

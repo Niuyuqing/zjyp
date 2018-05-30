@@ -45,7 +45,7 @@ body {
         border-bottom: none;
         .contTitle {
             padding: 0.666666rem;
-            img{
+            img {
                 display: inline-block;
                 margin-right: 0.666666rem;
                 width: 0.933333rem;
@@ -58,31 +58,31 @@ body {
                 font-size: 0.8rem;
                 color: #666666;
             }
-            p:nth-child(1){
+            p:nth-child(1) {
                 width: 8.533333rem;
-                input{
+                input {
                     display: inline-block;
                     width: 0.933333rem;
                     height: 0.933333rem;
                 }
             }
-            p:nth-child(2){
+            p:nth-child(2) {
                 width: 30rem;
                 margin-right: 3.333333rem;
             }
-            p:nth-child(3){
+            p:nth-child(3) {
                 width: 10rem;
             }
-            p:nth-child(4){
+            p:nth-child(4) {
                 width: 10rem;
                 margin-right: 2rem;
             }
-            p:nth-child(5){
+            p:nth-child(5) {
                 width: 10rem;
             }
         }
     }
-    .lineWrap{
+    .lineWrap {
         border-bottom: 0.066666rem solid #E6E6E6;
     }
     .line {
@@ -93,7 +93,7 @@ body {
             float: left;
         }
         p:nth-child(1) {
-            img:nth-child(1){
+            img:nth-child(1) {
                 display: inline-block;
                 width: 0.933333rem;
                 height: 0.933333rem;
@@ -150,7 +150,7 @@ body {
             .add {
                 display: inline-block;
                 width: 1.733333rem;
-                height: 1.733333rem;
+                height: 2rem;
                 cursor: pointer;
             }
             .reduce {
@@ -175,11 +175,10 @@ body {
                 display: inline-block;
                 width: 2rem;
                 height: 1.466666rem;
-                margin-top: 0.2rem;
+                margin-top: 0.3rem;
                 box-sizing: border-box;
                 font-size: 0.8rem;
                 text-align: center;
-                
             }
         }
         p:nth-child(6) {
@@ -188,34 +187,42 @@ body {
             width: 6.666666rem;
             margin-right: 3.333333rem;
         }
-        p:nth-child(7){
+        p:nth-child(7) {
             font-size: 0.8rem;
             color: #666666;
         }
     }
-    .goodsAllPic{
+    .goodsAllPic {
         padding: 0.666666rem 1.333333rem;
         height: 6.666666rem;
         box-sizing: border-box;
         border: 0.066666rem solid #cd2f1d;
-        .prev,.next{
+        .prev,
+        .next {
             display: inline-block;
             width: 0.8rem;
             height: 1.333333rem;
             margin: 2rem 0;
             cursor: pointer;
         }
-        .prev{
+        .prev {
             margin-right: 1.8rem;
         }
-        .next{
+        .next {
             margin-left: 1.8rem;
         }
-        p{
-            width: 72rem;
+        div {
+            width: 71rem;
             height: 5.333333rem;
             overflow: hidden;
-            img{
+            position: relative;
+            ul {
+                height: 5.333333rem;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            img {
                 display: inline-block;
                 width: 5.333333rem;
                 height: 5.333333rem;
@@ -225,7 +232,7 @@ body {
             }
         }
     }
-    .detailedInformation{
+    .detailedInformation {
         height: 3.333333rem;
         background: #f5f5f5;
         font-size: 0.8rem;
@@ -234,8 +241,8 @@ body {
         box-sizing: border-box;
         margin-top: 2rem;
         margin-bottom: 1.333333rem;
-        .allSelect{
-            img{
+        .allSelect {
+            img {
                 display: inline-block;
                 width: 0.933333rem;
                 height: 0.933333rem;
@@ -243,11 +250,11 @@ body {
                 vertical-align: middle;
             }
         }
-        .allChose{
+        .allChose {
             display: inline-block;
             margin-right: 2rem;
         }
-        a{
+        .balance {
             width: 6rem;
             height: 3.333333rem;
             background: #cd2f1d;
@@ -257,69 +264,128 @@ body {
             cursor: pointer;
             text-align: center;
         }
-        .open{
+        .open {
             cursor: pointer;
             margin-left: 2rem;
         }
-        .selectGoods{
-            img{
+        .selectGoods {
+            img {
                 display: inline-block;
                 width: 0.533333rem;
                 height: 0.533333rem;
                 margin-left: 0.333333rem;
             }
-            .open{
+            .open {
                 margin-right: 2rem;
             }
         }
-        .money{
+        .money {
             line-height: 1.666666rem;
-            i{
+            i {
                 font-style: normal;
             }
-            .allMoney{
+            .allMoney {
                 font-size: 1.333333rem;
                 color: #cd2f1d;
                 font-weight: bold;
             }
         }
     }
+    
+//  删除提示框
+    .deleteBox {
+        display: block;
+        width: 25.466666rem;
+        height: 11.733333rem;
+        background: #fff;
+        border-radius: 0.133333rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 100;
+        margin-top: -5.866666rem;
+        margin-left: -12.733333rem;
+        .title {
+            height: 2rem;
+            line-height: 2rem;
+            font-size: 0.933333rem;
+            background: #EBEBEB;
+            padding: 0 0.666666rem;
+            color: #666666;
+            img {
+                display: inline-block;
+                width: 0.8rem;
+                height: 0.8rem;
+                margin-top: 0.6rem;
+                cursor: pointer;
+            }
+        }
+        p:nth-child(2) {
+            padding-left: 5rem;
+            font-size: 0.933333rem;
+            color: #333333;
+            font-weight: bold;
+            margin: 1.333333rem 0;
+            img {
+                display: inline-block;
+                width: 2.666666rem;
+                height: 2.666666rem;
+                margin-right: 0.666666rem;
+                vertical-align: middle;
+            }
+        }
+        p:nth-child(3) {
+            padding-left: 8.333333rem;
+            button {
+                display: inline-block;
+                width: 3.466666rem;
+                height: 1.733333rem;
+                border-radius: 0.133333rem;
+                border: 0.066666rem solid #E6E6E6;
+                background: #F5F5F5;
+                margin-right: 0.666666rem;
+                font-size: 0.8rem;
+                color: #333333;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
-.guessLove{
+.guessLove {
     width: 80rem;
     margin: 0 auto;
     padding: 1.2rem;
     border: 0.066666rem solid #cccccc;
     box-sizing: border-box;
     margin-top: 2rem;
-    .title{
+    .title {
         font-size: 0.933333rem;
         color: #333333;
         padding: 0 0 0.666666rem 0;
     }
-    li{
+    li {
         float: left;
         width: 17.866666rem;
         height: 19.066666rem;
         background: #FFFFFF;
         margin-right: 1.933333rem;
-        img{
+        img {
             display: block;
             width: 17.866666rem;
-            height:  13.333333rem;
+            height: 13.333333rem;
         }
     }
-    .money{
+    .money {
         color: #cd2f1d;
         font-size: 1.2rem;
         display: block;
-        i{
+        i {
             font-size: 0.8rem;
             font-style: normal;
         }
     }
-    .info{
+    .info {
         font-size: 0.8rem;
         color: #333333;
         display: -webkit-box;
@@ -327,7 +393,18 @@ body {
         -webkit-line-clamp: 2;
         overflow: hidden;
     }
-    .msg{
+    .msg {
         padding: 0.933333rem 1rem 0;
     }
+}
+
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: .2;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
 }

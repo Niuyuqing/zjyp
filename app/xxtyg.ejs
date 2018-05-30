@@ -1,123 +1,176 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>线下体验馆</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="css/xxtyg.css" />
-	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SuZ4QGFdTVY51HhBwudg8QtZloNqGMNK"></script>
-</head>
-<body>
-	<div class="ptfaWrap">
-		<%-include header  %>
-		<%-include search  %>
-		<%-include navigation  %>
-		
-		<div class="xxtygMain">
-			<img src="images/xxtyg_bg.png" class="banner"/>
-			<div class="locationTitle">
-				<img src="images/location.png"/>
-				<p><span>北京</span>共有<span>6</span>个体验馆</p>
-				<select name="" class="rFloat">
-					<option value="">北京</option>
-				</select>
-			</div>
-			
-			<div class="tygLocation">
-				<p class="title">体验馆地址</p>
-				<div class="mapWrap clearfix">
-					<div class="mapBox lFloat" id="allmap"></div>
-					<div class="appointmentWrap lFloat">
-						<div class="appointment">
-							<h3>筑家优品房山体验馆</h3>
-							<p class="place">
-								<img src="images/place.png"/>
-								<span>门店地址：</span>
-								北京市房山区绿地缤纷城9号楼
-							</p>
-							<p class="phone">
-								<img src="images/phone.png"/>
-								<span>联系电话：</span>
-								40000062566
-							</p>
-							<button>立即预约</button>
-							<p class="line"></p>
-						</div>
-						
-						<div class="appointment">
-							<h3>筑家优品房山体验馆</h3>
-							<p class="place">
-								<img src="images/place.png"/>
-								<span>门店地址：</span>
-								北京市房山区绿地缤纷城9号楼
-							</p>
-							<p class="phone">
-								<img src="images/phone.png"/>
-								<span>联系电话：</span>
-								40000062566
-							</p>
-							<button>立即预约</button>
-						</div>
-						<div class="pages">
-							<ul class="clearfix">
-								<li><img src="images/lPage.png"/></li>
-								<li>1</li>
-								<li>2</li>
-								<li style="margin-right: 0;"><img src="images/rPage.png"/></li>
-							</ul>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>线下体验馆</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/xxtyg.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SuZ4QGFdTVY51HhBwudg8QtZloNqGMNK"></script>
+	</head>
+
+	<body>
+		<div class="ptfaWrap">
+			<%-include header  %>
+			<%-include search  %>
+			<%-include navigation  %>
+
+			<div class="xxtygMain">
+				<img src="images/xxtyg_bg.png" class="banner" />
+				<div class="locationTitle">
+					<img src="images/location.png" />
+					<p><span>北京</span>共有<span>6</span>个体验馆</p>
+					<select name="" class="rFloat">
+						<option value="">北京</option>
+					</select>
+				</div>
+
+				<div class="tygLocation">
+					<p class="title">体验馆地址</p>
+					<div class="mapWrap clearfix">
+						<div class="mapBox lFloat" id="allmap"></div>
+						<div class="appointmentWrap lFloat">
+							<div class="appointment">
+								<div class="front">
+									<div class="top">
+										<h3>筑家优品房山体验馆</h3>
+										<p class="place">
+											<img src="images/place.png" />
+											<span>门店地址：</span> 北京市房山区绿地缤纷城9号楼
+										</p>
+										<p class="phone">
+											<img src="images/phone.png" />
+											<span>联系电话：</span> 40000062566
+										</p>
+									</div>
+									<button @click="experienceFn(true,0)">立即预约</button>
+									<p class="line"></p>
+								</div>
+								<div class="behind">
+									<img src="images/xxtyg_ew.png" />
+								</div>
+							</div>
+
+							<div class="appointment">
+								<div class="front">
+									<div class="top">
+										<h3>筑家优品房山体验馆</h3>
+										<p class="place">
+											<img src="images/place.png" />
+											<span>门店地址：</span> 北京市房山区绿地缤纷城9号楼
+										</p>
+										<p class="phone">
+											<img src="images/phone.png" />
+											<span>联系电话：</span> 40000062566
+										</p>
+									</div>
+									<button>立即预约</button>
+									<p class="line"></p>
+								</div>
+								<div class="behind">
+									<img src="images/xxtyg_ew.png" />
+								</div>
+							</div>
+							
+							<div class="pages">
+								<ul class="clearfix">
+									<li><img src="images/lPage.png" /></li>
+									<li>1</li>
+									<li>2</li>
+									<li style="margin-right: 0;"><img src="images/rPage.png" /></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			<!--近期活动-->
-			<div class="recentActivity">
-				<p class="title">近期活动</p>
-				<div class="boxWrap clearfix">
-					<div class="box lFloat">
-						<h3>418筑家优品家装节</h3>
-						<p class="time"><img src="images/playtime.png"/>4/17 09:00 - 4/18 18:00</p>
-						<p class="place"><img src="images/place.png"/>北京市房山区绿地缤纷城9号楼718</p>
-						<button>我要参加</button>
+
+				<!--近期活动-->
+				<div class="recentActivity">
+					<p class="title">近期活动</p>
+					<div class="boxWrap clearfix">
+						<div class="box lFloat">
+							<h3>418筑家优品家装节</h3>
+							<p class="time"><img src="images/playtime.png" />4/17 09:00 - 4/18 18:00</p>
+							<p class="place"><img src="images/place.png" />北京市房山区绿地缤纷城9号楼718</p>
+							<button @click="activityFn(true,0)">我要参加</button>
+						</div>
+						<img src="images/xxtyg_pic.png" class="rFloat showPic" />
 					</div>
-					<img src="images/xxtyg_pic.png" class="rFloat showPic"/>
+
+					<div class="boxWrap clearfix">
+						<div class="box lFloat">
+							<h3>418筑家优品家装节</h3>
+							<p class="time"><img src="images/playtime.png" />4/17 09:00 - 4/18 18:00</p>
+							<p class="place"><img src="images/place.png" />北京市房山区绿地缤纷城9号楼718</p>
+							<button>我要参加</button>
+						</div>
+						<img src="images/xxtyg_pic.png" class="rFloat showPic" />
+					</div>
+
+					<div class="boxWrap clearfix">
+						<div class="box lFloat">
+							<h3>418筑家优品家装节</h3>
+							<p class="time"><img src="images/playtime.png" />4/17 09:00 - 4/18 18:00</p>
+							<p class="place"><img src="images/place.png" />北京市房山区绿地缤纷城9号楼718</p>
+							<button>我要参加</button>
+						</div>
+						<img src="images/xxtyg_pic.png" class="rFloat showPic" />
+					</div>
+				</div>
+
+				<!--活动报名弹框-->
+				<div class="informationBox activity" v-if="activity">
+					<p class="title clearfix">
+						<span class="lFloat">活动报名</span>
+						<img src="images/close_del_box.png" class="rFloat" @click="activityFn(false,0)" />
+					</p>
+					<p class="name">
+						筑家优品活动报名
+					</p>
+					<div class="formWrap">
+						<form action="" method="post">
+							<input type="text" placeholder="请输入您的姓名" />
+							<input type="text" placeholder="请输入您的手机号码" />
+						</form>
+						<button @click="activityFn(true,1)">立即报名</button>
+					</div>
 				</div>
 				
-				<div class="boxWrap clearfix">
-					<div class="box lFloat">
-						<h3>418筑家优品家装节</h3>
-						<p class="time"><img src="images/playtime.png"/>4/17 09:00 - 4/18 18:00</p>
-						<p class="place"><img src="images/place.png"/>北京市房山区绿地缤纷城9号楼718</p>
-						<button>我要参加</button>
+				<!--体验馆预约弹框-->
+				<div class="informationBox activity" v-if="experience">
+					<p class="title clearfix">
+						<span class="lFloat">体验馆预约</span>
+						<img src="images/close_del_box.png" class="rFloat" @click="experienceFn(false,0)" />
+					</p>
+					<p class="name">
+						筑家优品房山体验馆
+					</p>
+					<div class="formWrap">
+						<form action="" method="post">
+							<input type="text" placeholder="请输入您的姓名" />
+							<input type="text" placeholder="请输入您的手机号码" />
+						</form>
+						<button @click="experienceFn(true,1)">免费预约</button>
 					</div>
-					<img src="images/xxtyg_pic.png" class="rFloat showPic"/>
 				</div>
-				
-				<div class="boxWrap clearfix">
-					<div class="box lFloat">
-						<h3>418筑家优品家装节</h3>
-						<p class="time"><img src="images/playtime.png"/>4/17 09:00 - 4/18 18:00</p>
-						<p class="place"><img src="images/place.png"/>北京市房山区绿地缤纷城9号楼718</p>
-						<button>我要参加</button>
-					</div>
-					<img src="images/xxtyg_pic.png" class="rFloat showPic"/>
-				</div>
+
+				<div class="mask" v-if="activity||experience"></div>
 			</div>
+
+			<%-include paging  %>
+			<%-include footer  %>
 		</div>
-		
-		<%-include paging  %>
-		<%-include footer  %>
-	</div>
-	
-	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/xxtyg.js" type="text/javascript" charset="utf-8"></script>
-</body>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/xxtyg.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
 </html>

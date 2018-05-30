@@ -28,7 +28,12 @@
   color: #cdcdcd;
 }
 .pageHeader .personCenter {
+  margin-left: 1.333333rem;
+}
+.pageHeader .personCenter,
+.pageHeader .freeDesign {
   color: #999999;
+  cursor: pointer;
 }
 .pageHeader .exit {
   cursor: pointer;
@@ -203,7 +208,8 @@
   font-weight: bold;
   margin-bottom: 0.4rem;
 }
-.navigationWrap .goodsClass .goodsBox a {
+.navigationWrap .goodsClass .goodsBox a,
+.navigationWrap .goodsClass .goodsBox span {
   display: inline-block;
   margin-right: 0.666666rem;
   margin-bottom: 0.2rem;
@@ -281,7 +287,7 @@
 .recommendHeadlines .lLine,
 .recommendHeadlines .rLine {
   width: 34rem;
-  height: 0.066666rem;
+  height: 0.1rem;
   background: #e6e6e6;
   display: inline-block;
   position: absolute;
@@ -308,13 +314,15 @@
   display: block;
   width: 4.666666rem;
   height: 1.6rem;
+  line-height: 1.6rem;
   border: 0.066666rem solid #E6E6E6;
   font-size: 0.8rem;
   color: #999999;
   background: #FFFFFF;
   margin: 1.333333rem auto 0;
   cursor: pointer;
-  border-radius: 0.333333rem ;
+  border-radius: 0.333333rem;
+  text-align: center;
 }
 .pageFooter {
   background: #e6e6e6;
@@ -443,4 +451,74 @@
   margin-top: 3.333333rem;
   cursor: pointer;
   font-size: 1.2rem;
+}
+.informationBox {
+  width: 25.066666rem;
+  height: 18.8rem;
+  border: 0.133333rem solid #bbbbbb;
+  border-radius: 0.333333rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -9.4rem;
+  margin-left: -12.533333rem;
+  z-index: 40;
+  background: #FFFFFF;
+}
+.informationBox .title {
+  color: #666;
+  font-size: 0.933333rem;
+  height: 2rem;
+  line-height: 2rem;
+  background: #ebebeb;
+  padding: 0 0.666666rem;
+  box-sizing: border-box;
+}
+.informationBox .title img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.informationBox .name {
+  color: #cd2f1d;
+  font-size: 1.066666rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.informationBox .formWrap {
+  padding: 0 1.866666rem;
+}
+.informationBox .formWrap input {
+  display: block;
+  width: 21.333333rem;
+  height: 2.666666rem;
+  border: 0.066666rem solid #e6e6e6;
+  padding-left: 0.666666rem;
+  box-sizing: border-box;
+  margin-top: 0.666666rem;
+  color: #999999;
+  font-size: 0.8rem;
+}
+.informationBox .formWrap button {
+  display: block;
+  width: 21.333333rem;
+  height: 2.666666rem;
+  border-radius: 0.333333rem;
+  color: white;
+  background: #cd2f1d;
+  margin: 1.333333rem 0 0 0;
+  cursor: pointer;
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .2;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
 }

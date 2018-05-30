@@ -72,14 +72,28 @@
   background: #E6E6E6;
   margin: 0 0.933333rem;
 }
+.hotSellersWrap .hotSellersPic {
+  width: 83rem;
+}
 .hotSellersWrap .hotSellersPic li {
+  width: 25.333333rem;
   float: left;
-  margin-right: 2.4rem;
+  margin-right: 2rem;
   margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.066666rem;
+}
+.hotSellersWrap .hotSellersPic li .name {
+  color: #333333;
+  margin: 0.733333rem 0 0.666666rem;
+}
+.hotSellersWrap .hotSellersPic li .money {
+  color: #cd2f1d;
 }
 .hotSellersWrap .hotSellersPic img {
-  width: 25.066666rem;
-  height: 28.8rem;
+  display: block;
+  width: 25.333333rem;
+  height: 25.333333rem;
 }
 .distribution {
   width: 80rem;
@@ -87,6 +101,9 @@
 }
 .distribution .content {
   margin-top: 1.333333rem;
+}
+.distribution .contentTop {
+  margin-bottom: 2rem;
 }
 .distribution .contentTop li {
   width: 30rem;
@@ -105,10 +122,16 @@
   width: 100%;
   font-size: 1.066666rem;
   color: #333333;
-  margin-top: 1.066666rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.distribution .contentTop a .name {
+  margin: 0.733333rem 0 0.666666rem;
+}
+.distribution .contentTop a .money {
+  color: #cd2f1d;
+  margin-bottom: 0.666666rem;
 }
 .distribution .contentTop img {
   display: inline-block;
@@ -120,7 +143,6 @@
   text-align: center;
   float: left;
   margin-right: 2.4rem;
-  margin-top: 1.333333rem;
 }
 .distribution .contentBottom a {
   font-size: 1.066666rem;
@@ -130,13 +152,19 @@
 }
 .distribution .contentBottom a span {
   display: inline-block;
+  width: 100%;
   font-size: 1.066666rem;
   color: #333333;
-  margin-top: 1.066666rem;
-  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.distribution .contentBottom a .name {
+  margin: 0.733333rem 0 0.666666rem;
+}
+.distribution .contentBottom a .money {
+  color: #cd2f1d;
+  margin-bottom: 0.666666rem;
 }
 .distribution .contentBottom img {
   display: inline-block;
@@ -193,23 +221,24 @@
   margin-left: 0.666666rem;
   cursor: pointer;
 }
-.packageProgramme {
+.packageProgramme .content {
   width: 80rem;
-  margin: 0 auto;
+  margin: 2rem auto 0;
 }
-.packageProgramme .bigPic {
-  display: block;
-  width: 80rem;
-  height: 33.333333rem;
-  margin-top: 1.333333rem;
+.packageProgramme .content ul a {
+  display: inline-block;
+  width: 100%;
 }
-.packageProgramme .content li {
+.packageProgramme .content ul li {
   float: left;
   width: 25.333333rem;
-  margin: 2rem 2rem 0 0;
+  margin: 0 2rem 2rem 0;
+  text-align: center;
+  background: #FFFFFF;
+  padding-bottom: 1.333333rem;
 }
-.packageProgramme .content li span {
-  display: inline-block;
+.packageProgramme .content ul li span {
+  display: inline;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -224,55 +253,28 @@
   font-size: 1.066666rem;
   color: #333333;
   display: inline-block;
-  margin-top: 0.8rem;
+  margin-top: 1.333333rem;
+}
+.packageProgramme .content ul .msg {
+  font-size: 0.933333rem;
+  color: #333;
+  display: inline-block;
+  margin-top: 0.666666rem;
 }
 .packageProgramme .content ul .money {
-  font-size: 1.066666rem;
-  color: #cd2f1d;
   display: inline-block;
-  margin-top: 0.666666rem;
+  width: 13.333333rem;
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+  border: 0.066666rem solid #333;
+  font-size: 1.333333rem;
+  color: #333;
+  margin-top: 1rem;
 }
-.buildHome {
-  width: 80rem;
-  margin: 0 auto;
+.packageProgramme .content ul .price {
+  font-weight: bold;
 }
-.buildHome ul a {
-  display: inline-block;
-  width: 100%;
-}
-.buildHome ul li {
-  float: left;
-  width: 25.333333rem;
-  margin: 2rem 2rem 0 0;
-  text-align: center;
-  background: #FFFFFF;
-  padding-bottom: 0.8rem;
-}
-.buildHome ul li span {
-  display: inline-block;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.buildHome ul img {
-  display: inline-block;
-  width: 25.333333rem;
-  height: 25.333333rem;
-}
-.buildHome ul .text {
-  font-size: 1.066666rem;
-  color: #333333;
-  display: inline-block;
-  margin-top: 0.8rem;
-}
-.buildHome ul .money {
-  font-size: 1.066666rem;
-  color: #cd2f1d;
-  display: inline-block;
-  margin-top: 0.666666rem;
-}
-.buildHome ul button {
+.packageProgramme .content ul button {
   width: 10.666666rem;
   height: 2.666666rem;
   font-size: 1.066666rem;
@@ -282,4 +284,52 @@
   display: inline-block;
   margin-top: 0.666666rem;
   cursor: pointer;
+}
+.buildHome {
+  width: 80rem;
+  margin: 0 auto;
+}
+.buildHome li {
+  width: 25.333333rem;
+  position: relative;
+  background: #FFFFFF;
+  padding-bottom: 2rem;
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+.buildHome .furniturePic {
+  display: inline-block;
+  width: 25.333333rem;
+  height: 25.333333rem;
+}
+.buildHome .personPic {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 22.333333rem;
+  left: 9.666666rem;
+}
+.buildHome p {
+  text-align: center;
+  margin-top: 4.4rem;
+  color: #333333;
+}
+.buildHome p img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.933333rem;
+  margin-right: 0.533333rem;
+  vertical-align: middle;
+}
+.buildHome .name {
+  display: inline-block;
+  font-size: 1.066666rem;
+  margin-bottom: 0.666666rem;
+}
+.buildHome .position {
+  font-size: 0.933333rem;
 }

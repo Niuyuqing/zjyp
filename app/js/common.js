@@ -24,12 +24,24 @@ var toPage = new Vue({
 	}
 });
 
-// 分页
-var paging = new Vue({
-	el: '.paging',
-	data: {},
+// 搜索部分
+var searchWrap = new Vue({
+	el: '.searchWrap',
+	data: {
+		shoppingNum: 0, // 购物车商品数量
+	},
 	mounted: function() {
-
+		// 查询购物车列表数量
+		this.$http.post('http://localhost:8083/zujahome-main/cart/showCartListNum', {}, { // 没有参数也要放空的大括号
+			headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			emulateJSON: true
+		}).then(function(data) {
+			this.shoppingNum = data.body.data;
+		}, function(a) {
+			console.log('请求错误 ')
+		});
 	},
 	methods: {
 
@@ -41,6 +53,7 @@ var header = new Vue({
 	data: {
 		userLogin: false, // 判断用户是否登录
 		nickName: '', // 用户昵称
+		freeDesign: false, // 预约免费设计
 	},
 	mounted: function() {
 		// 展示用户的详细信息
@@ -79,7 +92,7 @@ var header = new Vue({
 				emulateJSON: true
 			}).then(function(data) {
 				console.log(data.body)
-				if (data.body.status=='200') {
+				if(data.body.status == '200') {
 					window.location.reload();
 				} else {
 					alert(data.body.msg);
@@ -87,6 +100,36 @@ var header = new Vue({
 			}, function(a) {
 				console.log('请求错误 ')
 			});
+		},
+		freeDesignFn: function(val, who) { // 点击预约免费设计
+			// 设置遮罩层高度
+			setTimeout(function() {
+				$('.mask').css({
+					'width': $(document).width() + 'px',
+					'height': document.body.scrollHeight + 'px'
+				});
+			}, 10);
+
+			if(who == '1') { // 点击立即领取按钮
+				this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					emulateJSON: true
+				}).then(function(data) {
+					this.freeDesign = val;
+
+					if(data.body.status == '200') {
+
+					} else {
+						alert(data.body.msg);
+					}
+				}, function(a) {
+					console.log('请求错误 ')
+				});
+			} else {
+				this.freeDesign = val;
+			}
 		}
 	}
 });
@@ -251,7 +294,7 @@ function getUrlParam(key) {
 
 			$('.jjgWrap').css('background', '#fff');
 
-			$('.jjgWrap a').css({
+			$('.jjgWrap span').css({
 				'color': '#333'
 			});
 
@@ -266,7 +309,7 @@ function getUrlParam(key) {
 
 			$('.jjgWrap').css('background', 'transparent');
 
-			$('.jjgWrap a').css({
+			$('.jjgWrap span').css({
 				'color': '#fff'
 			});
 

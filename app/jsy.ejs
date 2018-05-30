@@ -69,26 +69,28 @@
 							<span class="rFloat add" @click="addConsigneeMsg(true,1)">新增收货地址</span>
 						</p>
 						<div class="consignee">
-							<div class="line clearfix" v-for="item in userReceiveInfoList">
+							<div class="line clearfix" v-for="(item,index) in userReceiveInfoList">
 								<div v-if="item.isDefault=='1'">
 									<span class="name lFloat">{{item.receiveName}}</span>
-									<p class="rFloat consigneeMsg">
+									<div class="rFloat consigneeMsg" @click="choseReceivingAddr($event,index,item.receiveRegion,item.receiveAddress,item.receiveName,item.receivePhone,item.id)">
 										<span class="msg">{{item.receiveRegion.replace(/,/g,"")}} {{item.receiveAddress}} {{item.receivePhone}}</span>
 										<span class="defAddress">默认地址</span>
 										<span class="edit rFloat" @click="editCollectGoods(item.id,item.receiveName,item.receiveRegion,item.receiveAddress,item.receivePhone)">编辑</span>
-									</p>
-									<p class="mask"></p>
+										<p class="mask"></p>
+										<p class="mask2" style="display: block;"></p>
+									</div>
 								</div>
 								
 								<div v-if="item.isDefault=='0'">
 									<span class="name lFloat">{{item.receiveName}}</span>
-									<p class="rFloat consigneeMsg">
+									<div class="rFloat consigneeMsg" @click="choseReceivingAddr($event,index,item.receiveRegion,item.receiveAddress,item.receiveName,item.receivePhone,item.id)">
 										<span class="msg">{{item.receiveRegion.replace(/,/g,"")}} {{item.receiveAddress}} {{item.receivePhone}}</span>
 										<span class="setDefAddress rFloat" @click="updateAddressToDefault(item.id)">设为默认地址</span>
 										<span class="edit rFloat" @click="editCollectGoods(item.id,item.receiveName,item.receiveRegion,item.receiveAddress,item.receivePhone)">编辑</span>
 										<span class="del rFloat" @click="delConsigneeMsg(true,item.id)">删除</span>
-									</p>
-									<p class="mask"></p>
+										<p class="mask"></p>
+										<p class="mask2"></p>
+									</div>
 								</div>
 							</div>
 							<p class="unfoldAddress" v-if="unfoldAddress" @click="unfoldAddressClick()">收起地址<img src="images/takeUp.png" /></p>
@@ -101,9 +103,9 @@
 							<span class="lFloat">支付方式</span>
 						</p>
 						<p>
-							<button v-if="!weChatPay" @click="weChatPayClick()">微信支付</button>
+							<button v-if="!weChatPay" @click="payWayClick(1)">微信支付</button>
 							<button style="border: 0.066666rem solid #cd2f1d;" v-if="weChatPay">微信支付</button>
-							<button v-if="!alipayPay" @click="alipayPayClick()">支付宝支付</button>
+							<button v-if="!alipayPay" @click="payWayClick(2)">支付宝支付</button>
 							<button style="border: 0.066666rem solid #cd2f1d;" v-if="alipayPay">支付宝支付</button>
 						</p>
 					</div>
@@ -121,81 +123,20 @@
 							<p>小计</p>
 						</div>
 						<ul>
-							<li class="clearfix">
+							<li class="clearfix" v-for="item in orderDataList">
 								<p class="clearfix">
-									<img src="images/eg.jpg" class="lFloat"/>
-									<span class="lFloat">联想(Lenovo)拯救者R720 15.6英寸大屏游戏笔记本电脑(i5-7300HQ 8G 1T+128G SSD GTX1050Ti 4G IPS 黑金)</span>
+									<img :src="item.data.original_img" class="lFloat"/>
+									<span class="lFloat">{{item.data.goods_name}}</span>
 								</p>
 								<p>
-									<span>规格：<i>1.8*2.0M单床</i></span><br />
-									<span>颜色：<i>白色</i></span>
+									<span style="display: block;" v-for="attr in item.data.attr">{{attr.attrName}}：{{attr.attrValue}}</span>
 								</p>
 								<p>
-									7920.00
+									¥{{item.data.price|money}}
 								</p>
-								<p class="clearfix number">
-									<span class="reduce lFloat">
-										<img src="images/jian.png" />
-									</span>
-									<input type="text" class="text lFloat" />
-									<span class="add lFloat">
-										<img src="images/jia.png" />
-									</span>
-								</p>
+								<p class="clearfix">{{item.itemNum}}</p>
 								<p>
-									7920.00
-								</p>
-							</li>
-							
-							<li class="clearfix">
-								<p class="clearfix">
-									<img src="images/eg.jpg" class="lFloat"/>
-									<span class="lFloat">联想(Lenovo)拯救者R720 15.6英寸大屏游戏笔记本电脑(i5-7300HQ 8G 1T+128G SSD GTX1050Ti 4G IPS 黑金)</span>
-								</p>
-								<p>
-									<span>规格：<i>1.8*2.0M单床</i></span><br />
-									<span>颜色：<i>白色</i></span>
-								</p>
-								<p>
-									7920.00
-								</p>
-								<p class="clearfix number">
-									<span class="reduce lFloat">
-										<img src="images/jian.png" />
-									</span>
-									<input type="text" class="text lFloat" />
-									<span class="add lFloat">
-										<img src="images/jia.png" />
-									</span>
-								</p>
-								<p>
-									7920.00
-								</p>
-							</li>
-							
-							<li class="clearfix">
-								<p class="clearfix">
-									<img src="images/eg.jpg" class="lFloat"/>
-									<span class="lFloat">联想(Lenovo)拯救者R720 15.6英寸大屏游戏笔记本电脑(i5-7300HQ 8G 1T+128G SSD GTX1050Ti 4G IPS 黑金)</span>
-								</p>
-								<p>
-									<span>规格：<i>1.8*2.0M单床</i></span><br />
-									<span>颜色：<i>白色</i></span>
-								</p>
-								<p>
-									7920.00
-								</p>
-								<p class="clearfix number">
-									<span class="reduce lFloat">
-										<img src="images/jian.png" />
-									</span>
-									<input type="text" class="text lFloat" />
-									<span class="add lFloat">
-										<img src="images/jia.png" />
-									</span>
-								</p>
-								<p>
-									7920.00
+									¥{{item.itemNum*item.data.price|money}}
 								</p>
 							</li>
 						</ul>
@@ -203,10 +144,10 @@
 				</div>
 				<div class="balanceWrap clearfix">
 					<div>
-						<p><span class="num">2</span> 件商品，应付金额：<span class="money">¥15840.00</span></p>
-						<p>寄送至：安徽池州东至县中央大街29号<span class="addressee">收件人：张小娴 18756565656</span></p>
+						<p><span class="num">{{totalGoodsNum}}</span> 件商品，应付金额：<span class="money">¥{{this.totalMoney|money}}</span></p>
+						<p>寄送至：{{receivingAddress}}<span class="addressee">收件人：{{addressee}}&nbsp;&nbsp;{{addresseePhone}}</span></p>
 					</div>
-					<a href="syt.html" class="submitOrder rFloat">提交订单</a>
+					<span class="submitOrder rFloat" @click="createOrder()">提交订单</span>
 				</div>
 				
 				<!--删除收货人信息弹窗-->

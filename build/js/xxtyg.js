@@ -44,7 +44,101 @@
 /* 0 */
 /***/ (function(module, exports) {
 
+	// 页面跳转
 	'use strict';
+	
+	var xxtygMain = new Vue({
+		el: '.xxtygMain',
+		data: {
+			activity: false, // 活动报名弹框
+			experience: false },
+		// 体验馆预约弹框
+		mounted: function mounted() {
+			$('.appointment .top').on({
+				'mouseenter': function mouseenter() {
+					$(this).parent().parent().find('.behind').show();
+					$(this).parent().hide();
+				},
+				'mouseleave': function mouseleave() {
+					$(this).parent().parent().find('.behind').hide();
+					$(this).parent().show();
+				}
+			});
+	
+			$('.appointment .behind').on({
+				'mouseenter': function mouseenter() {
+					$(this).show();
+					$(this).parent().find('.front').hide();
+				},
+				'mouseleave': function mouseleave() {
+					$(this).hide();
+					$(this).parent().find('.front').show();
+				}
+			});
+		},
+		methods: {
+			activityFn: function activityFn(val, who) {
+				// 点击预约免费设计
+				// 设置遮罩层高度
+				setTimeout(function () {
+					$('.mask').css({
+						'width': $(document).width() + 'px',
+						'height': document.body.scrollHeight + 'px'
+					});
+				}, 10);
+	
+				if (who == '1') {
+					// 点击立即领取按钮
+					this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						emulateJSON: true
+					}).then(function (data) {
+						this.activity = val;
+	
+						if (data.body.status == '200') {} else {
+							alert(data.body.msg);
+						}
+					}, function (a) {
+						console.log('请求错误 ');
+					});
+				} else {
+					this.activity = val;
+				}
+			},
+			experienceFn: function experienceFn(val, who) {
+				// 体验馆预约
+				// 设置遮罩层高度
+				setTimeout(function () {
+					$('.mask').css({
+						'width': $(document).width() + 'px',
+						'height': document.body.scrollHeight + 'px'
+					});
+				}, 10);
+	
+				if (who == '1') {
+					// 点击立即领取按钮
+					this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						emulateJSON: true
+					}).then(function (data) {
+						this.experience = val;
+	
+						if (data.body.status == '200') {} else {
+							alert(data.body.msg);
+						}
+					}, function (a) {
+						console.log('请求错误 ');
+					});
+				} else {
+					this.experience = val;
+				}
+			}
+		}
+	});
 	
 	$(function () {
 		$('.toPage a').css('color', '#333');
@@ -90,9 +184,14 @@
 			map.openInfoWindow(infoWindow, point); //开启信息窗口
 		});
 	
-		var top_left_control = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_TOP_LEFT }); // 左上角，添加比例尺
+		var top_left_control = new BMap.ScaleControl({
+			anchor: BMAP_ANCHOR_TOP_LEFT
+		}); // 左上角，添加比例尺
 		var top_left_navigation = new BMap.NavigationControl(); //左上角，添加默认缩放平移控件
-		var top_right_navigation = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL }); //右上角，仅包含平移和缩放按钮
+		var top_right_navigation = new BMap.NavigationControl({
+			anchor: BMAP_ANCHOR_TOP_RIGHT,
+			type: BMAP_NAVIGATION_CONTROL_SMALL
+		}); //右上角，仅包含平移和缩放按钮
 	
 		map.setCurrentCity("北京"); // 设置地图显示的城市 此项是必须设置的
 		map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放

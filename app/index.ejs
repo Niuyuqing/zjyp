@@ -7,8 +7,8 @@
 		<title>筑家优品</title>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/swiper.min.js" type="text/javascript" charset="utf-8"></script>
@@ -17,12 +17,12 @@
 	</head>
 
 	<body>
-		
+
 		<div class="indexWrap">
 			<%-include header  %>
 			<%-include search  %>
 			<%-include navigation  %>
-			
+
 			<div class="indexPage">
 				<div class="swiper-container">
 					<div class="banner swiper-wrapper">
@@ -32,46 +32,48 @@
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
-				
+
 				<ul class="according clearfix">
 					<li class="layout" v-if="!accordingLayout" @click="layoutClick()">
-						<img src="images/layout_1.png" />
-						按户型
+						<img src="images/layout_1.png" /> 按户型
 					</li>
-					
+
 					<li class="layout chose" v-if="accordingLayout">
-						<img src="images/layout_2.png" />
-						按户型
+						<img src="images/layout_2.png" /> 按户型
 					</li>
-					
+
 					<li class="styles" v-if="!accordingStyles" @click="stylesClick()">
-						<img src="images/styles_1.png" />
-						按风格
+						<img src="images/styles_1.png" /> 按风格
 					</li>
-					
+
 					<li class="styles chose" v-if="accordingStyles">
-						<img src="images/styles_2.png" />
-						按风格
+						<img src="images/styles_2.png" /> 按风格
 					</li>
-					
+
 					<li class="functions" v-if="!accordingFunctions" @click="funsClick()">
-						<img src="images/functions_1.png"/>
-						按功能
+						<img src="images/functions_1.png" /> 按功能
 					</li>
-					
+
 					<li class="functions chose" v-if="accordingFunctions">
-						<img src="images/functions_2.png"/>
-						按功能
+						<img src="images/functions_2.png" /> 按功能
 					</li>
 				</ul>
-				
+
 				<ul class="accordingContent clearfix">
-					<li><a href="#"><img src="images/eg.jpg"/></a></li>
-					<li><a href="#"><img src="images/eg.jpg"/></a></li>
-					<li><a href="#"><img src="images/eg.jpg"/></a></li>
-					<li style="margin-right: 0;"><a href="#"><img src="images/eg.jpg"/></a></li>
+					<li>
+						<a href="#"><img src="images/eg.jpg" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="images/eg.jpg" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="images/eg.jpg" /></a>
+					</li>
+					<li style="margin-right: 0;">
+						<a href="#"><img src="images/eg.jpg" /></a>
+					</li>
 				</ul>
-				
+
 				<!--热卖推荐-->
 				<div class="hotSellersWrap">
 					<div class="hotSellers recommendHeadlines">
@@ -92,15 +94,39 @@
 						</ul>
 					</div>
 					<ul class="hotSellersPic clearfix">
-						<li><a href="#"><img src="images/eg.jpg"/></a></li>
-						<li><a href="#"><img src="images/eg.jpg"/></a></li>
-						<li style="margin-right: 0;"><a href="#"><img src="images/eg.jpg"/></a></li>
-						<li><a href="#"><img src="images/eg.jpg"/></a></li>
-						<li><a href="#"><img src="images/eg.jpg"/></a></li>
-						<li style="margin-right: 0;"><a href="#"><img src="images/eg.jpg"/></a></li>
+						<li>
+							<img src="images/eg.jpg" />
+							<p class="name">四居室美式室内家装设计</p>
+							<p class="money">¥ 6500.00</p>
+						</li>
+						<li>
+							<img src="images/eg.jpg" />
+							<p class="name">四居室美式室内家装设计</p>
+							<p class="money">¥ 6500.00</p>
+						</li>
+						<li>
+							<img src="images/eg.jpg" />
+							<p class="name">四居室美式室内家装设计</p>
+							<p class="money">¥ 6500.00</p>
+						</li>
+						<li>
+							<img src="images/eg.jpg" />
+							<p class="name">四居室美式室内家装设计</p>
+							<p class="money">¥ 6500.00</p>
+						</li>
+						<li>
+							<img src="images/eg.jpg" />
+							<p class="name">四居室美式室内家装设计</p>
+							<p class="money">¥ 6500.00</p>
+						</li>
+						<li>
+							<img src="images/eg.jpg" />
+							<p class="name">四居室美式室内家装设计</p>
+							<p class="money">¥ 6500.00</p>
+						</li>
 					</ul>
 				</div>
-				
+
 				<!--优品宅配-->
 				<div class="distribution">
 					<div class="recommendHeadlines">
@@ -113,15 +139,17 @@
 						<ul class="lFloat contentTop">
 							<li>
 								<a href="#">
-									<img src="images/eg.jpg"/>
-									<span>四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计</span>
+									<img src="images/eg.jpg" />
+									<span class="name">四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计</span>
+									<span class="money">¥ 2356.00</span>
 								</a>
 							</li>
-							
+
 							<li>
-								<a href="#"> 
-									<img src="images/eg.jpg"/>
-									<span>四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计</span>
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="name">四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计四房两厅简约风格全屋定制家具设计</span>
+									<span class="money">¥ 2356.00</span>
 								</a>
 							</li>
 						</ul>
@@ -133,11 +161,11 @@
 										<span class="red lFloat"></span>
 										<span class="gray lFloat"></span>
 									</p>
-									<button class="lFloat">领取</button>
+									<button class="lFloat" @click="receivePlan(true,0)">领取</button>
 								</div>
 								<p class="text">一房两厅小户型装修方案</p>
 							</div>
-							
+
 							<div class="line">
 								<div class="clearfix">
 									<p class="lFloat lineP">
@@ -148,7 +176,7 @@
 								</div>
 								<p class="text">一房两厅小户型装修方案</p>
 							</div>
-							
+
 							<div class="line">
 								<div class="clearfix">
 									<p class="lFloat lineP">
@@ -159,7 +187,7 @@
 								</div>
 								<p class="text">一房两厅小户型装修方案</p>
 							</div>
-							
+
 							<div class="line">
 								<div class="clearfix">
 									<p class="lFloat lineP">
@@ -171,43 +199,46 @@
 								<p class="text">一房两厅小户型装修方案</p>
 							</div>
 						</div>
-						
+
 						<ul class="contentBottom">
 							<li>
 								<a href="#">
-									<img src="images/eg.jpg"/>
-									<span>小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+									<img src="images/eg.jpg" />
+									<span class="name">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+									<span class="money">¥ 2323.00</span>
 								</a>
 							</li>
-							
+
 							<li>
 								<a href="#">
-									<img src="images/eg.jpg"/>
-									<span>小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+									<img src="images/eg.jpg" />
+									<span class="name">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+									<span class="money">¥ 2323.00</span>
 								</a>
 							</li>
-							
+
 							<li style="margin-right: 0;">
 								<a href="#">
-									<img src="images/eg.jpg"/>
-									<span>小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+									<img src="images/eg.jpg" />
+									<span class="name">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span>
+									<span class="money">¥ 2323.00</span>
 								</a>
 							</li>
 						</ul>
 					</div>
-					
-					<button class="seeMoreGoods">查看更多</button>
+
+					<a href="ypzp.html" class="seeMoreGoods" target="_blank">查看更多</a>
 				</div>
-				
-				<!--套餐方案-->
+
+				<!--优品套餐-->
 				<div class="packageProgramme">
 					<div class="recommendHeadlines">
 						<span class="lLine"></span>
-						<h2>套餐方案</h2>
+						<h2>优品套餐</h2>
 						<span class="rLine"></span>
 						<p class="subtitle">MEAI PLAN</p>
 					</div>
-					<div class="content">
+					<!--<div class="content">
 						<img src="images/eg.jpg" class="bigPic"/>
 						
 						<ul class="clearfix">
@@ -235,54 +266,159 @@
 								</a>
 							</li>
 						</ul>
+					</div>-->
+
+					<div class="content">
+						<ul class="clearfix">
+							<li>
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
+									<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
+									<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+								</a>
+							</li>
+
+							<li style="margin-right: 0;">
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
+									<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
+									<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
+									<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+								</a>
+							</li>
+
+							<li style="margin-right: 0;">
+								<a href="#">
+									<img src="images/eg.jpg" />
+									<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
+									<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
+									<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+								</a>
+							</li>
+						</ul>
 					</div>
-					<button class="seeMoreGoods">查看更多</button>
+					<a href="yptc.html" target="_blank" class="seeMoreGoods">查看更多</a>
 				</div>
-				
+
 				<!--筑家生活家-->
 				<div class="buildHome">
 					<div class="recommendHeadlines">
 						<span class="lLine"></span>
 						<h2>筑家生活家</h2>
 						<span class="rLine"></span>
-						<p class="subtitle">BUILD A HOME</p> 
-					</div>    
-					
+						<p class="subtitle">BUILD A HOME</p>
+					</div>
+
 					<ul class="clearfix">
 						<li>
-							<a href="#">
-								<img src="images/eg.jpg"/>
-								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-								<span class="money">¥ 12,774.00</span><br />
-								<button>立即体验</button>
-							</a>
+							<img src="images/eg.jpg" class="furniturePic" />
+							<img src="images/headImg.jpg" class="personPic" />
+							<p>
+								<span class="name">七厘米蔚蓝</span><br />
+								<img src="images/position.png" /><span class="position">湖北黄石大冶市</span>
+							</p>
 						</li>
-						
+
 						<li>
-							<a href="#">
-								<img src="images/eg.jpg"/>
-								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-								<span class="money">¥ 12,774.00</span><br />
-								<button>立即体验</button>
-							</a>
+							<img src="images/eg.jpg" class="furniturePic" />
+							<img src="images/headImg.jpg" class="personPic" />
+							<p>
+								<span class="name">七厘米蔚蓝</span><br />
+								<img src="images/position.png" /><span class="position">湖北黄石大冶市</span>
+							</p>
 						</li>
-						
+
 						<li style="margin-right: 0;">
-							<a href="#">
-								<img src="images/eg.jpg"/>
-								<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-								<span class="money">¥ 12,774.00</span><br />
-								<button>立即体验</button>
-							</a>
+							<img src="images/eg.jpg" class="furniturePic" />
+							<img src="images/headImg.jpg" class="personPic" />
+							<p>
+								<span class="name">七厘米蔚蓝</span><br />
+								<img src="images/position.png" /><span class="position">湖北黄石大冶市</span>
+							</p>
+						</li>
+
+						<li>
+							<img src="images/eg.jpg" class="furniturePic" />
+							<img src="images/headImg.jpg" class="personPic" />
+							<p>
+								<span class="name">七厘米蔚蓝</span><br />
+								<img src="images/position.png" /><span class="position">湖北黄石大冶市</span>
+							</p>
+						</li>
+
+						<li>
+							<img src="images/eg.jpg" class="furniturePic" />
+							<img src="images/headImg.jpg" class="personPic" />
+							<p>
+								<span class="name">七厘米蔚蓝</span><br />
+								<img src="images/position.png" /><span class="position">湖北黄石大冶市</span>
+							</p>
+						</li>
+
+						<li style="margin-right: 0;">
+							<img src="images/eg.jpg" class="furniturePic" />
+							<img src="images/headImg.jpg" class="personPic" />
+							<p>
+								<span class="name">七厘米蔚蓝</span><br />
+								<img src="images/position.png" /><span class="position">湖北黄石大冶市</span>
+							</p>
 						</li>
 					</ul>
-					<button class="seeMoreGoods">查看更多</button>
+					<a href="zjshj.html" target="_blank" class="seeMoreGoods">查看更多</button>
 				</div>
+
+				<!--领取免费方案弹框-->
+				<div class="informationBox freeDecorationPlan" v-if="freeDecorationPlan">
+					<p class="title clearfix">
+						<span class="lFloat">领取免费装修方案</span>
+						<img src="images/close_del_box.png" class="rFloat" @click="receivePlan(false,0)" />
+					</p>
+					<p class="name">
+						筑家优品领取免费装修方案
+					</p>
+					<div class="formWrap">
+						<form action="" method="post">
+							<input type="text" placeholder="请输入您的姓名" />
+							<input type="text" placeholder="请输入您的手机号码" />
+						</form>
+						<button @click="receivePlan(true,1)">立即领取</button>
+					</div>
+				</div>
+				
+				<div class="mask" v-if="freeDecorationPlan"></div>
 			</div>
-			
+
 			<%-include footer  %>
 		</div>
-		
+
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	</body>

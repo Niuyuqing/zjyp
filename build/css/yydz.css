@@ -1,0 +1,19 @@
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}
+.yydzMain {
+  width: 80rem;
+  margin: 0 auto;
+}
+.yydzMain .choseTitle {
+  margin: 2rem 0;
+}
+.yydzMain .choseTitle span {
+  display: inline-block;
+  padding-right: 0.666666rem;
+  background: url(../images/rightArrow.png) no-repeat right center;
+  background-size: 0.4rem 0.8rem;
+  margin-right: 0.666666rem;
+  font-size: 0.933333rem;
+  color: #333333;
+}

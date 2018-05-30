@@ -62,8 +62,9 @@
 			goodsAttrArr: [], // 商品详情
 			attrDetail: [], // 商品基本信息
 			goodsId: '', // 地址栏商品ID
-			addShoppingPage: '' },
-		// 跳转加入购物车页面地址
+			addShoppingPage: '', // 跳转加入购物车页面地址
+			orderlist: '' },
+		// 商品信息
 		mounted: function mounted() {
 			this.goodsId = this.getUrlParam('goodsId');
 			this.addShoppingPage = 'addShoppingCart.html?goodsId=' + this.goodsId + '&num=' + this.shoppingNum; // 跳转加入购物车页面地址
@@ -106,7 +107,7 @@
 				this.goodsAttrArr = JSON.parse(data.body.data.rows[0].attr); // 商品详情
 				this.attrDetail = JSON.parse(data.body.data.rows[0].attr_detail); // 商品基本信息
 	
-				console.log(JSON.parse(data.body.data.rows[0].group_attr_info).attr_info);
+				console.log(this.goodsDetailArr);
 	
 				// 商品图片信息
 				document.getElementById('picShow').innerHTML = this.goodsDetailArr.goods_desc;
@@ -214,6 +215,10 @@
 			goodsFilter: function goodsFilter(id) {
 				// 点击商品筛选信息
 				window.location.href = 'spxq.html?goodsId=' + id;
+			},
+			toGoodsBalance: function toGoodsBalance() {
+				// 跳转到结算页
+				window.location.href = 'jsy.html?orderlist=' + this.goodsDetailArr.goods_id + '_' + this.shoppingNum + '_' + '1';
 			}
 		}
 	});

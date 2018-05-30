@@ -163,3 +163,13 @@
 .customFurniture .seeMoreGoods {
   margin-top: 2rem;
 }
+.egPicList {
+  width: 80rem;
+  margin: 1.066666rem auto 0;
+}
+.egPicList img {
+  display: inline-block;
+  width: 15.466666rem;
+  height: 15.466666rem;
+  margin-right: 0.37rem;
+}

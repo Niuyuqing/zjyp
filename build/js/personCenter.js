@@ -58,8 +58,9 @@
 			waitPay: false, // 待付款
 			alreadyPay: false, // 已付款
 			waitTakeGoods: false, // 待收货
-			waitAssess: false },
-		// 待评价
+			waitAssess: false, // 待评价
+			pageNum: 1 },
+		// 订单列表当前页
 		mounted: function mounted() {
 			// 翻页器
 			$('.paging').pagination({
@@ -76,8 +77,25 @@
 					console.log('bb:' + this.nowPageNum);
 				}
 			});
+	
+			this.showOrderList(); // 展示订单列表
 		},
 		methods: {
+			showOrderList: function showOrderList() {
+				// 展示订单列表
+				this.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
+					pageNum: this.pageNum
+				}, { // 没有参数也要放空的大括号
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					emulateJSON: true
+				}).then(function (data) {
+					console.log(data.body);
+				}, function (a) {
+					console.log('请求错误 ');
+				});
+			},
 			cancleOrderClick: function cancleOrderClick(val, type) {
 				// 取消订单
 				this.cancleBox = val;

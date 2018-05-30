@@ -15,6 +15,7 @@ var spxqMain = new Vue({
 		attrDetail : [],   // 商品基本信息
 		goodsId : '',  // 地址栏商品ID
 		addShoppingPage : '',  // 跳转加入购物车页面地址
+		orderlist : '',  // 商品信息
 	},
 	mounted: function() {
 		this.goodsId = this.getUrlParam('goodsId');
@@ -58,7 +59,7 @@ var spxqMain = new Vue({
 			this.goodsAttrArr = JSON.parse(data.body.data.rows[0].attr);  // 商品详情
 			this.attrDetail = JSON.parse(data.body.data.rows[0].attr_detail); // 商品基本信息
 			
-			console.log(JSON.parse(data.body.data.rows[0].group_attr_info).attr_info);
+			console.log(this.goodsDetailArr);
 			
 			// 商品图片信息
 			document.getElementById('picShow').innerHTML = this.goodsDetailArr.goods_desc;
@@ -157,6 +158,9 @@ var spxqMain = new Vue({
 		},
 		goodsFilter : function (id) {   // 点击商品筛选信息
 			window.location.href = 'spxq.html?goodsId='+id;
+		},
+		toGoodsBalance : function () {  // 跳转到结算页
+			window.location.href = 'jsy.html?orderlist='+this.goodsDetailArr.goods_id+'_'+this.shoppingNum+'_'+'1' ;
 		}
 	}
 });

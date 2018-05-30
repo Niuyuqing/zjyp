@@ -1,0 +1,114 @@
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}
+.zjshjDetailMain {
+  width: 80rem;
+  margin: 0 auto;
+}
+.zjshjDetailMain .choseTitle {
+  margin: 2rem 0;
+}
+.zjshjDetailMain .choseTitle span {
+  display: inline-block;
+  padding-right: 0.666666rem;
+  margin-right: 0.666666rem;
+  font-size: 0.933333rem;
+  color: #333333;
+}
+.zjshjDetailMain .choseTitle img {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.8rem;
+  vertical-align: middle;
+  margin-right: 0.666666rem;
+}
+.zjshjDetailMain .content {
+  background: #FFFFFF;
+  padding: 1.333333rem;
+}
+.zjshjDetailMain .content .shjMsg {
+  width: 20rem;
+  border: 0.066666rem solid #e6e6e6;
+  box-sizing: border-box;
+}
+.zjshjDetailMain .content .shjMsg .title {
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+  font-size: 1.066666rem;
+  font-weight: bold;
+  background: #e5e5e5;
+  padding-left: 0.666666rem;
+}
+.zjshjDetailMain .content .shjMsg .user {
+  font-size: 1.066666rem;
+  color: #333;
+  padding: 1.333333rem 0.666666rem 0;
+}
+.zjshjDetailMain .content .shjMsg .user p {
+  height: 4.666666rem;
+  border-bottom: 0.066666rem solid #e6e6e6;
+  padding-bottom: 1.333333rem;
+}
+.zjshjDetailMain .content .shjMsg .user img {
+  display: inline-block;
+  width: 4.666666rem;
+  height: 4.666666rem;
+  border: 0.066666rem solid #e6e6e6;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 2rem;
+}
+.zjshjDetailMain .content .userMsg {
+  padding: 1.333333rem 0.666666rem;
+}
+.zjshjDetailMain .content .userMsg p {
+  margin-bottom: 1.333333rem;
+}
+.zjshjDetailMain .content .userMsg span {
+  font-size: 0.933333rem;
+  display: inline-block;
+}
+.zjshjDetailMain .content .userMsg span:nth-child(1) {
+  color: #999999;
+  width: 4.666666rem;
+  text-align: left;
+  margin-right: 1.333333rem;
+}
+.zjshjDetailMain .content .userMsg span:nth-child(2) {
+  color: #333;
+  width: 12.066666rem;
+  line-height: 1.666666rem;
+}
+.zjshjDetailMain .content .houseMsg {
+  margin-top: 1.333333rem;
+}
+.zjshjDetailMain .content .houseMsg .map {
+  width: 18.8rem;
+  height: 7.466666rem;
+  border: 0.066666rem solid #e6e6e6;
+  margin: 0.666666rem 0 0 0.666666rem;
+  box-sizing: border-box;
+}
+.zjshjDetailMain .content button {
+  display: block;
+  width: 20.133333rem;
+  height: 4rem;
+  font-size: 1.066666rem;
+  color: #FAFAFA;
+  background: #cd2f1d;
+  margin-top: 1.333333rem;
+  cursor: pointer;
+}
+.zjshjDetailMain .content .rContent {
+  width: 56rem;
+}
+.zjshjDetailMain .content .rContent .line img {
+  display: block;
+  width: 56rem;
+  margin-bottom: 1.466666rem;
+}
+.zjshjDetailMain .content .rContent .line p {
+  margin-bottom: 2rem;
+  font-size: 1.066666rem;
+  line-height: 1.6rem;
+}

@@ -2,16 +2,39 @@
 <header class="pageHeader">
 	<div class="container clearfix">
 		<p class="lFloat" v-if="!userLogin">
-			<span class="welcome">筑家优品欢迎你</span> 
+			<span class="welcome">筑家优品欢迎你</span>
 			<a href="login.html" class="login">登录</a>
 			<span class="line">|</span>
 			<a href="register.html" class="register">注册</a>
 		</p>
-		
+
 		<p class="lFloat" v-if="userLogin">
 			<span class="nickName">{{nickName}}</span>
 			<span class="exit" @click="logout()">退出</span>
 		</p>
-		<p class="rFloat"><a href="personCenter.html" class="personCenter" target="_blank" v-if="userLogin">个人中心</a></p>
+		<p class="rFloat">
+			<span href="#" class="freeDesign" @click="freeDesignFn(true,0)">预约免费设计</span>
+			<a href="personCenter.html" class="personCenter" target="_blank" v-if="userLogin">个人中心</a>
+		</p>
 	</div>
+
+	<!--领取免费方案弹框-->
+	<div class="informationBox freeDesignBox" v-if="freeDesign">
+		<p class="title clearfix">
+			<span class="lFloat">预约免费设计</span>
+			<img src="images/close_del_box.png" class="rFloat" @click="freeDesignFn(false,0)" />
+		</p>
+		<p class="name">
+			筑家优品预约免费设计
+		</p>
+		<div class="formWrap">
+			<form action="" method="post">
+				<input type="text" placeholder="请输入您的姓名" />
+				<input type="text" placeholder="请输入您的手机号码" />
+			</form>
+			<button @click="freeDesignFn(true,1)">立即预约</button>
+		</div>
+	</div>
+	
+	<div class="mask" v-if="freeDesign"></div>
 </header>

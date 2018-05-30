@@ -147,7 +147,7 @@ body {
 .shoppingCartMain .line p:nth-child(5) .add {
   display: inline-block;
   width: 1.733333rem;
-  height: 1.733333rem;
+  height: 2rem;
   cursor: pointer;
 }
 .shoppingCartMain .line p:nth-child(5) .reduce img {
@@ -168,7 +168,7 @@ body {
   display: inline-block;
   width: 2rem;
   height: 1.466666rem;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
   box-sizing: border-box;
   font-size: 0.8rem;
   text-align: center;
@@ -203,12 +203,19 @@ body {
 .shoppingCartMain .goodsAllPic .next {
   margin-left: 1.8rem;
 }
-.shoppingCartMain .goodsAllPic p {
-  width: 72rem;
+.shoppingCartMain .goodsAllPic div {
+  width: 71rem;
   height: 5.333333rem;
   overflow: hidden;
+  position: relative;
 }
-.shoppingCartMain .goodsAllPic p img {
+.shoppingCartMain .goodsAllPic div ul {
+  height: 5.333333rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.shoppingCartMain .goodsAllPic div img {
   display: inline-block;
   width: 5.333333rem;
   height: 5.333333rem;
@@ -237,7 +244,7 @@ body {
   display: inline-block;
   margin-right: 2rem;
 }
-.shoppingCartMain .detailedInformation a {
+.shoppingCartMain .detailedInformation .balance {
   width: 6rem;
   height: 3.333333rem;
   background: #cd2f1d;
@@ -270,6 +277,63 @@ body {
   font-size: 1.333333rem;
   color: #cd2f1d;
   font-weight: bold;
+}
+.shoppingCartMain .deleteBox {
+  display: block;
+  width: 25.466666rem;
+  height: 11.733333rem;
+  background: #fff;
+  border-radius: 0.133333rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  margin-top: -5.866666rem;
+  margin-left: -12.733333rem;
+}
+.shoppingCartMain .deleteBox .title {
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.933333rem;
+  background: #EBEBEB;
+  padding: 0 0.666666rem;
+  color: #666666;
+}
+.shoppingCartMain .deleteBox .title img {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+.shoppingCartMain .deleteBox p:nth-child(2) {
+  padding-left: 5rem;
+  font-size: 0.933333rem;
+  color: #333333;
+  font-weight: bold;
+  margin: 1.333333rem 0;
+}
+.shoppingCartMain .deleteBox p:nth-child(2) img {
+  display: inline-block;
+  width: 2.666666rem;
+  height: 2.666666rem;
+  margin-right: 0.666666rem;
+  vertical-align: middle;
+}
+.shoppingCartMain .deleteBox p:nth-child(3) {
+  padding-left: 8.333333rem;
+}
+.shoppingCartMain .deleteBox p:nth-child(3) button {
+  display: inline-block;
+  width: 3.466666rem;
+  height: 1.733333rem;
+  border-radius: 0.133333rem;
+  border: 0.066666rem solid #E6E6E6;
+  background: #F5F5F5;
+  margin-right: 0.666666rem;
+  font-size: 0.8rem;
+  color: #333333;
+  cursor: pointer;
 }
 .guessLove {
   width: 80rem;
@@ -315,4 +379,14 @@ body {
 }
 .guessLove .msg {
   padding: 0.933333rem 1rem 0;
+}
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .2;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
 }

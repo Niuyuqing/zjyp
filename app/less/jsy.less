@@ -136,7 +136,8 @@ body{
                     text-align: center;
                     border: 0.066666rem solid #E6E6E6;
                 }
-                p{
+                .consigneeMsg{
+                    position: relative;
                     width: 58.8rem;
                     height: 2rem;
                     line-height: 2rem;
@@ -144,13 +145,13 @@ body{
                     padding-right: 0.666666rem;
                     box-sizing: border-box;
                 }
-                .mask{
+                .mask,.mask2{
                     width: 58.8rem;
                     height: 2rem;
                     background: #cd2f1d;
                     opacity: .1;
                     position: absolute;
-                    right: 0;
+                    left: 0;
                     top: 0;
                     z-index: -1;
                     display: none;
@@ -281,9 +282,7 @@ body{
                     color: #333333;
                     height: 2rem;
                     line-height: 2rem;
-                    background: #ebebeb;
                     display: inline-block;
-                    border: 0.066666rem solid #e6e6e6;
                     margin-right: 6.666666rem;
                     .reduce,.add{
                         display: inline-block;

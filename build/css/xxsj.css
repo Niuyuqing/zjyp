@@ -1,0 +1,74 @@
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}
+.yydzMain {
+  width: 80rem;
+  margin: 0 auto;
+}
+.yydzMain .choseTitle {
+  margin: 2rem 0;
+}
+.yydzMain .choseTitle span {
+  display: inline-block;
+  padding-right: 0.666666rem;
+  margin-right: 0.666666rem;
+  font-size: 0.933333rem;
+  color: #333333;
+}
+.yydzMain .choseTitle img {
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.8rem;
+  vertical-align: middle;
+  margin-right: 0.666666rem;
+}
+.yydzMain .formWrap {
+  padding: 6.666666rem 0;
+  width: 100%;
+  background: #FFFFFF;
+  text-align: center;
+}
+.yydzMain .formWrap p {
+  height: 1.733333rem;
+  line-height: 1.733333rem;
+  margin-bottom: 1rem;
+}
+.yydzMain .formWrap span {
+  display: inline-block;
+  margin-right: 1.333333rem;
+  text-align: left;
+  width: 5.133333rem;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.yydzMain .formWrap input {
+  height: 1.733333rem;
+  border: 0.066666rem solid #e6e6e6;
+  width: 17.333333rem;
+  padding-left: 0.666666rem;
+  font-size: 0.8rem;
+  color: #666666;
+}
+.yydzMain .formWrap select {
+  display: inline-block;
+  width: 5.333333rem;
+  height: 1.733333rem;
+  border: 0.066666rem solid #e6e6e6;
+  margin-right: 0.6rem;
+  box-sizing: border-box;
+}
+.yydzMain .formWrap button {
+  display: inline-block;
+  width: 13.8rem;
+  height: 3.066666rem;
+  color: #FAFAFA;
+  font-size: 1.066666rem;
+  border-radius: 0.133333rem;
+  background: #cd2f1d;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.yydzMain .formWrap i {
+  font-style: normal;
+  color: #cd2f1d;
+}
