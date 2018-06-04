@@ -46,7 +46,7 @@
 					<div class="lineWrap clearfix" v-for="item in shoppingCartData">
 						<div class="line">
 							<p class="clearfix">
-								<img src="images/select_1.png" class="lFloat goodsSelect goodsSingleSelect" @click="selectGoods($event,item.itemNum*item.data.price,item.itemId,item.data.original_img,item.itemNum,item.type)" />
+								<img src="images/select_1.png" class="lFloat goodsSelect goodsSingleSelect" @click="selectGoods($event,item.itemNum*item.data.price,item.itemId,item.data.original_img,item.itemNum,item.type,item.data.price)" />
 								<img :src="item.data.original_img" class="lFloat" @click="toGoodsDetail(item.data.goods_id)" style="cursor: pointer;" />
 							</p>
 							<p @click="toGoodsDetail(item.data.goods_id)" style="cursor: pointer;">{{item.data.goods_name}}</p>

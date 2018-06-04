@@ -122,126 +122,133 @@
 .content .rBox .subTitle li:nth-child(6) {
   width: 7rem;
 }
-.content .rBox .orderBox {
+.content .rBox .orderBoxWrap {
   margin-bottom: 1.333333rem;
 }
-.content .rBox .orderBox .title {
-  padding: 0 1.333333rem;
-  background: #f5f5f5;
-  height: 2rem;
-  line-height: 2rem;
-  border: 0.066666rem solid #E6E6E6;
-  border-bottom: none;
+.content .rBox .orderBoxWrap .orderBox {
+  border: 0.066666rem solid #e6e6e6;
+  margin-bottom: 1.333333rem;
+}
+.content .rBox .orderBoxWrap .title {
   font-size: 0.8rem;
   color: #666666;
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 1.333333rem;
 }
-.content .rBox .orderBox .title i {
-  font-style: normal;
-  color: #333333;
-}
-.content .rBox .orderBox .delete {
+.content .rBox .orderBoxWrap .title img {
   display: inline-block;
   width: 1.066666rem;
   height: 1.066666rem;
-  margin-top: 0.4rem;
+  margin-top: 0.466666rem;
   cursor: pointer;
 }
-.content .rBox .orderBox ul {
-  border: 0.066666rem solid #E6E6E6;
-  padding: 0.666666rem 0 0.666666rem 1.333333rem;
-  color: #666666;
+.content .rBox .orderBoxWrap .orderDetail {
   font-size: 0.8rem;
+  color: #666666;
+  border-top: 0.066666rem solid #e6e6e6;
 }
-.content .rBox .orderBox ul li {
-  float: left;
-}
-.content .rBox .orderBox ul li:nth-child(1) {
-  width: 19rem;
-  box-sizing: border-box;
-}
-.content .rBox .orderBox ul li:nth-child(1) img {
+.content .rBox .orderBoxWrap .orderDetail .lConts {
   display: inline-block;
-  width: 5rem;
+  width: 42.1rem;
+}
+.content .rBox .orderBoxWrap .orderDetail .lCont {
+  border-right: 0.066666rem solid #e6e6e6;
+}
+.content .rBox .orderBoxWrap .orderDetail .lCont {
+  height: 100%;
+}
+.content .rBox .orderBoxWrap .orderDetail .goodsPic {
+  display: inline-block;
+  width: 5.333333rem;
   height: 5.333333rem;
-  border: 0.066666rem solid #E6E6E6;
+  border: 0.066666rem solid #e6e6e6;
+  margin: 0.666666rem;
   box-sizing: border-box;
 }
-.content .rBox .orderBox ul li:nth-child(1) p {
+.content .rBox .orderBoxWrap .orderDetail .attrs {
   width: 13.333333rem;
+  margin-left: 0.666666rem;
+  padding: 0.666666rem 0;
+  box-sizing: border-box;
 }
-.content .rBox .orderBox ul li:nth-child(1) span {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-.content .rBox .orderBox ul li:nth-child(1) .name {
-  color: #333333;
-  margin-bottom: 0.666666rem;
+.content .rBox .orderBoxWrap .orderDetail .name {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  margin-bottom: 0.666666rem;
+  box-sizing: border-box;
 }
-.content .rBox .orderBox ul li:nth-child(2) {
+.content .rBox .orderBoxWrap .orderDetail .attr {
+  margin-bottom: 0.666666rem;
+  box-sizing: border-box;
+}
+.content .rBox .orderBoxWrap .orderDetail .price {
   width: 13.333333rem;
   text-align: center;
-}
-.content .rBox .orderBox ul li:nth-child(2) p:nth-child(1) {
-  text-decoration: line-through;
-}
-.content .rBox .orderBox ul li:nth-child(2) p:nth-child(2) {
-  font-weight: bold;
-  color: #333333;
   margin-top: 0.666666rem;
+  box-sizing: border-box;
 }
-.content .rBox .orderBox ul li:nth-child(3) {
-  width: 8rem;
-  text-align: center;
-}
-.content .rBox .orderBox ul li:nth-child(4) {
-  width: 8rem;
-  text-align: center;
-  color: #cd2f1d;
-  font-weight: bold;
-}
-.content .rBox .orderBox ul li:nth-child(5) {
-  width: 8.666666rem;
-  text-align: center;
-}
-.content .rBox .orderBox ul li:nth-child(5) a {
-  margin-top: 0.666666rem;
-  display: block;
-  color: #666;
-}
-.content .rBox .orderBox ul li:nth-child(6) {
+.content .rBox .orderBoxWrap .orderDetail .num {
   width: 7rem;
   text-align: center;
+  margin-top: 0.666666rem;
+  box-sizing: border-box;
 }
-.content .rBox .orderBox ul li:nth-child(6) span,
-.content .rBox .orderBox ul li:nth-child(6) a {
+.content .rBox .orderBoxWrap .orderDetail .totalPrice {
+  width: 7.9rem;
+  text-align: center;
+  padding-top: 0.666666rem;
+  border-right: 0.066666rem solid #e6e6e6;
+  box-sizing: border-box;
+  color: #cd2f1d;
+  font-weight: bold;
+  height: 100%;
+}
+.content .rBox .orderBoxWrap .orderDetail .status {
+  width: 8.666666rem;
+  padding-top: 0.666666rem;
+  text-align: center;
+  border-right: 0.066666rem solid #e6e6e6;
+  box-sizing: border-box;
+  height: 100%;
+}
+.content .rBox .orderBoxWrap .orderDetail .status span {
   display: block;
+  margin-bottom: 0.666666rem;
+}
+.content .rBox .orderBoxWrap .orderDetail .operation {
+  width: 7rem;
+  text-align: center;
+  padding-top: 0.666666rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+.content .rBox .orderBoxWrap .orderDetail .operation span,
+.content .rBox .orderBoxWrap .orderDetail .operation a {
+  display: block;
+  color: #666;
+  margin-bottom: 0.666666rem;
   cursor: pointer;
 }
-.content .rBox .orderBox ul li:nth-child(6) a {
-  color: #666666;
-}
-.content .rBox .orderBox ul li:nth-child(6) .buyNow,
-.content .rBox .orderBox ul li:nth-child(6) .payMoney {
-  display: inline-block;
+.content .rBox .orderBoxWrap .orderDetail .operation .payMoney {
   width: 5.466666rem;
   height: 1.6rem;
   line-height: 1.6rem;
-  font-size: 0.8rem;
+  color: #ff0000;
+  border: 0.066666rem solid #ff0000;
   border-radius: 0.133333rem;
-  background: #FFF;
-  cursor: pointer;
+  margin: 0 auto 0.666666rem;
 }
-.content .rBox .orderBox ul li:nth-child(6) .buyNow {
-  border: 0.066666rem solid #999999;
-}
-.content .rBox .orderBox ul li:nth-child(6) .payMoney {
-  border: 0.066666rem solid #cd2f1d;
-  color: #cd2f1d;
+.content .rBox .orderBoxWrap .orderDetail .operation .buyNow {
+  width: 5.466666rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  color: #666;
+  border: 0.066666rem solid #666;
+  border-radius: 0.133333rem;
+  margin: 0 auto 0.666666rem;
 }
 .cancleOrderAlert {
   width: 30.6rem;
@@ -249,7 +256,7 @@
   border-radius: 0.333333rem;
   position: absolute;
   background: #FFFFFF;
-  z-index: 10;
+  z-index: 40;
   top: 50%;
   left: 50%;
   margin-top: -9.333333rem;
@@ -298,7 +305,7 @@
   height: 11.733333rem;
   background: #fff;
   border-radius: 0.133333rem;
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   z-index: 100;
@@ -359,7 +366,7 @@
   left: 50%;
   margin-top: -5.866666rem;
   margin-left: -12.733333rem;
-  z-index: 20;
+  z-index: 41;
   border-radius: 0.333333rem;
 }
 .cancleOrderSuccessAlert img:nth-child(1) {

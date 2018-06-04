@@ -94,8 +94,8 @@ var spsxMain = new Vue({
 					activeCls: 'activeCls',
 					homePage: '首页',
 					endPage: '尾页',
-					prevContent: '<img src="../build/images/prevPage.png"/>',
-					nextContent: '<img src="../build/images/nextPage.png"/>',
+					prevContent: '<img src="./images/prevPage.png"/>',
+					nextContent: '<img src="./images/nextPage.png"/>',
 					callback: function(api) {
 						this.nowPageNum = api.getCurrent();
 						

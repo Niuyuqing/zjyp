@@ -10,14 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/personalData.css" />
-		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/lib/iscroll-zoom.js"></script>
-		<script src="js/lib/hammer.js"></script>
-		<script src="js/lib/lrz.all.bundle.js"></script>
-		<script src="js/lib/jquery.photoClip.min.js"></script>
+		<!--<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
 	</head>
 
 	<body>
@@ -38,8 +31,8 @@
 						<ul>
 							<li>
 								<a href="personalData.html">
-									<img src="images/eg.jpg" />
-									<p>超级买买买</p>
+									<img :src="userDetails.headp" />
+									<p>{{userDetails.nickname}}</p>
 								</a>
 							</li>
 							<li><img src="images/myOrder_1.png" />
@@ -56,30 +49,33 @@
 					<div class="rBoxWrap rFloat">
 						<div class="clearfix userData">
 							<div class="headImg lFloat">
-								<img src="images/eg.jpg" />
-								<p class="text" @click="editHeadImg(true)">编辑头像</p>
-								<p class="headImgMask" @click="editHeadImg(true)"></p>
+								<p class="text" @click="editHeadImg(true,0)">编辑头像</p>
+								<p class="headImgMask" @click="editHeadImg(true,0)"></p>
 							</div>
-							<p class="username lFloat">超级买买买</p>
+							<p class="username lFloat">{{userDetails.nickname}}</p>
 						</div>
 
 						<div class="userDataMsg">
 							<p>
 								<span>昵称</span>
-								<input type="text" class="inputText" />
+								<input type="text" class="inputText" v-model="nickname" />
 							</p>
 							<p>
 								<span>真实姓名</span>
-								<input type="text" class="inputText" />
+								<input type="text" class="inputText" v-model="realname" />
 							</p>
 							<p>
 								<span>性别</span>
-								<label for="man" class="sexMan"><input type="radio" id="man" name="sex" />&nbsp;男</label>
-								<label for="woman"><input type="radio" id="woman" name="sex" />&nbsp;女</label>
+								<label for="man" class="sexMan">
+									<input type="radio" class="sex" id="man" name="sex" value="1" />&nbsp;男
+								</label>
+								<label for="woman">
+									<input type="radio" class="sex" id="woman" name="sex" value="0" />&nbsp;女
+								</label>
 							</p>
 							<p>
 								<span>生日</span>
-								<select name="" style="margin-left: 0;">
+								<!--<select name="" style="margin-left: 0;">
 									<option value="">请选择</option>
 								</select>年
 								<select name="">
@@ -87,15 +83,12 @@
 								</select>月
 								<select name="">
 									<option value="">请选择</option>
-								</select>日
-							</p>
-							<p>
-								<span>手机号码</span>
-								<input type="text" class="inputText" />
+								</select>日-->
+								<input type="text" id="birthdayDate" class="inputText" v-model="birthday" />
 							</p>
 							<p>
 								<span style="opacity: 0;">占位</span>
-								<button>提交</button>
+								<button @click="completeUserInfo()">提交</button>
 							</p>
 						</div>
 					</div>
@@ -103,26 +96,28 @@
 					<div class="customHeadImg" v-if="customHeadBox">
 						<p class="title">
 							<span>自定义头像</span>
-							<img src="images/close_del_box.png" class="close" @click="editHeadImg(false)" />
+							<img src="images/close_del_box.png" class="close" @click="editHeadImg(false,0)" />
 						</p>
 						<p class="uploadImg">
 							<button>上传头像</button>
+							<input type="file" id="fromLocalFile" accept="image/*">
 							<span>支持大小不超过5M的jpg、png图片</span>
 						</p>
 						<div class="picBox clearfix">
-							<div class="bigPic lFloat">
-								<img src="images/bigPic.png" />
+							<div class="bigPic lFloat" id="clipArea">
+								<img src="images/bigPic.png" class="egPic" />
 							</div>
 
 							<div class="smallPicBox lFloat">
 								<p>预览</p>
-								<div class="smallPic">
-									<img src="images/smallPic.png" />
+								<div class="smallPic viewClipPic">
+									<!--<img src="images/smallPic.png" />-->
 								</div>
 							</div>
 						</div>
 						<p class="saveBtn">
-							<button @click="editHeadImg(false)">保存</button>
+							<button id="clipBtn">预览</button>
+							<button @click="editHeadImg(false,1)">保存</button>
 						</p>
 					</div>
 					<div class="mask" v-if="customHeadBox"></div>
@@ -131,7 +126,16 @@
 
 			<%-include footer  %>
 		</div>
-
+		
+		<script src="http://www.jq22.com/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/iscroll-zoom.js"></script>
+		<script src="js/lib/hammer.js"></script>
+		<script src="js/lib/lrz.all.bundle.js"></script>
+		<script src="js/lib/jquery.photoClip.min.js"></script>
+		<script src="js/lib/laydate.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/personalData.js" type="text/javascript" charset="utf-8"></script>
 	</body>

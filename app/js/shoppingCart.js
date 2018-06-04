@@ -27,7 +27,6 @@ var shoppingCartMain = new Vue({
 				emulateJSON: true
 			}).then(function(data) {
 				this.shoppingCartData = data.body.data;
-				console.log(this.shoppingCartData);
 			}, function(a) {
 				console.log('请求错误 ');
 			});
@@ -64,13 +63,13 @@ var shoppingCartMain = new Vue({
 			}
 			this.shoppingCartData = result.data;*/
 		},
-		selectGoods: function(e, money, itemId, picUrl, num, type) { // 单选
+		selectGoods: function(e, money, itemId, picUrl, num, type, price) { // 单选
+			this.checkGoodsMoney = 0;  // 清空总价
 			var aa = $(e.target).prop('src');
 			if(aa.substr(aa.length - 5, 1) == '2' || aa.substr(aa.length - 5, 1) == 2) { // 选中状态
 				this.checkedNum -= 1; // 选中商品-1
 
 				$(e.target).prop('src', 'images/select_1.png');
-				this.checkGoodsMoney -= parseInt(money);
 
 				// 展开已选商品图片，删除已选
 				for(var s = 0; s < this.checkGoodsPic.length; s++) {
@@ -78,6 +77,10 @@ var shoppingCartMain = new Vue({
 						this.checkGoodsPic.splice(s, 1);
 					};
 				};
+
+				for(var x = 0; x < this.checkGoodsPic.length; x++) {
+					this.checkGoodsMoney += parseInt(this.checkGoodsPic[x].num) * parseFloat(this.checkGoodsPic[x].price)
+				}
 
 				// 要删除商品itemID
 				for(var b = 0; b < this.delItemId.length; b++) {
@@ -92,14 +95,18 @@ var shoppingCartMain = new Vue({
 			} else if(aa.substr(aa.length - 5, 1) == '1' || aa.substr(aa.length - 5, 1) == 1) {
 				$(e.target).prop('src', 'images/select_2.png');
 				this.checkedNum += 1;
-				this.checkGoodsMoney += parseInt(money);
 				// 展开已选商品图片
 				this.checkGoodsPic.push({
 					itemId: itemId,
 					picUrl: picUrl,
+					price: price,
 					num: num,
-					type : type
+					type: type
 				});
+
+				for(var p = 0; p < this.checkGoodsPic.length; p++) {
+					this.checkGoodsMoney += parseInt(this.checkGoodsPic[p].num) * parseFloat(this.checkGoodsPic[p].price)
+				};
 
 				this.delItemId.push(itemId); // 删除商品itemID
 
@@ -129,8 +136,9 @@ var shoppingCartMain = new Vue({
 					this.checkGoodsPic.push({
 						itemId: this.shoppingCartData[p].itemId,
 						picUrl: this.shoppingCartData[p].data.original_img,
+						price: this.shoppingCartData[p].data.price,
 						num: this.shoppingCartData[p].itemNum,
-						type : this.shoppingCartData[p].type
+						type: this.shoppingCartData[p].type
 					});
 
 					// 选中商品itemID
@@ -152,18 +160,23 @@ var shoppingCartMain = new Vue({
 				this.delItemId = [];
 			}
 		},
-		limitShoppingNum: function(e,id,goodsType) { // 限制购买数量只能输入数字
+		limitShoppingNum: function(e, id, goodsType) { // 限制购买数量只能输入数字
 			$(e.target).val($(e.target).val().replace(/\D/g, ''));
-			
-			setTimeout(function () {
+
+			if($(e.target).val() == '' || $(e.target).val() <= 0) {
+				$(e.target).val(1);
+			};
+
+			setTimeout(function() {
 				// 修改商品数量接口
-				shoppingCartMain.changeGoodsNum(id,$(e.target).val(),goodsType);
-			},100);
+				shoppingCartMain.changeGoodsNum(id, $(e.target).val(), goodsType);
+			}, 100);
 		},
 		changeShoppingNum: function(e, type, id, goodsType) { // 修改购买数量
 			var goodsNums = parseInt($(e.target).parent().parent().find('.goodsNum').val());
+
 			if(type == 1) { // 减
-				if(goodsNums > 0) {
+				if(goodsNums > 1) {
 					goodsNums = goodsNums - 1;
 					$(e.target).parent().parent().find('.goodsNum').val(goodsNums);
 				}
@@ -171,11 +184,11 @@ var shoppingCartMain = new Vue({
 				goodsNums = goodsNums + 1;
 				$(e.target).parent().parent().find('.goodsNum').val(goodsNums);
 			}
-			
+
 			// 修改商品数量接口
-			this.changeGoodsNum(id,goodsNums,goodsType);
+			this.changeGoodsNum(id, goodsNums, goodsType);
 		},
-		changeGoodsNum : function(id,goodsNums,goodsType){  // 修改商品数量接口
+		changeGoodsNum: function(id, goodsNums, goodsType) { // 修改商品数量接口
 			this.$http.post('http://localhost:8083/zujahome-main/cart/update/num', {
 				itemId: id,
 				num: goodsNums,
@@ -186,13 +199,23 @@ var shoppingCartMain = new Vue({
 				},
 				emulateJSON: true
 			}).then(function(data) {
-				console.log(data.body);
 				if(data.body.status == '200') {
 					this.cartList(); // 查询购物车列表接口
 				}
 			}, function(a) {
 				console.log('请求错误 ')
 			});
+
+			this.checkGoodsMoney = 0; // 总价清零重新计算
+			// 修改商品数量更新商品信息数组
+			for(var s = 0; s < this.checkGoodsPic.length; s++) {
+				if(this.checkGoodsPic[s].itemId == id) {
+					this.checkGoodsPic[s].num = goodsNums
+				};
+
+				// 重新计算总价
+				this.checkGoodsMoney += parseInt(this.checkGoodsPic[s].num) * parseFloat(this.checkGoodsPic[s].price);
+			};
 		},
 		getDelItemId: function(id) { // 获取删除商品itemId
 			this.delItemId = []; // 先清空
@@ -207,7 +230,7 @@ var shoppingCartMain = new Vue({
 			this.delBox = true;
 			this.setMaskSize(); // 设置遮罩层大小
 		},
-		delCurrentGoods: function(type) { // 单品删除
+		delCurrentGoods: function(type) { // 删除商品
 			console.log(this.delItemId);
 			if(type == '1') { // 点击确定按钮
 				this.$http.post('http://localhost:8083/zujahome-main/cart/deleteItem', {
@@ -220,7 +243,7 @@ var shoppingCartMain = new Vue({
 					emulateJSON: true
 				}).then(function(data) {
 					if(data.body.status == '200') {
-						this.cartList();
+						window.location.reload();
 					} else {
 						alert(data.body.msg);
 					}
@@ -282,7 +305,7 @@ var shoppingCartMain = new Vue({
 		},
 		toGoodsBalance: function() { // 点击结算
 			for(var i = 0; i < this.checkGoodsPic.length; i++) {
-				this.itemIdAndNum.push(this.checkGoodsPic[i].itemId+'_'+this.checkGoodsPic[i].num+'_'+this.checkGoodsPic[i].type);
+				this.itemIdAndNum.push(this.checkGoodsPic[i].itemId + '_' + this.checkGoodsPic[i].num + '_' + this.checkGoodsPic[i].type);
 			}
 			window.location.href = 'jsy.html?orderlist=' + this.itemIdAndNum.join(',');
 		},

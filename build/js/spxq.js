@@ -193,13 +193,18 @@
 			limitShoppingNum: function limitShoppingNum() {
 				// 限制购买数量只能输入数字
 				this.shoppingNum = this.shoppingNum.replace(/\D/g, '');
+	
+				if (this.shoppingNum == '') {
+					this.shoppingNum = 1;
+				};
+	
 				this.addShoppingPage = 'addShoppingCart.html?goodsId=' + this.goodsId + '&num=' + this.shoppingNum; // 跳转加入购物车页面地址
 			},
 			changeShoppingNum: function changeShoppingNum(type) {
 				// 修改购买数量
 				if (type == 1) {
 					// 减
-					if (this.shoppingNum > 0) {
+					if (this.shoppingNum > 1) {
 						this.shoppingNum--;
 					}
 				} else {

@@ -12,6 +12,7 @@ var loginWrap = new Vue({
 		waitTakeGoods: false, // 待收货
 		waitAssess: false, // 待评价
 		pageNum : 1,  // 订单列表当前页
+		orderList : [],  // 订单
 	},
 	mounted: function() {
 		// 翻页器
@@ -42,10 +43,23 @@ var loginWrap = new Vue({
 				},
 				emulateJSON: true
 			}).then(function(data) {
-				console.log(data.body);
+				this.orderList = data.body.data;
+				
+				setTimeout(function () {
+					for (var i = 0; i < $('.orderBox').length; i++) {
+						$('.rCont').eq(i).css({
+							'height' : $('.lConts').eq(i).height() + 'px'
+						});
+					};
+				},1000);
+				
+				
 			}, function(a) {
 				console.log('请求错误 ')
 			});
+		},
+		orderDetailFn : function(){  // 订单详情
+			window.location.href = 'orderDetail.html';
 		},
 		cancleOrderClick: function(val, type) { // 取消订单
 			this.cancleBox = val;
@@ -108,5 +122,4 @@ $(function() {
 	$('.pagingWrap .paging').css({
 		'margin-left': ($('.pagingWrap').width() - $('.pagingWrap .paging').width()) / 2 + 'px'
 	});
-
 });

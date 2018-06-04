@@ -215,9 +215,9 @@
 		if (cents < 10) {
 			cents = "0" + cents;
 		}
-		for (var i = 0; i < Math.floor((val.length - (1 + i)) / 3); i++) {
-			val = val.substring(0, val.length - (4 * i + 3)) + ',' + val.substring(val.length - (4 * i + 3));
-		}
+		/*for(var i = 0; i < Math.floor((val.length - (1 + i)) / 3); i++) {
+	 	val = val.substring(0, val.length - (4 * i + 3)) + ',' + val.substring(val.length - (4 * i + 3));
+	 }*/
 	
 		return (sign ? '' : '-') + val + '.' + cents;
 	});

@@ -88,6 +88,7 @@
             position: relative;
             border-radius: 50%;
             overflow: hidden;
+            background-size: contain;
             img{
                 display: inline-block;
                 width: 5.4rem;
@@ -159,6 +160,7 @@
                 color: #666666;
             }
             .inputText{
+                font-size: 0.8rem;
                 display: inline-block;
                 width: 14rem;
                 height: 2rem;
@@ -231,6 +233,7 @@
         line-height: 1.733333rem;
         margin: 1.333333rem 0;
         padding: 0 0.666666rem;
+        position: relative;
         button{
             width: 5.333333rem;
             height: 1.733333rem;
@@ -238,6 +241,16 @@
             color: #666666;
             border-radius: 0.133333rem;
             margin-right: 0.666666rem;
+        }
+        input{
+            display: inline-block;
+            width: 5.333333rem;
+            height: 1.733333rem;
+            position: absolute;
+            top: 0;
+            left: 0.666666rem;
+            background: red;
+            opacity: 0;
         }
     }
     .picBox{
@@ -251,7 +264,7 @@
         height: 24rem;
         background: #e6e6e6;
         position: relative;
-        img{
+        .egPic{
             display: inline-block;
             width: 5.333333rem;
             height: 4.8rem;

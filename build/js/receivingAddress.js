@@ -202,6 +202,7 @@
 			},
 			updateUserReceiveInfo: function updateUserReceiveInfo() {
 				// 收货地址的修改
+				this.editAddressBox = false;
 				// 区域拼接
 				this.editRegion = this.editProvince + ',' + this.editCity + ',' + this.editArea;
 				this.$http.post('http://localhost:8083/zujahome-main/user/updateUserReceiveInfo', {
@@ -234,16 +235,6 @@
 					emulateJSON: true
 				}).then(function (data) {
 					this.userReceiveInfoList = data.body.data;
-	
-					for (var i = 0; i < this.userReceiveInfoList.length; i++) {
-						if (this.userReceiveInfoList[i].isDefault == '1') {
-							// 默认收货地址
-							this.receivingAddress = this.userReceiveInfoList[i].receiveRegion.replace(/,/g, '') + this.userReceiveInfoList[i].receiveAddress;
-							this.addressee = this.userReceiveInfoList[i].receiveName;
-							this.addresseePhone = this.userReceiveInfoList[i].receivePhone;
-							this.userReceiveInfoId = this.userReceiveInfoList[i].id;
-						}
-					}
 				}, function (a) {
 					console.log('请求错误 ');
 				});

@@ -59,8 +59,9 @@
 			alreadyPay: false, // 已付款
 			waitTakeGoods: false, // 待收货
 			waitAssess: false, // 待评价
-			pageNum: 1 },
-		// 订单列表当前页
+			pageNum: 1, // 订单列表当前页
+			orderList: [] },
+		// 订单
 		mounted: function mounted() {
 			// 翻页器
 			$('.paging').pagination({
@@ -91,10 +92,22 @@
 					},
 					emulateJSON: true
 				}).then(function (data) {
-					console.log(data.body);
+					this.orderList = data.body.data;
+	
+					setTimeout(function () {
+						for (var i = 0; i < $('.orderBox').length; i++) {
+							$('.rCont').eq(i).css({
+								'height': $('.lConts').eq(i).height() + 'px'
+							});
+						};
+					}, 1000);
 				}, function (a) {
 					console.log('请求错误 ');
 				});
+			},
+			orderDetailFn: function orderDetailFn() {
+				// 订单详情
+				window.location.href = 'orderDetail.html';
 			},
 			cancleOrderClick: function cancleOrderClick(val, type) {
 				// 取消订单
