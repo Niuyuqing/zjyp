@@ -137,7 +137,27 @@
 						console.log(data.body);
 						if (data.body.status == '200') {
 							alert('注册成功');
-							window.location.href = 'login.html';
+	
+							// 注册成功后自动进行登录，跳转到首页面
+							this.$http.post('http://localhost:8083/zujahome-main/user/login', {
+								phone: this.phone,
+								password: this.pwd
+							}, { // 没有参数也要放空的大括号
+								headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+									'Content-Type': 'application/x-www-form-urlencoded'
+								},
+								emulateJSON: true
+							}).then(function (data) {
+								console.log(data.body);
+								if (data.body.status == '200') {
+									window.location.href = 'index.html';
+								} else {
+									alert('登录失败，请您到登录页面重新进行登录');
+									window.location.href = 'login.html';
+								}
+							}, function (a) {
+								console.log('请求错误 ');
+							});
 						} else {
 							this.errorTip = true;
 							this.errorTipMsg = data.body.msg;

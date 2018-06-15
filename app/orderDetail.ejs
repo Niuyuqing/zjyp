@@ -1,253 +1,269 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>订单详情</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="css/orderDetail.css" />
-	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-	
-	<div class="loginWrap">
-		<div class="loginMain">
-			<header class="loginHeadWrap toPage">
-				<div class="loginHead">
-					<a :href="toPagesArr.index">
-						<img src="images/logo.png" class="logo"/>
-					</a>
-					<h2>个人中心</h2>
-				</div>
-			</header>
-			
-			<div class="orderDetailMain">
-				<p class="title">
-					<span>个人中心</span>
-					<img src="images/nextPage.png"/>
-					<span>我的订单</span>
-					<img src="images/nextPage.png"/>
-					<span>订单号：789456123</span>
-				</p>
-				
-				<div class="contBox">
-					<div class="topTip">
-						<div class="goodsStatus clearfix">
-							<h3 class="lFloat">已收货</h3>
-							
-							<!--待付款、待发货、待收货、已收货-->
-							<div class="lFloat" v-if="takeGoods"> 
-								<div class="dfk common">
-									<img src="images/dfk_1.png" v-if="!dfkText"/>
-									<img src="images/dfk_2.png" v-if="dfkText"/>
-									<p>待付款</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>订单详情</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/orderDetail.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="loginWrap">
+			<div class="loginMain">
+				<header class="loginHeadWrap toPage">
+					<div class="loginHead">
+						<a :href="toPagesArr.index">
+							<img src="images/logo.png" class="logo" />
+						</a>
+						<h2>个人中心</h2>
+					</div>
+				</header>
+
+				<div class="orderDetailMain">
+					<p class="title">
+						<span>个人中心</span>
+						<img src="images/nextPage.png" />
+						<span>我的订单</span>
+						<img src="images/nextPage.png" />
+						<span>订单号：{{orderId}}</span>
+					</p>
+
+					<div class="contBox">
+						<div class="topTip">
+							<div class="goodsStatus clearfix">
+								<h3 class="lFloat" v-if="orderDetail.status=='1'&&orderDetail.cancelStatus=='0'&&orderDetail.refundStatus=='0'">待付款</h3>
+								<h3 class="lFloat" v-if="orderDetail.status=='2'&&orderDetail.cancelStatus=='0'&&orderDetail.refundStatus=='0'">待发货</h3>
+								<h3 class="lFloat" v-if="orderDetail.status=='3'&&orderDetail.cancelStatus=='0'&&orderDetail.refundStatus=='0'">待收货</h3>
+								<h3 class="lFloat" v-if="orderDetail.status=='4'&&orderDetail.cancelStatus=='0'&&orderDetail.refundStatus=='0'">已收货</h3>
+								
+								<h3 class="lFloat" v-if="orderDetail.cancelStatus=='1'">提交申请</h3>
+								<h3 class="lFloat" v-if="orderDetail.cancelStatus=='2'">已取消</h3>
+								<h3 class="lFloat" v-if="orderDetail.cancelStatus=='3'">审核未通过</h3>
+								
+								<h3 class="lFloat" v-if="orderDetail.refundStatus=='1'">提交申请</h3>
+								<h3 class="lFloat" v-if="orderDetail.refundStatus=='2'">已退款</h3>
+								<h3 class="lFloat" v-if="orderDetail.refundStatus=='3'">审核未通过</h3>
+
+								<!--待付款、待发货、待收货、已收货-->
+								<div class="lFloat" v-if="orderDetail.cancelStatus=='0'&&orderDetail.refundStatus=='0'">
+									<div class="dfk common">
+										<img src="images/dfk_1.png" v-if="orderDetail.status=='1'" />
+										<img src="images/dfk_2.png" v-if="orderDetail.status!='1'" />
+										<p>待付款</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
+									<p class="grayCircle lFloat" v-if="orderDetail.status=='1'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									<p class="greenCircle lFloat" v-if="orderDetail.status!='1'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									<div class="dfh common">
+										<img src="images/dfh_1.png" v-if="orderDetail.status=='2'||orderDetail.status=='1'" />
+										<img src="images/dfh_2.png" v-if="orderDetail.status!='2'&&orderDetail.status!='1'" />
+										<p>待发货</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
+									<p class="grayCircle lFloat" v-if="orderDetail.status=='2'||orderDetail.status=='1'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									<p class="greenCircle lFloat" v-if="orderDetail.status!='2'&&orderDetail.status!='1'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									<div class="dsh common">
+										<img src="images/dsh_1.png" v-if="orderDetail.status=='3'||orderDetail.status=='2'||orderDetail.status=='1'||orderDetail.status!='4'" />
+										<img src="images/dsh_2.png" v-if="orderDetail.status!='3'&&orderDetail.status!='2'&&orderDetail.status!='1'&&orderDetail.status=='4'" />
+										<p>待收货</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
+									<p class="grayCircle lFloat" v-if="orderDetail.status=='3'||orderDetail.status=='2'||orderDetail.status=='1'||orderDetail.status!='4'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									<p class="greenCircle lFloat" v-if="orderDetail.status!='3'&&orderDetail.status!='2'&&orderDetail.status!='1'&&orderDetail.status=='4'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									<div class="ysh common">
+										<img src="images/ysh_1.png" v-if="orderDetail.status!='4'" />
+										<img src="images/ysh_2.png" v-if="orderDetail.status=='4'" />
+										<p>已收货</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
 								</div>
-								<p class="grayCircle lFloat" v-if="!dfkText">
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<p class="greenCircle lFloat" v-if="dfkText"> 
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<div class="dfh common">
-									<img src="images/dfh_1.png" v-if="!dfhText"/>
-									<img src="images/dfh_2.png" v-if="dfhText"/>
-									<p>待发货</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
-								</div>
-								<p class="grayCircle lFloat" v-if="!dfhText">
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<p class="greenCircle lFloat" v-if="dfhText"> 
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<div class="dsh common">
-									<img src="images/dsh_1.png" v-if="!dshText"/>
-									<img src="images/dsh_2.png" v-if="dshText"/>
-									<p>待收货</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
-								</div>
-								<p class="grayCircle lFloat" v-if="!dshText">
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<p class="greenCircle lFloat" v-if="dshText"> 
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<div class="ysh common">
-									<img src="images/ysh_1.png" v-if="!yshText"/>
-									<img src="images/ysh_2.png" v-if="yshText"/>
-									<p>已收货</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
+
+								<!--退款-->
+								<div class="lFloat" v-if="orderDetail.refundStatus!='0'">
+									<div class="tjsq common">
+										<img src="images/tjsq_2.png" />
+										<p>提交申请</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
+									<p class="greenCircle lFloat">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									
+									<div class="shtg common" v-if="orderDetail.refundStatus!='3'">
+										<img src="images/shtg_1.png" v-if="orderDetail.refundStatus=='1'||orderDetail.refundStatus=='3'||orderDetail.refundStatus!='2'" />
+										<img src="images/shtg_2.png" v-if="orderDetail.refundStatus=='2'&&orderDetail.refundStatus!='1'" />
+										<p>审核通过</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
+									
+									<div class="shtg common" v-if="orderDetail.refundStatus=='3'">
+										<img src="images/shtg_3.png" />
+										<p>审核未通过</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
+									
+									<p class="grayCircle lFloat" v-if="orderDetail.refundStatus=='1'&&orderDetail.refundStatus!='3'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									
+									<p class="greenCircle lFloat" v-if="orderDetail.refundStatus=='2'&&orderDetail.refundStatus!='1'&&orderDetail.refundStatus!='3'">
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+										<span></span>
+									</p>
+									
+									<div class="cancle common" v-if="orderDetail.refundStatus!='3'">
+										<img src="images/ytk_1.png" v-if="orderDetail.refundStatus!='2'||orderDetail.refundStatus=='1'" />
+										<img src="images/ytk_2.png" v-if="orderDetail.refundStatus=='2'" />
+										<p>已退款</p>
+										<p>2018-4-28</p>
+										<p>08:09:32</p>
+									</div>
 								</div>
 							</div>
-							
-							<!--退款-->
-							<div class="lFloat" v-if="refundMoney">
-								<div class="tjsq common">
-									<img src="images/tjsq_1.png"/>
-									<img src="images/tjsq_2.png"/>
-									<p>提交申请</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
+						</div>
+
+						<div class="contBottom">
+							<div class="lFloat orderMsg">
+								<div>
+									<h3>订单信息</h3>
+									<p>订单号：{{orderDetail.orderId}}</p>
+									<p>物流订单：{{orderDetail.orderShipping.orderId}}</p>
+									<p>收货人：{{orderDetail.orderShipping.receiverName}}</p>
+									<p>地址：{{orderDetail.orderShipping.receiverDistrict}}{{orderDetail.orderShipping.receiverCity}}</p>
+									<p>手机号码：{{orderDetail.orderShipping.receiverMobile}}</p>
 								</div>
-								<p class="grayCircle lFloat">
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<p class="greenCircle lFloat"> 
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<div class="shtg common">
-									<img src="images/shtg_1.png"/>
-									<img src="images/shtg_2.png"/>
-									<p>审核通过</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
+							</div>
+							<div class="lFloat payMsg">
+								<div>
+									<h3>付款信息</h3>
+									<p>付款方式：支付宝支付</p>
+									<p>付款时间 2018-9-9 12:30:09</p>
+									<p>商品金额：¥1200.00</p>
 								</div>
-								<p class="grayCircle lFloat">
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<p class="greenCircle lFloat"> 
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-									<span></span>
-								</p>
-								<div class="cancle common">
-									<img src="images/ytk_1.png"/>
-									<img src="images/ytk_2.png"/>
-									<p>已退款</p>
-									<p>2018-4-28</p>
-									<p>08:09:32</p>
+							</div>
+							<div class="lFloat refundMsg">
+								<div>
+									<h3>退款信息</h3>
+									<p>退款方式：支付宝</p>
+									<p>退款物流单号：
+										<input type="text" placeholder="请填写物流单号" />
+										<button>提交</button>
+									</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					<div class="contBottom">
-						<div class="lFloat orderMsg">
-							<div>
-								<h3>订单信息</h3>
-								<p>订单号：789456123</p>
-								<p>物流订单：123456789</p>
-								<p>收货人：张小娴</p>
-								<p>地址：北京市朝阳区黎各庄</p>
-								<p>手机号码：18001250752</p>
+
+					<div class="showGoodsWrap clearfix">
+						<div class="showGoods clearfix">
+							<div class="title">
+								<p>商品</p>
+								<p>单价</p>
+								<p>数量</p>
+								<p>小计</p>
+								<p>操作</p>
 							</div>
-						</div>
-						<div class="lFloat payMsg">
-							<div>
-								<h3>付款信息</h3>
-								<p>付款方式：支付宝支付</p>
-								<p>付款时间 2018-9-9 12:30:09</p>
-								<p>商品金额：¥1200.00</p>
-							</div>
-						</div>
-						<div class="lFloat refundMsg">
-							<div>
-								<h3>退款信息</h3>
-								<p>退款方式：支付宝</p>
-								<p>退款物流单号：
-									<input type="text" placeholder="请填写物流单号" />
-									<button>提交</button>
+							<div class="line">
+								<div class="goodsInfo lFloat">
+									<img src="images/eg.jpg" class="lFloat goodsPic" />
+									<div class="lFloat goodsText">
+										<p>床单被套床上用品四件套全棉纯棉 1.8m床双人被罩床罩床裙款简约床单被套床上用品四件套全棉纯棉 1.8m床双人被罩床罩床裙款简约</p>
+										<p><span>规格：</span>1.8*2.0M单床</p>
+										<p><span>颜色：</span>白色</p>
+									</div>
+								</div>
+								<p class="lFloat price">¥2700.00</p>
+								<p class="lFloat num">1</p>
+								<p class="lFloat allPrice">¥7900.00</p>
+								<p class="lFloat operation">
+									<a href="applyAfterSale.html">申请售后</a>
+									<a href="appendComment.html">追加评论</a>
+									<a href="#" class="buyNow">立即购买</a>
 								</p>
 							</div>
 						</div>
+						<p class="allMoney rFloat">总价：<span>¥7900.00</span></p>
 					</div>
-				</div>
-				
-				<div class="showGoodsWrap clearfix">
-					<div class="showGoods clearfix">
-						<div class="title">
-							<p>商品</p>
-							<p>单价</p>
-							<p>数量</p>
-							<p>小计</p>
-							<p>操作</p>
-						</div>
-						<div class="line">
-							<div class="goodsInfo lFloat">
-								<img src="images/eg.jpg" class="lFloat goodsPic"/>
-								<div class="lFloat goodsText">
-									<p>床单被套床上用品四件套全棉纯棉 1.8m床双人被罩床罩床裙款简约床单被套床上用品四件套全棉纯棉 1.8m床双人被罩床罩床裙款简约</p>
-									<p><span>规格：</span>1.8*2.0M单床</p>
-									<p><span>颜色：</span>白色</p>
-								</div>
-							</div>
-							<p class="lFloat price">¥2700.00</p>
-							<p class="lFloat num">1</p>
-							<p class="lFloat allPrice">¥7900.00</p>
-							<p class="lFloat operation">
-								<a href="applyAfterSale.html">申请售后</a>
-								<a href="appendComment.html">追加评论</a>
-								<a href="#" class="buyNow">立即购买</a>
-							</p>
-						</div>
-					</div>
-					<p class="allMoney rFloat">总价：<span>¥7900.00</span></p>
 				</div>
 			</div>
+			<%-include footer  %>
 		</div>
-		<%-include footer  %>
-	</div>
-	
-	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/orderDetail.js" type="text/javascript" charset="utf-8"></script>
-</body>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/orderDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
 </html>

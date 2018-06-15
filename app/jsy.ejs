@@ -96,8 +96,8 @@
 										</div>
 									</div>
 								</div>
-								<p class="unfoldAddress" v-if="unfoldAddress" @click="unfoldAddressClick()">收起地址<img src="images/takeUp.png" /></p>
-								<p class="unfoldAddress" v-if="!unfoldAddress" @click="unfoldAddressClick()">展开地址<img src="images/openAddress.png" /></p>
+								<p class="unfoldAddress" v-if="unfoldAddress&&userReceiveInfoList.length>3" @click="unfoldAddressClick()">收起地址<img src="images/takeUp.png" /></p>
+								<p class="unfoldAddress" v-if="!unfoldAddress&&userReceiveInfoList.length>3" @click="unfoldAddressClick()">展开地址<img src="images/openAddress.png" /></p>
 							</div>
 
 							<!--展开全部收货地址-->

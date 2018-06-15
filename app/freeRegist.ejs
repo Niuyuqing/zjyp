@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>免费注册</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/freeRegist.css"/>
+</head>
+<body>
+	<div class="zjypWrap">
+		<%-include header  %>
+		<%-include search  %>
+		<%-include navigation  %>
+		
+		<div class="freeRegistrMain clearfix">
+			<%-include footerLeftList  %>
+			
+			<div class="rContentWrap rFloat">
+				<div class="title clearfix">
+					<p>免费注册</p>
+				</div>
+				<div class="stepWrap">
+					<img src="images/registProcess.png" class="registProcess"/>
+					<p class="text">
+						<span class="orderNum">1</span>
+						在筑家优品首页左上角点击<span class="red">【注册】</span>，如下图：
+						<img src="images/regist_1.png" class="regist_1"/>
+					</p>
+					<p class="text">
+						<span class="orderNum">2</span>
+						进入注册页面，用个人手机号码进行注册，填写相关信息，勾选同意注册协议，点击<span class="red">【注册】</span>，如下图：
+						<img src="images/regist_2.png" class="regist_2"/>
+					</p>
+					<p class="text">
+						<span class="orderNum">3</span>
+						提示注册成功后，页面将自动跳转至已登录状态下的页面。
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<%-include footer  %>
+	</div>
+	
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/freeRegist.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

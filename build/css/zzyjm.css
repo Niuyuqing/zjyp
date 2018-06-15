@@ -5,10 +5,17 @@
 .zjypMain .banner {
   height: 43.066666rem;
 }
-.zjypMain .bg_1,
-.zjypMain .bg_2,
+.zjypMain .bg_1 {
+  height: 49.733333rem;
+}
+.zjypMain .bg_2 {
+  height: 42.533333rem;
+}
 .zjypMain .bg_3 {
-  height: 40.666666rem;
+  height: 45rem;
+}
+.zjypMain .bg_4 {
+  height: 42.533333rem;
 }
 .navigationWrap .goodsClass .goodsWrapBox {
   display: none;

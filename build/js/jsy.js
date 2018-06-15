@@ -56,6 +56,7 @@
 			unfoldAddress: false, // 收起/展开地址
 			weChatPay: true, // 微信支付
 			alipayPay: false, // 支付宝支付
+			payWay: 1, // 支付方式
 			receiveRegion: '', // 区域
 			receiveName: '', // 姓名
 			receivePhone: '', // 电话
@@ -396,10 +397,12 @@
 					// 微信支付
 					this.weChatPay = true;
 					this.alipayPay = false;
+					this.payWay = 1;
 				} else if (type == '2') {
 					// 支付宝支付
 					this.weChatPay = false;
 					this.alipayPay = true;
+					this.payWay = 2;
 				}
 			},
 			showUserReceiveInfoList: function showUserReceiveInfoList() {
@@ -567,7 +570,8 @@
 				// 创建订单
 				this.$http.post('http://localhost:8083/zujahome-main/order/createOrder', {
 					orderDetail: JSON.stringify(this.orderListObj),
-					userReceiveInfoId: this.userReceiveInfoId
+					userReceiveInfoId: this.userReceiveInfoId,
+					payWay: this.payWay
 				}, { // 没有参数也要放空的大括号
 					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 						'Content-Type': 'application/x-www-form-urlencoded'

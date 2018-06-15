@@ -25,6 +25,7 @@
   width: 80rem;
   margin: 1.333333rem auto 0;
   background: #FFFFFF;
+  padding-bottom: 1.333333rem;
 }
 .content .lList {
   width: 10rem;
@@ -143,22 +144,27 @@
   margin-top: 0.466666rem;
   cursor: pointer;
 }
-.content .rBox .orderBoxWrap .orderDetail {
+.content .rBox .orderBoxWrap .orderDetail,
+.content .rBox .orderBoxWrap .orderSuccWrap {
   font-size: 0.8rem;
   color: #666666;
   border-top: 0.066666rem solid #e6e6e6;
 }
-.content .rBox .orderBoxWrap .orderDetail .lConts {
+.content .rBox .orderBoxWrap .orderDetail .lConts,
+.content .rBox .orderBoxWrap .orderSuccWrap .lConts {
   display: inline-block;
-  width: 42.1rem;
+  width: 41.2rem;
 }
-.content .rBox .orderBoxWrap .orderDetail .lCont {
+.content .rBox .orderBoxWrap .orderDetail .lCont,
+.content .rBox .orderBoxWrap .orderSuccWrap .lCont {
   border-right: 0.066666rem solid #e6e6e6;
 }
-.content .rBox .orderBoxWrap .orderDetail .lCont {
+.content .rBox .orderBoxWrap .orderDetail .lCont,
+.content .rBox .orderBoxWrap .orderSuccWrap .lCont {
   height: 100%;
 }
-.content .rBox .orderBoxWrap .orderDetail .goodsPic {
+.content .rBox .orderBoxWrap .orderDetail .goodsPic,
+.content .rBox .orderBoxWrap .orderSuccWrap .goodsPic {
   display: inline-block;
   width: 5.333333rem;
   height: 5.333333rem;
@@ -166,13 +172,15 @@
   margin: 0.666666rem;
   box-sizing: border-box;
 }
-.content .rBox .orderBoxWrap .orderDetail .attrs {
+.content .rBox .orderBoxWrap .orderDetail .attrs,
+.content .rBox .orderBoxWrap .orderSuccWrap .attrs {
   width: 13.333333rem;
   margin-left: 0.666666rem;
   padding: 0.666666rem 0;
   box-sizing: border-box;
 }
-.content .rBox .orderBoxWrap .orderDetail .name {
+.content .rBox .orderBoxWrap .orderDetail .name,
+.content .rBox .orderBoxWrap .orderSuccWrap .name {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -180,23 +188,27 @@
   margin-bottom: 0.666666rem;
   box-sizing: border-box;
 }
-.content .rBox .orderBoxWrap .orderDetail .attr {
+.content .rBox .orderBoxWrap .orderDetail .attr,
+.content .rBox .orderBoxWrap .orderSuccWrap .attr {
   margin-bottom: 0.666666rem;
   box-sizing: border-box;
 }
-.content .rBox .orderBoxWrap .orderDetail .price {
+.content .rBox .orderBoxWrap .orderDetail .price,
+.content .rBox .orderBoxWrap .orderSuccWrap .price {
   width: 13.333333rem;
   text-align: center;
   margin-top: 0.666666rem;
   box-sizing: border-box;
 }
-.content .rBox .orderBoxWrap .orderDetail .num {
+.content .rBox .orderBoxWrap .orderDetail .num,
+.content .rBox .orderBoxWrap .orderSuccWrap .num {
   width: 7rem;
   text-align: center;
   margin-top: 0.666666rem;
   box-sizing: border-box;
 }
-.content .rBox .orderBoxWrap .orderDetail .totalPrice {
+.content .rBox .orderBoxWrap .orderDetail .totalPrice,
+.content .rBox .orderBoxWrap .orderSuccWrap .totalPrice {
   width: 7.9rem;
   text-align: center;
   padding-top: 0.666666rem;
@@ -206,7 +218,8 @@
   font-weight: bold;
   height: 100%;
 }
-.content .rBox .orderBoxWrap .orderDetail .status {
+.content .rBox .orderBoxWrap .orderDetail .status,
+.content .rBox .orderBoxWrap .orderSuccWrap .status {
   width: 8.666666rem;
   padding-top: 0.666666rem;
   text-align: center;
@@ -214,34 +227,43 @@
   box-sizing: border-box;
   height: 100%;
 }
-.content .rBox .orderBoxWrap .orderDetail .status span {
+.content .rBox .orderBoxWrap .orderDetail .status span,
+.content .rBox .orderBoxWrap .orderSuccWrap .status span {
   display: block;
   margin-bottom: 0.666666rem;
 }
-.content .rBox .orderBoxWrap .orderDetail .operation {
-  width: 7rem;
+.content .rBox .orderBoxWrap .orderDetail .operation,
+.content .rBox .orderBoxWrap .orderSuccWrap .operation {
+  width: 8.1rem;
   text-align: center;
   padding-top: 0.666666rem;
   box-sizing: border-box;
   height: 100%;
 }
 .content .rBox .orderBoxWrap .orderDetail .operation span,
-.content .rBox .orderBoxWrap .orderDetail .operation a {
+.content .rBox .orderBoxWrap .orderSuccWrap .operation span,
+.content .rBox .orderBoxWrap .orderDetail .operation a,
+.content .rBox .orderBoxWrap .orderSuccWrap .operation a {
   display: block;
   color: #666;
   margin-bottom: 0.666666rem;
   cursor: pointer;
 }
-.content .rBox .orderBoxWrap .orderDetail .operation .payMoney {
+.content .rBox .orderBoxWrap .orderDetail .operation .payMoney,
+.content .rBox .orderBoxWrap .orderSuccWrap .operation .payMoney {
   width: 5.466666rem;
   height: 1.6rem;
   line-height: 1.6rem;
-  color: #ff0000;
-  border: 0.066666rem solid #ff0000;
+  color: #cd2f1d;
+  border: 0.066666rem solid #cd2f1d;
   border-radius: 0.133333rem;
   margin: 0 auto 0.666666rem;
+  background: #FFFFFF;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
-.content .rBox .orderBoxWrap .orderDetail .operation .buyNow {
+.content .rBox .orderBoxWrap .orderDetail .operation .buyNow,
+.content .rBox .orderBoxWrap .orderSuccWrap .operation .buyNow {
   width: 5.466666rem;
   height: 1.6rem;
   line-height: 1.6rem;
@@ -249,12 +271,15 @@
   border: 0.066666rem solid #666;
   border-radius: 0.133333rem;
   margin: 0 auto 0.666666rem;
+  background: #FFFFFF;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 .cancleOrderAlert {
   width: 30.6rem;
   height: 18.733333rem;
   border-radius: 0.333333rem;
-  position: absolute;
+  position: fixed;
   background: #FFFFFF;
   z-index: 40;
   top: 50%;
@@ -283,7 +308,7 @@
   height: 2.333333rem;
   line-height: 2.333333rem;
   border: 0.066666rem solid #E6E6E6;
-  margin-right: 1rem;
+  margin-right: 0.8rem;
   text-align: center;
   margin-bottom: 0.666666rem;
   cursor: pointer;
@@ -361,7 +386,7 @@
   height: 11.733333rem;
   background: #fff;
   text-align: center;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -5.866666rem;

@@ -55,12 +55,14 @@
 							<span style="color: #cd2f1d;" v-if="allOrder">全部订单</span>
 							<span v-if="!waitPay" @click="orderStatusClick(2)">待付款</span>
 							<span style="color: #cd2f1d;" v-if="waitPay">待付款</span>
-							<span v-if="!alreadyPay" @click="orderStatusClick(3)">已付款</span>
-							<span style="color: #cd2f1d;" v-if="alreadyPay">已付款</span>
+							<span v-if="!alreadyPay" @click="orderStatusClick(3)">待发货</span>
+							<span style="color: #cd2f1d;" v-if="alreadyPay">待发货</span>
 							<span v-if="!waitTakeGoods" @click="orderStatusClick(4)">待收货</span>
 							<span style="color: #cd2f1d;" v-if="waitTakeGoods">待收货</span>
-							<span v-if="!waitAssess" @click="orderStatusClick(5)">待评价</span>
-							<span style="color: #cd2f1d;" v-if="waitAssess">待评价</span>
+							<span v-if="!waitAssess" @click="orderStatusClick(5)">已收货</span>
+							<span style="color: #cd2f1d;" v-if="waitAssess">已收货</span>
+							<span v-if="!cancelSuccess" @click="orderStatusClick(6)">已取消</span>
+							<span style="color: #cd2f1d;" v-if="cancelSuccess">已取消</span>
 						</p>
 						<ul class="subTitle clearfix">
 							<li>订单详情</li>
@@ -76,22 +78,22 @@
 								<div class="title">
 									<span class="time">{{item.createTime|dateFormat}}</span>
 									<span>订单号：{{item.orderId}}</span>
-									<img src="images/delete.png" class="rFloat" @click="delBoxClick(true)" />
+									<img src="images/delete.png" class="rFloat" @click="delBoxAlert(true,item.orderId)" />
 								</div>
 
-								<div class="orderDetail clearfix">
+								<div class="orderDetail clearfix" v-if="item.status!='4'">
 									<div class="lConts lFloat">
-										<div class="lFloat lCont" v-for="(goods,index) in item.orderDetail">
+										<div class="lFloat lCont" v-for="(goods,index) in item.orderDetail" :data-itemid="goods.itemId" :data-num="goods.itemNum" :data-type="goods.type">
 											<div class="lFloat" v-if="index==item.orderDetail.length-1" style="border-bottom: none;">
 												<img :src="goods.data.original_img" class="goodsPic lFloat" />
 												<div class="lFloat attrs">
 													<p class="name">{{goods.data.goods_name}}</p>
-													<p class="attr" v-for="attr in goods.attr">{{attr.attrName}}：{{attr.attrValue}}</p>
+													<p class="attr" v-for="attr in goods.data.attr">{{attr.attrName}}：{{attr.attrValue}}</p>
 												</div>
 												<p class="lFloat price">¥{{goods.data.price}}</p>
 												<p class="lFloat num">{{goods.itemNum}}</p>
 											</div>
-											
+
 											<div class="lFloat" v-if="index!=item.orderDetail.length-1" style="border-bottom: 0.066666rem solid #E6E6E6;">
 												<img :src="goods.data.original_img" class="goodsPic lFloat" />
 												<div class="lFloat attrs">
@@ -109,17 +111,59 @@
 											<span v-if="item.status=='1'">待付款</span>
 											<span v-if="item.status=='2'">待发货</span>
 											<span v-if="item.status=='3'">待收货</span>
-											<span v-if="item.status=='4'">已收货</span>
-											<span v-if="item.cancelStatus=='1'">取消审核中</span>
-											<span v-if="item.cancelStatus=='2'">已取消</span>
-											<span v-if="item.cancelStatus=='3'">取消失败</span>
-											<span @click="orderDetailFn()" style="cursor: pointer;">订单详情</span>
+											<span v-if="item.status=='5'">取消成功</span>
+											<span v-if="item.status=='6'">取消失败</span>
+											<span @click="orderDetailFn(item.orderId)" style="cursor: pointer;">订单详情</span>
 										</p>
 										<div class="lFloat operation">
-											<span class="cancleOrder" @click="cancleOrderClick(true)" v-if="item.status=='1'||item.status=='2'">取消订单</span>
-											<a href="syt.html" class="payMoney" v-if="item.status=='1'">付款</a>
-											<a href="jsy.html" class="buyNow" v-if="item.cancelStatus=='3'">立即购买</a>
-											<a href="appendComment.html" class="appendComment" v-if="item.status=='4'">追加评论</a>
+											<span class="cancleOrder" @click="openCancleBox(item.orderId)" v-if="item.status=='1'||item.status=='2'||item.status=='3'">取消订单</span>
+											<button class="payMoney" v-if="item.status=='1'" @click="paymentFn(item.orderId)">付款</button>
+											<a href="#" class="payMoney" v-if="item.status=='3'">确认收货</a>
+											<button class="buyNow" v-if="item.status=='5'" @click="againShopping($event)">再次购买</button>
+										</div>
+									</div>
+								</div>
+								
+								<!--订单完成时以这种方式展示-->
+								<div class="orderSuccWrap" v-if="item.status=='4'">
+									<div class="goodsLine clearfix" v-for="(g,index) in item.orderDetail" style="border-bottom: 0.066666rem solid #E6E6E6;" v-if="index!=item.orderDetail.length-1">
+										<div class="introduce lFloat">
+											<img :src="g.data.original_img" class="goodsPic lFloat" />
+											<div class="lFloat attrs">
+												<p class="name">{{g.data.goods_name}}</p>
+												<p class="attr" v-for="a in g.data.attr">{{a.attrName}}：{{a.attrValue}}</p>
+											</div>
+										</div>
+										<p class="lFloat price">¥{{g.data.price}}</p>
+										<p class="lFloat num">{{g.itemNum}}</p>
+										<div class="totalPrice lFloat" style="border-left: 0.066666rem solid #E6E6E6;">¥{{g.itemNum*g.data.price|money}}</div>
+										<p class="status lFloat">
+											<span v-if="item.status=='4'">已完成</span>
+											<span @click="orderDetailFn(item.orderId)" style="cursor: pointer;">订单详情</span>
+										</p>
+										<div class="lFloat operation">
+											<a href="appendComment.html" class="appendComment" v-if="item.status=='4'">立即评论</a>
+											<a href="applyAfterSale.html" class="applyAfterSale" v-if="item.status=='4'">申请售后</span>
+										</div>
+									</div>
+									
+									<div class="goodsLine clearfix" v-for="(g,index) in item.orderDetail" v-if="index==item.orderDetail.length-1">
+										<div class="introduce lFloat">
+											<img :src="g.data.original_img" class="goodsPic lFloat" />
+											<div class="lFloat attrs">
+												<p class="name">{{g.data.goods_name}}</p>
+												<p class="attr" v-for="a in g.data.attr">{{a.attrName}}：{{a.attrValue}}</p>
+											</div>
+										</div>
+										<p class="lFloat price">¥{{g.data.price}}</p>
+										<p class="lFloat num">{{g.itemNum}}</p>
+										<div class="totalPrice lFloat" style="border-left: 0.066666rem solid #E6E6E6;">¥{{g.itemNum*g.data.price|money}}</div>
+										<p class="status lFloat">
+											<span v-if="item.status=='4'">已完成</span>
+											<span @click="orderDetailFn(item.orderId)" style="cursor: pointer;">订单详情</span>
+										</p>
+										<div class="lFloat operation">
+											<a href="appendComment.html" class="appendComment" v-if="item.status=='4'">立即评论</a>
 											<a href="applyAfterSale.html" class="applyAfterSale" v-if="item.status=='4'">申请售后</span>
 										</div>
 									</div>
@@ -142,7 +186,7 @@
 					<li>不想买了</li>
 					<li style="margin-right: 0;">商品无货</li>
 				</ul>
-				<button @click="cancleOrderClick(false,2)">提交</button>
+				<button @click="cancleOrderClick()">提交</button>
 			</div>
 
 			<!--取消订单成功弹框-->
@@ -157,18 +201,18 @@
 			<div class="deleteBox" v-if="delBox">
 				<p class="title clearfix">
 					<span class="lFloat">删除提示</span>
-					<img src="images/close_del_box.png" class="rFloat" @click="delBoxClick(false)" />
+					<img src="images/close_del_box.png" class="rFloat" @click="delBoxClick(false,0)" />
 				</p>
 				<p>
 					<img src="images/del_icon.png" class="delIcon" /> 您确定要删除该订单吗？
 				</p>
 				<p>
-					<button @click="delBoxClick(false)">确定</button>
-					<button @click="delBoxClick(false)">取消</button>
+					<button @click="delBoxClick(false,1)">确定</button>
+					<button @click="delBoxClick(false,0)">取消</button>
 				</p>
 			</div>
 
-			<div class="mask" v-if="cancleBox||delBox||cancleSuccBox"></div>
+			<div class="mask" v-if="cancleBox||delBox||cancleSuccBox" @click="maskClick()"></div>
 
 			<%-include footer  %>
 		</div>
