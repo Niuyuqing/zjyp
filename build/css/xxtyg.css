@@ -68,9 +68,12 @@
   width: 100%;
   height: 18.7rem;
   box-sizing: border-box;
+  cursor: pointer;
 }
 .tygLocation .appointmentWrap .front {
-  padding-left: 3.333333rem;
+  width: 18.4rem;
+  border-bottom: 0.066666rem solid #dbd9d8;
+  margin-left: 3.333333rem;
   padding-top: 3.2rem;
 }
 .tygLocation .appointmentWrap .behind {
@@ -130,32 +133,6 @@
   opacity: .2;
   margin: 3.133333rem auto 0;
 }
-.tygLocation .appointmentWrap .pages {
-  width: 100%;
-  height: 4rem;
-  background: #b31200;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  line-height: 4rem;
-}
-.tygLocation .appointmentWrap .pages ul {
-  display: inline-block;
-  margin: 0 auto;
-}
-.tygLocation .appointmentWrap .pages li {
-  float: left;
-  font-size: 1.333333rem;
-  color: #fff;
-  margin-right: 0.666666rem;
-  cursor: pointer;
-}
-.tygLocation .appointmentWrap .pages img {
-  display: inline-block;
-  width: 0.6rem;
-  height: 1.066666rem;
-  vertical-align: middle;
-}
 .recentActivity {
   width: 80rem;
   margin: 2rem auto;
@@ -209,4 +186,40 @@
   display: inline-block;
   width: 17.533333rem;
   height: 13.8rem;
+}
+.storePagingWrap {
+  width: 100%;
+  height: 4rem;
+  background: #b31200;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  line-height: 4rem;
+  text-align: center;
+}
+.storePagingWrap a,
+.storePagingWrap span {
+  color: #FAFAFA;
+  font-size: 1.333333rem;
+  display: inline-block;
+  margin-right: 0.666666rem;
+}
+.storePagingWrap span {
+  color: #d6cb68;
+}
+.storePagingWrap img {
+  display: inline-block;
+  width: 0.6rem;
+  height: 1.066666rem;
+  vertical-align: middle;
+}
+.xxtygMask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: .2;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
 }

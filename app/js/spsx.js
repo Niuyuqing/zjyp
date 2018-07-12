@@ -27,20 +27,6 @@ var spsxMain = new Vue({
 		nowPageNum : 0,   // 当前页
 	},
 	mounted: function() {
-		// 展示商品详情
-		/*this.$http.post('http://localhost:8083/zujahome-main/item/showItem/'+this.getUrlParam('cid'), {} ,{   // 没有参数也要放空的大括号
-            headers: {   // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            emulateJSON: true
-        }).then(function(data) {
-        	console.log(JSON.parse(data.body.msg).rows[0]);
-            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].attr));
-            console.log(JSON.parse(JSON.parse(data.body.msg).rows[0].attr_detail));
-        }, function(a) {
-            console.log('请求错误 ')
-        });*/
-       
         // 获取地址栏参数 
         this.cid = this.getUrlParam('cid');
         this.cname = this.getUrlParam('cname');
@@ -312,4 +298,28 @@ var spsxMain = new Vue({
 			return result ? decodeURIComponent(result[2]) : null;
 		}
 	}
+});
+
+
+
+var guessLove = new Vue({
+	el: '.guessLove',
+	data: {
+		guessYouLikeList : []
+	},
+	mounted: function() {
+		// 猜你喜欢
+		this.$http.post('http://localhost:8083/zujahome-main/other/guessYouLike', {} ,{   // 没有参数也要放空的大括号
+            headers: {   // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            emulateJSON: true
+        }).then(function(data) {
+        	this.guessYouLikeList = data.body.data;
+        	console.log(this.guessYouLikeList);
+        }, function(a) {
+            console.log('请求错误 ')
+        });
+	},
+	methods: {}
 });

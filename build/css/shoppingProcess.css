@@ -1,0 +1,52 @@
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}
+.freeRegistrMain {
+  width: 80rem;
+  margin: 2.666666rem auto 0;
+}
+.rContentWrap {
+  width: 67.333333rem;
+  border: 0.066666rem solid #e6e6e6;
+  padding-bottom: 2.666666rem;
+  background: #FFF;
+}
+.rContentWrap .title {
+  font-size: 1.066666rem;
+  color: #333333;
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+  padding-left: 1.333333rem;
+  background: #e6e6e6;
+  font-weight: bold;
+}
+.rContentWrap .title p {
+  display: inline-block;
+  border-left: 0.266666rem solid #cd2f1d;
+  height: 1.2rem;
+  margin-top: 0.733333rem;
+  line-height: 1.2rem;
+  padding-left: 1rem;
+  border-radius: 0.133333rem;
+}
+.rContentWrap .stepWrap {
+  text-align: center;
+  padding-top: 2.666666rem;
+}
+.rContentWrap .stepWrap h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+.rContentWrap .stepWrap p {
+  color: #333333;
+  font-size: 1.066666rem;
+  padding: 0.8rem 1.266666rem;
+  border: 0.066666rem solid #CCCCCC;
+  display: inline-block;
+}
+.rContentWrap .stepWrap img {
+  display: inline-block;
+  margin: 0.666666rem 0;
+}

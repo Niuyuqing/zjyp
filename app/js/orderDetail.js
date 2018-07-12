@@ -14,7 +14,7 @@ var orderDetailMain = new Vue({
 	mounted: function() {
 		this.orderId = this.getUrlParam('oid'); // orderId
 
-		/*this.$http.post('http://localhost:8083/zujahome-main/order/showOrderDetail', {
+		this.$http.post('http://localhost:8083/zujahome-main/order/showOrderDetail', {
 			orderId: this.orderId
 		}, { // 没有参数也要放空的大括号
 			headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
@@ -23,11 +23,12 @@ var orderDetailMain = new Vue({
 			emulateJSON: true
 		}).then(function(data) {
 			this.orderDetail = data.body.data;
+			console.log(data.body.data);
 		}, function(a) {
 			console.log('请求错误 ')
-		});*/
+		});
 
-		var result = {
+		/*var result = {
 			"data": {
 				"buyerMessage": null,
 				"buyerNick": "一米阳光三寸暖123",
@@ -90,7 +91,7 @@ var orderDetailMain = new Vue({
 			"status": 200
 		}
 
-		this.orderDetail = result.data;
+		this.orderDetail = result.data;*/
 	},
 	methods: {
 		getUrlParam: function(key) { // 地址栏中文也可以正常获取

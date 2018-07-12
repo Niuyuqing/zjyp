@@ -13,6 +13,8 @@
 	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/distpicker.data.js"></script>
+	<script src="js/lib/distpicker.js"></script>
 </head>
 <body>
 	
@@ -28,25 +30,24 @@
 				<div class="clearfix box">
 					<div class="lFloat formMsg">
 						<h3>设计师俱乐部</h3>
-						<form action="" method="post">
-							<p><span>姓名</span><input type="text" placeholder="请输入您的姓名" /></p>
-							<p><span>手机号码</span><input type="text" placeholder="请输入您的手机号码" /></p>
-							<p><span>邮箱</span><input type="text" placeholder="请输入您的邮箱" /></p>
-							<p><span>从业年限</span><input type="text" placeholder="请输入您的从业年限" /></p>
+						<form action="" method="post" id="designerForm">
+							<p><span>姓名</span><input type="text" placeholder="请输入您的姓名" name="name" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入您的手机号码" name="phone" /></p>
+							<p><span>邮箱</span><input type="text" placeholder="请输入您的邮箱" name="email" /></p>
+							<p><span>从业年限</span><input type="text" placeholder="请输入您的从业年限" name="worktime" /></p>
 							<p>
 								<span>所在省份</span>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-							</p>
-							<p class="submitP">
-								<span></span>
-								<button>立即提交</button>
+								<!--省市两级联动插件-->
+								<span id="distpicker4" style="display: inline-block;width: 21.333333rem;">
+									<select class="lFloat" name="province"></select>
+									<select name="city"></select>
+								</span>
 							</p>
 						</form>
+						<p class="submitP">
+							<span></span>
+							<button @click="addZJH(1)">立即提交</button>
+						</p>
 					</div>
 					
 					<div class="rFloat person">
@@ -75,34 +76,32 @@
 				<div class="clearfix box">
 					<div class="lFloat formMsg">
 						<h3>工长俱乐部</h3>
-						<form action="" method="post">
-							<p><span>姓名</span><input type="text" placeholder="请输入您的姓名" /></p>
-							<p><span>手机号码</span><input type="text" placeholder="请输入您的手机号码" /></p>
-							<p><span>邮箱</span><input type="text" placeholder="请输入您的邮箱" /></p>
-							<p><span>从业年限</span><input type="text" placeholder="请输入您的从业年限" /></p>
+						<form action="" method="post" id="foreMan">
+							<p><span>姓名</span><input type="text" placeholder="请输入您的姓名" name="name" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入您的手机号码" name="phone" /></p>
+							<p><span>邮箱</span><input type="text" placeholder="请输入您的邮箱" name="email" /></p>
+							<p><span>从业年限</span><input type="text" placeholder="请输入您的从业年限" name="worktime" /></p>
 							<p>
-								<span>所在省份</span>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
+								<span>籍贯</span>
+								<!--省市两级联动插件-->
+								<span id="distpicker5" style="display: inline-block;width: 21.333333rem;">
+									<select class="lFloat" name="province"></select>
+									<select name="city"></select>
+								</span>
 							</p>
 							<p>
 								<span>所在省份</span>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-								<select name="">
-									<option value="">请选择</option>
-								</select>
-							</p>
-							<p class="submitP">
-								<span></span>
-								<button>立即加入</button>
+								<!--省市两级联动插件-->
+								<span id="distpicker6" style="display: inline-block;width: 21.333333rem;">
+									<select class="lFloat" name="nowprovince"></select>
+									<select name="nowcity"></select>
+								</span>
 							</p>
 						</form>
+						<p class="submitP">
+							<span></span>
+							<button @click="addZJH(2)">立即加入</button>
+						</p>
 					</div>
 					
 					<div class="rFloat person">
@@ -128,15 +127,15 @@
 				<div class="clearfix box">
 					<div class="lFloat formMsg">
 						<h3>筑家整体家装联盟</h3>
-						<form action="" method="post">
-							<p><span>公司名称</span><input type="text" placeholder="请输入您的姓名" /></p>
-							<p><span>联系人</span><input type="text" placeholder="请输入您的手机号码" /></p>
-							<p><span>手机号码</span><input type="text" placeholder="请输入您的邮箱" /></p>
-							<p class="submitP">
-								<span></span>
-								<button>立即加入</button>
-							</p>
+						<form action="" method="post" id="homedressAliance">
+							<p><span>公司名称</span><input type="text" placeholder="请输入您的姓名" name="comName" /></p>
+							<p><span>联系人</span><input type="text" placeholder="请输入联系人姓名" name="contacts" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入联系人手机号码" name="phone" /></p>
 						</form>
+						<p class="submitP">
+							<span></span>
+							<button @click="addZJH(3)">立即加入</button>
+						</p>
 					</div>
 					
 					<div class="rFloat person">
@@ -162,16 +161,16 @@
 				<div class="clearfix box">
 					<div class="lFloat formMsg">
 						<h3>筑家家博会</h3>
-						<form action="" method="post">
-							<p><span>品牌名称</span><input type="text" placeholder="请输入您的姓名" /></p>
-							<p><span>公司名称</span><input type="text" placeholder="请输入您的手机号码" /></p>
-							<p><span>联系人</span><input type="text" placeholder="请输入您的邮箱" /></p>
-							<p><span>手机号码</span><input type="text" placeholder="请输入您的邮箱" /></p>
-							<p class="submitP">
-								<span></span>
-								<button>立即加入</button>
-							</p>
+						<form action="" method="post" id="jiabohui">
+							<p><span>品牌名称</span><input type="text" placeholder="请输入您的品牌名称" name="brandName" /></p>
+							<p><span>公司名称</span><input type="text" placeholder="请输入您的公司名称" name="comName" /></p>
+							<p><span>联系人</span><input type="text" placeholder="请输入联系人姓名" name="contacts" /></p>
+							<p><span>手机号码</span><input type="text" placeholder="请输入联系人手机号码" name="phone" /></p>
 						</form>
+						<p class="submitP">
+							<span></span>
+							<button @click="addZJH(4)">立即加入</button>
+						</p>
 					</div>
 					
 					<div class="rFloat person">

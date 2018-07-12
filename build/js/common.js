@@ -95,8 +95,10 @@
 		data: {
 			userLogin: false, // 判断用户是否登录
 			nickName: '', // 用户昵称
-			freeDesign: false },
-		// 预约免费设计
+			freeDesign: false, // 预约免费设计
+			freeName: '',
+			freePhone: ''
+		},
 		mounted: function mounted() {
 			// 展示用户的详细信息
 			this.$http.post('http://localhost:8083/zujahome-main/user/showUserDetail', {}, { // 没有参数也要放空的大括号
@@ -154,21 +156,30 @@
 				}, 10);
 	
 				if (who == '1') {
-					// 点击立即领取按钮
-					this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+					// 点击预约免费设计
+					this.$http.post('http://localhost:8083/zujahome-main/other/drawFree', {
+						name: this.freeName,
+						phone: this.freePhone,
+						typeId: '1' // 1 预约免费设计 2 领取装修方案 3 体验馆预约 4 筑家优品活动报名
+					}, { // 没有参数也要放空的大括号
 						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 							'Content-Type': 'application/x-www-form-urlencoded'
 						},
 						emulateJSON: true
 					}).then(function (data) {
-						this.freeDesign = val;
-	
-						if (data.body.status == '200') {} else {
+						if (data.body.status == '200') {
+							alert('预约成功');
+							this.freeDesign = false;
+						} else {
 							alert(data.body.msg);
 						}
 					}, function (a) {
 						console.log('请求错误 ');
 					});
+				} else if (who == '0') {
+					this.freeDesign = val;
+					this.freeName = '';
+					this.freePhone = '';
 				} else {
 					this.freeDesign = val;
 				}

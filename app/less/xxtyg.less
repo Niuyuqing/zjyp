@@ -1,13 +1,14 @@
-.navigationWrap .goodsClass .goodsWrapBox{
+.navigationWrap .goodsClass .goodsWrapBox {
     display: none;
 }
 
-.banner{
+.banner {
     display: block;
     width: 100%;
     margin: 0 auto;
 }
-.locationTitle{
+
+.locationTitle {
     width: 80rem;
     margin: 2rem auto;
     background: #cd2f1d;
@@ -15,22 +16,22 @@
     line-height: 6rem;
     padding: 0 1.333333rem;
     box-sizing: border-box;
-    img{
+    img {
         display: inline-block;
         width: 2.133333rem;
         height: 2.133333rem;
         vertical-align: middle;
         margin-right: 0.666666rem;
     }
-    p{
+    p {
         font-size: 1.6rem;
         color: #FFF;
         display: inline-block;
-        span{
+        span {
             color: #d6cb68;
         }
     }
-    select{
+    select {
         display: inline-block;
         width: 8.8rem;
         height: 2.8rem;
@@ -41,79 +42,83 @@
         background: #FFFFFF;
     }
 }
-.tygLocation{
+
+.tygLocation {
     width: 80rem;
     margin: 0 auto;
-    .title{
+    .title {
         font-size: 1.066666rem;
         color: #333333;
         padding-left: 0.666666rem;
         border-left: 0.266666rem solid #d6cb68;
         margin-bottom: 1.333333rem;
     }
-    .mapBox{
+    .mapBox {
         width: 54.933333rem;
         height: 41.533333rem;
         background: green;
     }
-    .appointmentWrap{
+    .appointmentWrap {
         width: 25.066666rem;
         height: 41.533333rem;
         background: #cd2f1d;
         color: #FFFFFF;
         box-sizing: border-box;
         position: relative;
-        .appointment{
+        .appointment {
             width: 100%;
             height: 18.7rem;
             box-sizing: border-box;
+            cursor: pointer;
         }
-        .front{
-            padding-left: 3.333333rem;
+        .front {
+            width: 18.4rem;
+            border-bottom: 0.066666rem solid #dbd9d8;
+            margin-left: 3.333333rem;
             padding-top: 3.2rem;
         }
-        .behind{
+        .behind {
             display: none;
             width: 100%;
             height: 18.7rem;
             background: #b31200;
             padding: 3.333333rem 0 0 8.133333rem;
             box-sizing: border-box;
-            img{
+            img {
                 display: block;
                 width: 8.8rem;
                 height: 8.8rem;
             }
         }
-        h3{
+        h3 {
             font-size: 1.6rem;
             margin-bottom: 1.333333rem;
         }
-        p{
+        p {
             font-size: 0.933333rem;
-            img{
+            img {
                 vertical-align: middle;
             }
-            span{
+            span {
                 color: #d6cb68;
             }
         }
-        .place{
+        .place {
             margin-bottom: 0.666666rem;
-            img{
+            img {
                 display: inline-block;
                 width: 0.933333rem;
                 height: 1.2rem;
             }
         }
-        .phone{
-            img{
+        .phone {
+            img {
                 display: inline-block;
                 width: 1.2rem;
                 height: 1.2rem;
             }
         }
-        button{
+        button {
             display: inline-block;
             margin-top: 2.666666rem;
             width: 18.4rem;
@@ -124,67 +129,41 @@
             cursor: pointer;
             font-size: 0.933333rem;
         }
-        .line{
+        .line {
             width: 17.4rem;
             height: 0.066666rem;
             background: #E5E5E5;
             opacity: .2;
             margin: 3.133333rem auto 0;
         }
-        .pages{
-            width: 100%;
-            height: 4rem;
-            background: #b31200;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            line-height: 4rem;
-            ul{
-                display: inline-block;
-                margin: 0 auto;
-            }
-            li{
-                float: left;
-                font-size: 1.333333rem;
-                color: #fff;
-                margin-right: 0.666666rem;
-                cursor: pointer;
-            }
-            img{
-                display: inline-block;
-                width: 0.6rem;
-                height: 1.066666rem;
-                vertical-align: middle;
-            }
-        }
     }
 }
 
 // 近期活动
-.recentActivity{
+.recentActivity {
     width: 80rem;
     margin: 2rem auto;
     color: #333333;
-    .title{
+    .title {
         font-size: 1.066666rem;
         color: #333333;
         padding-left: 0.666666rem;
         border-left: 0.266666rem solid #d6cb68;
         margin-bottom: 1.333333rem;
     }
-    h3{
+    h3 {
         font-size: 1.466666rem;
         margin-bottom: 1.333333rem;
     }
-    .boxWrap{
+    .boxWrap {
         padding: 1.333333rem;
         box-sizing: border-box;
         background: #FFFFFF;
         margin-bottom: 1.333333rem;
     }
-    .time{
+    .time {
         margin-bottom: 1rem;
-        img{
+        img {
             display: inline-block;
             width: 1.2rem;
             height: 1.2rem;
@@ -192,8 +171,8 @@
             margin-right: 0.666666rem;
         }
     }
-    .place{
-        img{
+    .place {
+        img {
             display: inline-block;
             width: 0.933333rem;
             height: 1.2rem;
@@ -201,19 +180,57 @@
             margin-right: 0.666666rem;
         }
     }
-    button{
+    button {
         display: inline-block;
         width: 12.533333rem;
-        height: 2.666666rem;        
+        height: 2.666666rem;
         color: #FFFFFF;
         background: #cd2f1d;
         font-size: 0.8rem;
         margin-top: 2rem;
         cursor: pointer;
     }
-    .showPic{
+    .showPic {
         display: inline-block;
         width: 17.533333rem;
         height: 13.8rem;
     }
+}
+
+.storePagingWrap {
+    width: 100%;
+    height: 4rem;
+    background: #b31200;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 4rem;
+    text-align: center;
+    a,
+    span {
+        color: #FAFAFA;
+        font-size: 1.333333rem;
+        display: inline-block;
+        margin-right: 0.666666rem;
+    }
+    span {
+        color: #d6cb68;
+    }
+    img {
+        display: inline-block;
+        width: 0.6rem;
+        height: 1.066666rem;
+        vertical-align: middle;
+    }
+}
+
+.xxtygMask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: .2;
+    z-index: 30;
+    width: 100%;
+    height: 100%;
 }

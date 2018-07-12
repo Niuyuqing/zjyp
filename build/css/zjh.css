@@ -51,12 +51,12 @@
   font-size: 0.933333rem;
   background: #FFFFFF;
 }
-.content .formMsg form p {
+.content .formMsg p {
   height: 2.8rem;
   line-height: 2.8rem;
   margin-bottom: 1.333333rem;
 }
-.content .formMsg form span {
+.content .formMsg span {
   display: inline-block;
   text-align: right;
   width: 14.666666rem;
@@ -64,7 +64,7 @@
   color: #333333;
   margin-right: 1rem;
 }
-.content .formMsg form button {
+.content .formMsg button {
   display: inline-block;
   width: 21.333333rem;
   height: 2.8rem;

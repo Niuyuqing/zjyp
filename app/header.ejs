@@ -29,8 +29,8 @@
 		</p>
 		<div class="formWrap">
 			<form action="" method="post">
-				<input type="text" placeholder="请输入您的姓名" />
-				<input type="text" placeholder="请输入您的手机号码" />
+				<input type="text" placeholder="请输入您的姓名" v-model="freeName" />
+				<input type="text" placeholder="请输入您的手机号码" v-model="freePhone" />
 			</form>
 			<button @click="freeDesignFn(true,1)">立即预约</button>
 		</div>

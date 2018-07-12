@@ -84,10 +84,16 @@ var personalDataMain = new Vue({
 	methods: {
 		editHeadImg: function(val, who) { // 点击编辑头像
 			this.customHeadBox = val;
-
+			
 			// 一定要注意，这种插件的初始化一定是在这个元素存在之后
 			if(val) {
 				setTimeout(function() {
+					// 遮罩层默认样式
+					$('.mask').css({
+						'width': $(document).width() + 'px',
+						'height': document.body.scrollHeight + 'px'
+					});
+					
 					var clipArea = new bjj.PhotoClip("#clipArea", {
 						size: [260, 260],
 						outputSize: [640, 640],
@@ -163,12 +169,6 @@ var personalDataMain = new Vue({
 });
 
 $(function() {
-	// 遮罩层默认样式
-	$('.mask').css({
-		'width': $(document).width() + 'px',
-		'height': $(document).height() + 'px'
-	});
-
 	//执行一个laydate实例
 	laydate.render({
 		elem: '#birthdayDate' //指定元素

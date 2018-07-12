@@ -10,6 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/zjshjDetail.css" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SxdEDHAF5Yuggm8toF68Cpj8NCU9OU5P"></script>
 	</head>
 
 	<body>
@@ -32,36 +33,36 @@
 							<div class="user">
 								<p>
 									<img src="images/banner_3.png" />
-									<span>七厘米蔚蓝</span>
+									<span>{{lifeMsg.name}}</span>
 								</p>
 							</div>
 							<div class="userMsg">
 								<p class="clearfix">
 									<span class="lFloat">年龄：</span>
-									<span class="lFloat">商务助理</span>
+									<span class="lFloat">{{lifeMsg.age}}</span>
 								</p>
 								<p>
 									<span>从事行业：</span>
-									<span>80后</span>
+									<span>{{lifeMsg.industry}}</span>
 								</p>
 								<p style="margin-bottom: 0;">
 									<span>关于我：</span>
-									<span>爱工作，更爱生活</span>
+									<span>{{lifeMsg.aboutme}}</span>
 								</p>
 							</div>
 						</div>
 
 						<div class="shjMsg houseMsg">
 							<p class="title">房屋信息</p>
-							<div class="map"></div>
+							<div class="map" id="allmap"></div>
 							<div class="userMsg">
 								<p class="clearfix">
 									<span class="lFloat">所处位置：</span>
-									<span class="lFloat">辽宁沈阳于洪区于洪广场黄海路45号</span>
+									<span class="lFloat">{{lifeMsg.address}}</span>
 								</p>
 								<p style="margin-bottom: 0;">
 									<span>户型：</span>
-									<span>三室两厅(126平米)</span>
+									<span>{{lifeMsg.houseType}}</span>
 								</p>
 							</div>
 						</div>
@@ -70,18 +71,7 @@
 					</div>
 					<div class="rFloat rContent">
 						<div class="line">
-							<img src="images/banner_3.png"/>
-							<p>燕麦片确实不错哦，打开箱子一看，包装很精致，刚饿了拿酸奶和宝贝一起冲开水，一碗都被我吃完，真的很好吃喜欢，料多，味道不错，热水一冲就可以吃了，好多果肉呀，看着很有食欲，牛奶泡着吃味道最佳，喜欢甜一点的可以加白砂糖、冰糖的，每天当早餐吃，营养美味，哈哈，发货和物流速度也很快的，买后的第三天就收到宝贝了，非常满意！</p>
-						</div>
-						
-						<div class="line">
-							<img src="images/banner_3.png"/>
-							<p>燕麦片确实不错哦，打开箱子一看，包装很精致，刚饿了拿酸奶和宝贝一起冲开水，一碗都被我吃完，真的很好吃喜欢，料多，味道不错，热水一冲就可以吃了，好多果肉呀，看着很有食欲，牛奶泡着吃味道最佳，喜欢甜一点的可以加白砂糖、冰糖的，每天当早餐吃，营养美味，哈哈，发货和物流速度也很快的，买后的第三天就收到宝贝了，非常满意！</p>
-						</div>
-						
-						<div class="line">
-							<img src="images/banner_3.png"/>
-							<p>燕麦片确实不错哦，打开箱子一看，包装很精致，刚饿了拿酸奶和宝贝一起冲开水，一碗都被我吃完，真的很好吃喜欢，料多，味道不错，热水一冲就可以吃了，好多果肉呀，看着很有食欲，牛奶泡着吃味道最佳，喜欢甜一点的可以加白砂糖、冰糖的，每天当早餐吃，营养美味，哈哈，发货和物流速度也很快的，买后的第三天就收到宝贝了，非常满意！</p>
+							{{lifeMsg.content}}
 						</div>
 					</div>
 				</div>

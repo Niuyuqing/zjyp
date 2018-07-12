@@ -1,0 +1,94 @@
+.navigationWrap .goodsClass .goodsWrapBox {
+  display: none;
+}
+.freeRegistrMain {
+  width: 80rem;
+  margin: 2.666666rem auto 0;
+}
+.rContentWrap {
+  width: 67.333333rem;
+  border: 0.066666rem solid #e6e6e6;
+  background: #FFF;
+}
+.rContentWrap .title {
+  font-size: 1.066666rem;
+  color: #333333;
+  height: 2.666666rem;
+  line-height: 2.666666rem;
+  padding-left: 1.333333rem;
+  background: #e6e6e6;
+  font-weight: bold;
+}
+.rContentWrap .title p {
+  display: inline-block;
+  border-left: 0.266666rem solid #cd2f1d;
+  height: 1.2rem;
+  margin-top: 0.733333rem;
+  line-height: 1.2rem;
+  padding-left: 1rem;
+  border-radius: 0.133333rem;
+}
+.rContentWrap .stepWrap {
+  padding: 0 1.333333rem 2.666666rem;
+}
+.rContentWrap .stepWrap .tipText {
+  font-weight: bolder;
+  font-size: 1.066666rem;
+  color: #333333;
+}
+.rContentWrap .stepWrap .questionWrap {
+  width: 100%;
+  border: 0.066666rem solid #e3e6e6;
+  margin: 2rem 0 0 0;
+}
+.rContentWrap .stepWrap .questionWrap .title {
+  background: #FFFFFF;
+  border-bottom: 0.066666rem solid #e3e6e6;
+  height: 3.333333rem;
+  line-height: 3.333333rem;
+  padding-left: 0;
+}
+.rContentWrap .stepWrap .questionWrap .title li {
+  height: 100%;
+  width: 16.666%;
+  float: left;
+  border-right: 0.066666rem solid #e3e6e6;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  color: #666666;
+  font-size: 1.066666rem;
+  font-weight: bold;
+}
+.rContentWrap .stepWrap .questionWrap .content {
+  width: 64.666666rem;
+  padding: 0 2.666666rem 2.666666rem;
+  box-sizing: border-box;
+}
+.rContentWrap .stepWrap .questionWrap .content .tipTitle {
+  font-size: 0.933333rem;
+  color: #cd2f1d;
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 0.066666rem solid #e3e6e6;
+  margin-top: 1.333333rem;
+  padding-bottom: 0.666666rem;
+}
+.rContentWrap .stepWrap .questionWrap .content .lineWrap .circle {
+  display: inline-block;
+  width: 0.533333rem;
+  height: 0.533333rem;
+  background: #CCCCCC;
+  border-radius: 50%;
+  margin-right: 0.666666rem;
+  margin-top: 0.666666rem;
+}
+.rContentWrap .stepWrap .questionWrap .content .lineWrap .text {
+  width: 57.666666rem;
+}
+.rContentWrap .stepWrap .questionWrap .content .lineWrap .text h3 {
+  margin-bottom: 0.666666rem;
+}
+.rContentWrap .stepWrap .questionWrap .content .lineWrap .line {
+  margin-top: 1.333333rem;
+}

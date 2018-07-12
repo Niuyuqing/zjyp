@@ -1,126 +1,111 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>商品筛选</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/common.css"/>
-	<link rel="stylesheet" type="text/css" href="css/spsx.css"/>
-	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
-</head>
-<body>
-	
-	<div class="zjshjWrap">
-		<%-include header  %>
-		<%-include search  %>
-		<%-include navigation  %>
-		
-		<div class="spsxMain">
-			<div class="chooseArea">
-				<div class="choseTitle">
-					<span class="category" v-if="ancestorClassify!=''&&ancestorClassify!='null'">{{ancestorClassify}}</span>
-					<span class="category">{{parentname}}</span>
-					<span class="category">{{cname}}</span>
-					<p class="choseOption" v-for="(item,index) in filterLabelNameStr">
-						<span :data-index = "index">{{item}}</span>
-						<img src="images/close.png" @click="closeLabel($event)"/>
-					</p>
-				</div>
-				<div class="chooseWrap">
-					<div class="city clearfix" v-for="(item,index) in choseLabelArr">
-						<div class="lFloat subtitle">{{item.attr_name}}</div>
-						<div class="lFloat options">
-							<!--<span @click="addLabel($event)">不限</span>-->
-							<span @click="addLabel($event)" v-for="i in item.attr_list" :data-id = "i.input_attr">{{i.attr_value}}</span>
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>商品筛选</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/spsx.css" />
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="zjshjWrap">
+			<%-include header  %>
+			<%-include search  %>
+			<%-include navigation  %>
+
+			<div class="spsxMain">
+				<div class="chooseArea">
+					<div class="choseTitle">
+						<span class="category" v-if="ancestorClassify!=''&&ancestorClassify!='null'">{{ancestorClassify}}</span>
+						<span class="category">{{parentname}}</span>
+						<span class="category">{{cname}}</span>
+						<p class="choseOption" v-for="(item,index) in filterLabelNameStr">
+							<span :data-index="index">{{item}}</span>
+							<img src="images/close.png" @click="closeLabel($event)" />
+						</p>
+					</div>
+					<div class="chooseWrap">
+						<div class="city clearfix" v-for="(item,index) in choseLabelArr">
+							<div class="lFloat subtitle">{{item.attr_name}}</div>
+							<div class="lFloat options">
+								<!--<span @click="addLabel($event)">不限</span>-->
+								<span @click="addLabel($event)" v-for="i in item.attr_list" :data-id="i.input_attr">{{i.attr_value}}</span>
+							</div>
+							<img src="images/open.png" class="rFloat filterIcon" @click="showCityLabelClick(index,$event)" data-type="1" />
 						</div>
-						<img src="images/open.png" class="rFloat filterIcon" @click="showCityLabelClick(index,$event)" data-type = "1"/>
 					</div>
 				</div>
-			</div>
-			
-			<div class="content">
-				<div class="filter">
-					 <p class="colligateDef" @click="colligateClick()" v-if="!colligate">综合</p>
-					 <p class="colligateChose" v-if="colligate">综合</p>
-					 
-					 <p class="salesVolumeDef" @click="salesVolumeClick()" v-if="!salesVolume">销量<i></i></p>
-					 <p class="salesVolumeChose" v-if="salesVolume">销量<i></i></p>
-					 
-					 <p class="priceDef" @click="priceBtnClick(1)" v-if="priceBtnDown1" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
-					 <p class="priceChose" v-if="priceBtnDown2" @click="priceBtnClick(2)" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
-					 
-					 <p class="priceDef priceUpDef" @click="priceBtnClick(3)" v-if="priceBtnUp1" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
-					 <p class="priceChose priceUp" @click="priceBtnClick(4)" v-if="priceBtnUp2" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
-					 
-					 <!--<p class="popularityDef" @click="popularityClick()" v-if="!popularity" style="border-right: 0.066666rem solid #CCCCCC;">人气<i></i></p>
+
+				<div class="content">
+					<div class="filter">
+						<p class="colligateDef" @click="colligateClick()" v-if="!colligate">综合</p>
+						<p class="colligateChose" v-if="colligate">综合</p>
+
+						<p class="salesVolumeDef" @click="salesVolumeClick()" v-if="!salesVolume">销量<i></i></p>
+						<p class="salesVolumeChose" v-if="salesVolume">销量<i></i></p>
+
+						<p class="priceDef" @click="priceBtnClick(1)" v-if="priceBtnDown1" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
+						<p class="priceChose" v-if="priceBtnDown2" @click="priceBtnClick(2)" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
+
+						<p class="priceDef priceUpDef" @click="priceBtnClick(3)" v-if="priceBtnUp1" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
+						<p class="priceChose priceUp" @click="priceBtnClick(4)" v-if="priceBtnUp2" style="border-right: 0.066666rem solid #cccccc;">价格<i></i></p>
+
+						<!--<p class="popularityDef" @click="popularityClick()" v-if="!popularity" style="border-right: 0.066666rem solid #CCCCCC;">人气<i></i></p>
 					 <p class="popularityChose" v-if="popularity" style="border-right: 0.066666rem solid #CCCCCC;">人气<i></i></p>-->
+					</div>
+					<ul class="clearfix goodsCollection">
+						<li v-for="item in showGoodsListArr" @click="toGoodsDetail(item.goods_id)">
+							<img v-bind:src="item.original_img" />
+							<p class="msg">
+								<span class="money"><i>¥</i>{{item.effect_price|money}}</span>
+								<span class="info">{{item.goods_name}}</span>
+							</p>
+						</li>
+					</ul>
 				</div>
-				<ul class="clearfix goodsCollection">
-					<li v-for="item in showGoodsListArr" @click="toGoodsDetail(item.goods_id)">
-						<img v-bind:src="item.original_img" />
-						<p class="msg">
-							<span class="money"><i>¥</i>{{item.effect_price|money}}</span>
-							<span class="info">{{item.goods_name}}</span>
-						</p>
+			</div>
+			<%-include paging  %>
+
+			<!--猜你喜欢-->
+			<div class="guessLove">
+				<h3 class="title">猜你喜欢</h3>
+				<ul class="clearfix">
+					<li v-for="(item,index) in guessYouLikeList" v-if="index!=guessYouLikeList.length-1"  @click="toGoodsDetail(item.goods_id)">
+						<a href="#">
+							<img :src="item.img_url" />
+							<p class="msg">
+								<span class="money"><i>¥</i>{{item.goods_price}}</span>
+								<span class="info">{{item.goods_name}}</span>
+							</p>
+						</a>
+					</li>
+					<li style="margin-right: 0;" v-for="(item,index) in guessYouLikeList" v-if="index==guessYouLikeList.length-1">
+						<a href="#">
+							<img :src="item.img_url" />
+							<p class="msg">
+								<span class="money"><i>¥</i>{{item.goods_price}}</span>
+								<span class="info">{{item.goods_name}}</span>
+							</p>
+						</a>
 					</li>
 				</ul>
 			</div>
+
+			<%-include footer  %>
 		</div>
-		<%-include paging  %>
-		
-		<!--猜你喜欢-->
-		<div class="guessLove">
-			<h3 class="title">猜你喜欢</h3>
-			<ul class="clearfix">
-				<li>
-					<a href="#">
-						<img src="images/spsx_eg_pic.png"/>
-						<p class="msg">
-							<span class="money"><i>¥</i>2999.00</span>
-							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-						</p>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="images/spsx_eg_pic.png"/>
-						<p class="msg">
-							<span class="money"><i>¥</i>2999.00</span>
-							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-						</p>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="images/spsx_eg_pic.png"/>
-						<p class="msg">
-							<span class="money"><i>¥</i>2999.00</span>
-							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-						</p>
-					</a>
-				</li>
-				<li style="margin-right: 0;">
-					<a href="#">
-						<img src="images/spsx_eg_pic.png"/>
-						<p class="msg">
-							<span class="money"><i>¥</i>2999.00</span>
-							<span class="info">日式榻榻米 储物收纳床 榻榻米定制 全屋家具定制</span>
-						</p>
-					</a>
-				</li>
-			</ul>
-		</div>
-		
-		<%-include footer  %>
-	</div>
-	
-	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/spsx.js" type="text/javascript" charset="utf-8"></script>
-</body>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/spsx.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
 </html>

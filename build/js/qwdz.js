@@ -57,7 +57,9 @@
 			thiSubTitle: false,
 			fouSubTitle: false,
 			fiveSubTitle: false,
-			sixSubTitle: false
+			sixSubTitle: false,
+			name: '',
+			phone: ''
 		},
 		mounted: function mounted() {},
 		methods: {
@@ -123,6 +125,27 @@
 				this.fouSubTitle = false;
 				this.fiveSubTitle = false;
 				this.sixSubTitle = true;
+			},
+			addCustomizationInfo: function addCustomizationInfo() {
+				// 保存定制信息
+				this.$http.post('http://localhost:8083/zujahome-main/custom/addCustomizationInfo', {
+					name: this.name,
+					phone: this.phone
+				}, {
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					emulateJSON: true
+				}).then(function (data) {
+					alert(data.body.data);
+					// 保存成功清除信息
+					if (data.body.status == '200') {
+						this.name = '';
+						this.phone = '';
+					}
+				}, function (a) {
+					console.log('请求错误 ');
+				});
 			}
 		}
 	});

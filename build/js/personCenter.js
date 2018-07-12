@@ -76,425 +76,271 @@
 		methods: {
 			showOrderList: function showOrderList(status) {
 				// 展示订单列表
-				/*this.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
-	   	pageNum: this.pageNum,
-	   	status: status
-	   }, { // 没有参数也要放空的大括号
-	   	headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
-	   		'Content-Type': 'application/x-www-form-urlencoded'
-	   	},
-	   	emulateJSON: true
-	   }).then(function(data) {
-	   	this.orderList = data.body.data.data;
-	   			setTimeout(function() {
-	   		for(var i = 0; i < $('.orderBox').length; i++) {
-	   			$('.rCont').eq(i).css({
-	   				'height': $('.lConts').eq(i).height() + 'px'
-	   			});
-	   		};
-	   	}, 1000);
-	   			// 翻页器
-	   	$('.paging').pagination({
-	   		pageCount: data.body.data.totalPages,
-	   		coping: true,
-	   		mode: 'fixed',
-	   		activeCls: 'activeCls',
-	   		homePage: '首页',
-	   		endPage: '尾页',
-	   		prevContent: '<img src="./images/prevPage.png"/>',
-	   		nextContent: '<img src="./images/nextPage.png"/>',
-	   		callback: function(api) {
-	   			loginWrap.pageNum = api.getCurrent();
-	   					loginWrap.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
-	   				pageNum: loginWrap.pageNum,
-	   				status: status
-	   			}, { // 没有参数也要放空的大括号
-	   				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
-	   					'Content-Type': 'application/x-www-form-urlencoded'
-	   				},
-	   				emulateJSON: true
-	   			}).then(function(data) {
-	   				loginWrap.orderList = data.body.data.data;
-	   						setTimeout(function() {
-	   					for(var i = 0; i < $('.orderBox').length; i++) {
-	   						$('.rCont').eq(i).css({
-	   							'height': $('.lConts').eq(i).height() + 'px'
-	   						});
-	   					};
-	   				}, 1000);
-	   			}, function(a) {
-	   				console.log('请求错误 ')
-	   			});
-	   		}
-	   	});
-	   }, function(a) {
-	   	console.log('请求错误 ')
-	   });*/
-				var result = {
-					"data": {
-						"totalRecords": 4,
-						"data": [{
-							"afterSaleStatus": 0,
-							"aftersaleShippingCode": null,
-							"buyerMessage": null,
-							"buyerNick": null,
-							"buyerRate": 0,
-							"cancelReason": null,
-							"closeTime": null,
-							"consignTime": null,
-							"createTime": 1528678730000,
-							"delStatus": null,
-							"endTime": null,
-							"orderDetail": [{
-								"itemId": "15341",
-								"itemNum": 1,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/s-20170906/96/68cbecca2d90f15edf9ed640a3a5282c.jpeg?zjyp=1",
-									"goods_name": "进口美楸   实木双门厅柜 美式风格  双门酒柜  深樱桃色",
-									"price": "9876.00",
-									"goods_id": "15341",
-									"attr": [{
-										"attrValue": "深樱桃色",
-										"attrName": "颜色"
-									}, {
-										"attrValue": "双门酒柜",
-										"attrName": "类别"
-									}]
-								},
-								"type": "1"
-							}],
-							"orderId": "2018061108585000147",
-							"orderItems": [{
-								"id": "2018061108585000148",
-								"itemId": "15341",
-								"num": 1,
-								"orderId": "2018061108585000147",
-								"type": "1"
-							}],
-							"orderShipping": {
-								"created": 1528678730000,
-								"orderId": "2018061108585000147",
-								"receiverAddress": "11",
-								"receiverCity": "鄂尔多斯市",
-								"receiverDistrict": "内蒙古自治区",
-								"receiverMobile": "13025652356",
-								"receiverName": "11",
-								"receiverPhone": null,
-								"receiverState": "鄂托克前旗",
-								"receiverZip": null,
-								"updated": 1528678730000
-							},
-							"payment": "9876.0",
-							"paymentTime": null,
-							"paymentType": null,
-							"postFee": null,
-							"refundStatus": 0,
-							"shippingCode": null,
-							"shippingName": null,
-							"status": 1,
-							"updateTime": 1528678730000,
-							"userId": "2018060710325300135"
-						}, {
-							"afterSaleStatus": 0,
-							"aftersaleShippingCode": null,
-							"buyerMessage": null,
-							"buyerNick": null,
-							"buyerRate": 0,
-							"cancelReason": null,
-							"closeTime": null,
-							"consignTime": null,
-							"createTime": 1528942118000,
-							"delStatus": null,
-							"endTime": null,
-							"orderDetail": [{
-								"itemId": "1398",
-								"itemNum": 3,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/201506/source_img/1398_P_1433296509996.jpg?zjyp=1",
-									"goods_name": "黑水晶灰镜 不锈钢框架 9mm黑色钢化玻璃 现代风格1.5米长茶几",
-									"price": "2100.00",
-									"goods_id": "1398",
-									"attr": [{
-										"attrValue": "黑色",
-										"attrName": "颜色"
-									}, {
-										"attrValue": "1.5米",
-										"attrName": "长度"
-									}]
-								},
-								"type": "1"
-							}, {
-								"itemId": "16655",
-								"itemNum": 2,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/s-20160729/37/877b088defe6def9d19360c82fe996a9.jpeg?zjyp=1",
-									"goods_name": "客厅创意家具 现代简约小户型长方形茶几 北欧格调抽屉无拉手弹冲设计  时尚创意1米茶几 ",
-									"price": "1299.00",
-									"goods_id": "16655",
-									"attr": [{
-										"attrValue": "1米",
-										"attrName": "长度"
-									}]
-								},
-								"type": "1"
-							}],
-							"orderId": "2018061410083800150",
-							"orderItems": [{
-								"id": "2018061410083800151",
-								"itemId": "1398",
-								"num": 3,
-								"orderId": "2018061410083800150",
-								"type": "1"
-							}, {
-								"id": "2018061410083800152",
-								"itemId": "16655",
-								"num": 2,
-								"orderId": "2018061410083800150",
-								"type": "1"
-							}],
-							"orderShipping": {
-								"created": 1528942118000,
-								"orderId": "2018061410083800150",
-								"receiverAddress": "奈曼旗",
-								"receiverCity": "锡林郭勒盟",
-								"receiverDistrict": "内蒙古自治区",
-								"receiverMobile": "18001250752",
-								"receiverName": "牛雨晴",
-								"receiverPhone": null,
-								"receiverState": "西乌珠穆沁旗",
-								"receiverZip": null,
-								"updated": 1528942118000
-							},
-							"payment": "8898.0",
-							"paymentTime": null,
-							"paymentType": null,
-							"postFee": null,
-							"refundStatus": 0,
-							"shippingCode": null,
-							"shippingName": null,
-							"status": 5,
-							"updateTime": 1528942118000,
-							"userId": "2018060710325300135"
-						}, {
-							"afterSaleStatus": 0,
-							"aftersaleShippingCode": null,
-							"buyerMessage": null,
-							"buyerNick": null,
-							"buyerRate": 0,
-							"cancelReason": null,
-							"closeTime": null,
-							"consignTime": null,
-							"createTime": 1528946306000,
-							"delStatus": null,
-							"endTime": null,
-							"orderDetail": [{
-								"itemId": "1398",
-								"itemNum": 3,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/201506/source_img/1398_P_1433296509996.jpg?zjyp=1",
-									"goods_name": "黑水晶灰镜 不锈钢框架 9mm黑色钢化玻璃 现代风格1.5米长茶几",
-									"price": "2100.00",
-									"goods_id": "1398",
-									"attr": [{
-										"attrValue": "黑色",
-										"attrName": "颜色"
-									}, {
-										"attrValue": "1.5米",
-										"attrName": "长度"
-									}]
-								},
-								"type": "1"
-							}, {
-								"itemId": "16655",
-								"itemNum": 2,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/s-20160729/37/877b088defe6def9d19360c82fe996a9.jpeg?zjyp=1",
-									"goods_name": "客厅创意家具 现代简约小户型长方形茶几 北欧格调抽屉无拉手弹冲设计  时尚创意1米茶几 ",
-									"price": "1299.00",
-									"goods_id": "16655",
-									"attr": [{
-										"attrValue": "1米",
-										"attrName": "长度"
-									}]
-								},
-								"type": "1"
-							}],
-							"orderId": "2018061411182600153",
-							"orderItems": [{
-								"id": "2018061411182600154",
-								"itemId": "1398",
-								"num": 3,
-								"orderId": "2018061411182600153",
-								"type": "1"
-							}, {
-								"id": "2018061411182700155",
-								"itemId": "16655",
-								"num": 2,
-								"orderId": "2018061411182600153",
-								"type": "1"
-							}],
-							"orderShipping": {
-								"created": 1528946307000,
-								"orderId": "2018061411182600153",
-								"receiverAddress": "22222",
-								"receiverCity": "赤峰市",
-								"receiverDistrict": "内蒙古自治区",
-								"receiverMobile": "18001250752",
-								"receiverName": "11",
-								"receiverPhone": null,
-								"receiverState": "巴林右旗",
-								"receiverZip": null,
-								"updated": 1528946307000
-							},
-							"payment": "8898.0",
-							"paymentTime": null,
-							"paymentType": null,
-							"postFee": null,
-							"refundStatus": 0,
-							"shippingCode": null,
-							"shippingName": null,
-							"status": 1,
-							"updateTime": 1528946306000,
-							"userId": "2018060710325300135"
-						}, {
-							"afterSaleStatus": 0,
-							"aftersaleShippingCode": null,
-							"buyerMessage": null,
-							"buyerNick": null,
-							"buyerRate": 0,
-							"cancelReason": null,
-							"closeTime": null,
-							"consignTime": null,
-							"createTime": 1528946678000,
-							"delStatus": null,
-							"endTime": null,
-							"orderDetail": [{
-								"itemId": "1398",
-								"itemNum": 3,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/201506/source_img/1398_P_1433296509996.jpg?zjyp=1",
-									"goods_name": "黑水晶灰镜 不锈钢框架 9mm黑色钢化玻璃 现代风格1.5米长茶几",
-									"price": "2100.00",
-									"goods_id": "1398",
-									"attr": [{
-										"attrValue": "黑色",
-										"attrName": "颜色"
-									}, {
-										"attrValue": "1.5米",
-										"attrName": "长度"
-									}]
-								},
-								"type": "1"
-							}, {
-								"itemId": "16655",
-								"itemNum": 2,
-								"data": {
-									"original_img": "http://image4.youjiagou.com/images/s-20160729/37/877b088defe6def9d19360c82fe996a9.jpeg?zjyp=1",
-									"goods_name": "客厅创意家具 现代简约小户型长方形茶几 北欧格调抽屉无拉手弹冲设计  时尚创意1米茶几 ",
-									"price": "1299.00",
-									"goods_id": "16655",
-									"attr": [{
-										"attrValue": "1米",
-										"attrName": "长度"
-									}]
-								},
-								"type": "1"
-							}],
-							"orderId": "2018061411243800156",
-							"orderItems": [{
-								"id": "2018061411243900157",
-								"itemId": "1398",
-								"num": 3,
-								"orderId": "2018061411243800156",
-								"type": "1"
-							}, {
-								"id": "2018061411243900158",
-								"itemId": "16655",
-								"num": 2,
-								"orderId": "2018061411243800156",
-								"type": "1"
-							}],
-							"orderShipping": {
-								"created": 1528946679000,
-								"orderId": "2018061411243800156",
-								"receiverAddress": "22222",
-								"receiverCity": "赤峰市",
-								"receiverDistrict": "内蒙古自治区",
-								"receiverMobile": "18001250752",
-								"receiverName": "11",
-								"receiverPhone": null,
-								"receiverState": "巴林右旗",
-								"receiverZip": null,
-								"updated": 1528946679000
-							},
-							"payment": "8898.0",
-							"paymentTime": null,
-							"paymentType": null,
-							"postFee": null,
-							"refundStatus": 0,
-							"shippingCode": null,
-							"shippingName": null,
-							"status": 4,
-							"updateTime": 1528946678000,
-							"userId": "2018060710325300135"
-						}],
-						"pageIndex": 1,
-						"totalPages": 1,
-						"pageSize": 10
+				this.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
+					pageNum: this.pageNum,
+					status: status
+				}, { // 没有参数也要放空的大括号
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
 					},
-					"msg": "OK",
-					"status": 200
-				};
-				this.orderList = result.data.data;
+					emulateJSON: true
+				}).then(function (data) {
+					this.orderList = data.body.data.data;
 	
-				setTimeout(function () {
-					for (var i = 0; i < $('.orderBox').length; i++) {
-						$('.rCont').eq(i).css({
-							'height': $('.lConts').eq(i).height() + 'px'
-						});
+					setTimeout(function () {
+						for (var i = 0; i < $('.orderBox').length; i++) {
+							$('.rCont').eq(i).css({
+								'height': $('.lConts').eq(i).height() + 'px'
+							});
+						};
 	
-						$('.orderSuccWrap .totalPrice,.orderSuccWrap .status').eq(i).css({
-							'height': $('.goodsLine').height() + 'px'
-						});
-					};
-				}, 1000);
+						// 订单状态非1
+						for (var j = 0; j < $('.orderBoxWrap .goodsLine').length; j++) {
+							$('.orderSuccWrap .totalPrice').eq(j).css({
+								'height': $('.goodsLine').eq(j).height() + 'px'
+							});
+							$('.orderSuccWrap .status').eq(j).css({
+								'height': $('.goodsLine').eq(j).height() + 'px'
+							});
+						}
+					}, 1000);
 	
-				// 翻页器
-				$('.paging').pagination({
-					pageCount: data.body.data.totalPages,
-					coping: true,
-					mode: 'fixed',
-					activeCls: 'activeCls',
-					homePage: '首页',
-					endPage: '尾页',
-					prevContent: '<img src="./images/prevPage.png"/>',
-					nextContent: '<img src="./images/nextPage.png"/>',
-					callback: function callback(api) {
-						loginWrap.pageNum = api.getCurrent();
+					// 翻页器
+					$('.paging').pagination({
+						pageCount: data.body.data.totalPages,
+						coping: true,
+						mode: 'fixed',
+						activeCls: 'activeCls',
+						homePage: '首页',
+						endPage: '尾页',
+						prevContent: '<img src="./images/prevPage.png"/>',
+						nextContent: '<img src="./images/nextPage.png"/>',
+						callback: function callback(api) {
+							loginWrap.pageNum = api.getCurrent();
 	
-						loginWrap.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
-							pageNum: loginWrap.pageNum,
-							status: status
-						}, { // 没有参数也要放空的大括号
-							headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
-								'Content-Type': 'application/x-www-form-urlencoded'
-							},
-							emulateJSON: true
-						}).then(function (data) {
-							loginWrap.orderList = data.body.data.data;
+							loginWrap.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
+								pageNum: loginWrap.pageNum,
+								status: status
+							}, { // 没有参数也要放空的大括号
+								headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+									'Content-Type': 'application/x-www-form-urlencoded'
+								},
+								emulateJSON: true
+							}).then(function (data) {
+								loginWrap.orderList = data.body.data.data;
 	
-							setTimeout(function () {
-								for (var i = 0; i < $('.orderBox').length; i++) {
-									$('.rCont').eq(i).css({
-										'height': $('.lConts').eq(i).height() + 'px'
-									});
-								};
-							}, 1000);
-						}, function (a) {
-							console.log('请求错误 ');
-						});
-					}
+								setTimeout(function () {
+									for (var i = 0; i < $('.orderBox').length; i++) {
+										$('.rCont').eq(i).css({
+											'height': $('.lConts').eq(i).height() + 'px'
+										});
+									};
+	
+									// 订单状态非1
+									for (var j = 0; j < $('.orderBoxWrap .goodsLine').length; j++) {
+										$('.orderSuccWrap .totalPrice').eq(j).css({
+											'height': $('.goodsLine').eq(j).height() + 'px'
+										});
+										$('.orderSuccWrap .status').eq(j).css({
+											'height': $('.goodsLine').eq(j).height() + 'px'
+										});
+									};
+								}, 1000);
+							}, function (a) {
+								console.log('请求错误 ');
+							});
+						}
+					});
+				}, function (a) {
+					console.log('请求错误 ');
 				});
+	
+				/*var result = {
+	   	"data": {
+	   		"totalRecords": 1,
+	   		"data": [{
+	   			"data": [{
+	   				"afterSaleStatus": 0,
+	   				"aftersaleShippingCode": null,
+	   				"buyerMessage": null,
+	   				"buyerNick": "晴儿",
+	   				"buyerRate": 0,
+	   				"cancelReason": null,
+	   				"closeTime": null,
+	   				"consignTime": null,
+	   				"createTime": 1530087014000,
+	   				"delStatus": null,
+	   				"endTime": null,
+	   				"orderDetail": {
+	   					"itemId": "24952",
+	   					"itemNum": 2,
+	   					"data": {
+	   						"original_img": "http://image4.youjiagou.com/images/s-20171215/99/5e6689a1bcd9af30ec8212e08b282eaa.jpeg?zjyp=1",
+	   						"goods_name": "现代茶几 小户型客厅创意长方形茶桌 环保家具",
+	   						"price": "2415.00",
+	   						"goods_id": "24952",
+	   						"attr": [{
+	   							"attrValue": "1200mm",
+	   							"attrName": "长度"
+	   						}]
+	   					},
+	   					"type": "1"
+	   				},
+	   				"orderId": "2018062716101400320",
+	   				"orderItem": {
+	   					"id": "2018062716101400321",
+	   					"itemId": "24952",
+	   					"num": 2,
+	   					"orderId": "2018062716101400320",
+	   					"type": "1"
+	   				},
+	   				"orderShipping": {
+	   					"created": 1530087015000,
+	   					"orderId": "2018062716101400319",
+	   					"receiverAddress": "11",
+	   					"receiverCity": "鄂尔多斯市",
+	   					"receiverDistrict": "内蒙古自治区",
+	   					"receiverMobile": "13025652356",
+	   					"receiverName": "11",
+	   					"receiverPhone": null,
+	   					"receiverState": "鄂托克前旗",
+	   					"receiverZip": null,
+	   					"updated": 1530087015000
+	   				},
+	   				"parentOrderId": null,
+	   				"payment": "4830.0",
+	   				"paymentTime": null,
+	   				"paymentType": null,
+	   				"postFee": null,
+	   				"refundStatus": 0,
+	   				"shippingCode": null,
+	   				"shippingName": null,
+	   				"status": 1,
+	   				"updateTime": 1530087014000,
+	   				"userId": "2018060710325300135"
+	   			}, {
+	   				"afterSaleStatus": 0,
+	   				"aftersaleShippingCode": null,
+	   				"buyerMessage": null,
+	   				"buyerNick": "晴儿",
+	   				"buyerRate": 0,
+	   				"cancelReason": null,
+	   				"closeTime": null,
+	   				"consignTime": null,
+	   				"createTime": 1530087014000,
+	   				"delStatus": null,
+	   				"endTime": null,
+	   				"orderDetail": {
+	   					"itemId": "15985",
+	   					"itemNum": 2,
+	   					"data": {
+	   						"original_img": "http://image4.youjiagou.com/images/s-20170303/55/c7db242a6dd8f9e5cfa73e0e3f2f7cd3.jpeg?zjyp=1",
+	   						"goods_name": "带抽储物设计 圆润光滑拉手 现代风格茶几 ",
+	   						"price": "999.00",
+	   						"goods_id": "15985",
+	   						"attr": [{
+	   							"attrValue": "白色",
+	   							"attrName": "颜色"
+	   						}]
+	   					},
+	   					"type": "1"
+	   				},
+	   				"orderId": "2018062716101400322",
+	   				"orderItem": {
+	   					"id": "2018062716101500323",
+	   					"itemId": "15985",
+	   					"num": 2,
+	   					"orderId": "2018062716101400322",
+	   					"type": "1"
+	   				},
+	   				"orderShipping": {
+	   					"created": 1530087015000,
+	   					"orderId": "2018062716101400319",
+	   					"receiverAddress": "11",
+	   					"receiverCity": "鄂尔多斯市",
+	   					"receiverDistrict": "内蒙古自治区",
+	   					"receiverMobile": "13025652356",
+	   					"receiverName": "11",
+	   					"receiverPhone": null,
+	   					"receiverState": "鄂托克前旗",
+	   					"receiverZip": null,
+	   					"updated": 1530087015000
+	   				},
+	   				"parentOrderId": null,
+	   				"payment": "1998.0",
+	   				"paymentTime": null,
+	   				"paymentType": null,
+	   				"postFee": null,
+	   				"refundStatus": 0,
+	   				"shippingCode": null,
+	   				"shippingName": null,
+	   				"status": 1,
+	   				"updateTime": 1530087014000,
+	   				"userId": "2018060710325300135"
+	   			}],
+	   			"createTime": 1530087014000,
+	   			"parentOrderId": "2018062716101400319",
+	   			"payMent": "6828.0",
+	   			"status": 1
+	   		}],
+	   		"pageIndex": 1,
+	   		"totalPages": 1,
+	   		"pageSize": 10
+	   	},
+	   	"msg": "OK",
+	   	"status": 200
+	   }
+	   this.orderList = result.data.data;
+	   		setTimeout(function() {
+	   	for(var i = 0; i < $('.orderBox').length; i++) {
+	   		$('.rCont').eq(i).css({
+	   			'height': $('.lConts').eq(i).height() + 'px'
+	   		});
+	   	};
+	   			// 订单状态非1
+	   	for(var j = 0; j < $('.orderBoxWrap .goodsLine').length; j++) {
+	   		$('.orderSuccWrap .totalPrice').eq(j).css({
+	   			'height': $('.goodsLine').eq(j).height() + 'px'
+	   		});
+	   		$('.orderSuccWrap .status').eq(j).css({
+	   			'height': $('.goodsLine').eq(j).height() + 'px'
+	   		});
+	   	}
+	   }, 1000);
+	   		// 翻页器
+	   $('.paging').pagination({
+	   	pageCount: result.data.data.totalPages,
+	   	coping: true,
+	   	mode: 'fixed',
+	   	activeCls: 'activeCls',
+	   	homePage: '首页',
+	   	endPage: '尾页',
+	   	prevContent: '<img src="./images/prevPage.png"/>',
+	   	nextContent: '<img src="./images/nextPage.png"/>',
+	   	callback: function(api) {
+	   		loginWrap.pageNum = api.getCurrent();
+	   				loginWrap.$http.post('http://localhost:8083/zujahome-main/order/showOrderList', {
+	   			pageNum: loginWrap.pageNum,
+	   			status: status
+	   		}, { // 没有参数也要放空的大括号
+	   			headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+	   				'Content-Type': 'application/x-www-form-urlencoded'
+	   			},
+	   			emulateJSON: true
+	   		}).then(function(data) {
+	   			loginWrap.orderList = data.body.data.data;
+	   					setTimeout(function() {
+	   				for(var i = 0; i < $('.orderBox').length; i++) {
+	   					$('.rCont').eq(i).css({
+	   						'height': $('.lConts').eq(i).height() + 'px'
+	   					});
+	   				};
+	   			}, 1000);
+	   		}, function(a) {
+	   			console.log('请求错误 ')
+	   		});
+	   	}
+	   });*/
 			},
 			orderDetailFn: function orderDetailFn(id) {
 				// 订单详情
@@ -613,6 +459,7 @@
 			},
 			againShopping: function againShopping(e) {
 				// 再次购买
+				alert($(e.target));
 				for (var i = 0; i < $(e.target).parent().parent().parent().find('.lCont').length; i++) {
 					this.checkGoodsPic.push({
 						itemId: $(e.target).parent().parent().parent().find('.lCont').eq(i).data('itemid'),
@@ -641,6 +488,27 @@
 				}, function (a) {
 					console.log('请求错误 ');
 				});
+			},
+			confirmReceipt: function confirmReceipt(id) {
+				// 确认收货
+				this.$http.post('http://localhost:8083/zujahome-main/order/confirmReceipt', {
+					orderId: id
+				}, {
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					emulateJSON: true
+				}).then(function (data) {
+					this.hotGoodsCat = data.body.data; // 热门商品
+	
+					this.showHotGoods(this.hotGoodsCat[0].id); // 请求热卖商品列表，默认请求第一个热卖商品推荐
+				}, function (a) {
+					console.log('请求错误 ');
+				});
+			},
+			toGoodsDetail: function toGoodsDetail(id) {
+				// 跳转到商品详情页面
+				window.location.href = 'spxq.html?goodsId=' + id;
 			},
 			orderStatusClick: function orderStatusClick(val) {
 				if (val == 1) {

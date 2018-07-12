@@ -179,10 +179,10 @@
   height: 34.266666rem;
   background: #FFFFFF;
   border-radius: 0.333333rem;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  margin: -12rem 0 0 -18.8rem;
+  margin: -17rem 0 0 -18.8rem;
   z-index: 30;
 }
 .customHeadImg .title {

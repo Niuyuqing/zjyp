@@ -23,8 +23,21 @@
   font-size: 0.933333rem;
 }
 .zjshjMain .content {
-  width: 80rem;
+  width: 82rem;
   margin: 0 auto;
+}
+.zjshjMain .content .noData {
+  margin: 13rem 0 9.333333rem 0;
+}
+.zjshjMain .content .noData img {
+  display: inline-block;
+  width: 1.466666rem;
+  height: 1.333333rem;
+  vertical-align: middle;
+}
+.zjshjMain .content .noData span {
+  font-size: 0.933333rem;
+  color: #333333;
 }
 .zjshjMain .content li {
   width: 25.333333rem;
@@ -69,4 +82,8 @@
 }
 .zjshjMain .content .position {
   font-size: 0.933333rem;
+}
+.zjshjMain #distpicker5 {
+  display: block;
+  width: 100%;
 }

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>家具保养</title>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/furnitureMaintenance.css" />
+	</head>
+
+	<body>
+		<div class="zjypWrap">
+			<%-include header  %>
+			<%-include search  %>
+			<%-include navigation  %>
+
+			<div class="freeRegistrMain clearfix">
+				<%-include footerLeftList  %>
+
+				<div class="rContentWrap rFloat">
+					<div class="title clearfix">
+						<p>家具保养</p>
+					</div>
+					<div class="stepWrap">
+						<div class="questionWrap">
+							<ul class="title clearfix">
+								<li style="color: #666666;" v-if="!smfurniture" @click="smfurnitureFn()">实木家具</li>
+								<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="smfurniture">实木家具</li>
+								<li style="color: #666666;" v-if="!pgfurniture" @click="pgfurnitureFn()">皮革家具</li>
+								<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="pgfurniture">皮革家具</li>
+								<li style="color: #666666;" v-if="!bySofa" @click="bySofaFn()">布艺沙发</li>
+								<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="bySofa">布艺沙发</li>
+								<li style="color: #666666;" v-if="!mattress" @click="mattressFn()">床垫</li>
+								<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="mattress">床垫</li>
+								<li style="color: #666666;" v-if="!woodFloor" @click="woodFloorFn()">木地板</li>
+								<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="woodFloor">木地板</li>
+								<li style="border-right: 0;color: #666666;" v-if="!lighting" @click="lightingFn()">灯饰</li>
+								<li style="border-right: 0;color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="lighting">灯饰</li>
+							</ul>
+
+							<div class="content">
+								<!--实木家具-->
+								<div v-if="smfurniture">
+									<div class="lineWrap">
+										<p class="tipTitle">注意事项</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免过度干燥</h3>
+												<p>避免阳光长时间直接照射，及暖气、火炉长时间烘烤或高温的物品直接放在家具上。北方冬季在室内使用加湿器有利于实木家具的保养。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免过度潮湿</h3>
+												<p>忌用湿抹布擦拭，拖地后及时擦干，如楼层低潮气重，建议在家具夏安装脚垫。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免摩擦划伤</h3>
+												<p>忌生拉硬拽，避免榫结构损伤和硬物摩擦；家具也不宜长期放置过重物品；如地面不平长期致损，可用木片、橡胶垫平。</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="lineWrap">
+										<p class="tipTitle">保养技巧</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除尘</h3>
+												<p>干净的软绵布浸湿擦拭，再用干棉布擦干，切记使用海绵或餐具清洁用品擦拭</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除渍</h3>
+												<p>食品污渍立即擦掉，并用干净的软棉布对污渍处上光。蜡渍则塑料膜包裹冰块将刚滴的蜡油硬化，再轻轻刮出。含酒精类液体滴在家具上，立即吸干或风干，等水分挥发后土上少许光蜡。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>上光</h3>
+												<p>使用不含硅树脂的专用家具上光剂，可先在不显眼的位置做小块测试，一年只上光2～3次即可。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!--皮革家具-->
+								<div v-if="pgfurniture">
+									<div class="lineWrap">
+										<p class="tipTitle">注意事项</p>
+										<div class="line clearfix">
+											<div class="text" style="line-height: 1.666666rem;">
+												<p>避免在阳光下曝晒或接近取暖器，防止皮面褪色、变硬；</p>
+												<p>保持居室通风，防潮防湿；</p>
+												<p>避免锐器碰撞，划伤皮革；</p>
+												<p>谨防油渍、酸、碱等刺激性化学物品，以免腐蚀皮料表层。</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="lineWrap">
+										<p class="tipTitle">保养技巧</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除污渍</h3>
+												<p>可用干净的柔软毛巾蘸有微量洗涤的清水，轻轻擦拭除去灰尘和污垢，接着用清水抹1～2遍，待水八成干，再让它自然风干；随后均匀抹上皮革去污上光剂，可使皮革光亮柔软。另可先在不显眼的位置做小块测试，一周清洗一次。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除水渍</h3>
+												<p>如有水渍或饮料洒在皮革家具上，应立即用干净布或海绵将其吸干，并用湿布擦抹，让其自然干，切勿用吹风筒吹干。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除油渍</h3>
+												<p>可用干布擦干净，剩余的油其自然消散，或用清洁剂清洗，不可用水擦洗。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!--布艺沙发-->
+								<div v-if="bySofa">
+									<div class="lineWrap">
+										<p class="tipTitle">注意事项</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免过度晾晒</h3>
+												<p>长时间晾晒会令面料变硬、褪色。沙发最好摆放在能避开阳光照射的地方，或用半透明的薄纱窗帘隔开日光。以延长布艺沙发的寿命。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免过度潮湿</h3>
+												<p>忌用湿抹布擦拭，拖地后及时擦干，如楼层低潮气重，建议在家具夏安装脚垫。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>无须经常拍打</h3>
+												<p>经常拍打坐垫会使坐垫里面的棉花松散，导致坐垫变形。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免长时间坐在同一位置</h3>
+												<p>沙发垫每周翻转一次，使磨损均匀分布</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="lineWrap">
+										<p class="tipTitle">保养技巧</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除尘</h3>
+												<p>定期用转动角度较多、吸头能更换大小吸尘器等工具除尘，把缝隙间的尘土和异物除净。但不可以将刷头紧贴布料，以免将脏污留在布面或将线头挑起。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>除渍</h3>
+												<p>食品污渍立即擦掉，并用干净的软棉布对污渍处上光。蜡渍则塑料膜包裹冰块将刚滴的蜡油硬化，再轻轻刮出。含酒精类液体滴在家具上，立即吸干或风干，等水分挥发后土上少许光蜡。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>去污</h3>
+												<p>可用干净抹布蘸水或少量酒精擦拭。为避免留下印迹，最好从污渍外围抹起。如沙发上粘有口香糖等胶状物，可用冰袋或冰水冷却后，再拿细绸布轻轻擦拭去除。丝绒家具不可蘸水，应使用干洗剂。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!--床垫-->
+								<div v-if="mattress">
+									<div class="lineWrap">
+										<p class="tipTitle">注意事项</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>去掉塑料包装袋</h3>
+												<p>保持环境通风干爽，避免床垫受潮。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免局部受力过重</h3>
+												<p>避免长时间坐在床垫边缘或让小孩在床垫上跳跃,以免局部受压,致使金属疲劳影响弹力。搬动时，不要将床垫弯曲或折叠。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>防潮防湿</h3>
+												<p>保持环境通风干爽，避免洗完澡后或流汗时立即躺卧其上，不可用水或清洁剂直接洗涤。</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="lineWrap">
+										<p class="tipTitle">保养技巧</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>定期翻转</h3>
+												<p>新床垫在使用的第一年里，应该每2至3个月正反、左右或转角相互转一次，之后每半年调转或翻转一次。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>注意保洁</h3>
+												<p>使用保洁垫或床笠，定期以吸尘器清理床垫。如果不小心将茶或咖啡等其他饮料打翻在床,应立刻用毛巾或卫生纸以重压方式用力吸干,再用吹风机吹干。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!--灯饰-->
+								<div v-if="lighting">
+									<div class="lineWrap">
+										<p class="tipTitle">注意事项</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>及时更换老化灯管</h3>
+												<p>发现灯管两端发红、灯管发黑或有黑影、灯管不亮时，按标志提供的光源参数及时更换，按标志提供的光源参数。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>避免频繁开关</h3>
+												<p>灯具在频繁启动的瞬间，灯丝温度急剧升高，会大大减少其使用寿命。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>忌用水清洗</h3>
+												<p>灯具以干抹布沾水擦拭即可，若不小心碰水要尽量擦干，切忌在开灯之后立即用湿抹布擦拭。</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="lineWrap">
+										<p class="tipTitle">保养技巧</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>干布擦拭</h3>
+												<p>常用干布擦拭，并注意防止潮气入侵，以免时间长了出现锈蚀损坏或漏电短路的现象。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>安装防潮灯罩</h3>
+												<p>装在厕所、浴室的灯须装有防潮灯罩，否则将大大缩短使用寿命；装在厨房的灯应特别注意防油烟。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								
+								<div v-if="woodFloor">
+									<div class="lineWrap">
+										<p class="tipTitle">注意事项</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>防水</h3>
+												<p>夏天防窗外飘雨积水，冬季防屋里暖气跑水。如果不小心漏上了水，也要及时用细软抹布擦干净，防止地板开裂、霉烂。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>防火</h3>
+												<p>未熄灭的烟蒂和火柴杆，不能随意丢在地上，电炉、电饭锅、电熨斗、电烙铁等，在未放置好防燃、防烫垫层前，都不能随意放在其上。不能用汽油揩面上的灰尘、污垢，以防磨擦产生静电，引起火灾。</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="lineWrap">
+										<p class="tipTitle">保养技巧</p>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>室内通风</h3>
+												<p>经常打开窗户或房门，使空气对流，或采用空气调节系统及换气系统，从而创造室内干爽洁净的环境。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>日常清洁</h3>
+												<p>经常性地清洁地板，可先用干净的扫帚把灰尘和杂物扫净，然后再用拧干水的抹布擦拭，布拖把拖洗要滴干水滴。</p>
+											</div>
+										</div>
+										<div class="line clearfix">
+											<p class="lFloat circle"></p>
+											<div class="lFloat text">
+												<h3>去除污垢</h3>
+												<p>油渍、油漆、油墨等特殊污渍可使用专用去渍油擦拭；血迹、果汁、红酒、啤酒等残渍用湿抹布或用抹布蘸上适量的实木木地板清洁剂擦拭；蜡和口香糖，用冰块放在上面一会儿，使之冷冻收缩，然后轻轻刮起，再用湿抹布或用抹布蘸上适量的实木木地板清洁剂擦拭。</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%-include footer  %>
+		</div>
+
+		<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/furnitureMaintenance.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

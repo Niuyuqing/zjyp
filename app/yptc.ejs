@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<title>优品套餐</title>
+	<title>优品惠</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="css/common.css"/>
@@ -74,57 +74,14 @@
 			
 			<div class="content">
 				<ul class="clearfix">
-					<li>
+					<li v-for="(item,index) in taocanList">
 						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
-							<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
-						</a>
-					</li>
-					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
-							<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
-							<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
-						</a>
-					</li>
-					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
-							<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
-						</a>
-					</li>
-					
-					<li>
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
-							<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
-						</a>
-					</li>
-					
-					<li style="margin-right: 0;">
-						<a href="#">
-							<img src="images/eg.jpg"/>
-							<span class="text">小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )小户型次卧套餐/甜美浪漫，经济实惠( 4件套 )</span><br />
-							<span class="msg">沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)沙发(三人位+单人位+脚踏)+茶几+餐桌椅(1桌四椅)</span><br />
-							<span class="money"><span style="font-size: 1.066666rem;">¥</span><span class="price">14186</span>/<span style="font-size: 1.066666rem;">套</span></span>
+							<img :src="item.taocanImg"/>
+							<span class="text">{{item.title}}</span><br />
+							<span class="msg">{{item.taocanDesc}}</span><br />
+							<span class="money">
+								<span style="font-size: 1.066666rem;">¥</span>
+								<span class="price">{{item.price}}</span>/<span style="font-size: 1.066666rem;">套</span></span>
 						</a>
 					</li>
 				</ul>

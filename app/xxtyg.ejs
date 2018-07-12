@@ -14,7 +14,7 @@
 		<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/lib/jquery.pagination.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SuZ4QGFdTVY51HhBwudg8QtZloNqGMNK"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=SxdEDHAF5Yuggm8toF68Cpj8NCU9OU5P"></script>
 	</head>
 
 	<body>
@@ -27,9 +27,9 @@
 				<img src="images/xxtyg_bg.png" class="banner" />
 				<div class="locationTitle">
 					<img src="images/location.png" />
-					<p><span>北京</span>共有<span>6</span>个体验馆</p>
-					<select name="" class="rFloat">
-						<option value="">北京</option>
+					<p><span>{{province}}</span>共有<span>{{storeTotal}}</span>个体验馆</p>
+					<select name="" class="rFloat" @change="showStoreList(province)"  v-model="province">
+						<option :value="item" v-for="item in storeProvinceList">{{item}}</option>
 					</select>
 				</div>
 
@@ -38,17 +38,17 @@
 					<div class="mapWrap clearfix">
 						<div class="mapBox lFloat" id="allmap"></div>
 						<div class="appointmentWrap lFloat">
-							<div class="appointment">
-								<div class="front">
-									<div class="top">
-										<h3>筑家优品房山体验馆</h3>
+							<div class="appointment" style="background: #b31200;" v-for="(item,index) in storeList" v-if="index%2==0" @click.self="storeListClick($event,item.address,item.name,1)">
+								<div class="front" @click.self="storeListClick($event,item.address,item.name,2)">
+									<div class="top" :data-address = "item.address" @click.self="storeListClick($event,item.address,item.name,3)">
+										<h3 @click.self="storeListClick($event,item.address,item.name,4)">{{item.name}}</h3>
 										<p class="place">
 											<img src="images/place.png" />
-											<span>门店地址：</span> 北京市房山区绿地缤纷城9号楼
+											<span>门店地址：</span> {{item.address}}
 										</p>
 										<p class="phone">
 											<img src="images/phone.png" />
-											<span>联系电话：</span> 40000062566
+											<span>联系电话：</span> {{item.phone}}
 										</p>
 									</div>
 									<button @click="experienceFn(true,0)">立即预约</button>
@@ -58,21 +58,21 @@
 									<img src="images/xxtyg_ew.png" />
 								</div>
 							</div>
-
-							<div class="appointment">
-								<div class="front">
-									<div class="top">
-										<h3>筑家优品房山体验馆</h3>
+							
+							<div class="appointment" v-for="(item,index) in storeList" v-if="index%2!=0" @click.self="storeListClick($event,item.address,item.name,1)">
+								<div class="front" style="border-bottom: 0;" @click.self="storeListClick($event,item.address,item.name,2)">
+									<div class="top" :data-address = "item.address" @click.self="storeListClick($event,item.address,item.name,3)">
+										<h3 @click.self="storeListClick($event,item.address,item.name,4)">{{item.name}}</h3>
 										<p class="place">
 											<img src="images/place.png" />
-											<span>门店地址：</span> 北京市房山区绿地缤纷城9号楼
+											<span>门店地址：</span> {{item.address}}
 										</p>
 										<p class="phone">
 											<img src="images/phone.png" />
-											<span>联系电话：</span> 40000062566
+											<span>联系电话：</span> {{item.phone}}
 										</p>
 									</div>
-									<button>立即预约</button>
+									<button @click="experienceFn(true,1)">立即预约</button>
 									<p class="line"></p>
 								</div>
 								<div class="behind">
@@ -80,13 +80,8 @@
 								</div>
 							</div>
 							
-							<div class="pages">
-								<ul class="clearfix">
-									<li><img src="images/lPage.png" /></li>
-									<li>1</li>
-									<li>2</li>
-									<li style="margin-right: 0;"><img src="images/rPage.png" /></li>
-								</ul>
+							<div class="storePagingWrap">
+								<div class="storePaging"></div>
 							</div>
 						</div>
 					</div>
@@ -95,34 +90,14 @@
 				<!--近期活动-->
 				<div class="recentActivity">
 					<p class="title">近期活动</p>
-					<div class="boxWrap clearfix">
+					<div class="boxWrap clearfix" v-for="item in activityList">
 						<div class="box lFloat">
-							<h3>418筑家优品家装节</h3>
-							<p class="time"><img src="images/playtime.png" />4/17 09:00 - 4/18 18:00</p>
-							<p class="place"><img src="images/place.png" />北京市房山区绿地缤纷城9号楼718</p>
+							<h3>{{item.title}}</h3>
+							<p class="time"><img src="images/playtime.png" />{{item.beginTime|dateFormat}} - {{item.endTime|dateFormat}}</p>
+							<p class="place"><img src="images/place.png" />{{item.address}}</p>
 							<button @click="activityFn(true,0)">我要参加</button>
 						</div>
-						<img src="images/xxtyg_pic.png" class="rFloat showPic" />
-					</div>
-
-					<div class="boxWrap clearfix">
-						<div class="box lFloat">
-							<h3>418筑家优品家装节</h3>
-							<p class="time"><img src="images/playtime.png" />4/17 09:00 - 4/18 18:00</p>
-							<p class="place"><img src="images/place.png" />北京市房山区绿地缤纷城9号楼718</p>
-							<button>我要参加</button>
-						</div>
-						<img src="images/xxtyg_pic.png" class="rFloat showPic" />
-					</div>
-
-					<div class="boxWrap clearfix">
-						<div class="box lFloat">
-							<h3>418筑家优品家装节</h3>
-							<p class="time"><img src="images/playtime.png" />4/17 09:00 - 4/18 18:00</p>
-							<p class="place"><img src="images/place.png" />北京市房山区绿地缤纷城9号楼718</p>
-							<button>我要参加</button>
-						</div>
-						<img src="images/xxtyg_pic.png" class="rFloat showPic" />
+						<img :src="item.activityImg" class="rFloat showPic" />
 					</div>
 				</div>
 
@@ -137,8 +112,8 @@
 					</p>
 					<div class="formWrap">
 						<form action="" method="post">
-							<input type="text" placeholder="请输入您的姓名" />
-							<input type="text" placeholder="请输入您的手机号码" />
+							<input type="text" placeholder="请输入您的姓名" v-model="activeName" />
+							<input type="text" placeholder="请输入您的手机号码" v-model="activePhone" />
 						</form>
 						<button @click="activityFn(true,1)">立即报名</button>
 					</div>
@@ -151,20 +126,18 @@
 						<img src="images/close_del_box.png" class="rFloat" @click="experienceFn(false,0)" />
 					</p>
 					<p class="name">
-						筑家优品房山体验馆
+						筑家优品{{province}}体验馆
 					</p>
 					<div class="formWrap">
 						<form action="" method="post">
-							<input type="text" placeholder="请输入您的姓名" />
-							<input type="text" placeholder="请输入您的手机号码" />
+							<input type="text" placeholder="请输入您的姓名" v-model="freeName" />
+							<input type="text" placeholder="请输入您的手机号码" v-model="freePhone" />
 						</form>
 						<button @click="experienceFn(true,1)">免费预约</button>
 					</div>
 				</div>
-
-				<div class="mask" v-if="activity||experience"></div>
+				<div class="xxtygMask" v-if="activity||experience"></div>
 			</div>
-
 			<%-include paging  %>
 			<%-include footer  %>
 		</div>

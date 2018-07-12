@@ -58,22 +58,94 @@
 			}, {
 				imgUrl: 'https://gd3.alicdn.com/imgextra/i3/2275377373/TB2xjjLaBsmBKNjSZFsXXaXSVXa_!!2275377373.jpg_400x400.jpg_.webp'
 			}],
-			freeDecorationPlan: false },
-		// 装修方案弹框
+			freeDecorationPlan: false, // 装修方案弹框
+			freeName: '',
+			freePhone: '',
+			hotGoodsCat: [], // 热门商品分类
+			hotGoods: [], // 热门商品
+			ypzpGoodsList: [], // 优品宅配列表
+			tcGoodsList: [], // 套餐列表
+			zjLifeList: [] },
+		// 筑家生活家列表
 		mounted: function mounted() {
 			// 商品分类接口
-			this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+			/*this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, {
+	  	headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+	  		'Content-Type': 'application/x-www-form-urlencoded'
+	  	},
+	  	emulateJSON: true
+	  }).then(function(data) {
+	  	console.log(JSON.parse(JSON.parse(data.body.data).rows[0].cat_info));
+	  }, function(a) {
+	  	console.log('请求错误 ')
+	  });*/
+	
+			// 展示热门推荐分类列表
+			this.$http.post('http://localhost:8083/zujahome-main/index/showHotGoodsCat', {}, {
 				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 					'Content-Type': 'application/x-www-form-urlencoded'
 				},
 				emulateJSON: true
 			}).then(function (data) {
-				console.log(JSON.parse(JSON.parse(data.body.data).rows[0].cat_info));
+				this.hotGoodsCat = data.body.data; // 热门商品
+	
+				this.showHotGoods(this.hotGoodsCat[0].id); // 请求热卖商品列表，默认请求第一个热卖商品推荐
+			}, function (a) {
+				console.log('请求错误 ');
+			});
+	
+			// 展示优品宅配
+			this.$http.post('http://localhost:8083/zujahome-main/index/showIndexZujaYoupin', {}, {
+				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				emulateJSON: true
+			}).then(function (data) {
+				this.ypzpGoodsList = data.body.data;
+			}, function (a) {
+				console.log('请求错误 ');
+			});
+	
+			// 展示套餐列表
+			this.$http.post('http://localhost:8083/zujahome-main/index/showIndexZujaTaocan', {}, {
+				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				emulateJSON: true
+			}).then(function (data) {
+				this.tcGoodsList = data.body.data;
+			}, function (a) {
+				console.log('请求错误 ');
+			});
+	
+			// 展示筑家生活家
+			this.$http.post('http://localhost:8083/zujahome-main/index/showIndexLifeHome', {}, {
+				headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				emulateJSON: true
+			}).then(function (data) {
+				this.zjLifeList = data.body.data;
 			}, function (a) {
 				console.log('请求错误 ');
 			});
 		},
 		methods: {
+			showHotGoods: function showHotGoods(id) {
+				// 展示热门商品
+				this.$http.post('http://localhost:8083/zujahome-main/index/showHotGoods', {
+					hotCatId: id
+				}, {
+					headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					emulateJSON: true
+				}).then(function (data) {
+					this.hotGoods = data.body.data; // 热门商品
+				}, function (a) {
+					console.log('请求错误 ');
+				});
+			},
 			layoutClick: function layoutClick() {
 				// 按户型点击
 				this.accordingLayout = true;
@@ -104,20 +176,29 @@
 	
 				if (who == '1') {
 					// 点击立即领取按钮
-					this.$http.post('http://localhost:8083/zujahome-main/item/showItemClassifyList', {}, { // 没有参数也要放空的大括号
+					this.$http.post('http://localhost:8083/zujahome-main/other/drawFree', {
+						name: this.freeName,
+						phone: this.freePhone,
+						typeId: '2' // 1 预约免费设计 2 领取装修方案 3 体验馆预约 4 筑家优品活动报名
+					}, {
 						headers: { // 这里是重点，一定不要加"X-Requested-With": "XMLHttpRequest"
 							'Content-Type': 'application/x-www-form-urlencoded'
 						},
 						emulateJSON: true
 					}).then(function (data) {
-						this.freeDecorationPlan = val;
-	
-						if (data.body.status == '200') {} else {
+						if (data.body.status == '200') {
+							alert('领取成功');
+							this.freeDecorationPlan = false;
+						} else {
 							alert(data.body.msg);
 						}
 					}, function (a) {
 						console.log('请求错误 ');
 					});
+				} else if (who == '0') {
+					this.freeDecorationPlan = val;
+					this.freeName = '';
+					this.freePhone = '';
 				} else {
 					this.freeDecorationPlan = val;
 				}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>帮助中心</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css"/>
+	<link rel="stylesheet" type="text/css" href="css/helpCenter.css"/>
+</head>
+<body>
+	<div class="zjypWrap">
+		<%-include header  %>
+		<%-include search  %>
+		<%-include navigation  %>
+		
+		<div class="freeRegistrMain clearfix">
+			<%-include footerLeftList  %>
+			
+			<div class="rContentWrap rFloat">
+				<div class="title clearfix">
+					<p>帮助中心</p>
+				</div>
+				<div class="stepWrap">
+					<div class="tipText">
+						<h4 style="margin-bottom: 0.666666rem;">您好，尊敬的用户，小筑24小时竭诚为您服务！</h4>
+						<h4>有任何问题欢迎咨询客服( 客服热线：4000-626808 )</h4>
+					</div>
+					<div class="questionWrap">
+						<ul class="title clearfix">
+							<li style="color: #666666;" v-if="!goodsRelevant" @click="goodsRelevantFn()">商品相关</li>
+							<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="goodsRelevant">商品相关</li>
+							<li style="color: #666666;" v-if="!distribution" @click="distributionFn()">配送相关</li>
+							<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="distribution">配送相关</li>
+							<li style="color: #666666;" v-if="!payment" @click="paymentFn()">付款相关</li>
+							<li style="color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="payment">付款相关</li>
+							<li style="border-right: 0;color: #666666;" v-if="!afterSale" @click="afterSaleFn()">售后相关</li>
+							<li style="border-right: 0;color: #333333;border-bottom: 0.133333rem solid #cd2f1d;" v-if="afterSale">售后相关</li>
+						</ul>
+						
+						<!--商品相关-->
+						<div class="content" v-if="goodsRelevant">
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">图片是实拍吗？有色差吗？</p>
+									<p class="answer">我们的每一件商品都是由自己专门的摄影师实物拍摄的，力求还原商品每个细节和色彩，所以对于这一点是完全不用担心的。</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">买了不喜欢可以换吗？</p>
+									<p class="answer">只要是在规定时间内，都是可以的，筑家优品提供最长90天无理由的退换货，根据商品品牌和类别略有区别，详情参见“售后政策” 内的“退换货政策”。</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">有线下的体验店可以看家具吗？</p>
+									<p class="answer">可以的，具体地址参见线下体验馆页面。</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix" style="border-bottom: none;">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">家具是环保材质吗？有气味吗？</p>
+									<p class="answer">筑家优品对上线产品质量都有一套严格的筛选和把关流程的，保证线上每一款商品的环保指数都是通过了国家标准，且站上的家居商品的板材和涂料均达到欧洲环保E1级标准，所以我们的线上产品都是环保安全的。对于家具气味这一点，出厂一段时间后的家具肯定是没有什么气味的，但对于刚出厂的家具，多多少少会有些气味，就看您购买的家具是刚出厂的还是在仓库置放了一段时间的。但是不管家具有没有气味，我们可以保证的是家具完全安全无毒，不会危害人体健康，并且就算有点气味也是敞开窗户吹吹风就可以去掉的。</p>
+								</div>
+							</div>
+						</div>
+						
+						<!--配送相关-->
+						<div class="content" v-if="distribution">
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">下单后大约多久能到呢？</p>
+									<p class="answer">一般来说，最快25天之内就能到达，根据商品的库存和货源以及送达地的不同，配送时间也存在差异，建议您具体根据商品咨询客服。</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">包邮包安装吗？</p>
+									<p class="answer">部分商品筑家优品是提供包邮包安装的服务的，具体根据所选商品而定。</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix" style="border-bottom: none;">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">运输过程中，产品出现问题（丢失，损坏等）怎么办？</p>
+									<p class="answer">在商品还未送达您手中并且等你您完成签收，这之前的责任都是由筑家优品承担的，如果商品在运输过程中出现了任何问题，筑家优品会全权负责，请您放心。</p>
+								</div>
+							</div>
+						</div>
+						
+						<!--付款相关-->
+						<div class="content" v-if="payment">
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">支持哪些支付方式呢？</p>
+									<p class="answer">筑家优品现在支持的支付方式有支付宝和微信支付，以后会陆续开通其他的支付方式。</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix" style="border-bottom: none;">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">可以货到付款吗？</p>
+									<p class="answer">很抱歉，筑家优品暂时不支持货到付款服务，中国现在物流的货到付款服务还并不完善，存在很多问题及风险，希望您能理解。</p>
+								</div>
+							</div>
+						</div>
+						
+						<!--售后相关-->
+						<div class="content" v-if="afterSale">
+							<div class="line clearfix">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">保修时间是多长呢？</p>
+									<p class="answer">筑家优品提供最高为期为3年的保修， 一年之内，维修保养免费，三年之内，成本维修，根据商品品牌和类别的不同，保修期也有区别的</p>
+								</div>
+							</div>
+							
+							<div class="line clearfix" style="border-bottom: none;">
+								<img src="../build/images/helpIcon.png" class="lFloat helpIcon"/>
+								<div class="lFloat textWrap">
+									<p class="question">换货邮费由谁承担呢？</p>
+									<p class="answer">根据情况的不同，邮费承担方也不同哦，具体请参见【退换货办理】</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<%-include footer  %>
+	</div>
+	
+	<script src="js/lib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/lib/vue-resource.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/helpCenter.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

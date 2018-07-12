@@ -77,69 +77,68 @@
 							<div class="orderBox" v-for="item in orderList">
 								<div class="title">
 									<span class="time">{{item.createTime|dateFormat}}</span>
-									<span>订单号：{{item.orderId}}</span>
-									<img src="images/delete.png" class="rFloat" @click="delBoxAlert(true,item.orderId)" />
+									<span>订单号：{{item.parentOrderId}}</span>
+									<img src="images/delete.png" class="rFloat" @click="delBoxAlert(true,item.parentOrderId)" />
 								</div>
 
-								<div class="orderDetail clearfix" v-if="item.status!='4'">
+								<div class="orderDetail clearfix" v-if="item.status=='1'||item.status=='2'||item.status=='5'||item.status=='6'">
 									<div class="lConts lFloat">
-										<div class="lFloat lCont" v-for="(goods,index) in item.orderDetail" :data-itemid="goods.itemId" :data-num="goods.itemNum" :data-type="goods.type">
-											<div class="lFloat" v-if="index==item.orderDetail.length-1" style="border-bottom: none;">
-												<img :src="goods.data.original_img" class="goodsPic lFloat" />
-												<div class="lFloat attrs">
-													<p class="name">{{goods.data.goods_name}}</p>
-													<p class="attr" v-for="attr in goods.data.attr">{{attr.attrName}}：{{attr.attrValue}}</p>
-												</div>
-												<p class="lFloat price">¥{{goods.data.price}}</p>
-												<p class="lFloat num">{{goods.itemNum}}</p>
+										<div class="lFloat lCont" v-if="index!=item.data.length-1" v-for="(goods,index) in item.data" :data-itemid="goods.orderDetail.itemId" :data-num="goods.orderDetail.itemNum" :data-type="goods.orderDetail.type" style="border-bottom: 0.066666rem solid #E6E6E6;">
+											<img :src="goods.orderDetail.data.original_img" class="goodsPic lFloat" />
+											<div class="lFloat attrs">
+												<p class="name">{{goods.orderDetail.data.goods_name}}</p>
+												<p class="attr" v-for="attr in goods.orderDetail.attr">{{attr.attrName}}：{{attr.attrValue}}</p>
 											</div>
-
-											<div class="lFloat" v-if="index!=item.orderDetail.length-1" style="border-bottom: 0.066666rem solid #E6E6E6;">
-												<img :src="goods.data.original_img" class="goodsPic lFloat" />
+											<p class="lFloat price">¥{{goods.orderDetail.data.price}}</p>
+											<p class="lFloat num">{{goods.orderDetail.itemNum}}</p>
+										</div>
+										
+										<div class="lFloat lCont" v-if="index==item.data.length-1" v-for="(goods,index) in item.data" :data-itemid="goods.orderDetail.itemId" :data-num="goods.orderDetail.itemNum" :data-type="goods.orderDetail.type">
+											<div class="lFloat" style="border-bottom: none;" @click="toGoodsDetail(goods.orderDetail.data.goods_id)">
+												<img :src="goods.orderDetail.data.original_img" class="goodsPic lFloat" />
 												<div class="lFloat attrs">
-													<p class="name">{{goods.data.goods_name}}</p>
-													<p class="attr" v-for="attr in goods.attr">{{attr.attrName}}：{{attr.attrValue}}</p>
+													<p class="name">{{goods.orderDetail.data.goods_name}}</p>
+													<p class="attr" v-for="attr in goods.orderDetail.data.attr">{{attr.attrName}}：{{attr.attrValue}}</p>
 												</div>
-												<p class="lFloat price">¥{{goods.data.price}}</p>
-												<p class="lFloat num">{{goods.itemNum}}</p>
+												<p class="lFloat price">¥{{goods.orderDetail.data.price}}</p>
+												<p class="lFloat num">{{goods.orderDetail.itemNum}}</p>
 											</div>
 										</div>
 									</div>
 									<div class="lFloat rCont clearfix">
-										<p class="totalPrice lFloat">¥ {{item.payment}}</p>
+										<p class="totalPrice lFloat">¥ {{item.payMent}}</p>
 										<p class="status lFloat">
 											<span v-if="item.status=='1'">待付款</span>
 											<span v-if="item.status=='2'">待发货</span>
 											<span v-if="item.status=='3'">待收货</span>
 											<span v-if="item.status=='5'">取消成功</span>
 											<span v-if="item.status=='6'">取消失败</span>
-											<span @click="orderDetailFn(item.orderId)" style="cursor: pointer;">订单详情</span>
+											<span @click="orderDetailFn(item.parentOrderId)" style="cursor: pointer;">订单详情</span>
 										</p>
 										<div class="lFloat operation">
-											<span class="cancleOrder" @click="openCancleBox(item.orderId)" v-if="item.status=='1'||item.status=='2'||item.status=='3'">取消订单</span>
-											<button class="payMoney" v-if="item.status=='1'" @click="paymentFn(item.orderId)">付款</button>
-											<a href="#" class="payMoney" v-if="item.status=='3'">确认收货</a>
+											<span class="cancleOrder" @click="openCancleBox(item.parentOrderId)" v-if="item.status=='1'||item.status=='2'">取消订单</span>
+											<button class="payMoney" v-if="item.status=='1'" @click="paymentFn(item.parentOrderId)">付款</button>
 											<button class="buyNow" v-if="item.status=='5'" @click="againShopping($event)">再次购买</button>
 										</div>
 									</div>
 								</div>
 								
 								<!--订单完成时以这种方式展示-->
-								<div class="orderSuccWrap" v-if="item.status=='4'">
-									<div class="goodsLine clearfix" v-for="(g,index) in item.orderDetail" style="border-bottom: 0.066666rem solid #E6E6E6;" v-if="index!=item.orderDetail.length-1">
+								<div class="orderSuccWrap" v-if="item.status=='4'||item.status=='3'">
+									<div class="goodsLine clearfix" v-for="(g,index) in item.data" style="border-bottom: 0.066666rem solid #E6E6E6;" v-if="index!=item.data.length-1">
 										<div class="introduce lFloat">
-											<img :src="g.data.original_img" class="goodsPic lFloat" />
+											<img :src="g.orderDetail.data.original_img" class="goodsPic lFloat" />
 											<div class="lFloat attrs">
-												<p class="name">{{g.data.goods_name}}</p>
-												<p class="attr" v-for="a in g.data.attr">{{a.attrName}}：{{a.attrValue}}</p>
+												<p class="name">{{g.orderDetail.data.goods_name}}</p>
+												<p class="attr" v-for="a in g.orderDetail.attr">{{a.attrName}}：{{a.attrValue}}</p>
 											</div>
 										</div>
-										<p class="lFloat price">¥{{g.data.price}}</p>
-										<p class="lFloat num">{{g.itemNum}}</p>
-										<div class="totalPrice lFloat" style="border-left: 0.066666rem solid #E6E6E6;">¥{{g.itemNum*g.data.price|money}}</div>
+										<p class="lFloat price">¥{{g.orderDetail.data.price|money}}</p>
+										<p class="lFloat num">{{g.orderDetail.itemNum}}</p>
+										<div class="totalPrice lFloat" style="border-left: 0.066666rem solid #E6E6E6;">¥{{g.orderDetail.itemNum*g.orderDetail.data.price|money}}</div>
 										<p class="status lFloat">
 											<span v-if="item.status=='4'">已完成</span>
-											<span @click="orderDetailFn(item.orderId)" style="cursor: pointer;">订单详情</span>
+											<span @click="orderDetailFn(g.orderId)" style="cursor: pointer;">订单详情</span>
 										</p>
 										<div class="lFloat operation">
 											<a href="appendComment.html" class="appendComment" v-if="item.status=='4'">立即评论</a>
@@ -147,17 +146,17 @@
 										</div>
 									</div>
 									
-									<div class="goodsLine clearfix" v-for="(g,index) in item.orderDetail" v-if="index==item.orderDetail.length-1">
+									<div class="goodsLine clearfix" v-for="(g,index) in item.data" v-if="index==item.data.length-1">
 										<div class="introduce lFloat">
-											<img :src="g.data.original_img" class="goodsPic lFloat" />
+											<img :src="g.orderDetail.data.original_img" class="goodsPic lFloat" />
 											<div class="lFloat attrs">
-												<p class="name">{{g.data.goods_name}}</p>
-												<p class="attr" v-for="a in g.data.attr">{{a.attrName}}：{{a.attrValue}}</p>
+												<p class="name">{{g.orderDetail.data.goods_name}}</p>
+												<p class="attr" v-for="a in g.orderDetail.attr">{{a.attrName}}：{{a.attrValue}}</p>
 											</div>
 										</div>
-										<p class="lFloat price">¥{{g.data.price}}</p>
-										<p class="lFloat num">{{g.itemNum}}</p>
-										<div class="totalPrice lFloat" style="border-left: 0.066666rem solid #E6E6E6;">¥{{g.itemNum*g.data.price|money}}</div>
+										<p class="lFloat price">¥{{g.orderDetail.data.price|money}}</p>
+										<p class="lFloat num">{{g.orderDetail.itemNum}}</p>
+										<div class="totalPrice lFloat" style="border-left: 0.066666rem solid #E6E6E6;">¥{{g.orderDetail.itemNum*g.orderDetail.data.price|money}}</div>
 										<p class="status lFloat">
 											<span v-if="item.status=='4'">已完成</span>
 											<span @click="orderDetailFn(item.orderId)" style="cursor: pointer;">订单详情</span>
@@ -165,6 +164,7 @@
 										<div class="lFloat operation">
 											<a href="appendComment.html" class="appendComment" v-if="item.status=='4'">立即评论</a>
 											<a href="applyAfterSale.html" class="applyAfterSale" v-if="item.status=='4'">申请售后</span>
+											<a href="#" class="payMoney" v-if="item.status=='3'" @click="confirmReceipt(g.orderId)">确认收货</a>
 										</div>
 									</div>
 								</div>
